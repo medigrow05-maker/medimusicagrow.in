@@ -64,13 +64,21 @@ h1, h2, h3, h4, h5, h6, .font-futuristic {
   will-change: transform, box-shadow;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
-  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .glass-panel-glow:hover {
   border-color: var(--color-lime);
   box-shadow: 0 0 25px rgba(140, 230, 0, 0.25), inset 0 0 16px rgba(140, 230, 0, 0.1);
-  transform: translate3d(0, -5px, 0);
+}
+
+@media (max-width: 1023px) {
+  .glass-panel-glow {
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  .glass-panel-glow:hover {
+    transform: translate3d(0, -5px, 0);
+  }
 }
 
 /* Metallic text & borders */

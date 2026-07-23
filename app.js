@@ -149,6 +149,7 @@ if (!isTouchDevice && window.innerWidth >= 1024) {
       gsap.to(card, {
         rotationX: tiltX,
         rotationY: tiltY,
+        y: -5,
         transformPerspective: 800,
         ease: "power1.out",
         duration: 0.3
@@ -159,6 +160,7 @@ if (!isTouchDevice && window.innerWidth >= 1024) {
       gsap.to(card, {
         rotationX: 0,
         rotationY: 0,
+        y: 0,
         ease: "power2.out",
         duration: 0.5
       });
