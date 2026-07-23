@@ -676,23 +676,128 @@ const tabAdminView = document.getElementById('tab-admin-view');
 const publicSection = document.getElementById('public-feedback-section');
 const adminSection = document.getElementById('admin-management-system');
 
-if (tabPublicView && tabAdminView && publicSection && adminSection) {
-  tabPublicView.addEventListener('click', () => {
-    tabPublicView.className = "view-tab-btn px-6 py-3 rounded-xl font-futuristic font-bold text-xs tracking-wider transition-all bg-limeGreen text-brandBg shadow-lg shadow-limeGreen/20";
-    tabAdminView.className = "view-tab-btn px-6 py-3 rounded-xl font-futuristic font-bold text-xs tracking-wider transition-all border border-white/10 text-gray-400 hover:text-white hover:border-limeGreen/50";
-    
-    publicSection.classList.remove('hidden');
-    adminSection.classList.add('hidden');
-    gsap.fromTo(publicSection, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 });
-  });
+const ADMIN_PASSKEY = 'Shailesh@5609';
 
-  tabAdminView.addEventListener('click', () => {
+function showAdminSection() {
+  if (tabPublicView && tabAdminView && publicSection && adminSection) {
     tabAdminView.className = "view-tab-btn px-6 py-3 rounded-xl font-futuristic font-bold text-xs tracking-wider transition-all bg-limeGreen text-brandBg shadow-lg shadow-limeGreen/20";
     tabPublicView.className = "view-tab-btn px-6 py-3 rounded-xl font-futuristic font-bold text-xs tracking-wider transition-all border border-white/10 text-gray-400 hover:text-white hover:border-limeGreen/50";
     
     adminSection.classList.remove('hidden');
     publicSection.classList.add('hidden');
     gsap.fromTo(adminSection, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 });
+  }
+}
+
+function showPublicSection() {
+  if (tabPublicView && tabAdminView && publicSection && adminSection) {
+    tabPublicView.className = "view-tab-btn px-6 py-3 rounded-xl font-futuristic font-bold text-xs tracking-wider transition-all bg-limeGreen text-brandBg shadow-lg shadow-limeGreen/20";
+    tabAdminView.className = "view-tab-btn px-6 py-3 rounded-xl font-futuristic font-bold text-xs tracking-wider transition-all border border-white/10 text-gray-400 hover:text-white hover:border-limeGreen/50";
+    
+    publicSection.classList.remove('hidden');
+    adminSection.classList.add('hidden');
+    gsap.fromTo(publicSection, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 });
+  }
+}
+
+function promptAdminLogin() {
+  let loginModal = document.getElementById('admin-login-modal-overlay');
+  if (!loginModal) {
+    loginModal = document.createElement('div');
+    loginModal.id = 'admin-login-modal-overlay';
+    loginModal.className = 'feedback-modal-overlay';
+    loginModal.innerHTML = `
+      <div class="feedback-modal-box w-full max-w-sm bg-zinc-950 border border-limeGreen/30 rounded-3xl p-8 shadow-2xl relative font-futuristic text-left" id="admin-login-box">
+        <button id="close-admin-login-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Cancel">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+
+        <div class="space-y-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-limeGreen/10 border border-limeGreen/30 flex items-center justify-center text-limeGreen font-bold">
+              <i data-lucide="lock" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-white">ADMIN SECURITY</h3>
+              <p class="text-[9px] text-limeGreen uppercase tracking-widest">ACCESS KEY REQUIRED</p>
+            </div>
+          </div>
+
+          <form id="admin-login-form" class="space-y-4 font-sans text-xs">
+            <div class="space-y-1.5">
+              <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">ENTER ACCESS PASSKEY</label>
+              <input type="password" id="admin-passkey-input" placeholder="••••••••••••" required class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all text-center tracking-widest font-bold">
+              <span id="admin-login-error" class="hidden text-[10px] text-red-400 font-futuristic pt-1">❌ INVALID ADMIN ACCESS KEY</span>
+            </div>
+
+            <div class="flex items-center gap-3 pt-2">
+              <button type="submit" class="lime-glow-btn text-brandBg font-futuristic font-bold px-5 py-2.5 rounded-xl text-xs flex-1 text-center">
+                DECRYPT ACCESS
+              </button>
+              <button type="button" id="cancel-admin-login-btn" class="metallic-border text-white font-futuristic font-bold px-4 py-2.5 rounded-xl text-xs">
+                CANCEL
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(loginModal);
+    if (window.lucide) lucide.createIcons();
+
+    const form = document.getElementById('admin-login-form');
+    const input = document.getElementById('admin-passkey-input');
+    const errorMsg = document.getElementById('admin-login-error');
+    const loginBox = document.getElementById('admin-login-box');
+    const closeBtn = document.getElementById('close-admin-login-modal');
+    const cancelBtn = document.getElementById('cancel-admin-login-btn');
+
+    const closeModal = () => {
+      loginModal.classList.remove('open');
+      showPublicSection();
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', closeModal);
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (input.value === ADMIN_PASSKEY) {
+        sessionStorage.setItem('mmg_admin_authenticated', 'true');
+        loginModal.classList.remove('open');
+        input.value = '';
+        errorMsg.classList.add('hidden');
+        showAdminSection();
+        showMakeNotification('Admin access granted', 'success');
+      } else {
+        errorMsg.classList.remove('hidden');
+        input.value = '';
+        input.focus();
+        gsap.fromTo(loginBox, { x: -10 }, { x: 10, duration: 0.1, repeat: 5, yoyo: true, onComplete: () => {
+          gsap.set(loginBox, { x: 0 });
+        }});
+      }
+    });
+  }
+
+  loginModal.classList.add('open');
+  const input = document.getElementById('admin-passkey-input');
+  if (input) {
+    input.focus();
+    const errorMsg = document.getElementById('admin-login-error');
+    if (errorMsg) errorMsg.classList.add('hidden');
+  }
+}
+
+if (tabPublicView && tabAdminView && publicSection && adminSection) {
+  tabPublicView.addEventListener('click', showPublicSection);
+
+  tabAdminView.addEventListener('click', () => {
+    if (sessionStorage.getItem('mmg_admin_authenticated') === 'true') {
+      showAdminSection();
+    } else {
+      promptAdminLogin();
+    }
   });
 }
 
@@ -1187,6 +1292,17 @@ function initAdminSubtabs() {
       renderAdminLeads();
       gsap.fromTo(secLeads, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 });
     });
+
+    const btnLock = document.getElementById('admin-lock-btn');
+    if (btnLock) {
+      btnLock.addEventListener('click', () => {
+        if (confirm('Lock admin panel access?')) {
+          sessionStorage.removeItem('mmg_admin_authenticated');
+          showPublicSection();
+          showMakeNotification('Admin access locked', 'info');
+        }
+      });
+    }
   }
 
   const btnExportLeads = document.getElementById('admin-export-leads-csv');
