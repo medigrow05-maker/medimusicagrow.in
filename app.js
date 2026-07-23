@@ -1032,6 +1032,18 @@ const successScreen = document.getElementById('success-screen');
 const successResetBtn = document.getElementById('success-reset-btn');
 
 if (form) {
+  // Auto-select service option if passed in URL query
+  const urlParams = new URLSearchParams(window.location.search);
+  const serviceParam = urlParams.get('service');
+  if (serviceParam) {
+    const selectElem = document.getElementById('contact-service');
+    if (selectElem) {
+      const options = Array.from(selectElem.options).map(o => o.value);
+      if (options.includes(serviceParam)) {
+        selectElem.value = serviceParam;
+      }
+    }
+  }
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     
