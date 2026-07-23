@@ -801,6 +801,69 @@ if (tabPublicView && tabAdminView && publicSection && adminSection) {
   });
 }
 
+// Secret Admin Access Triggers
+function setupSecretAdminAccess() {
+  // 1. Keyboard Shortcut: Ctrl + Shift + A
+  window.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
+      e.preventDefault();
+      handleAdminTrigger();
+    }
+  });
+
+  // 2. Double-Click Footer Copyright Trigger
+  document.querySelectorAll('footer div, footer span, footer p').forEach(el => {
+    const text = (el.textContent || '').toUpperCase();
+    const isCopyright = text.includes('MEDIMUSICAGROW PVT. LTD. ALL RIGHTS RESERVED.') || text.includes('MEDIMUSICAGROW PVT. LTD.');
+    
+    if (isCopyright && el.children.length === 0) {
+      el.style.cursor = 'help';
+      el.title = 'Security Node Access Trigger';
+      el.addEventListener('dblclick', (e) => {
+        e.preventDefault();
+        handleAdminTrigger();
+      });
+    }
+  });
+}
+
+function handleAdminTrigger() {
+  const isAuth = sessionStorage.getItem('mmg_admin_authenticated') === 'true';
+  const isFeedbackPage = window.location.pathname.endsWith('feedback.html');
+
+  if (isAuth) {
+    if (!isFeedbackPage) {
+      window.location.href = 'feedback.html?admin=true';
+    } else {
+      showAdminSection();
+    }
+  } else {
+    if (!isFeedbackPage) {
+      window.location.href = 'feedback.html?prompt_admin=true';
+    } else {
+      promptAdminLogin();
+    }
+  }
+}
+
+function checkAdminQueryParam() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('admin') === 'true') {
+    if (sessionStorage.getItem('mmg_admin_authenticated') === 'true') {
+      showAdminSection();
+    } else {
+      promptAdminLogin();
+    }
+  } else if (params.get('prompt_admin') === 'true') {
+    promptAdminLogin();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setupSecretAdminAccess();
+  checkAdminQueryParam();
+});
+
 // Public Filter Buttons
 const filterBtns = document.querySelectorAll('.filter-btn');
 filterBtns.forEach(btn => {
