@@ -61,13 +61,16 @@ h1, h2, h3, h4, h5, h6, .font-futuristic {
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(140, 230, 0, 0.15);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(140, 230, 0, 0.05);
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .glass-panel-glow:hover {
   border-color: var(--color-lime);
   box-shadow: 0 0 25px rgba(140, 230, 0, 0.25), inset 0 0 16px rgba(140, 230, 0, 0.1);
-  transform: translateY(-5px);
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform: translate3d(0, -5px, 0);
 }
 
 /* Metallic text & borders */
@@ -147,28 +150,31 @@ h1, h2, h3, h4, h5, h6, .font-futuristic {
 
 /* Floating animation details */
 .floating-element-1 {
+  will-change: transform;
   animation: float1 8s ease-in-out infinite;
 }
 .floating-element-2 {
+  will-change: transform;
   animation: float2 10s ease-in-out infinite;
 }
 .floating-element-3 {
+  will-change: transform;
   animation: float3 12s ease-in-out infinite;
 }
 
 @keyframes float1 {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(2deg); }
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(0, -15px, 0) rotate(2deg); }
 }
 
 @keyframes float2 {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-25px) rotate(-3deg); }
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(0, -25px, 0) rotate(-3deg); }
 }
 
 @keyframes float3 {
-  0%, 100% { transform: translateY(0) translatex(0); }
-  50% { transform: translateY(-10px) translatex(10px); }
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(10px, -10px, 0); }
 }
 
 /* Horizontal scrolling marquee for Google reviews */
@@ -182,6 +188,7 @@ h1, h2, h3, h4, h5, h6, .font-futuristic {
 .marquee-content {
   display: inline-flex;
   gap: 2rem;
+  will-change: transform;
   animation: marquee 30s linear infinite;
 }
 
@@ -190,8 +197,8 @@ h1, h2, h3, h4, h5, h6, .font-futuristic {
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 /* Custom interactive HUD circles */

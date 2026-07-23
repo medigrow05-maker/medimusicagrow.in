@@ -44,7 +44,7 @@ const canvas = document.getElementById('particle-canvas');
 if (canvas) {
   const ctx = canvas.getContext('2d');
   let particles = [];
-  const particleCount = 60;
+  const particleCount = window.innerWidth < 768 ? 15 : 60;
 
   function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -107,8 +107,10 @@ if (canvas) {
 /* ==========================================================================
    3D MOUSE PARALLAX TILT EFFECT (Aperture Node)
    ========================================================================== */
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 const heroNode = document.getElementById('hero-3d-node');
-if (heroNode) {
+
+if (heroNode && !isTouchDevice && window.innerWidth >= 1024) {
   window.addEventListener('mousemove', (e) => {
     const cx = window.innerWidth / 2;
     const cy = window.innerHeight / 2;
@@ -131,36 +133,38 @@ if (heroNode) {
 
 // 3D Glass Card mouse tilts
 const cards = document.querySelectorAll('.glass-panel-glow');
-cards.forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const xc = rect.width / 2;
-    const yc = rect.height / 2;
-    
-    const tiltX = -(y - yc) / 12;
-    const tiltY = (x - xc) / 12;
+if (!isTouchDevice && window.innerWidth >= 1024) {
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const xc = rect.width / 2;
+      const yc = rect.height / 2;
+      
+      const tiltX = -(y - yc) / 12;
+      const tiltY = (x - xc) / 12;
 
-    gsap.to(card, {
-      rotationX: tiltX,
-      rotationY: tiltY,
-      transformPerspective: 800,
-      ease: "power1.out",
-      duration: 0.3
+      gsap.to(card, {
+        rotationX: tiltX,
+        rotationY: tiltY,
+        transformPerspective: 800,
+        ease: "power1.out",
+        duration: 0.3
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        rotationX: 0,
+        rotationY: 0,
+        ease: "power2.out",
+        duration: 0.5
+      });
     });
   });
-
-  card.addEventListener('mouseleave', () => {
-    gsap.to(card, {
-      rotationX: 0,
-      rotationY: 0,
-      ease: "power2.out",
-      duration: 0.5
-    });
-  });
-});
+}
 
 /* ==========================================================================
    GSAP INTERACTION & SCROLL ENTRANCE ANIMATIONS
