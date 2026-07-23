@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap');
+
+:root {
+  --color-bg-deep: #080808;
+  --color-bg-card: rgba(18, 18, 18, 0.65);
+  --color-lime: #8CE600;
+  --color-lime-glow: rgba(140, 230, 0, 0.45);
+  --color-lime-dim: #76C700;
+  --color-silver: #E5E5E5;
+  --color-platinum: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg-deep);
+  color: var(--color-silver);
+  overflow-x: hidden;
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-lime) #121212;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 4px;
+  border: 2px solid #0d0d0d;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-lime);
+  box-shadow: 0 0 10px var(--color-lime);
+}
+
+h1, h2, h3, h4, h5, h6, .font-futuristic {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-glow {
+  background: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(140, 230, 0, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(140, 230, 0, 0.05);
+}
+
+.glass-panel-glow:hover {
+  border-color: var(--color-lime);
+  box-shadow: 0 0 25px rgba(140, 230, 0, 0.25), inset 0 0 16px rgba(140, 230, 0, 0.1);
+  transform: translateY(-5px);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Metallic text & borders */
+.metallic-text {
+  background: linear-gradient(135deg, #ffffff 0%, #a6a6a6 50%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.metallic-border {
+  border: 1px solid;
+  border-image: linear-gradient(135deg, #ffffff, rgba(255,255,255,0.2), #a6a6a6, rgba(255,255,255,0.1), #ffffff) 1;
+}
+
+/* Glow Effects */
+.lime-glow-text {
+  text-shadow: 0 0 8px rgba(140, 230, 0, 0.6), 0 0 20px rgba(140, 230, 0, 0.3);
+}
+
+.lime-glow-btn {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.lime-glow-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--color-lime), #aeff00);
+  z-index: -1;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+.lime-glow-btn:hover::before {
+  opacity: 1;
+  filter: blur(8px);
+}
+
+.lime-glow-btn:hover {
+  box-shadow: 0 0 20px var(--color-lime);
+  transform: scale(1.03);
+}
+
+/* Logo Animation States */
+.logo-img {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.05));
+}
+#header-logo-container:hover .logo-img {
+  transform: scale(1.08) rotate(2deg);
+  filter: drop-shadow(0 0 12px var(--color-lime));
+}
+
+@keyframes logoStrokePulse {
+  0% { filter: drop-shadow(0 0 2px var(--color-lime-glow)); }
+  50% { filter: drop-shadow(0 0 10px var(--color-lime)); }
+  100% { filter: drop-shadow(0 0 2px var(--color-lime-glow)); }
+}
+
+/* Background Particle Canvas styling */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Floating animation details */
+.floating-element-1 {
+  animation: float1 8s ease-in-out infinite;
+}
+.floating-element-2 {
+  animation: float2 10s ease-in-out infinite;
+}
+.floating-element-3 {
+  animation: float3 12s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-25px) rotate(-3deg); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translateY(0) translatex(0); }
+  50% { transform: translateY(-10px) translatex(10px); }
+}
+
+/* Horizontal scrolling marquee for Google reviews */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-content {
+  display: inline-flex;
+  gap: 2rem;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Custom interactive HUD circles */
+.hud-circle {
+  border: 1px dashed rgba(140, 230, 0, 0.2);
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  animation: spinHUD 20s linear infinite;
+}
+
+.hud-circle-reverse {
+  border: 1px dotted rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  animation: spinHUDReverse 30s linear infinite;
+}
+
+@keyframes spinHUD {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinHUDReverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* Perspective styling for 3D layout components */
+.perspective-container {
+  perspective: 1200px;
+}
+
+.tilt-wrapper {
+  transition: transform 0.1s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* Input Focus Glows */
+.glowing-input:focus {
+  outline: none;
+  border-color: var(--color-lime);
+  box-shadow: 0 0 15px rgba(140, 230, 0, 0.35);
+}
+
+/* Background gradient glows */
+.bg-glow-radial {
+  background: radial-gradient(circle at 50% 50%, rgba(140, 230, 0, 0.08) 0%, transparent 60%);
+}
+
+.bg-glow-silver {
+  background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+}
+
+/* Active Nav Link Highlight */
+.nav-link-active {
+  color: var(--color-lime) !important;
+  text-shadow: 0 0 8px rgba(140, 230, 0, 0.4);
+}
+.nav-link-active::after {
+  width: 100% !important;
+}
+
+/* Filter buttons for Feedback Board */
+.filter-btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(140, 230, 0, 0.3);
+}
+.filter-btn.active {
+  background: rgba(140, 230, 0, 0.1);
+  border-color: var(--color-lime);
+  color: var(--color-lime);
+  box-shadow: 0 0 15px rgba(140, 230, 0, 0.15);
+}
+
+/* Curriculum Accordion Styling */
+.curriculum-accordion {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.curriculum-trigger {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0;
+  transition: color 0.3s ease;
+}
+.curriculum-trigger:hover {
+  color: var(--color-lime);
+}
+.curriculum-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.curriculum-content.open {
+  max-height: 500px;
+}
+
+/* Timeline elements */
+.timeline-item {
+  position: relative;
+  padding-left: 2.5rem;
+  border-left: 1px dashed rgba(255, 255, 255, 0.1);
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-lime);
+  box-shadow: 0 0 8px var(--color-lime);
+}
+
+/* Custom Alert Modals */
+.feedback-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 8, 8, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+.feedback-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.feedback-modal-box {
+  transform: scale(0.9);
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.feedback-modal-overlay.open .feedback-modal-box {
+  transform: scale(1);
+}
+

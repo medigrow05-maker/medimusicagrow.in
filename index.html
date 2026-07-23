@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medimusicagrow Pvt. Ltd. | MMG - Futuristic Digital Marketing Agency</title>
+  <meta name="description" content="Elevate your brand past the atmosphere. Medimusicagrow (MMG) is a premium digital agency specializing in video editing, web development, Meta ads, and SMM.">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom CSS stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBg: '#080808',
+            brandCard: 'rgba(18, 18, 18, 0.65)',
+            limeGreen: '#8CE600',
+            limeGlow: 'rgba(140, 230, 0, 0.45)',
+            limeDim: '#76C700',
+            platinum: '#FFFFFF',
+            silver: '#E5E5E5',
+            darkGray: '#121212',
+          },
+          fontFamily: {
+            orbitron: ['Orbitron', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brandBg text-silver min-h-screen relative antialiased selection:bg-limeGreen selection:text-brandBg">
+
+  <!-- Interactive canvas background for deep space particle effects -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- BACKGROUND GLOWS -->
+  <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+    <div class="absolute top-[10%] left-[20%] w-[500px] h-[500px] rounded-full bg-glow-radial filter blur-[80px]"></div>
+    <div class="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] rounded-full bg-glow-radial filter blur-[100px]"></div>
+    <div class="absolute top-[40%] right-[30%] w-[400px] h-[400px] rounded-full bg-glow-silver filter blur-[120px]"></div>
+  </div>
+
+  <!-- FLOATING NAVIGATION HUB -->
+  <header class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+    <nav class="w-full max-w-6xl glass-panel px-6 py-4 rounded-full flex items-center justify-between border border-white/10 shadow-2xl relative">
+      <!-- Logo Container -->
+      <a href="index.html" class="flex items-center gap-3 group" id="header-logo-container">
+        <img src="logo.png" alt="MMG Logo" class="w-12 h-12 object-contain logo-img">
+        <div class="hidden sm:block">
+          <div class="font-futuristic font-black text-xl tracking-wider leading-none text-white">MEDIMUSICA<span class="text-limeGreen">GROW</span></div>
+          <div class="text-[9px] uppercase tracking-[0.35em] text-gray-400 mt-1">PVT. LTD. &bull; Brand Elevation</div>
+        </div>
+      </a>
+
+      <!-- Minimalist Floating Navigation Links -->
+      <div class="hidden lg:flex items-center gap-6 font-futuristic text-xs font-semibold tracking-wider">
+        <a href="index.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">HOME</a>
+        <a href="services.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">SERVICES</a>
+        <a href="clients.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">CLIENTS</a>
+        <a href="feedback.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">FEEDBACK</a>
+        <a href="training.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">TRAINING</a>
+        <a href="contact.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">CONTACT US</a>
+      </div>
+
+      <!-- Action Button & Hamburger -->
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="hidden md:inline-block font-futuristic text-xs font-bold border border-limeGreen text-limeGreen px-6 py-2.5 rounded-full hover:bg-limeGreen hover:text-brandBg hover:shadow-[0_0_15px_rgba(140,230,0,0.5)] transition-all duration-300 tracking-wider">
+          DISCOVER CALL
+        </a>
+        <button id="mobile-menu-btn" class="lg:hidden text-white hover:text-limeGreen transition-colors" title="Toggle Navigation Menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE NAVIGATION OVERLAY -->
+  <div id="mobile-menu-overlay" class="fixed inset-y-0 right-0 w-80 bg-brandBg/95 backdrop-blur-lg border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-8 font-futuristic">
+    <div class="space-y-8">
+      <div class="flex justify-between items-center pb-6 border-b border-white/5">
+        <span class="font-bold text-sm tracking-wider text-limeGreen">SYSTEM MAP</span>
+        <button id="close-mobile-menu-btn" class="text-white hover:text-limeGreen transition-colors" title="Close Menu">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <div class="flex flex-col gap-6 text-sm font-semibold tracking-widest">
+        <a href="index.html" class="hover:text-limeGreen transition-all">HOME</a>
+        <a href="services.html" class="hover:text-limeGreen transition-all">SERVICES</a>
+        <a href="clients.html" class="hover:text-limeGreen transition-all">CLIENTS</a>
+        <a href="feedback.html" class="hover:text-limeGreen transition-all">FEEDBACK</a>
+        <a href="training.html" class="hover:text-limeGreen transition-all">TRAINING</a>
+        <a href="contact.html" class="hover:text-limeGreen transition-all">CONTACT US</a>
+      </div>
+    </div>
+    <div class="space-y-4 pt-6 border-t border-white/5">
+      <a href="contact.html" class="block text-center font-bold border border-limeGreen text-limeGreen py-3 rounded-full hover:bg-limeGreen hover:text-brandBg transition-all text-xs tracking-wider">
+        DISCOVER CALL
+      </a>
+      <p class="text-[9px] text-gray-500 text-center tracking-widest uppercase mt-4">SYS.MODULE // ACTIVE</p>
+    </div>
+  </div>
+
+  <!-- HERO SECTION (THE LAUNCHPAD) -->
+  <section id="hero" class="min-h-screen flex items-center justify-center pt-28 pb-16 px-4 md:px-8 relative overflow-hidden">
+    <div class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center z-10">
+      
+      <!-- Headline & Subheadline Left Panel -->
+      <div class="lg:col-span-7 flex flex-col justify-center text-left space-y-8 select-none">
+        <!-- Floating Tag -->
+        <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 w-fit text-xs font-semibold tracking-wider font-futuristic floating-element-1">
+          <span class="w-2 h-2 rounded-full bg-limeGreen animate-ping"></span>
+          <span>LAUNCHING BRANDS INTO ORBIT</span>
+        </div>
+        
+        <!-- Elevating Title -->
+        <h1 class="text-4xl md:text-6xl font-black font-futuristic text-white leading-tight">
+          We Don't Just Edit.<br>
+          <span class="metallic-text">We Elevate.</span><br>
+          <span class="text-limeGreen lime-glow-text">Scaling Brands Past the Atmosphere.</span>
+        </h1>
+        
+        <!-- Sub-headline -->
+        <p class="text-gray-400 text-base md:text-lg leading-relaxed max-w-xl font-light">
+          Medimusicagrow Pvt. Ltd. is a full-service digital marketing agency turning content into cash flow through high-octane social media growth, high-end video production, and performance marketing.
+        </p>
+        
+        <!-- CTA Float buttons -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 pt-4">
+          <a href="contact.html" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center px-8 py-4 rounded-xl shadow-lg tracking-wider text-sm">
+            GET A FREE AUDIT
+          </a>
+          <a href="services.html" class="metallic-border text-white font-futuristic font-bold text-center px-8 py-4 rounded-xl hover:bg-white/5 transition-all duration-300 tracking-wider text-sm flex items-center justify-center gap-2">
+            <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i> EXPLORE SERVICES
+          </a>
+        </div>
+      </div>
+      
+      <!-- 3D Interactive Floating Aperture Right Panel -->
+      <div class="lg:col-span-5 flex justify-center items-center relative perspective-container h-[400px] md:h-[500px]">
+        <!-- Rotating HUD Rings -->
+        <div class="hud-circle w-[320px] h-[320px] md:w-[400px] md:h-[400px]"></div>
+        <div class="hud-circle-reverse w-[260px] h-[260px] md:w-[320px] md:h-[320px]"></div>
+        <div class="absolute w-[200px] h-[200px] md:w-[250px] md:h-[250px] border border-white/5 rounded-full pointer-events-none"></div>
+
+        <!-- 3D Floating Camera Icon -->
+        <div class="tilt-wrapper w-[240px] h-[240px] md:w-[320px] md:h-[320px] flex items-center justify-center cursor-pointer absolute" id="hero-3d-node">
+          <!-- Background Glow Aperture -->
+          <div class="absolute w-full h-full bg-limeGreen/10 rounded-full filter blur-3xl animate-pulse"></div>
+          <!-- Generated 3D glassmorphic MMG Camera Aperture -->
+          <img src="hero_3d_aperture.png" alt="MMG 3D Camera" class="w-[90%] h-[90%] object-contain floating-element-2 filter drop-shadow-[0_0_20px_rgba(140,230,0,0.3)]">
+          <!-- floating coordinates tag -->
+          <div class="absolute bottom-[-10px] bg-black/80 border border-limeGreen/30 text-[10px] px-3 py-1 font-futuristic text-limeGreen tracking-widest rounded-md">
+            SYS.NODE // ORBIT_ACTIVE
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF MODULE (THE TRUST ANCHOR) -->
+  <section id="proof" class="py-20 px-4 md:px-8 border-t border-b border-white/5 relative bg-black/20 overflow-hidden">
+    <!-- Background element -->
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(140,230,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(140,230,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-40"></div>
+
+    <div class="max-w-6xl mx-auto z-10 relative">
+      <!-- Trust Badges Section -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glass-panel border-limeGreen/20 px-8 py-8 rounded-2xl text-center relative group hover:border-limeGreen/40 transition-colors">
+          <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-brandBg border border-limeGreen/30 text-[9px] font-futuristic text-limeGreen px-3 py-1 rounded-full uppercase">METRIC_01</div>
+          <p class="text-4xl md:text-5xl font-black font-futuristic text-limeGreen mb-2 group-hover:scale-105 transition-transform" id="counter-views">3M+</p>
+          <p class="text-xs uppercase tracking-widest text-gray-400 font-futuristic">VIEWS GENERATED</p>
+        </div>
+
+        <div class="glass-panel border-limeGreen/20 px-8 py-8 rounded-2xl text-center relative group hover:border-limeGreen/40 transition-colors">
+          <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-brandBg border border-limeGreen/30 text-[9px] font-futuristic text-limeGreen px-3 py-1 rounded-full uppercase">METRIC_02</div>
+          <p class="text-4xl md:text-5xl font-black font-futuristic text-limeGreen mb-2 group-hover:scale-105 transition-transform" id="counter-roi">10x</p>
+          <p class="text-xs uppercase tracking-widest text-gray-400 font-futuristic">AVERAGE ROI</p>
+        </div>
+
+        <div class="glass-panel border-limeGreen/20 px-8 py-8 rounded-2xl text-center relative group hover:border-limeGreen/40 transition-colors">
+          <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-brandBg border border-limeGreen/30 text-[9px] font-futuristic text-limeGreen px-3 py-1 rounded-full uppercase">METRIC_03</div>
+          <p class="text-4xl md:text-5xl font-black font-futuristic text-limeGreen mb-2 group-hover:scale-105 transition-transform" id="counter-brands">50+</p>
+          <p class="text-xs uppercase tracking-widest text-gray-400 font-futuristic">BRANDS SCALED</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT MMG SECTION (DIRECTOR SHAILESH PARASHAR & METRICS) -->
+  <section id="about" class="py-24 px-4 md:px-8 border-b border-white/5 relative bg-black/40">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10 relative">
+      <!-- Image / Graphic Panel -->
+      <div class="relative flex justify-center order-2 lg:order-1">
+        <div class="absolute inset-0 bg-limeGreen/5 rounded-3xl filter blur-2xl"></div>
+        <div class="glass-panel border-limeGreen/10 p-4 rounded-3xl relative overflow-hidden group hover:border-limeGreen/20 transition-all w-full max-w-md">
+          <div class="aspect-[4/3] rounded-2xl bg-zinc-950 flex flex-col items-center justify-center p-8 space-y-4 border border-white/5 relative overflow-hidden">
+            <!-- Camera Grid elements -->
+            <div class="absolute top-2 left-2 text-[8px] font-futuristic text-gray-600">F.WIDTH: 1080px</div>
+            <div class="absolute bottom-2 right-2 text-[8px] font-futuristic text-gray-600">SYS.NODE // IND_UP</div>
+            <div class="w-16 h-16 rounded-full bg-limeGreen/10 border border-limeGreen/20 flex items-center justify-center text-limeGreen">
+              <i data-lucide="award" class="w-8 h-8"></i>
+            </div>
+            <div class="text-center space-y-2">
+              <h4 class="font-futuristic font-bold text-white text-base">ESTABLISHED 2026</h4>
+              <p class="text-xs text-gray-400 leading-relaxed font-light">
+                Incorporated in Kanpur, Uttar Pradesh, scaling digital presence globally.
+              </p>
+            </div>
+            <div class="bg-black/60 border border-white/10 px-4 py-2 rounded-xl text-center">
+              <span class="text-[9px] uppercase tracking-wider text-limeGreen font-futuristic">DIRECTORATE</span>
+              <p class="font-futuristic text-xs font-bold text-white">SHAILESH PARASHAR</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy details -->
+      <div class="space-y-6 order-1 lg:order-2 select-none text-left">
+        <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.4em]">MISSION STATEMENT</span>
+        <h2 class="text-3xl md:text-5xl font-black text-white font-futuristic leading-tight">FROM CONTENT CREATION TO BRAND AUTHORITY</h2>
+        <p class="text-gray-400 text-sm md:text-base leading-relaxed font-light">
+          **Medi Musica Grow Private Limited** was incorporated in early 2026. Born from the digital expertise of **Shailesh Parashar**—the creator behind the technology channel **Techno Fact Club**—MMG bridges the gap between raw viewer retention and commercial conversions.
+        </p>
+        <p class="text-gray-400 text-sm leading-relaxed font-light">
+          Our core objective is to offer weightless execution paths for brands. We handle the visual engineering, funnel architecture, and media management, allowing founders to focus purely on scaling product value.
+        </p>
+        <div class="grid grid-cols-2 gap-6 pt-4">
+          <div class="space-y-1 border-l-2 border-limeGreen pl-4">
+            <span class="text-[10px] text-gray-500 font-futuristic block uppercase">INTEGRITY HANDLER</span>
+            <span class="font-futuristic font-bold text-white text-sm">GMB Verification Complete</span>
+          </div>
+          <div class="space-y-1 border-l-2 border-limeGreen pl-4">
+            <span class="text-[10px] text-gray-500 font-futuristic block uppercase">OPERATING NODE</span>
+            <span class="font-futuristic font-bold text-white text-sm">Kasganj, Etah, UP, IN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL UNIVERSE & PORTFOLIO OVERVIEW -->
+  <section id="universe" class="py-24 px-4 md:px-8 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto relative z-10">
+      
+      <!-- Section Title -->
+      <div class="text-center space-y-4 mb-20 select-none">
+        <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.4em]">PORTFOLIO ECOSYSTEM</span>
+        <h2 class="text-3xl md:text-5xl font-black text-white font-futuristic">THE MULTI-CHANNEL ORBIT</h2>
+        <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base font-light">
+          We dominate digital space. Explore our content hubs, viral pipelines, and data-backed tech updates.
+        </p>
+      </div>
+
+      <!-- 3 Columns Showcase -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- COLUMN 1: YOUTUBE ORBIT (5 Columns) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.107C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.388.511a3.002 3.002 0 0 0-2.11 2.107C0 8.053 0 12 0 12s0 3.947.502 5.837a3.003 3.003 0 0 0 2.11 2.107c1.883.511 9.388.511 9.388.511s7.505 0 9.388-.511a3.002 3.002 0 0 0 2.11-2.107c.502-1.89.502-5.837.502-5.837s0-3.947-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-futuristic font-bold text-white text-sm">YOUTUBE ECOSYSTEM</h3>
+                <p class="text-[10px] text-gray-500 font-futuristic">@MEDIMUSICAGROW</p>
+              </div>
+            </div>
+            <a href="https://youtube.com/@medimusicagrow" target="_blank" class="text-xs font-futuristic text-limeGreen flex items-center gap-1 border border-limeGreen/20 hover:border-limeGreen px-3 py-1 rounded-md transition-all">
+              OPEN ORBIT <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+
+          <!-- YouTube Orbit Carousel Wrapper -->
+          <div class="relative w-full overflow-hidden bg-white/5 border border-white/10 rounded-2xl p-4 perspective-container">
+            <div class="space-y-4">
+              <!-- Animated Video Cards Stack -->
+              <div class="relative rounded-xl overflow-hidden shadow-2xl border border-white/5 aspect-video flex items-center justify-center bg-black/60 group cursor-pointer" id="yt-showreel-card">
+                <div class="absolute inset-0 bg-cover bg-center opacity-65 group-hover:opacity-40 transition-opacity duration-500" style="background-image: url('yt_showreel_thumbnail.png');"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                
+                <div class="absolute top-3 left-3 bg-red-600 text-white font-futuristic text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider flex items-center gap-1.5 shadow">
+                  <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span> FEATURED VIDEOS
+                </div>
+
+                <div class="z-10 text-center flex flex-col items-center gap-3">
+                  <div class="w-14 h-14 rounded-full bg-limeGreen/20 border border-limeGreen text-limeGreen flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <i data-lucide="play" class="w-6 h-6 fill-limeGreen"></i>
+                  </div>
+                  <h4 class="font-futuristic font-bold text-sm text-white px-6">Your Marketing Is Failing Because of These 10 Mistakes!</h4>
+                </div>
+              </div>
+
+              <!-- Carousel Pagination / Control details -->
+              <div class="flex items-center justify-between text-xs font-futuristic text-gray-500 pt-2 px-1">
+                <span class="carousel-slide-label">SLIDE 01 // 03</span>
+                <div class="flex gap-2">
+                  <button class="p-1 hover:text-white transition-colors" id="carousel-prev-btn"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
+                  <button class="p-1 hover:text-white transition-colors" id="carousel-next-btn"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+                </div>
+              </div>
+              
+              <!-- Underneath stats summary -->
+              <div class="grid grid-cols-2 gap-3 pt-2">
+                <div class="bg-black/40 border border-white/5 rounded-xl p-3 text-center">
+                  <span class="text-xs text-gray-500 block">Subscribers</span>
+                  <span class="font-futuristic font-bold text-white text-sm" id="yt-sub-count">8.0K+</span>
+                </div>
+                <div class="bg-black/40 border border-white/5 rounded-xl p-3 text-center">
+                  <span class="text-xs text-gray-500 block">Watchtime</span>
+                  <span class="font-futuristic font-bold text-white text-sm">240K+ Hrs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMN 2: INSTAGRAM FEED (3 Columns - Phone Screen Mockup) -->
+        <div class="lg:col-span-3 space-y-6">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-pink-600/10 border border-pink-600/30 flex items-center justify-center text-pink-500">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </div>
+              <div>
+                <h3 class="font-futuristic font-bold text-white text-sm">INSTAGRAM HUB</h3>
+                <p class="text-[10px] text-gray-500 font-futuristic">@MEDIMUSICAGROW</p>
+              </div>
+            </div>
+            <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank" class="text-xs font-futuristic text-limeGreen flex items-center gap-1 border border-limeGreen/20 hover:border-limeGreen px-3 py-1 rounded-md transition-all">
+              FOLLOW <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+
+          <!-- Phone mockup container -->
+          <div class="flex justify-center">
+            <div class="w-[240px] h-[480px] bg-[#0c0c0c] border-[6px] border-[#222] rounded-[36px] shadow-2xl relative overflow-hidden flex flex-col justify-between p-3 select-none">
+              <!-- Camera Notch -->
+              <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-20 h-4 bg-[#222] rounded-full z-20"></div>
+
+              <!-- Top Info -->
+              <div class="flex justify-between items-center text-[8px] text-gray-400 font-futuristic px-2 pt-2">
+                <span>MMG_NETWORK</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-limeGreen animate-pulse"></span>
+              </div>
+
+              <!-- Reel Visual Card -->
+              <a href="https://www.instagram.com/reel/Da2HLL5uARj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-grow my-3 bg-zinc-950 rounded-2xl relative overflow-hidden flex items-center justify-center group cursor-pointer border border-white/5 block">
+                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('instagram_reel_mockup.png');"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
+                
+                <!-- Overlay details representing a viral reel overlay -->
+                <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 z-10 text-[9px]">
+                  <p class="text-white font-semibold">Creating Viral Video Hooks in 3 Steps...</p>
+                  <div class="flex items-center gap-2 text-limeGreen font-futuristic">
+                    <span><i data-lucide="heart" class="w-2.5 h-2.5 inline mr-0.5"></i> 14.2K</span>
+                    <span><i data-lucide="eye" class="w-2.5 h-2.5 inline mr-0.5"></i> 250K</span>
+                  </div>
+                </div>
+                
+                <!-- Spinning record reel indicator in bottom right -->
+                <div class="absolute bottom-3 right-3 w-6 h-6 rounded-full bg-brandBg border border-white/10 flex items-center justify-center animate-spin z-10">
+                  <i data-lucide="disc" class="w-3.5 h-3.5 text-limeGreen"></i>
+                </div>
+
+                <div class="z-10 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-limeGreen"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                 </div>
+              </a>
+
+              <!-- Bottom UI mimicking Instagram -->
+              <div class="flex justify-around items-center border-t border-white/5 pt-2 text-gray-500">
+                <i data-lucide="home" class="w-3.5 h-3.5 hover:text-white cursor-pointer"></i>
+                <i data-lucide="search" class="w-3.5 h-3.5 hover:text-white cursor-pointer"></i>
+                <i data-lucide="plus-square" class="w-3.5 h-3.5 hover:text-white cursor-pointer"></i>
+                <i data-lucide="clapperboard" class="w-3.5 h-3.5 text-limeGreen cursor-pointer"></i>
+                <i data-lucide="user" class="w-3.5 h-3.5 hover:text-white cursor-pointer"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMN 3: INSIGHTS STREAM (4 Columns - Twitter/FB) -->
+        <div class="lg:col-span-4 space-y-6">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-600/30 flex items-center justify-center text-blue-500">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-futuristic font-bold text-white text-sm">INSIGHTS STREAM</h3>
+                <p class="text-[10px] text-gray-500 font-futuristic">@TECHNOFACTCLUB</p>
+              </div>
+            </div>
+            <a href="https://twitter.com/technofactclub?t=2fHPNEnfxVVl_B9P7UgsQw&s=08" target="_blank" class="text-xs font-futuristic text-limeGreen flex items-center gap-1 border border-limeGreen/20 hover:border-limeGreen px-3 py-1 rounded-md transition-all">
+              FEED <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+
+          <!-- Insight Feeds List -->
+          <div class="space-y-4">
+            <div class="glass-panel rounded-xl p-4 border border-white/5 space-y-3 relative hover:border-limeGreen/20 transition-colors">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-futuristic text-limeGreen bg-limeGreen/5 border border-limeGreen/10 px-2 py-0.5 rounded">MMG_UPDATE // 01</span>
+                <span class="text-[9px] text-gray-500">2h ago</span>
+              </div>
+              <p class="text-xs text-gray-300 leading-relaxed font-light">
+                Meta Ads CPM rates are dropping by 14% this quarter. It is the perfect window to aggressively scale scaling budgets and launch content pipelines. Read how we did it below. 👇
+              </p>
+              <div class="flex items-center gap-3 text-[10px] text-gray-500">
+                <span><i data-lucide="message-square" class="w-3 h-3 inline mr-1"></i> 18</span>
+                <span><i data-lucide="repeat" class="w-3 h-3 inline mr-1"></i> 45</span>
+                <span><i data-lucide="heart" class="w-3 h-3 inline mr-1 text-red-500"></i> 124</span>
+              </div>
+            </div>
+
+            <div class="glass-panel rounded-xl p-4 border border-white/5 space-y-3 relative hover:border-limeGreen/20 transition-colors">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-futuristic text-limeGreen bg-limeGreen/5 border border-limeGreen/10 px-2 py-0.5 rounded">MMG_INSIGHT // 02</span>
+                <span class="text-[9px] text-gray-500">1d ago</span>
+              </div>
+              <p class="text-xs text-gray-300 leading-relaxed font-light">
+                Average attention spans dropped to 4.2 seconds this year. If you aren't dynamic hook editing in the first 2 seconds, you are bleeding conversions. We elevated average watchtime by 2.4x.
+              </p>
+              <div class="flex items-center gap-3 text-[10px] text-gray-500">
+                <span><i data-lucide="message-square" class="w-3 h-3 inline mr-1"></i> 32</span>
+                <span><i data-lucide="repeat" class="w-3 h-3 inline mr-1"></i> 89</span>
+                <span><i data-lucide="heart" class="w-3 h-3 inline mr-1 text-red-500"></i> 340</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA DISPATCH PORTAL -->
+  <section class="py-24 px-4 md:px-8 relative overflow-hidden bg-black/60 border-t border-white/5">
+    <div class="max-w-4xl mx-auto text-center space-y-8 z-10 relative">
+      <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.4em]">ACCELERATOR NODE</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white font-futuristic leading-tight">READY TO SHATTER REVENUE LIMITS?</h2>
+      <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base font-light">
+        Schedule your telemetry audit with Shailesh Parashar. We will trace your content bottlenecks and config a custom growth program.
+      </p>
+      <div class="flex justify-center gap-4 pt-4">
+        <a href="contact.html" class="lime-glow-btn text-brandBg font-futuristic font-bold px-10 py-4 rounded-xl shadow-lg tracking-widest text-sm">
+          LAUNCH DISCOVERY CALL
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER ORBIT -->
+  <footer class="bg-black/80 border-t border-white/5 py-12 px-4 md:px-8 relative overflow-hidden select-none">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 items-start relative z-10">
+      
+      <!-- Brand column -->
+      <div class="space-y-4 md:col-span-2">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="logo.png" alt="MMG Logo" class="w-8 h-8 object-contain">
+          <span class="font-futuristic font-black text-lg tracking-wider text-white">MEDIMUSICA<span class="text-limeGreen">GROW</span></span>
+        </a>
+        <p class="text-xs text-gray-500 max-w-sm leading-relaxed font-light">
+          Medimusicagrow Pvt. Ltd. is registered in India. MMG scales brands via performance systems, viral video engineering, and custom interactive web structures.
+        </p>
+        <p class="text-[10px] text-gray-400 font-light flex items-center gap-2">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-limeGreen"></i> Kayasthan, Kasganj, Uttar Pradesh, 207123
+        </p>
+        <p class="text-[10px] text-gray-400 font-light flex items-center gap-2">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-limeGreen"></i> +91 96346 25609
+        </p>
+      </div>
+
+      <!-- Links Column -->
+      <div class="space-y-4">
+        <h4 class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">SYSTEM MAP</h4>
+        <ul class="space-y-2 text-xs font-futuristic text-gray-400">
+          <li><a href="index.html" class="hover:text-limeGreen transition-colors">&bull; HOME INTERFACE</a></li>
+          <li><a href="services.html" class="hover:text-limeGreen transition-colors">&bull; SERVICES MATRIX</a></li>
+          <li><a href="clients.html" class="hover:text-limeGreen transition-colors">&bull; CLIENT ROSTER</a></li>
+          <li><a href="feedback.html" class="hover:text-limeGreen transition-colors">&bull; FEEDBACK BOARD</a></li>
+          <li><a href="training.html" class="hover:text-limeGreen transition-colors">&bull; TRAINING HUB</a></li>
+          <li><a href="contact.html" class="hover:text-limeGreen transition-colors">&bull; CONTACT PORTAL</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Footprints -->
+      <div class="space-y-4">
+        <h4 class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">SOCIAL ORBIT</h4>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://youtube.com/@medimusicagrow" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 hover:bg-red-500/5 transition-all" title="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.107C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.388.511a3.002 3.002 0 0 0-2.11 2.107C0 8.053 0 12 0 12s0 3.947.502 5.837a3.003 3.003 0 0 0 2.11 2.107c1.883.511 9.388.511 9.388.511s7.505 0 9.388-.511a3.002 3.002 0 0 0 2.11-2.107c.502-1.89.502-5.837.502-5.837s0-3.947-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 hover:bg-pink-500/5 transition-all" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="https://twitter.com/technofactclub?t=2fHPNEnfxVVl_B9P7UgsQw&s=08" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-400 hover:bg-blue-400/5 transition-all" title="Twitter / X">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://facebook.com/technofactclub" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-600 hover:border-blue-600 hover:bg-blue-600/5 transition-all" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://wa.me/919634625609" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-green-500 hover:border-green-500 hover:bg-green-500/5 transition-all" title="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.638 1.977 14.162.953 11.53.953c-5.442 0-9.866 4.372-9.87 9.802 0 1.83.504 3.619 1.46 5.205L2.09 20.35l4.557-1.196zm12.09-6.388c-.328-.164-1.942-.959-2.241-1.069-.3-.11-.518-.164-.736.164-.218.328-.844 1.069-1.035 1.288-.19.219-.38.247-.708.083-.328-.164-1.385-.511-2.638-1.63-.974-.87-1.632-1.944-1.823-2.272-.19-.328-.02-.505.144-.668.148-.147.328-.383.492-.575.164-.19.218-.328.328-.547.11-.219.055-.411-.027-.575-.082-.164-.736-1.777-1.008-2.434-.265-.636-.53-.55-.736-.56-.19-.01-.408-.01-.626-.01-.218 0-.573.082-.873.411-.3.328-1.145 1.122-1.145 2.736 0 1.614 1.173 3.175 1.336 3.394.164.218 2.3 3.512 5.572 4.927.778.337 1.386.538 1.86.689.782.248 1.493.213 2.055.129.626-.094 1.942-.795 2.215-1.562.272-.767.272-1.423.19-1.562-.081-.137-.3-.219-.628-.383z"/></svg>
+          </a>
+        </div>
+        <p class="text-[10px] text-gray-500 font-futuristic mt-2">
+          INTEGRATION HANDLERS: @MEDIMUSICAGROW &bull; @TECHNOFACTCLUB
+        </p>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="max-w-6xl mx-auto mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[10px] text-gray-500 font-futuristic gap-4">
+      <span>&copy; 2026 MEDIMUSICAGROW PVT. LTD. ALL RIGHTS RESERVED.</span>
+      <span class="tracking-widest">SYSTEM // ANTIGRAVITY ENGINE v2.0 // DEPLOYED</span>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu logic inclusion script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('mobile-menu-btn');
+      const closeBtn = document.getElementById('close-mobile-menu-btn');
+      const overlay = document.getElementById('mobile-menu-overlay');
+      if (btn && overlay) {
+        btn.addEventListener('click', () => {
+          overlay.classList.remove('translate-x-full');
+        });
+      }
+      if (closeBtn && overlay) {
+        closeBtn.addEventListener('click', () => {
+          overlay.classList.add('translate-x-full');
+        });
+      }
+    });
+  </script>
+
+  <!-- Link script.js -->
+  <script src="app.js"></script>
+</body>
+</html>

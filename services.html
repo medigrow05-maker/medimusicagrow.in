@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services Matrix | Medimusicagrow Pvt. Ltd.</title>
+  <meta name="description" content="Explore MMG's weightless services: SMM, content creation, high-end video editing, web development, creator marketing, and Meta ads optimization.">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom CSS stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBg: '#080808',
+            brandCard: 'rgba(18, 18, 18, 0.65)',
+            limeGreen: '#8CE600',
+            limeGlow: 'rgba(140, 230, 0, 0.45)',
+            limeDim: '#76C700',
+            platinum: '#FFFFFF',
+            silver: '#E5E5E5',
+            darkGray: '#121212',
+          },
+          fontFamily: {
+            orbitron: ['Orbitron', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brandBg text-silver min-h-screen relative antialiased selection:bg-limeGreen selection:text-brandBg">
+
+  <!-- Interactive canvas background for deep space particle effects -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- BACKGROUND GLOWS -->
+  <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+    <div class="absolute top-[10%] left-[20%] w-[500px] h-[500px] rounded-full bg-glow-radial filter blur-[80px]"></div>
+    <div class="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] rounded-full bg-glow-radial filter blur-[100px]"></div>
+  </div>
+
+  <!-- FLOATING NAVIGATION HUB -->
+  <header class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+    <nav class="w-full max-w-6xl glass-panel px-6 py-4 rounded-full flex items-center justify-between border border-white/10 shadow-2xl relative">
+      <!-- Logo Container -->
+      <a href="index.html" class="flex items-center gap-3 group" id="header-logo-container">
+        <img src="logo.png" alt="MMG Logo" class="w-12 h-12 object-contain logo-img">
+        <div class="hidden sm:block">
+          <div class="font-futuristic font-black text-xl tracking-wider leading-none text-white">MEDIMUSICA<span class="text-limeGreen">GROW</span></div>
+          <div class="text-[9px] uppercase tracking-[0.35em] text-gray-400 mt-1">PVT. LTD. &bull; Brand Elevation</div>
+        </div>
+      </a>
+
+      <!-- Minimalist Floating Navigation Links -->
+      <div class="hidden lg:flex items-center gap-6 font-futuristic text-xs font-semibold tracking-wider">
+        <a href="index.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">HOME</a>
+        <a href="services.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">SERVICES</a>
+        <a href="clients.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">CLIENTS</a>
+        <a href="feedback.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">FEEDBACK</a>
+        <a href="training.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">TRAINING</a>
+        <a href="contact.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">CONTACT US</a>
+      </div>
+
+      <!-- Action Button & Hamburger -->
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="hidden md:inline-block font-futuristic text-xs font-bold border border-limeGreen text-limeGreen px-6 py-2.5 rounded-full hover:bg-limeGreen hover:text-brandBg hover:shadow-[0_0_15px_rgba(140,230,0,0.5)] transition-all duration-300 tracking-wider">
+          DISCOVER CALL
+        </a>
+        <button id="mobile-menu-btn" class="lg:hidden text-white hover:text-limeGreen transition-colors" title="Toggle Navigation Menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE NAVIGATION OVERLAY -->
+  <div id="mobile-menu-overlay" class="fixed inset-y-0 right-0 w-80 bg-brandBg/95 backdrop-blur-lg border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-8 font-futuristic">
+    <div class="space-y-8">
+      <div class="flex justify-between items-center pb-6 border-b border-white/5">
+        <span class="font-bold text-sm tracking-wider text-limeGreen">SYSTEM MAP</span>
+        <button id="close-mobile-menu-btn" class="text-white hover:text-limeGreen transition-colors" title="Close Menu">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <div class="flex flex-col gap-6 text-sm font-semibold tracking-widest">
+        <a href="index.html" class="hover:text-limeGreen transition-all">HOME</a>
+        <a href="services.html" class="hover:text-limeGreen transition-all">SERVICES</a>
+        <a href="clients.html" class="hover:text-limeGreen transition-all">CLIENTS</a>
+        <a href="feedback.html" class="hover:text-limeGreen transition-all">FEEDBACK</a>
+        <a href="training.html" class="hover:text-limeGreen transition-all">TRAINING</a>
+        <a href="contact.html" class="hover:text-limeGreen transition-all">CONTACT US</a>
+      </div>
+    </div>
+    <div class="space-y-4 pt-6 border-t border-white/5">
+      <a href="contact.html" class="block text-center font-bold border border-limeGreen text-limeGreen py-3 rounded-full hover:bg-limeGreen hover:text-brandBg transition-all text-xs tracking-wider">
+        DISCOVER CALL
+      </a>
+      <p class="text-[9px] text-gray-500 text-center tracking-widest uppercase mt-4">SYS.MODULE // ACTIVE</p>
+    </div>
+  </div>
+
+  <!-- HERO HEADER (SERVICES MATRIX TITLE) -->
+  <section class="pt-36 pb-12 px-4 md:px-8 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto text-center space-y-4 select-none z-10 relative">
+      <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.4em]">EXPERTISE GRID</span>
+      <h1 class="text-4xl md:text-6xl font-black font-futuristic text-white">THE SERVICE MATRIX</h1>
+      <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base font-light">
+        A detailed breakdown of our digital engineering pipeline. Tailored to drive organic growth, capture attention, and maximize return on ad spend.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES ACCELERATION HUB (6 DETAILED SECTIONS) -->
+  <section id="services-grid" class="py-12 px-4 md:px-8 relative z-10">
+    <div class="max-w-6xl mx-auto space-y-16">
+      
+      <!-- GRID OF 6 SERVICES -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Service 1: Social Media Management -->
+        <div class="glass-panel-glow rounded-3xl p-8 border border-white/5 flex flex-col justify-between group transition-all duration-300 min-h-[350px]">
+          <div class="space-y-6">
+            <div class="w-14 h-14 rounded-2xl bg-limeGreen/10 border border-limeGreen/20 flex items-center justify-center text-limeGreen group-hover:bg-limeGreen group-hover:text-brandBg transition-all duration-300">
+              <i data-lucide="share-2" class="w-7 h-7"></i>
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold font-futuristic text-white group-hover:text-limeGreen transition-all">Social Media Management</h3>
+              <p class="text-gray-400 text-xs leading-relaxed font-light">
+                Complete platform supervision. We schedule content, optimize captions/tags, track engagement, and keep your community active across YouTube, X, and Instagram.
+              </p>
+            </div>
+            <ul class="text-[10px] text-gray-500 font-futuristic space-y-1.5">
+              <li>&bull; Platform Analytics & Reports</li>
+              <li>&bull; Copywriting & Tag Configurations</li>
+              <li>&bull; Active Community Management</li>
+            </ul>
+          </div>
+          <a href="contact.html?service=smm" class="flex items-center gap-1 text-[11px] font-futuristic text-limeGreen font-bold mt-8 hover:translate-x-1 transition-transform">
+            INITIATE SMM PROGRAM <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Service 2: Content Creation (Video Shoot + Edit) -->
+        <div class="glass-panel-glow rounded-3xl p-8 border border-white/5 flex flex-col justify-between group transition-all duration-300 min-h-[350px]">
+          <div class="space-y-6">
+            <div class="w-14 h-14 rounded-2xl bg-limeGreen/10 border border-limeGreen/20 flex items-center justify-center text-limeGreen group-hover:bg-limeGreen group-hover:text-brandBg transition-all duration-300">
+              <i data-lucide="aperture" class="w-7 h-7"></i>
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold font-futuristic text-white group-hover:text-limeGreen transition-all">Content Creation</h3>
+              <p class="text-gray-400 text-xs leading-relaxed font-light">
+                High-end physical shoots and dynamic visual capture. We write engaging scripts, manage directing, setup lighting, and shoot visual assets tailored for viral retention.
+              </p>
+            </div>
+            <ul class="text-[10px] text-gray-500 font-futuristic space-y-1.5">
+              <li>&bull; Script Writing & Visual Storyboarding</li>
+              <li>&bull; Professional Camera / Lighting Setup</li>
+              <li>&bull; Product & Personal Brand Shoots</li>
+            </ul>
+          </div>
+          <a href="contact.html?service=content-creation" class="flex items-center gap-1 text-[11px] font-futuristic text-limeGreen font-bold mt-8 hover:translate-x-1 transition-transform">
+            INITIATE SHOOT WORK <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Service 3: Video Editing -->
+        <div class="glass-panel-glow rounded-3xl p-8 border border-white/5 flex flex-col justify-between group transition-all duration-300 min-h-[350px]">
+          <div class="space-y-6">
+            <div class="w-14 h-14 rounded-2xl bg-limeGreen/10 border border-limeGreen/20 flex items-center justify-center text-limeGreen group-hover:bg-limeGreen group-hover:text-brandBg transition-all duration-300">
+              <i data-lucide="video" class="w-7 h-7"></i>
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold font-futuristic text-white group-hover:text-limeGreen transition-all">Video Editing</h3>
+              <p class="text-gray-400 text-xs leading-relaxed font-light">
+                High-retention video post-production. Pacing optimization, sound design, color grading, and graphics assets integration in DaVinci Resolve and CapCut.
+              </p>
+            </div>
+            <ul class="text-[10px] text-gray-500 font-futuristic space-y-1.5">
+              <li>&bull; DaVinci Resolve Color Grading</li>
+              <li>&bull; 2-Second Retention Hook Pacing</li>
+              <li>&bull; Custom Motion Graphics & Subtitles</li>
+            </ul>
+          </div>
+          <a href="contact.html?service=video-editing" class="flex items-center gap-1 text-[11px] font-futuristic text-limeGreen font-bold mt-8 hover:translate-x-1 transition-transform">
+            INITIATE EDIT PIPELINE <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Service 4: Web Development -->
+        <div class="glass-panel-glow rounded-3xl p-8 border border-white/5 flex flex-col justify-between group transition-all duration-300 min-h-[350px]">
+          <div class="space-y-6">
+            <div class="w-14 h-14 rounded-2xl bg-limeGreen/10 border border-limeGreen/20 flex items-center justify-center text-limeGreen group-hover:bg-limeGreen group-hover:text-brandBg transition-all duration-300">
+              <i data-lucide="code-2" class="w-7 h-7"></i>
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold font-futuristic text-white group-hover:text-limeGreen transition-all">Web Development</h3>
+              <p class="text-gray-400 text-xs leading-relaxed font-light">
+                Premium, lightning-fast digital storefronts and landing portals. Built with futuristic styling, custom CSS, SEO schema mappings, and landing page optimization.
+              </p>
+            </div>
+            <ul class="text-[10px] text-gray-500 font-futuristic space-y-1.5">
+              <li>&bull; Custom HTML/CSS/JS Architectures</li>
+              <li>&bull; Responsive Mobile Design Tuning</li>
+              <li>&bull; High-Converting Landing funnels</li>
+            </ul>
+          </div>
+          <a href="contact.html?service=web-dev" class="flex items-center gap-1 text-[11px] font-futuristic text-limeGreen font-bold mt-8 hover:translate-x-1 transition-transform">
+            INITIATE BUILD CODE <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Service 5: Influencer Marketing -->
+        <div class="glass-panel-glow rounded-3xl p-8 border border-white/5 flex flex-col justify-between group transition-all duration-300 min-h-[350px]">
+          <div class="space-y-6">
+            <div class="w-14 h-14 rounded-2xl bg-limeGreen/10 border border-limeGreen/20 flex items-center justify-center text-limeGreen group-hover:bg-limeGreen group-hover:text-brandBg transition-all duration-300">
+              <i data-lucide="users" class="w-7 h-7"></i>
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold font-futuristic text-white group-hover:text-limeGreen transition-all">Influencer Marketing</h3>
+              <p class="text-gray-400 text-xs leading-relaxed font-light">
+                Direct creator partnerships. We plug your brand into pre-established creator networks, negotiating placements and designing campaigns that establish organic authority.
+              </p>
+            </div>
+            <ul class="text-[10px] text-gray-500 font-futuristic space-y-1.5">
+              <li>&bull; Creator Alignment Matchmaking</li>
+              <li>&bull; Direct Deal & Budget Negotiations</li>
+              <li>&bull; Campaign Metrics Track & Optimization</li>
+            </ul>
+          </div>
+          <a href="contact.html?service=influencer" class="flex items-center gap-1 text-[11px] font-futuristic text-limeGreen font-bold mt-8 hover:translate-x-1 transition-transform">
+            INITIATE INFLUENCER ORBIT <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Service 6: Meta Ads -->
+        <div class="glass-panel-glow rounded-3xl p-8 border border-white/5 flex flex-col justify-between group transition-all duration-300 min-h-[350px]">
+          <div class="space-y-6">
+            <div class="w-14 h-14 rounded-2xl bg-limeGreen/10 border border-limeGreen/20 flex items-center justify-center text-limeGreen group-hover:bg-limeGreen group-hover:text-brandBg transition-all duration-300">
+              <i data-lucide="target" class="w-7 h-7"></i>
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold font-futuristic text-white group-hover:text-limeGreen transition-all">Meta Ads</h3>
+              <p class="text-gray-400 text-xs leading-relaxed font-light">
+                Paid performance campaigns on Facebook and Instagram. We construct targeted ad copy, design visual banners, compile custom lookup lists, and monitor ROI.
+              </p>
+            </div>
+            <ul class="text-[10px] text-gray-500 font-futuristic space-y-1.5">
+              <li>&bull; Custom Retargeting Funnel Setups</li>
+              <li>&bull; Ad copy split testing</li>
+              <li>&bull; Dynamic Lead Generation Scaling</li>
+            </ul>
+          </div>
+          <a href="contact.html?service=meta-ads" class="flex items-center gap-1 text-[11px] font-futuristic text-limeGreen font-bold mt-8 hover:translate-x-1 transition-transform">
+            INITIATE META AD RUN <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWREEL SHOWROOM (FLOATING MOCKUPS SECTION) -->
+  <section class="py-24 px-4 md:px-8 border-t border-white/5 relative bg-black/30">
+    <div class="max-w-6xl mx-auto space-y-12">
+      <div class="text-center space-y-4 mb-16 select-none">
+        <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.4em]">SHOWREEL SHOWROOM</span>
+        <h2 class="text-3xl md:text-5xl font-black text-white font-futuristic">VISUAL PROOF PIPELINE</h2>
+        <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base font-light">
+          Preview some of our latest video assets and campaigns taken directly from our active digital orbits.
+        </p>
+      </div>
+
+      <!-- GRID OF SHOWREEL FRAMES -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Showcase 1: YouTube Automation Thumbnail preview -->
+        <a href="https://www.youtube.com/watch?v=-kh1ZDAizro" target="_blank" class="glass-panel border-white/10 rounded-2xl p-4 space-y-4 group hover:border-limeGreen/30 transition-all duration-300 block">
+          <div class="relative rounded-xl overflow-hidden aspect-video bg-zinc-950 border border-white/5 shadow-lg">
+            <img src="yt_showreel_thumbnail.png" alt="YouTube Automation Showreel" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-all">
+              <span class="w-12 h-12 rounded-full bg-limeGreen/10 border border-limeGreen/30 text-limeGreen flex items-center justify-center group-hover:scale-110 transition-transform">
+                <i data-lucide="play" class="w-5 h-5 fill-limeGreen"></i>
+              </span>
+            </div>
+          </div>
+          <div class="space-y-1 select-none">
+            <span class="text-[9px] font-futuristic text-limeGreen uppercase tracking-widest">SHOWREEL // 01</span>
+            <h4 class="font-futuristic font-bold text-sm text-white">Your Marketing Is Failing Because of These 10 Mistakes!</h4>
+          </div>
+        </a>
+
+        <!-- Showcase 2: Instagram Reel Preview -->
+        <a href="https://www.instagram.com/reel/Da2HLL5uARj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="glass-panel border-white/10 rounded-2xl p-4 space-y-4 group hover:border-limeGreen/30 transition-all duration-300 block">
+          <div class="relative rounded-xl overflow-hidden aspect-video bg-zinc-950 border border-white/5 shadow-lg">
+            <img src="instagram_reel_mockup.png" alt="Instagram Reel Showreel" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-all">
+              <span class="w-12 h-12 rounded-full bg-limeGreen/10 border border-limeGreen/30 text-limeGreen flex items-center justify-center group-hover:scale-110 transition-transform">
+                <i data-lucide="play" class="w-5 h-5 fill-limeGreen"></i>
+              </span>
+            </div>
+          </div>
+          <div class="space-y-1 select-none">
+            <span class="text-[9px] font-futuristic text-limeGreen uppercase tracking-widest">SHOWREEL // 02</span>
+            <h4 class="font-futuristic font-bold text-sm text-white">Creating Viral Video Hooks: Instagram Reel Study</h4>
+          </div>
+        </a>
+
+        <!-- Showcase 3: Meta Ads Video asset preview -->
+        <a href="https://www.youtube.com/watch?v=QZ2O6_EMU9I" target="_blank" class="glass-panel border-white/10 rounded-2xl p-4 space-y-4 group hover:border-limeGreen/30 transition-all duration-300 block">
+          <div class="relative rounded-xl overflow-hidden aspect-video bg-zinc-950 border border-white/5 shadow-lg">
+            <img src="yt_slide2.png" alt="Meta Ads Showreel" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-all">
+              <span class="w-12 h-12 rounded-full bg-limeGreen/10 border border-limeGreen/30 text-limeGreen flex items-center justify-center group-hover:scale-110 transition-transform">
+                <i data-lucide="play" class="w-5 h-5 fill-limeGreen"></i>
+              </span>
+            </div>
+          </div>
+          <div class="space-y-1 select-none">
+            <span class="text-[9px] font-futuristic text-limeGreen uppercase tracking-widest">SHOWREEL // 03</span>
+            <h4 class="font-futuristic font-bold text-sm text-white">Reused Content Earning: YouTube Automation Strategy</h4>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER ORBIT -->
+  <footer class="bg-black/80 border-t border-white/5 py-12 px-4 md:px-8 relative overflow-hidden select-none">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 items-start relative z-10">
+      
+      <!-- Brand column -->
+      <div class="space-y-4 md:col-span-2">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="logo.png" alt="MMG Logo" class="w-8 h-8 object-contain">
+          <span class="font-futuristic font-black text-lg tracking-wider text-white">MEDIMUSICA<span class="text-limeGreen">GROW</span></span>
+        </a>
+        <p class="text-xs text-gray-500 max-w-sm leading-relaxed font-light">
+          Medimusicagrow Pvt. Ltd. is registered in India. MMG scales brands via performance systems, viral video engineering, and custom interactive web structures.
+        </p>
+        <p class="text-[10px] text-gray-400 font-light flex items-center gap-2">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-limeGreen"></i> Kayasthan, Kasganj, Uttar Pradesh, 207123
+        </p>
+        <p class="text-[10px] text-gray-400 font-light flex items-center gap-2">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-limeGreen"></i> +91 96346 25609
+        </p>
+      </div>
+
+      <!-- Links Column -->
+      <div class="space-y-4">
+        <h4 class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">SYSTEM MAP</h4>
+        <ul class="space-y-2 text-xs font-futuristic text-gray-400">
+          <li><a href="index.html" class="hover:text-limeGreen transition-colors">&bull; HOME INTERFACE</a></li>
+          <li><a href="services.html" class="hover:text-limeGreen transition-colors">&bull; SERVICES MATRIX</a></li>
+          <li><a href="clients.html" class="hover:text-limeGreen transition-colors">&bull; CLIENT ROSTER</a></li>
+          <li><a href="feedback.html" class="hover:text-limeGreen transition-colors">&bull; FEEDBACK BOARD</a></li>
+          <li><a href="training.html" class="hover:text-limeGreen transition-colors">&bull; TRAINING HUB</a></li>
+          <li><a href="contact.html" class="hover:text-limeGreen transition-colors">&bull; CONTACT PORTAL</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Footprints -->
+      <div class="space-y-4">
+        <h4 class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">SOCIAL ORBIT</h4>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://youtube.com/@medimusicagrow" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 hover:bg-red-500/5 transition-all" title="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.107C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.388.511a3.002 3.002 0 0 0-2.11 2.107C0 8.053 0 12 0 12s0 3.947.502 5.837a3.003 3.003 0 0 0 2.11 2.107c1.883.511 9.388.511 9.388.511s7.505 0 9.388-.511a3.002 3.002 0 0 0 2.11-2.107c.502-1.89.502-5.837.502-5.837s0-3.947-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 hover:bg-pink-500/5 transition-all" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="https://twitter.com/technofactclub?t=2fHPNEnfxVVl_B9P7UgsQw&s=08" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-400 hover:bg-blue-400/5 transition-all" title="Twitter / X">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://facebook.com/technofactclub" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-600 hover:border-blue-600 hover:bg-blue-600/5 transition-all" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://wa.me/919634625609" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-green-500 hover:border-green-500 hover:bg-green-500/5 transition-all" title="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.638 1.977 14.162.953 11.53.953c-5.442 0-9.866 4.372-9.87 9.802 0 1.83.504 3.619 1.46 5.205L2.09 20.35l4.557-1.196zm12.09-6.388c-.328-.164-1.942-.959-2.241-1.069-.3-.11-.518-.164-.736.164-.218.328-.844 1.069-1.035 1.288-.19.219-.38.247-.708.083-.328-.164-1.385-.511-2.638-1.63-.974-.87-1.632-1.944-1.823-2.272-.19-.328-.02-.505.144-.668.148-.147.328-.383.492-.575.164-.19.218-.328.328-.547.11-.219.055-.411-.027-.575-.082-.164-.736-1.777-1.008-2.434-.265-.636-.53-.55-.736-.56-.19-.01-.408-.01-.626-.01-.218 0-.573.082-.873.411-.3.328-1.145 1.122-1.145 2.736 0 1.614 1.173 3.175 1.336 3.394.164.218 2.3 3.512 5.572 4.927.778.337 1.386.538 1.86.689.782.248 1.493.213 2.055.129.626-.094 1.942-.795 2.215-1.562.272-.767.272-1.423.19-1.562-.081-.137-.3-.219-.628-.383z"/></svg>
+          </a>
+        </div>
+        <p class="text-[10px] text-gray-500 font-futuristic mt-2">
+          INTEGRATION HANDLERS: @MEDIMUSICAGROW &bull; @TECHNOFACTCLUB
+        </p>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="max-w-6xl mx-auto mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[10px] text-gray-500 font-futuristic gap-4">
+      <span>&copy; 2026 MEDIMUSICAGROW PVT. LTD. ALL RIGHTS RESERVED.</span>
+      <span class="tracking-widest">SYSTEM // ANTIGRAVITY ENGINE v2.0 // DEPLOYED</span>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu logic inclusion script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('mobile-menu-btn');
+      const closeBtn = document.getElementById('close-mobile-menu-btn');
+      const overlay = document.getElementById('mobile-menu-overlay');
+      if (btn && overlay) {
+        btn.addEventListener('click', () => {
+          overlay.classList.remove('translate-x-full');
+        });
+      }
+      if (closeBtn && overlay) {
+        closeBtn.addEventListener('click', () => {
+          overlay.classList.add('translate-x-full');
+        });
+      }
+    });
+  </script>
+
+  <!-- Link script.js -->
+  <script src="app.js"></script>
+</body>
+</html>

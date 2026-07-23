@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Reviews & Feedback | Medimusicagrow Pvt. Ltd.</title>
+  <meta name="description" content="Read verified Google My Business reviews and client feedback for Medi Musica Grow. Learn about customer satisfaction in editing, web builds, and ads.">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom CSS stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBg: '#080808',
+            brandCard: 'rgba(18, 18, 18, 0.65)',
+            limeGreen: '#8CE600',
+            limeGlow: 'rgba(140, 230, 0, 0.45)',
+            limeDim: '#76C700',
+            platinum: '#FFFFFF',
+            silver: '#E5E5E5',
+            darkGray: '#121212',
+          },
+          fontFamily: {
+            orbitron: ['Orbitron', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brandBg text-silver min-h-screen relative antialiased selection:bg-limeGreen selection:text-brandBg">
+
+  <!-- Interactive canvas background for deep space particle effects -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- BACKGROUND GLOWS -->
+  <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+    <div class="absolute top-[10%] left-[20%] w-[500px] h-[500px] rounded-full bg-glow-radial filter blur-[80px]"></div>
+    <div class="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] rounded-full bg-glow-radial filter blur-[100px]"></div>
+  </div>
+
+  <!-- FLOATING NAVIGATION HUB -->
+  <header class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+    <nav class="w-full max-w-6xl glass-panel px-6 py-4 rounded-full flex items-center justify-between border border-white/10 shadow-2xl relative">
+      <!-- Logo Container -->
+      <a href="index.html" class="flex items-center gap-3 group" id="header-logo-container">
+        <img src="logo.png" alt="MMG Logo" class="w-12 h-12 object-contain logo-img">
+        <div class="hidden sm:block">
+          <div class="font-futuristic font-black text-xl tracking-wider leading-none text-white">MEDIMUSICA<span class="text-limeGreen">GROW</span></div>
+          <div class="text-[9px] uppercase tracking-[0.35em] text-gray-400 mt-1">PVT. LTD. &bull; Brand Elevation</div>
+        </div>
+      </a>
+
+      <!-- Minimalist Floating Navigation Links -->
+      <div class="hidden lg:flex items-center gap-6 font-futuristic text-xs font-semibold tracking-wider">
+        <a href="index.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">HOME</a>
+        <a href="services.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">SERVICES</a>
+        <a href="clients.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">CLIENTS</a>
+        <a href="feedback.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">FEEDBACK</a>
+        <a href="training.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">TRAINING</a>
+        <a href="contact.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">CONTACT US</a>
+      </div>
+
+      <!-- Action Button & Hamburger -->
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="hidden md:inline-block font-futuristic text-xs font-bold border border-limeGreen text-limeGreen px-6 py-2.5 rounded-full hover:bg-limeGreen hover:text-brandBg hover:shadow-[0_0_15px_rgba(140,230,0,0.5)] transition-all duration-300 tracking-wider">
+          DISCOVER CALL
+        </a>
+        <button id="mobile-menu-btn" class="lg:hidden text-white hover:text-limeGreen transition-colors" title="Toggle Navigation Menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE NAVIGATION OVERLAY -->
+  <div id="mobile-menu-overlay" class="fixed inset-y-0 right-0 w-80 bg-brandBg/95 backdrop-blur-lg border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-8 font-futuristic">
+    <div class="space-y-8">
+      <div class="flex justify-between items-center pb-6 border-b border-white/5">
+        <span class="font-bold text-sm tracking-wider text-limeGreen">SYSTEM MAP</span>
+        <button id="close-mobile-menu-btn" class="text-white hover:text-limeGreen transition-colors" title="Close Menu">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <div class="flex flex-col gap-6 text-sm font-semibold tracking-widest">
+        <a href="index.html" class="hover:text-limeGreen transition-all">HOME</a>
+        <a href="services.html" class="hover:text-limeGreen transition-all">SERVICES</a>
+        <a href="clients.html" class="hover:text-limeGreen transition-all">CLIENTS</a>
+        <a href="feedback.html" class="hover:text-limeGreen transition-all">FEEDBACK</a>
+        <a href="training.html" class="hover:text-limeGreen transition-all">TRAINING</a>
+        <a href="contact.html" class="hover:text-limeGreen transition-all">CONTACT US</a>
+      </div>
+    </div>
+    <div class="space-y-4 pt-6 border-t border-white/5">
+      <a href="contact.html" class="block text-center font-bold border border-limeGreen text-limeGreen py-3 rounded-full hover:bg-limeGreen hover:text-brandBg transition-all text-xs tracking-wider">
+        DISCOVER CALL
+      </a>
+      <p class="text-[9px] text-gray-500 text-center tracking-widest uppercase mt-4">SYS.MODULE // ACTIVE</p>
+    </div>
+  </div>
+
+  <!-- HERO HEADER -->
+  <section class="pt-36 pb-12 px-4 md:px-8 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto text-center space-y-4 select-none z-10 relative">
+      <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.4em]">FEEDBACK PORTAL</span>
+      <h1 class="text-4xl md:text-6xl font-black font-futuristic text-white">THE FEEDBACK BOARD</h1>
+      <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base font-light">
+        Verified client inputs fetched directly from our Google My Business database. Transparent, data-backed satisfaction reviews.
+      </p>
+    </div>
+  </section>
+
+  <!-- MODE SWITCHER (PUBLIC BOARD vs MANAGEMENT SYSTEM) -->
+  <section class="py-4 px-4 md:px-8 relative z-10">
+    <div class="max-w-6xl mx-auto flex items-center justify-center gap-3 select-none">
+      <button id="tab-public-view" class="view-tab-btn px-6 py-3 rounded-xl font-futuristic font-bold text-xs tracking-wider transition-all bg-limeGreen text-brandBg shadow-lg shadow-limeGreen/20">
+        <i data-lucide="grid" class="w-4 h-4 inline mr-2"></i> PUBLIC FEEDBACK BOARD
+      </button>
+      <button id="tab-admin-view" class="view-tab-btn px-6 py-3 rounded-xl font-futuristic font-bold text-xs tracking-wider transition-all border border-white/10 text-gray-400 hover:text-white hover:border-limeGreen/50">
+        <i data-lucide="sliders" class="w-4 h-4 inline mr-2"></i> ADMIN MANAGEMENT SYSTEM
+      </button>
+    </div>
+  </section>
+
+  <div id="public-feedback-section">
+    <!-- GMB RATING BOARD SUMMARY -->
+    <section class="py-6 px-4 md:px-8 relative z-10">
+      <div class="max-w-6xl mx-auto">
+        <div class="glass-panel border-limeGreen/20 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-5">
+            <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-limeGreen text-3xl font-futuristic font-bold">
+              G
+            </div>
+            <div class="text-left space-y-1">
+              <h4 class="font-futuristic font-bold text-white text-base">Google My Business Rating</h4>
+              <div class="flex items-center gap-2">
+                <span class="font-futuristic font-bold text-limeGreen">4.9 / 5.0 Stars</span>
+                <div class="flex text-limeGreen">
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-limeGreen"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-limeGreen"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-limeGreen"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-limeGreen"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-limeGreen"></i>
+                </div>
+              </div>
+              <p class="text-[10px] text-gray-500 font-futuristic uppercase">TELEMETRY ID: /g/11njc5yjs2</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <button id="open-feedback-modal" class="lime-glow-btn text-brandBg font-futuristic font-bold px-6 py-3 rounded-xl text-xs tracking-wider">
+              WRITE A GMB REVIEW
+            </button>
+            <a href="https://share.google/X7ruKtv4hASnuZMXb" target="_blank" class="metallic-border text-white font-futuristic font-bold px-6 py-3 rounded-xl text-xs tracking-wider flex items-center gap-1">
+              VIEW ON MAPS <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE REVIEWS GRID WITH FILTERING -->
+    <section class="py-12 px-4 md:px-8 relative z-10">
+      <div class="max-w-6xl mx-auto space-y-12">
+        <!-- Filtering Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-3 font-futuristic text-xs">
+          <button class="filter-btn px-5 py-2.5 rounded-full font-bold active" data-filter="all">ALL ENTRIES</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="video-editing">VIDEO EDITING</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="web-dev">WEB DEVELOPMENT</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="meta-ads">META ADS</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="smm">SMM ORBIT</button>
+        </div>
+
+        <!-- Database Review Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="reviews-grid">
+          <!-- Dynamically populated / synced -->
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ADMIN FEEDBACK MANAGEMENT SYSTEM CONTROL DASHBOARD (TOGGLEABLE) -->
+  <section id="admin-management-system" class="py-12 px-4 md:px-8 relative z-10 hidden">
+    <div class="max-w-6xl mx-auto space-y-8">
+      
+      <!-- Management Header & Telemetry Stat Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 select-none">
+        <div class="glass-panel border-limeGreen/20 p-5 rounded-2xl space-y-1">
+          <p class="text-[10px] font-futuristic text-gray-400 uppercase tracking-widest">TOTAL TELEMETRY REVIEWS</p>
+          <div class="flex items-baseline justify-between">
+            <h3 id="stat-total-reviews" class="text-3xl font-futuristic font-black text-white">8</h3>
+            <span class="text-xs font-futuristic text-limeGreen font-bold">+100% GMB</span>
+          </div>
+        </div>
+
+        <div class="glass-panel border-white/10 p-5 rounded-2xl space-y-1">
+          <p class="text-[10px] font-futuristic text-gray-400 uppercase tracking-widest">AVERAGE SATISFACTION</p>
+          <div class="flex items-baseline justify-between">
+            <h3 id="stat-avg-rating" class="text-3xl font-futuristic font-black text-limeGreen">4.9 / 5.0</h3>
+            <div class="flex text-limeGreen">
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-limeGreen"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-panel border-white/10 p-5 rounded-2xl space-y-1">
+          <p class="text-[10px] font-futuristic text-gray-400 uppercase tracking-widest">FEATURED REVIEWS</p>
+          <div class="flex items-baseline justify-between">
+            <h3 id="stat-featured-count" class="text-3xl font-futuristic font-black text-white">4</h3>
+            <span class="text-xs font-futuristic text-limeGreen font-bold">HIGHLIGHTED</span>
+          </div>
+        </div>
+
+        <div class="glass-panel border-white/10 p-5 rounded-2xl space-y-1">
+          <p class="text-[10px] font-futuristic text-gray-400 uppercase tracking-widest">DATABASE STATUS</p>
+          <div class="flex items-baseline justify-between">
+            <h3 class="text-3xl font-futuristic font-black text-white">LIVE</h3>
+            <span class="text-[10px] font-futuristic text-limeGreen font-bold bg-limeGreen/10 border border-limeGreen/30 px-2 py-0.5 rounded-md">SYNCED</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Sub-tab Toggles -->
+      <div class="flex items-center gap-3 border-b border-white/5 pb-4 select-none">
+        <button id="admin-subtab-reviews" class="text-xs font-futuristic font-bold px-4 py-2 border-b-2 border-limeGreen text-white transition-all">
+          GMB REVIEWS MODERATION
+        </button>
+        <button id="admin-subtab-leads" class="text-xs font-futuristic font-bold px-4 py-2 border-b-2 border-transparent text-gray-500 hover:text-white transition-all">
+          BOOKED AUDITS & LEADS
+        </button>
+      </div>
+
+      <!-- Reviews Section Container -->
+      <div id="admin-reviews-section" class="space-y-6">
+        <!-- Action Control Toolbar -->
+        <div class="glass-panel border-white/10 p-4 md:p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4 select-none">
+          <!-- Search Input -->
+          <div class="relative w-full md:w-80">
+            <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            <input type="text" id="admin-search-input" placeholder="Search by name, brand or content..." class="w-full bg-black/60 border border-white/10 rounded-xl pl-10 pr-4 py-2.5 text-xs text-white outline-none focus:border-limeGreen transition-all font-sans">
+          </div>
+
+          <!-- Filter & Action Controls -->
+          <div class="flex flex-wrap items-center gap-3 w-full md:w-auto justify-end">
+            <select id="admin-category-filter" class="bg-black/60 border border-white/10 text-white rounded-xl px-3 py-2.5 text-xs font-futuristic outline-none focus:border-limeGreen">
+              <option value="all">ALL CATEGORIES</option>
+              <option value="video-editing">VIDEO EDITING</option>
+              <option value="web-dev">WEB DEV</option>
+              <option value="meta-ads">META ADS</option>
+              <option value="smm">SMM ORBIT</option>
+            </select>
+
+            <button class="open-make-modal-btn metallic-border text-white font-futuristic font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 hover:border-limeGreen transition-all">
+              <i data-lucide="zap" class="w-3.5 h-3.5 text-limeGreen"></i> MAKE.COM HOOK
+            </button>
+
+            <button id="admin-export-csv" class="metallic-border text-white font-futuristic font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 hover:border-limeGreen transition-all">
+              <i data-lucide="download" class="w-3.5 h-3.5 text-limeGreen"></i> EXPORT CSV
+            </button>
+
+            <button id="admin-reset-db" class="bg-red-500/10 border border-red-500/30 text-red-400 hover:bg-red-500/20 font-futuristic font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 transition-all">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> RESET DB
+            </button>
+          </div>
+        </div>
+
+        <!-- Feedback Records Table -->
+        <div class="glass-panel border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-white/5 border-b border-white/10 text-[10px] font-futuristic text-gray-400 uppercase tracking-wider">
+                  <th class="py-4 px-4">CLIENT & BRAND</th>
+                  <th class="py-4 px-4">SERVICE</th>
+                  <th class="py-4 px-4">SCORE</th>
+                  <th class="py-4 px-4">FEEDBACK PAYLOAD PREVIEW</th>
+                  <th class="py-4 px-4">STATUS</th>
+                  <th class="py-4 px-4 text-right">SYSTEM ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody id="admin-feedback-table-body" class="divide-y divide-white/5 text-xs font-sans">
+                <!-- Dynamically populated by app.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Leads Telemetry Table (Hidden by Default) -->
+      <div id="admin-leads-section" class="space-y-6 hidden">
+        <!-- Leads Toolbar -->
+        <div class="glass-panel border-white/10 p-4 md:p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4 select-none">
+          <h4 class="font-futuristic font-bold text-xs text-white flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-limeGreen animate-pulse"></span> BOOKED LEAD AUDITS DATABASE
+          </h4>
+
+          <div class="flex items-center gap-3">
+            <button id="admin-export-leads-csv" class="metallic-border text-white font-futuristic font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 hover:border-limeGreen transition-all">
+              <i data-lucide="download" class="w-3.5 h-3.5 text-limeGreen"></i> EXPORT LEADS CSV
+            </button>
+            <button id="admin-clear-leads" class="bg-red-500/10 border border-red-500/30 text-red-400 hover:bg-red-500/20 font-futuristic font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 transition-all font-futuristic">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i> PURGE ALL
+            </button>
+          </div>
+        </div>
+
+        <!-- Leads Table -->
+        <div class="glass-panel border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-white/5 border-b border-white/10 text-[10px] font-futuristic text-gray-400 uppercase tracking-wider">
+                  <th class="py-4 px-4">CLIENT NAME</th>
+                  <th class="py-4 px-4">EMAIL CONTACT</th>
+                  <th class="py-4 px-4">SERVICE</th>
+                  <th class="py-4 px-4">CHANNEL / WEBSITE</th>
+                  <th class="py-4 px-4">PROJECT OBJECTIVES SUMMARY</th>
+                  <th class="py-4 px-4 text-right">ACTION</th>
+                </tr>
+              </thead>
+              <tbody id="admin-leads-table-body" class="divide-y divide-white/5 text-xs font-sans">
+                <!-- Dynamically populated from localStorage -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WRITE A REVIEW DIALOG MODAL (POPUP ON OVERLAY) -->
+  <div id="feedback-modal-overlay" class="feedback-modal-overlay">
+    <div class="feedback-modal-box w-full max-w-lg bg-zinc-950 border border-limeGreen/25 rounded-3xl p-8 shadow-2xl relative font-futuristic text-left">
+      <!-- Close Button -->
+      <button id="close-feedback-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close Modal">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="space-y-6">
+        <div class="space-y-1">
+          <h3 class="font-bold text-xl text-white">WRITE GMB REVIEW</h3>
+          <p class="text-[10px] text-gray-500 uppercase tracking-widest">DISPATCH TO GOOGLE MAPS DATABASE</p>
+        </div>
+
+        <form id="review-submit-form" class="space-y-4 font-sans text-xs">
+          <!-- Full Name -->
+          <div class="space-y-1.5">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">FULL NAME *</label>
+            <input type="text" id="review-name" required placeholder="e.g. John Doe" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all">
+          </div>
+
+          <!-- Brand/Company -->
+          <div class="space-y-1.5">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">BRAND / TITLE *</label>
+            <input type="text" id="review-title" required placeholder="e.g. Founder, XYZ Labs" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all">
+          </div>
+
+          <!-- Service Rated -->
+          <div class="space-y-1.5">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">SERVICE RATED *</label>
+            <select id="review-service" required class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all">
+              <option value="video-editing">Video Editing</option>
+              <option value="web-dev">Web Development</option>
+              <option value="meta-ads">Meta Ads</option>
+              <option value="smm">SMM Orbit</option>
+            </select>
+          </div>
+
+          <!-- Testimonial Content -->
+          <div class="space-y-1.5">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">TESTIMONIAL PAYLOAD *</label>
+            <textarea id="review-text" required rows="4" placeholder="Detail your experience with Medimusicagrow..." class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all resize-none"></textarea>
+          </div>
+
+          <!-- Submit -->
+          <div class="flex justify-center pt-2">
+            <button type="submit" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center px-8 py-3 rounded-xl tracking-wider w-full text-xs">
+              SUBMIT FOR VERIFICATION
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER ORBIT -->
+  <footer class="bg-black/80 border-t border-white/5 py-12 px-4 md:px-8 relative overflow-hidden select-none">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 items-start relative z-10">
+      
+      <!-- Brand column -->
+      <div class="space-y-4 md:col-span-2">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="logo.png" alt="MMG Logo" class="w-8 h-8 object-contain">
+          <span class="font-futuristic font-black text-lg tracking-wider text-white">MEDIMUSICA<span class="text-limeGreen">GROW</span></span>
+        </a>
+        <p class="text-xs text-gray-500 max-w-sm leading-relaxed font-light">
+          Medimusicagrow Pvt. Ltd. is registered in India. MMG scales brands via performance systems, viral video engineering, and custom interactive web structures.
+        </p>
+        <p class="text-[10px] text-gray-400 font-light flex items-center gap-2">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-limeGreen"></i> Kayasthan, Kasganj, Uttar Pradesh, 207123
+        </p>
+        <p class="text-[10px] text-gray-400 font-light flex items-center gap-2">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-limeGreen"></i> +91 96346 25609
+        </p>
+      </div>
+
+      <!-- Links Column -->
+      <div class="space-y-4">
+        <h4 class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">SYSTEM MAP</h4>
+        <ul class="space-y-2 text-xs font-futuristic text-gray-400">
+          <li><a href="index.html" class="hover:text-limeGreen transition-colors">&bull; HOME INTERFACE</a></li>
+          <li><a href="services.html" class="hover:text-limeGreen transition-colors">&bull; SERVICES MATRIX</a></li>
+          <li><a href="clients.html" class="hover:text-limeGreen transition-colors">&bull; CLIENT ROSTER</a></li>
+          <li><a href="feedback.html" class="hover:text-limeGreen transition-colors">&bull; FEEDBACK BOARD</a></li>
+          <li><a href="training.html" class="hover:text-limeGreen transition-colors">&bull; TRAINING HUB</a></li>
+          <li><a href="contact.html" class="hover:text-limeGreen transition-colors">&bull; CONTACT PORTAL</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Footprints -->
+      <div class="space-y-4">
+        <h4 class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">SOCIAL ORBIT</h4>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://youtube.com/@medimusicagrow" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 hover:bg-red-500/5 transition-all" title="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.107C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.388.511a3.002 3.002 0 0 0-2.11 2.107C0 8.053 0 12 0 12s0 3.947.502 5.837a3.003 3.003 0 0 0 2.11 2.107c1.883.511 9.388.511 9.388.511s7.505 0 9.388-.511a3.002 3.002 0 0 0 2.11-2.107c.502-1.89.502-5.837.502-5.837s0-3.947-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 hover:bg-pink-500/5 transition-all" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="https://twitter.com/technofactclub?t=2fHPNEnfxVVl_B9P7UgsQw&s=08" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-400 hover:bg-blue-400/5 transition-all" title="Twitter / X">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://facebook.com/technofactclub" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-600 hover:border-blue-600 hover:bg-blue-600/5 transition-all" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://wa.me/919634625609" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-green-500 hover:border-green-500 hover:bg-green-500/5 transition-all" title="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.638 1.977 14.162.953 11.53.953c-5.442 0-9.866 4.372-9.87 9.802 0 1.83.504 3.619 1.46 5.205L2.09 20.35l4.557-1.196zm12.09-6.388c-.328-.164-1.942-.959-2.241-1.069-.3-.11-.518-.164-.736.164-.218.328-.844 1.069-1.035 1.288-.19.219-.38.247-.708.083-.328-.164-1.385-.511-2.638-1.63-.974-.87-1.632-1.944-1.823-2.272-.19-.328-.02-.505.144-.668.148-.147.328-.383.492-.575.164-.19.218-.328.328-.547.11-.219.055-.411-.027-.575-.082-.164-.736-1.777-1.008-2.434-.265-.636-.53-.55-.736-.56-.19-.01-.408-.01-.626-.01-.218 0-.573.082-.873.411-.3.328-1.145 1.122-1.145 2.736 0 1.614 1.173 3.175 1.336 3.394.164.218 2.3 3.512 5.572 4.927.778.337 1.386.538 1.86.689.782.248 1.493.213 2.055.129.626-.094 1.942-.795 2.215-1.562.272-.767.272-1.423.19-1.562-.081-.137-.3-.219-.628-.383z"/></svg>
+          </a>
+        </div>
+        <p class="text-[10px] text-gray-500 font-futuristic mt-2">
+          INTEGRATION HANDLERS: @MEDIMUSICAGROW &bull; @TECHNOFACTCLUB
+        </p>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="max-w-6xl mx-auto mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[10px] text-gray-500 font-futuristic gap-4">
+      <span>&copy; 2026 MEDIMUSICAGROW PVT. LTD. ALL RIGHTS RESERVED.</span>
+      <span class="tracking-widest">SYSTEM // ANTIGRAVITY ENGINE v2.0 // DEPLOYED</span>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu logic inclusion script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('mobile-menu-btn');
+      const closeBtn = document.getElementById('close-mobile-menu-btn');
+      const overlay = document.getElementById('mobile-menu-overlay');
+      if (btn && overlay) {
+        btn.addEventListener('click', () => {
+          overlay.classList.remove('translate-x-full');
+        });
+      }
+      if (closeBtn && overlay) {
+        closeBtn.addEventListener('click', () => {
+          overlay.classList.add('translate-x-full');
+        });
+      }
+    });
+  </script>
+
+  <!-- Link script.js -->
+  <script src="app.js"></script>
+</body>
+</html>
