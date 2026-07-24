@@ -1114,6 +1114,13 @@ if (form) {
         const capitalizedTier = tierParam.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
         messageElem.value = `Hello! I would like to book the Achievement Shoot: ${capitalizedTier} package. `;
       }
+    } else if (serviceParam === 'music-video' && tierParam) {
+      activatePackageCard('custom');
+      if (selectElem) selectElem.value = 'music-video';
+      const messageElem = document.getElementById('contact-message');
+      if (messageElem) {
+        messageElem.value = `Hello! I would like to book the Music Video Production package. `;
+      }
     } else {
       if (selectElem) {
         const options = Array.from(selectElem.options).map(o => o.value);
@@ -2368,6 +2375,114 @@ function initAchievementShootModal() {
   if (btnTrigger) btnTrigger.addEventListener('click', openAchModal);
 }
 
+function initMusicVideoModal() {
+  const cardTrigger = document.querySelector('.music-video-card-trigger');
+  const btnTrigger = document.querySelector('.music-video-btn-trigger');
+
+  if (!cardTrigger && !btnTrigger) return;
+
+  let musModal = document.getElementById('music-video-modal');
+  if (!musModal) {
+    musModal = document.createElement('div');
+    musModal.id = 'music-video-modal';
+    musModal.className = 'feedback-modal-overlay';
+    musModal.innerHTML = `
+      <div class="feedback-modal-box w-full max-w-xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="mus-modal-box">
+        <!-- Close Button -->
+        <button id="close-mus-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <!-- Header block -->
+        <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
+          <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
+          <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
+            Music Video Package
+          </div>
+        </div>
+
+        <!-- Centered Single Package Spotlight -->
+        <div class="pt-8">
+          <div class="glass-panel border-limeGreen/30 bg-limeGreen/5 rounded-2xl p-6 flex flex-col justify-between hover:border-limeGreen/50 transition-all duration-300 relative group shadow-[0_0_30px_rgba(140,230,0,0.05)]">
+            <div class="absolute top-4 right-4 text-[9px] bg-limeGreen/20 border border-limeGreen/30 px-2 py-0.5 rounded text-limeGreen font-mono font-bold tracking-widest">SPOTLIGHT</div>
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors uppercase">Music Video Production</h4>
+                <p class="text-[10px] text-gray-400">Complete end-to-end recording, grading, directing, and post-production.</p>
+              </div>
+              <div class="text-2xl font-black text-limeGreen font-sans py-2">₹7,999 - ₹29,999</div>
+              <ul class="text-[11px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> End-to-End Music Video Shoot</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> High-End Post-Production (Editing & Grading)</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 1 Customized Video Thumbnail Design</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 2 Promotional Song Poster Designs</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 2 to 3 BTS (Behind The Scenes) Reels</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Sony Mirrorless Camera Setup</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 4K Aerial Drone Coverage</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Handheld 3-Axis Stabilizing Gimbal</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Professional Lighting Configurations</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 1 On-Screen Model Included</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 3 to 5 Professional Crew Team Members</li>
+              </ul>
+            </div>
+            <div class="pt-6">
+              <a href="contact.html?service=music-video&tier=music-video" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full">
+                CHOOSE MUSIC VIDEO
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Policy Footnotes -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 pt-6 border-t border-white/5">
+          <div class="flex items-start gap-2.5 bg-white/[0.02] border border-white/5 rounded-xl p-4 text-[10px] text-gray-400">
+            <i data-lucide="clock" class="w-4 h-4 text-limeGreen flex-shrink-0"></i>
+            <div>
+              <strong class="text-white block uppercase mb-0.5">EXTRA TIME COVERAGE</strong>
+              Extra shoot duration beyond standard package limits will be subject to additional hourly compensation.
+            </div>
+          </div>
+          <div class="flex items-start gap-2.5 bg-red-500/5 border border-red-500/10 rounded-xl p-4 text-[10px] text-gray-400">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-red-400 flex-shrink-0"></i>
+            <div>
+              <strong class="text-red-400 block uppercase mb-0.5">TRAVEL EXPENSES (TA/DA)</strong>
+              Travel & Daily Allowance (TA/DA) expenses for the crew are to be fully borne by the client.
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer block -->
+        <div class="border-t border-white/5 mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-gray-500 select-none">
+          <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-limeGreen"></i> +91 96346 25609</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-limeGreen"></i> Awas Vikas Colony, Kasganj, Uttar Pradesh</span>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(musModal);
+    if (window.lucide) lucide.createIcons();
+
+    // Close listeners
+    const closeBtn = document.getElementById('close-mus-modal');
+    closeBtn.addEventListener('click', () => musModal.classList.remove('open'));
+    musModal.addEventListener('click', (e) => {
+      if (e.target === musModal) {
+        musModal.classList.remove('open');
+      }
+    });
+  }
+
+  const openMusModal = (e) => {
+    if (e.type === 'click' && e.currentTarget === cardTrigger && e.target.closest('button, a')) {
+      return;
+    }
+    e.preventDefault();
+    musModal.classList.add('open');
+  };
+
+  if (cardTrigger) cardTrigger.addEventListener('click', openMusModal);
+  if (btnTrigger) btnTrigger.addEventListener('click', openMusModal);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initAdminSubtabs();
   initSmmPackageModal();
@@ -2375,6 +2490,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCorporateEventsModal();
   initFamilyEventsModal();
   initAchievementShootModal();
+  initMusicVideoModal();
   if (document.getElementById('admin-leads-table-body')) {
     renderAdminLeads();
   }
