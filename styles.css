@@ -374,17 +374,20 @@ h1, h2, h3, h4, h5, h6, .font-futuristic {
   box-shadow: 0 0 15px rgba(140, 230, 0, 0.15) !important;
 }
 
-/* CC & Corp Modal package card hover zoom */
+/* CC, Corp & Fam Modal package card hover zoom */
 #cc-modal-box .grid > div,
-#corp-modal-box .grid > div {
+#corp-modal-box .grid > div,
+#fam-modal-box .grid > div {
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease !important;
 }
 #cc-modal-box .grid > div:hover,
-#corp-modal-box .grid > div:hover {
+#corp-modal-box .grid > div:hover,
+#fam-modal-box .grid > div:hover {
   transform: scale(1.03) !important;
 }
 #cc-modal-box .grid > div.scale-105:hover,
-#corp-modal-box .grid > div.scale-105:hover {
+#corp-modal-box .grid > div.scale-105:hover,
+#fam-modal-box .grid > div.scale-105:hover {
   transform: scale(1.08) !important;
 }
 

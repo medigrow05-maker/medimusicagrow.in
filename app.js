@@ -1098,6 +1098,14 @@ if (form) {
         const capitalizedTier = tierParam.charAt(0).toUpperCase() + tierParam.slice(1);
         messageElem.value = `Hello! I would like to book the Corporate Event ${capitalizedTier} Capture package. `;
       }
+    } else if (serviceParam === 'family-events' && tierParam) {
+      activatePackageCard('custom');
+      if (selectElem) selectElem.value = 'family-events';
+      const messageElem = document.getElementById('contact-message');
+      if (messageElem) {
+        const capitalizedTier = tierParam.charAt(0).toUpperCase() + tierParam.slice(1);
+        messageElem.value = `Hello! I would like to book the Family Event ${capitalizedTier} package. `;
+      }
     } else {
       if (selectElem) {
         const options = Array.from(selectElem.options).map(o => o.value);
@@ -1964,11 +1972,218 @@ function initCorporateEventsModal() {
   if (btnTrigger) btnTrigger.addEventListener('click', openCorpModal);
 }
 
+function initFamilyEventsModal() {
+  const cardTrigger = document.querySelector('.family-events-card-trigger');
+  const btnTrigger = document.querySelector('.family-events-btn-trigger');
+
+  if (!cardTrigger && !btnTrigger) return;
+
+  let famModal = document.getElementById('family-events-modal');
+  if (!famModal) {
+    famModal = document.createElement('div');
+    famModal.id = 'family-events-modal';
+    famModal.className = 'feedback-modal-overlay';
+    famModal.innerHTML = `
+      <div class="feedback-modal-box w-full max-w-7xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="fam-modal-box">
+        <!-- Close Button -->
+        <button id="close-fam-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <!-- Header block -->
+        <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
+          <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
+          <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
+            Family Event Packages
+          </div>
+        </div>
+
+        <!-- 5 Column Pricing Matrix Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 pt-8">
+          
+          <!-- Package 1: Wedding -->
+          <div class="glass-panel border-limeGreen/30 bg-limeGreen/5 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/50 transition-all duration-300 relative group">
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase">Wedding</h4>
+                <p class="text-[9px] text-gray-400">Haldi, Mehndi, Sangeet, Wedding, Reception coverage.</p>
+              </div>
+              <div class="text-lg font-black text-limeGreen font-sans">₹4,999 - ₹39,999</div>
+              <ul class="text-[10px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 3 to 15 Reels</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Professional Shoot</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> High-End Editing</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Sony Pro Cameras</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 4K Aerial Drone</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Gimbal & Studio Lights</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 1 to 5 Crew Members</li>
+              </ul>
+            </div>
+            <div class="pt-4">
+              <a href="contact.html?service=family-events&tier=wedding" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full">
+                CHOOSE WEDDING
+              </a>
+            </div>
+          </div>
+
+          <!-- Package 2: Engagement -->
+          <div class="glass-panel border-white/10 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase">Engagement</h4>
+                <p class="text-[9px] text-gray-400">Complete ring ceremony captures and cinematic highlight.</p>
+              </div>
+              <div class="text-lg font-black text-limeGreen font-sans">₹3,999 - ₹12,999</div>
+              <ul class="text-[10px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 2 to 5 Reels</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Professional Shoot</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> High-End Editing</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Sony Pro Cameras</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 4K Aerial Drone</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Gimbal & Studio Lights</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 1 to 3 Crew Members</li>
+              </ul>
+            </div>
+            <div class="pt-4">
+              <a href="contact.html?service=family-events&tier=engagement" class="metallic-border text-white font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
+                CHOOSE ENGAGEMENT
+              </a>
+            </div>
+          </div>
+
+          <!-- Package 3: Birthday -->
+          <div class="glass-panel border-white/10 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase">Birthday</h4>
+                <p class="text-[9px] text-gray-400">Vibrant birthday celebrations and event highlight reels.</p>
+              </div>
+              <div class="text-lg font-black text-limeGreen font-sans">₹2,999 - ₹9,999</div>
+              <ul class="text-[10px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 2 to 5 Reels</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Professional Shoot</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> High-End Editing</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Sony Pro Cameras</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 4K Aerial Drone</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Gimbal & Studio Lights</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 1 to 3 Crew Members</li>
+              </ul>
+            </div>
+            <div class="pt-4">
+              <a href="contact.html?service=family-events&tier=birthday" class="metallic-border text-white font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
+                CHOOSE BIRTHDAY
+              </a>
+            </div>
+          </div>
+
+          <!-- Package 4: Baby Born -->
+          <div class="glass-panel border-white/10 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase font-futuristic">Baby Born</h4>
+                <p class="text-[9px] text-gray-400">Sweet captures of newborns and infant family moments.</p>
+              </div>
+              <div class="text-lg font-black text-limeGreen font-sans">₹3,999 - ₹12,999</div>
+              <ul class="text-[10px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 2 to 5 Reels</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Professional Shoot</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> High-End Editing</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Sony Pro Cameras</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 4K Aerial Drone</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Gimbal & Studio Lights</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 1 to 3 Crew Members</li>
+              </ul>
+            </div>
+            <div class="pt-4">
+              <a href="contact.html?service=family-events&tier=baby-born" class="metallic-border text-white font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
+                CHOOSE BABY BORN
+              </a>
+            </div>
+          </div>
+
+          <!-- Package 5: Baby Shower -->
+          <div class="glass-panel border-white/10 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase font-futuristic">Baby Shower</h4>
+                <p class="text-[9px] text-gray-400">Heartwarming baby shower memories and cinematic reels.</p>
+              </div>
+              <div class="text-lg font-black text-limeGreen font-sans">₹2,999 - ₹9,999</div>
+              <ul class="text-[10px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 2 to 5 Reels</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Professional Shoot</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> High-End Editing</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Sony Pro Cameras</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 4K Aerial Drone</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Gimbal & Studio Lights</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 1 to 3 Crew Members</li>
+              </ul>
+            </div>
+            <div class="pt-4">
+              <a href="contact.html?service=family-events&tier=baby-shower" class="metallic-border text-white font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
+                CHOOSE BABY SHOWER
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Policy Footnotes -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 pt-6 border-t border-white/5">
+          <div class="flex items-start gap-2.5 bg-white/[0.02] border border-white/5 rounded-xl p-4 text-[10px] text-gray-400">
+            <i data-lucide="clock" class="w-4 h-4 text-limeGreen flex-shrink-0"></i>
+            <div>
+              <strong class="text-white block uppercase mb-0.5">EXTRA TIME COVERAGE</strong>
+              Extra shoot duration beyond standard package limits will be subject to additional hourly compensation.
+            </div>
+          </div>
+          <div class="flex items-start gap-2.5 bg-red-500/5 border border-red-500/10 rounded-xl p-4 text-[10px] text-gray-400">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-red-400 flex-shrink-0"></i>
+            <div>
+              <strong class="text-red-400 block uppercase mb-0.5">TRAVEL EXPENSES (TA/DA)</strong>
+              Travel & Daily Allowance (TA/DA) expenses for the crew are to be fully borne by the client.
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer block -->
+        <div class="border-t border-white/5 mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-gray-500 select-none">
+          <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-limeGreen"></i> +91 96346 25609</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-limeGreen"></i> Awas Vikas Colony, Kasganj, Uttar Pradesh</span>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(famModal);
+    if (window.lucide) lucide.createIcons();
+
+    // Close listeners
+    const closeBtn = document.getElementById('close-fam-modal');
+    closeBtn.addEventListener('click', () => famModal.classList.remove('open'));
+    famModal.addEventListener('click', (e) => {
+      if (e.target === famModal) {
+        famModal.classList.remove('open');
+      }
+    });
+  }
+
+  const openFamModal = (e) => {
+    if (e.type === 'click' && e.currentTarget === cardTrigger && e.target.closest('button, a')) {
+      return;
+    }
+    e.preventDefault();
+    famModal.classList.add('open');
+  };
+
+  if (cardTrigger) cardTrigger.addEventListener('click', openFamModal);
+  if (btnTrigger) btnTrigger.addEventListener('click', openFamModal);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initAdminSubtabs();
   initSmmPackageModal();
   initContentCreationModal();
   initCorporateEventsModal();
+  initFamilyEventsModal();
   if (document.getElementById('admin-leads-table-body')) {
     renderAdminLeads();
   }
