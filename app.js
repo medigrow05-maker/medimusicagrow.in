@@ -1739,6 +1739,7 @@ function initContentCreationModal() {
                 <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Professional Lighting & Studio Microphone</li>
                 <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 1 On-Screen Model Included</li>
                 <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 2 to 3 Crew Team Members</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> All shoots completed in a single visit</li>
                 <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-gray-500 flex-shrink-0"></i> 5 to 6 Hours Shoot Time</li>
               </ul>
             </div>
