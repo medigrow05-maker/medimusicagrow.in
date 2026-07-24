@@ -276,9 +276,9 @@ if (typeof gsap !== 'undefined') {
   const proofSection = document.getElementById('proof');
   if (proofSection) {
     const counters = [
-      { id: 'counter-views', target: 3, format: (val) => `${Math.floor(val)}M+` },
+      { id: 'counter-views', target: 100, format: (val) => `${Math.floor(val)}M+` },
       { id: 'counter-roi', target: 10, format: (val) => `${Math.floor(val)}x` },
-      { id: 'counter-brands', target: 50, format: (val) => `${Math.floor(val)}+` }
+      { id: 'counter-brands', target: 194, format: (val) => `${Math.floor(val)}+` }
     ];
 
     counters.forEach(counter => {
