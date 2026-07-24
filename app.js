@@ -19,15 +19,15 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 function highlightActiveRoute() {
   const currentPath = window.location.pathname;
   const navLinks = document.querySelectorAll('header nav a, footer ul a');
-  
+
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
     if (!href) return;
-    
+
     // Check if current URL ends with the link href
     const isHomePage = currentPath.endsWith('/') || currentPath.endsWith('index.html');
     const isMatch = currentPath.endsWith(href) || (isHomePage && href === 'index.html');
-    
+
     if (isMatch) {
       link.classList.add('nav-link-active');
     } else {
@@ -65,8 +65,8 @@ if (canvas) {
       this.speedY = -(Math.random() * 0.8 + 0.2); // Slowly rise up
       this.speedX = (Math.random() - 0.5) * 0.4;  // Slight drift
       this.opacity = Math.random() * 0.5 + 0.1;
-      this.color = Math.random() > 0.4 
-        ? `rgba(140, 230, 0, ${this.opacity})` 
+      this.color = Math.random() > 0.4
+        ? `rgba(140, 230, 0, ${this.opacity})`
         : `rgba(255, 255, 255, ${this.opacity})`;
     }
 
@@ -139,10 +139,10 @@ if (!isTouchDevice && window.innerWidth >= 1024) {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
+
       const xc = rect.width / 2;
       const yc = rect.height / 2;
-      
+
       const tiltX = -(y - yc) / 12;
       const tiltY = (x - xc) / 12;
 
@@ -297,7 +297,7 @@ if (typeof gsap !== 'undefined') {
           toggleActions: 'play none none none'
         },
         snap: { textContent: 1 },
-        onUpdate: function() {
+        onUpdate: function () {
           el.textContent = counter.format(parseFloat(this.targets()[0].textContent));
         }
       });
@@ -353,7 +353,7 @@ function updateCarousel(direction) {
       if (cardImg) cardImg.style.backgroundImage = `url('${current.image}')`;
       if (cardTitle) cardTitle.textContent = current.title;
       if (ytSub) ytSub.textContent = current.subCount;
-      
+
       const slideText = `SLIDE 0${ytCarousel.currentIndex + 1} // 03`;
       const slideLabel = document.querySelector('#universe span.text-gray-500, .carousel-slide-label');
       if (slideLabel) slideLabel.textContent = slideText;
@@ -513,7 +513,7 @@ function loadFeedbackDB() {
 function saveFeedbackDB() {
   try {
     localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList));
-  } catch (e) {}
+  } catch (e) { }
   renderAllFeedbackViews();
 }
 
@@ -571,7 +571,7 @@ function renderAdminDashboard() {
   const totalStat = document.getElementById('stat-total-reviews');
   const avgStat = document.getElementById('stat-avg-rating');
   const featuredStat = document.getElementById('stat-featured-count');
-  
+
   if (!tableBody) return;
 
   const total = feedbackList.length;
@@ -590,9 +590,9 @@ function renderAdminDashboard() {
 
   const filtered = feedbackList.filter(item => {
     const matchesCat = cat === 'all' || item.category === cat;
-    const matchesQuery = !query || 
-      item.name.toLowerCase().includes(query) || 
-      item.title.toLowerCase().includes(query) || 
+    const matchesQuery = !query ||
+      item.name.toLowerCase().includes(query) ||
+      item.title.toLowerCase().includes(query) ||
       item.text.toLowerCase().includes(query);
     return matchesCat && matchesQuery;
   });
@@ -607,7 +607,7 @@ function renderAdminDashboard() {
   filtered.forEach(item => {
     const tr = document.createElement('tr');
     tr.className = "hover:bg-white/[0.02] transition-colors";
-    
+
     tr.innerHTML = `
       <td class="py-3 px-4">
         <p class="font-bold text-white font-futuristic text-xs">${item.name}</p>
@@ -684,7 +684,7 @@ function showAdminSection() {
   if (tabPublicView && tabAdminView && publicSection && adminSection) {
     tabAdminView.className = "view-tab-btn px-6 py-3 rounded-xl font-futuristic font-bold text-xs tracking-wider transition-all bg-limeGreen text-brandBg shadow-lg shadow-limeGreen/20";
     tabPublicView.className = "view-tab-btn px-6 py-3 rounded-xl font-futuristic font-bold text-xs tracking-wider transition-all border border-white/10 text-gray-400 hover:text-white hover:border-limeGreen/50";
-    
+
     adminSection.classList.remove('hidden');
     publicSection.classList.add('hidden');
     gsap.fromTo(adminSection, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 });
@@ -695,7 +695,7 @@ function showPublicSection() {
   if (tabPublicView && tabAdminView && publicSection && adminSection) {
     tabPublicView.className = "view-tab-btn px-6 py-3 rounded-xl font-futuristic font-bold text-xs tracking-wider transition-all bg-limeGreen text-brandBg shadow-lg shadow-limeGreen/20";
     tabAdminView.className = "view-tab-btn px-6 py-3 rounded-xl font-futuristic font-bold text-xs tracking-wider transition-all border border-white/10 text-gray-400 hover:text-white hover:border-limeGreen/50";
-    
+
     publicSection.classList.remove('hidden');
     adminSection.classList.add('hidden');
     gsap.fromTo(publicSection, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 });
@@ -775,9 +775,11 @@ function promptAdminLogin() {
         errorMsg.classList.remove('hidden');
         input.value = '';
         input.focus();
-        gsap.fromTo(loginBox, { x: -10 }, { x: 10, duration: 0.1, repeat: 5, yoyo: true, onComplete: () => {
-          gsap.set(loginBox, { x: 0 });
-        }});
+        gsap.fromTo(loginBox, { x: -10 }, {
+          x: 10, duration: 0.1, repeat: 5, yoyo: true, onComplete: () => {
+            gsap.set(loginBox, { x: 0 });
+          }
+        });
       }
     });
   }
@@ -817,7 +819,7 @@ function setupSecretAdminAccess() {
   document.querySelectorAll('footer div, footer span, footer p').forEach(el => {
     const text = (el.textContent || '').toUpperCase();
     const isCopyright = text.includes('MEDIMUSICAGROW PVT. LTD. ALL RIGHTS RESERVED.') || text.includes('MEDIMUSICAGROW PVT. LTD.');
-    
+
     if (isCopyright && el.children.length === 0) {
       el.style.cursor = 'help';
       el.title = 'Security Node Access Trigger';
@@ -1004,7 +1006,7 @@ curriculumTriggers.forEach(trigger => {
   trigger.addEventListener('click', () => {
     const content = trigger.nextElementSibling;
     const icon = trigger.querySelector('.lucide-chevron-down');
-    
+
     // Close other triggers
     const openContents = document.querySelectorAll('.curriculum-content.open');
     openContents.forEach(openContent => {
@@ -1042,7 +1044,7 @@ if (form) {
     if (targetCard) {
       targetCard.classList.add('active');
       if (packageHiddenInput) packageHiddenInput.value = packageVal;
-      
+
       const targetService = targetCard.getAttribute('data-service');
       if (targetService && selectElem) {
         selectElem.value = targetService;
@@ -1149,7 +1151,7 @@ if (form) {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     const name = document.getElementById('contact-name')?.value || '';
     const email = document.getElementById('contact-email')?.value || '';
     const service = document.getElementById('contact-service')?.value || '';
@@ -1190,7 +1192,7 @@ if (form) {
         date: new Date().toISOString().split('T')[0]
       });
       localStorage.setItem('mmg_leads_db', JSON.stringify(savedLeads));
-    } catch(err) {}
+    } catch (err) { }
 
     if (successScreen) {
       successScreen.classList.remove('pointer-events-none');
@@ -1240,7 +1242,7 @@ function saveMakeWebhookUrl(url) {
 async function sendToMakeWebhook(payload) {
   const webhookUrl = getMakeWebhookUrl();
   console.log('[Make.com Integration] Dispatching payload to Make.com:', webhookUrl, payload);
-  
+
   showMakeNotification('Dispatched lead payload to Make.com Scenario...', 'sending');
 
   try {
@@ -1288,7 +1290,7 @@ function showMakeNotification(msg, type = 'info') {
   if (window.lucide) lucide.createIcons();
 
   toast.classList.remove('translate-y-10', 'opacity-0', 'pointer-events-none');
-  
+
   setTimeout(() => {
     toast.classList.add('translate-y-10', 'opacity-0', 'pointer-events-none');
   }, 4000);
@@ -1400,7 +1402,7 @@ function renderAdminLeads() {
   let leads = [];
   try {
     leads = JSON.parse(localStorage.getItem('mmg_leads_db') || '[]');
-  } catch(e) {
+  } catch (e) {
     leads = [];
   }
 
@@ -1414,7 +1416,7 @@ function renderAdminLeads() {
   leads.forEach(lead => {
     const tr = document.createElement('tr');
     tr.className = "hover:bg-white/[0.02] transition-colors";
-    
+
     tr.innerHTML = `
       <td class="py-3 px-4 font-bold text-white font-futuristic text-xs">
         ${lead.name}
@@ -1472,7 +1474,7 @@ function initAdminSubtabs() {
     btnReviews.addEventListener('click', () => {
       btnReviews.className = "text-xs font-futuristic font-bold px-4 py-2 border-b-2 border-limeGreen text-white transition-all";
       btnLeads.className = "text-xs font-futuristic font-bold px-4 py-2 border-b-2 border-transparent text-gray-500 hover:text-white transition-all";
-      
+
       secReviews.classList.remove('hidden');
       secLeads.classList.add('hidden');
       gsap.fromTo(secReviews, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 });
@@ -1481,7 +1483,7 @@ function initAdminSubtabs() {
     btnLeads.addEventListener('click', () => {
       btnLeads.className = "text-xs font-futuristic font-bold px-4 py-2 border-b-2 border-limeGreen text-white transition-all";
       btnReviews.className = "text-xs font-futuristic font-bold px-4 py-2 border-b-2 border-transparent text-gray-500 hover:text-white transition-all";
-      
+
       secLeads.classList.remove('hidden');
       secReviews.classList.add('hidden');
       renderAdminLeads();
@@ -2728,7 +2730,7 @@ const MMG_CLIENTS = [
     handle: "@chachatvs_kasganj",
     initials: "CT",
     icon: "car",
-    logo: "client_logos/chacha_tvs.png",
+    logo: "client_logos/Chacha TVS/469400857_1701546764039515_4631678856202344053_n.jpg",
     desc: "Complete automobile digital marketing execution, festival launch campaigns, showroom videos, and graphic design elevation."
   },
   {
@@ -2739,7 +2741,7 @@ const MMG_CLIENTS = [
     handle: "@shrikrishnamobile_etah",
     initials: "SKM",
     icon: "smartphone",
-    logo: "client_logos/shri_krishna_mobile.png",
+    logo: "client_logos/Shri Krishna Mobile/495457380_17846925279466986_2808942115912623832_n.jpg",
     desc: "Vibrant retail unboxing reels, custom offer creatives, device hype promos, and local digital audience building."
   },
   {
@@ -2750,7 +2752,7 @@ const MMG_CLIENTS = [
     handle: "@time_electronic_centre_2.0",
     initials: "TEC",
     icon: "tv",
-    logo: "client_logos/time_electronic.png",
+    logo: "client_logos/Time Electronic Centre/499656721_17842687731497523_7432095133639597349_n.jpg",
     desc: "High-impact retail commercials, home appliance launch reels, custom motion graphics and subtitles editing."
   },
   {
@@ -2761,7 +2763,7 @@ const MMG_CLIENTS = [
     handle: "@balanceyogastudiobyvasu",
     initials: "BYS",
     icon: "heart",
-    logo: "client_logos/balance_yoga.png",
+    logo: "client_logos/Balance Yoga Studio/425136918_1111146633558934_3187566961471955387_n.jpg",
     desc: "Calming studio aesthetics videography, wellness reels production, scheduling and social media content structuring."
   },
   {
@@ -2772,7 +2774,7 @@ const MMG_CLIENTS = [
     handle: "@dvfmall_kasganj",
     initials: "DVF",
     icon: "shopping-bag",
-    logo: "client_logos/dvf_mall.png",
+    logo: "client_logos/DVF Mall/39323951_957709904352880_3567679253744975872_n.jpg",
     desc: "Comprehensive lifestyle mall promotional reels, festival footfall shoots, and regular event capture coverage."
   },
   {
@@ -2783,7 +2785,7 @@ const MMG_CLIENTS = [
     handle: "@new_apna_mobile_etah",
     initials: "NAM",
     icon: "smartphone",
-    logo: "client_logos/new_apna_mobile.png",
+    logo: "client_logos/New Apna Mobile/587916362_18442043599100357_5960844131275757720_n.jpg",
     desc: "Festive sales campaign creative templates, new model launch teasers, and retail consumer engagement strategy."
   },
   {
@@ -2794,7 +2796,7 @@ const MMG_CLIENTS = [
     handle: "@chacha_agencies",
     initials: "CEC",
     icon: "battery-charging",
-    logo: "client_logos/chacha_exide.png",
+    logo: "client_logos/Chacha Exide Care/481382424_1642614726623559_5130906351632337479_n.jpg",
     desc: "Industrial & battery tech social media creatives, service assurance campaign shoots, and local lead generation."
   },
   {
@@ -2805,7 +2807,7 @@ const MMG_CLIENTS = [
     handle: "@tajelectronics_etah",
     initials: "TE",
     icon: "tv",
-    logo: "client_logos/taj_electronics.png",
+    logo: "client_logos/Taj Electronics/556234749_17844272319581212_609477138050771684_n.jpg",
     desc: "Smart TV & sound system showcase reels, customer testimonial captures, and retail brand identity design."
   },
   {
@@ -2816,7 +2818,7 @@ const MMG_CLIENTS = [
     handle: "@pankajcomputerkasganj",
     initials: "PCZ",
     icon: "laptop",
-    logo: "client_logos/pankaj_computer.png",
+    logo: "client_logos/Pankaj Computer Zone/652615569_18059330294460358_4107742064455736677_n.jpg",
     desc: "IT & hardware repair reels, custom software training templates, and educational tech creatives."
   },
   {
@@ -2827,7 +2829,7 @@ const MMG_CLIENTS = [
     handle: "@dhanshreemotors_dibai",
     initials: "DST",
     icon: "car",
-    logo: "client_logos/dhan_shri_tvs.png",
+    logo: "client_logos/Dhan Shri TVS/658665291_18073567658298489_4482987478413595714_n.jpg",
     desc: "Vibrant vehicle launch cinematic reels, drone dealership showcases, and two-wheeler feature highlight reels."
   },
   {
@@ -2838,7 +2840,7 @@ const MMG_CLIENTS = [
     handle: "@ncs_coachmukeshsoni",
     initials: "CMS",
     icon: "activity",
-    logo: "client_logos/coach_mukesh.png",
+    logo: "client_logos/Coach Mukesh Soni/731016440_18602430400052034_1652070422194895315_n.jpg",
     desc: "Personal branding video structure, lifestyle transformation reel editing, and educational content pacing."
   },
   {
@@ -2849,7 +2851,7 @@ const MMG_CLIENTS = [
     handle: "@mobileworld_etah",
     initials: "MW",
     icon: "smartphone",
-    logo: "client_logos/mobile_world.png",
+    logo: "client_logos/Mobile World/704592441_18136145926488374_4512266194765386123_n.jpg",
     desc: "Local mobile retail brand strategy, premium phone unboxings, and visual store walk-throughs."
   }
 ];
@@ -2870,8 +2872,8 @@ function initClientRoster() {
     const filtered = MMG_CLIENTS.filter(client => {
       const matchesFilter = activeFilter === 'all' || client.category === activeFilter;
       const matchesSearch = client.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                            client.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                            client.category.toLowerCase().includes(searchQuery.toLowerCase());
+        client.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        client.category.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesFilter && matchesSearch;
     });
 
@@ -3046,7 +3048,7 @@ function openClientDetailModal(clientName) {
   if (window.lucide) lucide.createIcons();
 
   // Close when clicking overlay
-  detailModal.addEventListener('click', function(e) {
+  detailModal.addEventListener('click', function (e) {
     if (e.target === detailModal) {
       closeClientDetailModal();
     }
