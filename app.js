@@ -1129,6 +1129,13 @@ if (form) {
         const capitalizedTier = tierParam.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
         messageElem.value = `Hello! I would like to book the Video Editing: ${capitalizedTier} package. `;
       }
+    } else if (serviceParam === 'influencer-marketing') {
+      activatePackageCard('custom');
+      if (selectElem) selectElem.value = 'influencer-marketing';
+      const messageElem = document.getElementById('contact-message');
+      if (messageElem) {
+        messageElem.value = `Hello! I would like to inquire about Influencer Marketing campaigns. `;
+      }
     } else {
       if (selectElem) {
         const options = Array.from(selectElem.options).map(o => o.value);
@@ -2634,6 +2641,84 @@ function initVideoEditingModal() {
   if (btnTrigger) btnTrigger.addEventListener('click', openEditModal);
 }
 
+function initInfluencerMarketingModal() {
+  const cardTrigger = document.querySelector('.influencer-marketing-card-trigger');
+  const btnTrigger = document.querySelector('.influencer-marketing-btn-trigger');
+
+  if (!cardTrigger && !btnTrigger) return;
+
+  let infModal = document.getElementById('influencer-marketing-modal');
+  if (!infModal) {
+    infModal = document.createElement('div');
+    infModal.id = 'influencer-marketing-modal';
+    infModal.className = 'feedback-modal-overlay';
+    infModal.innerHTML = `
+      <div class="feedback-modal-box w-full max-w-xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="inf-modal-box">
+        <!-- Close Button -->
+        <button id="close-inf-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <!-- Header block -->
+        <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
+          <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
+          <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
+            Influencer Marketing
+          </div>
+        </div>
+
+        <!-- Description Block -->
+        <div class="pt-8 space-y-6">
+          <div class="glass-panel border-limeGreen/20 bg-limeGreen/5 rounded-2xl p-6 relative group shadow-[0_0_30px_rgba(140,230,0,0.05)]">
+            <div class="space-y-4">
+              <h4 class="text-lg font-bold text-white uppercase tracking-wide">Campaign Customization</h4>
+              <p class="text-xs text-gray-300 leading-relaxed font-light font-futuristic">
+                Package may vary according to your need and according to the influencers followers.
+              </p>
+              <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4 text-[11px] text-gray-400 font-futuristic font-light">
+                We design fully tailored influencer campaigns to connect your brand with high-performing content creators. Budget and delivery parameters depend directly on creator reach, target demographics, and custom visual requirements.
+              </div>
+            </div>
+            <div class="pt-6">
+              <a href="contact.html?service=influencer-marketing" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full">
+                INQUIRE FOR CAMPAIGN
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer block -->
+        <div class="border-t border-white/5 mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-gray-500 select-none font-futuristic">
+          <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-limeGreen"></i> +91 96346 25609</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-limeGreen"></i> Awas Vikas Colony, Kasganj, Uttar Pradesh</span>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(infModal);
+    if (window.lucide) lucide.createIcons();
+
+    // Close listeners
+    const closeBtn = document.getElementById('close-inf-modal');
+    closeBtn.addEventListener('click', () => infModal.classList.remove('open'));
+    infModal.addEventListener('click', (e) => {
+      if (e.target === infModal) {
+        infModal.classList.remove('open');
+      }
+    });
+  }
+
+  const openInfModal = (e) => {
+    if (e.type === 'click' && e.currentTarget === cardTrigger && e.target.closest('button, a')) {
+      return;
+    }
+    e.preventDefault();
+    infModal.classList.add('open');
+  };
+
+  if (cardTrigger) cardTrigger.addEventListener('click', openInfModal);
+  if (btnTrigger) btnTrigger.addEventListener('click', openInfModal);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initAdminSubtabs();
   initSmmPackageModal();
@@ -2643,6 +2728,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAchievementShootModal();
   initMusicVideoModal();
   initVideoEditingModal();
+  initInfluencerMarketingModal();
   if (document.getElementById('admin-leads-table-body')) {
     renderAdminLeads();
   }
