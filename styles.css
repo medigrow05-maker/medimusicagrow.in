@@ -364,3 +364,24 @@ h1, h2, h3, h4, h5, h6, .font-futuristic {
   background: rgba(140, 230, 0, 0.05) !important;
 }
 
+/* Selectable package card hover zoom */
+#package-selector-grid [data-package] {
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease !important;
+}
+#package-selector-grid [data-package]:hover {
+  transform: scale(1.05);
+  border-color: var(--color-lime) !important;
+  box-shadow: 0 0 15px rgba(140, 230, 0, 0.15) !important;
+}
+
+/* CC Modal package card hover zoom */
+#cc-modal-box .grid > div {
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease !important;
+}
+#cc-modal-box .grid > div:hover {
+  transform: scale(1.03) !important;
+}
+#cc-modal-box .grid > div.scale-105:hover {
+  transform: scale(1.08) !important;
+}
+
