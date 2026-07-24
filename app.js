@@ -2491,8 +2491,6 @@ function initMusicVideoModal() {
   if (btnTrigger) btnTrigger.addEventListener('click', openMusModal);
 }
 
-}
-
 function initVideoEditingModal() {
   const cardTrigger = document.querySelector('.video-editing-card-trigger');
   const btnTrigger = document.querySelector('.video-editing-btn-trigger');
