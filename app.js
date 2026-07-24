@@ -2728,6 +2728,7 @@ const MMG_CLIENTS = [
     handle: "@chachatvs_kasganj",
     initials: "CT",
     icon: "car",
+    logo: "client_logos/chacha_tvs.png",
     desc: "Complete automobile digital marketing execution, festival launch campaigns, showroom videos, and graphic design elevation."
   },
   {
@@ -2738,6 +2739,7 @@ const MMG_CLIENTS = [
     handle: "@shrikrishnamobile_etah",
     initials: "SKM",
     icon: "smartphone",
+    logo: "client_logos/shri_krishna_mobile.png",
     desc: "Vibrant retail unboxing reels, custom offer creatives, device hype promos, and local digital audience building."
   },
   {
@@ -2748,6 +2750,7 @@ const MMG_CLIENTS = [
     handle: "@time_electronic_centre_2.0",
     initials: "TEC",
     icon: "tv",
+    logo: "client_logos/time_electronic.png",
     desc: "High-impact retail commercials, home appliance launch reels, custom motion graphics and subtitles editing."
   },
   {
@@ -2758,6 +2761,7 @@ const MMG_CLIENTS = [
     handle: "@balanceyogastudiobyvasu",
     initials: "BYS",
     icon: "heart",
+    logo: "client_logos/balance_yoga.png",
     desc: "Calming studio aesthetics videography, wellness reels production, scheduling and social media content structuring."
   },
   {
@@ -2768,6 +2772,7 @@ const MMG_CLIENTS = [
     handle: "@dvfmall_kasganj",
     initials: "DVF",
     icon: "shopping-bag",
+    logo: "client_logos/dvf_mall.png",
     desc: "Comprehensive lifestyle mall promotional reels, festival footfall shoots, and regular event capture coverage."
   },
   {
@@ -2778,6 +2783,7 @@ const MMG_CLIENTS = [
     handle: "@new_apna_mobile_etah",
     initials: "NAM",
     icon: "smartphone",
+    logo: "client_logos/new_apna_mobile.png",
     desc: "Festive sales campaign creative templates, new model launch teasers, and retail consumer engagement strategy."
   },
   {
@@ -2788,6 +2794,7 @@ const MMG_CLIENTS = [
     handle: "@chacha_agencies",
     initials: "CEC",
     icon: "battery-charging",
+    logo: "client_logos/chacha_exide.png",
     desc: "Industrial & battery tech social media creatives, service assurance campaign shoots, and local lead generation."
   },
   {
@@ -2798,6 +2805,7 @@ const MMG_CLIENTS = [
     handle: "@tajelectronics_etah",
     initials: "TE",
     icon: "tv",
+    logo: "client_logos/taj_electronics.png",
     desc: "Smart TV & sound system showcase reels, customer testimonial captures, and retail brand identity design."
   },
   {
@@ -2808,6 +2816,7 @@ const MMG_CLIENTS = [
     handle: "@pankajcomputerkasganj",
     initials: "PCZ",
     icon: "laptop",
+    logo: "client_logos/pankaj_computer.png",
     desc: "IT & hardware repair reels, custom software training templates, and educational tech creatives."
   },
   {
@@ -2818,6 +2827,7 @@ const MMG_CLIENTS = [
     handle: "@dhanshreemotors_dibai",
     initials: "DST",
     icon: "car",
+    logo: "client_logos/dhan_shri_tvs.png",
     desc: "Vibrant vehicle launch cinematic reels, drone dealership showcases, and two-wheeler feature highlight reels."
   },
   {
@@ -2828,6 +2838,7 @@ const MMG_CLIENTS = [
     handle: "@ncs_coachmukeshsoni",
     initials: "CMS",
     icon: "activity",
+    logo: "client_logos/coach_mukesh.png",
     desc: "Personal branding video structure, lifestyle transformation reel editing, and educational content pacing."
   },
   {
@@ -2838,6 +2849,7 @@ const MMG_CLIENTS = [
     handle: "@mobileworld_etah",
     initials: "MW",
     icon: "smartphone",
+    logo: "client_logos/mobile_world.png",
     desc: "Local mobile retail brand strategy, premium phone unboxings, and visual store walk-throughs."
   }
 ];
@@ -2874,10 +2886,13 @@ function initClientRoster() {
             <div class="space-y-6">
               <div class="flex items-start justify-between">
                 <!-- Glowing Category Badge Logo -->
-                <div class="w-14 h-14 rounded-2xl bg-limeGreen/10 border border-limeGreen/20 flex items-center justify-center text-limeGreen group-hover:bg-limeGreen group-hover:text-brandBg transition-all duration-300 shadow-[0_0_15px_rgba(140,230,0,0.1)] relative">
-                  <!-- Business Initials Decal Badge -->
-                  <span class="absolute top-0 right-0 bg-limeGreen text-brandBg text-[7px] font-black px-1.5 py-0.5 rounded-bl rounded-tr-xl font-sans uppercase">${client.initials}</span>
-                  <i data-lucide="${client.icon}" class="w-6 h-6"></i>
+                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden group-hover:border-limeGreen/40 transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.02)] relative">
+                  <img src="${client.logo}" alt="${client.name} Logo" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <!-- Fallback avatar in case logo image is not uploaded yet -->
+                  <div class="hidden absolute inset-0 bg-limeGreen/10 text-limeGreen flex items-center justify-center group-hover:bg-limeGreen group-hover:text-brandBg transition-all duration-300">
+                    <span class="absolute top-0 right-0 bg-limeGreen text-brandBg text-[7px] font-black px-1.5 py-0.5 rounded-bl rounded-tr-xl font-sans uppercase">${client.initials}</span>
+                    <i data-lucide="${client.icon}" class="w-6 h-6"></i>
+                  </div>
                 </div>
                 <!-- Tenure Badge -->
                 <span class="text-[8px] font-futuristic text-limeGreen border border-limeGreen/20 px-2.5 py-1 rounded bg-limeGreen/5 font-bold uppercase tracking-wider">
@@ -2972,9 +2987,16 @@ function openClientDetailModal(clientName) {
       </button>
 
       <!-- Header block -->
-      <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
+      <div class="text-center space-y-4 border-b border-white/5 pb-6 select-none flex flex-col items-center">
         <h2 class="text-xl md:text-2xl font-black text-white tracking-wide leading-tight">PARTNER SPOTLIGHT</h2>
-        <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
+        <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-[0_0_20px_rgba(255,255,255,0.05)] relative mt-2">
+          <img src="${client.logo}" alt="${client.name} Logo" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="hidden absolute inset-0 bg-limeGreen/10 text-limeGreen flex items-center justify-center">
+            <span class="absolute top-0 right-0 bg-limeGreen text-brandBg text-[7px] font-black px-1.5 py-0.5 rounded-bl rounded-tr-full font-sans uppercase">${client.initials}</span>
+            <i data-lucide="${client.icon}" class="w-8 h-8"></i>
+          </div>
+        </div>
+        <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest">
           ${client.name}
         </div>
       </div>
