@@ -1077,23 +1077,28 @@ if (form) {
   const serviceParam = urlParams.get('service');
   const tierParam = urlParams.get('tier');
 
-  if (serviceParam === 'smm') {
-    activatePackageCard('smm-5months');
-  } else if (serviceParam === 'content-creation' && tierParam) {
-    activatePackageCard(tierParam);
-    const messageElem = document.getElementById('contact-message');
-    if (messageElem) {
-      const capitalizedTier = tierParam.charAt(0).toUpperCase() + tierParam.slice(1);
-      messageElem.value = `Hello! I would like to book the Content Creation ${capitalizedTier} Capture package. `;
-    }
-  } else if (serviceParam) {
-    if (selectElem) {
-      const options = Array.from(selectElem.options).map(o => o.value);
-      if (options.includes(serviceParam)) {
-        selectElem.value = serviceParam;
+  if (serviceParam) {
+    const packageSection = document.getElementById('contact-package-section');
+    if (packageSection) packageSection.classList.remove('hidden');
+
+    if (serviceParam === 'smm') {
+      activatePackageCard('smm-5months');
+    } else if (serviceParam === 'content-creation' && tierParam) {
+      activatePackageCard(tierParam);
+      const messageElem = document.getElementById('contact-message');
+      if (messageElem) {
+        const capitalizedTier = tierParam.charAt(0).toUpperCase() + tierParam.slice(1);
+        messageElem.value = `Hello! I would like to book the Content Creation ${capitalizedTier} Capture package. `;
       }
+    } else {
+      if (selectElem) {
+        const options = Array.from(selectElem.options).map(o => o.value);
+        if (options.includes(serviceParam)) {
+          selectElem.value = serviceParam;
+        }
+      }
+      activatePackageCard('custom');
     }
-    activatePackageCard('custom');
   }
 
   form.addEventListener('submit', (e) => {
