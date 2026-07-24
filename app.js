@@ -1106,6 +1106,14 @@ if (form) {
         const capitalizedTier = tierParam.charAt(0).toUpperCase() + tierParam.slice(1);
         messageElem.value = `Hello! I would like to book the Family Event ${capitalizedTier} package. `;
       }
+    } else if (serviceParam === 'achievement-shoot' && tierParam) {
+      activatePackageCard('custom');
+      if (selectElem) selectElem.value = 'achievement-shoot';
+      const messageElem = document.getElementById('contact-message');
+      if (messageElem) {
+        const capitalizedTier = tierParam.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+        messageElem.value = `Hello! I would like to book the Achievement Shoot: ${capitalizedTier} package. `;
+      }
     } else {
       if (selectElem) {
         const options = Array.from(selectElem.options).map(o => o.value);
@@ -2178,12 +2186,195 @@ function initFamilyEventsModal() {
   if (btnTrigger) btnTrigger.addEventListener('click', openFamModal);
 }
 
+function initAchievementShootModal() {
+  const cardTrigger = document.querySelector('.achievement-shoot-card-trigger');
+  const btnTrigger = document.querySelector('.achievement-shoot-btn-trigger');
+
+  if (!cardTrigger && !btnTrigger) return;
+
+  let achModal = document.getElementById('achievement-shoot-modal');
+  if (!achModal) {
+    achModal = document.createElement('div');
+    achModal.id = 'achievement-shoot-modal';
+    achModal.className = 'feedback-modal-overlay';
+    achModal.innerHTML = `
+      <div class="feedback-modal-box w-full max-w-6xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="ach-modal-box">
+        <!-- Close Button -->
+        <button id="close-ach-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <!-- Header block -->
+        <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
+          <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
+          <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
+            Achievement Shoot Packages
+          </div>
+        </div>
+
+        <!-- 4 Column Pricing Matrix Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-8">
+          
+          <!-- Package 1: Bike Delivery Shoot -->
+          <div class="glass-panel border-white/10 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase leading-tight">Bike Delivery</h4>
+                <p class="text-[9px] text-gray-400">Capture your new ride delivery with dynamic reels.</p>
+              </div>
+              <div class="text-lg font-black text-limeGreen font-sans">₹2,499/-</div>
+              <ul class="text-[10px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 2 High-Retention Reels</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Professional Shoot</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> High-End Editing</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Sony Mirrorless Camera</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 3-Axis Stabilizing Gimbal</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 1 Team Member</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-gray-500 flex-shrink-0"></i> 1 to 2 Hours Shoot Time</li>
+              </ul>
+            </div>
+            <div class="pt-4">
+              <a href="contact.html?service=achievement-shoot&tier=bike-delivery" class="metallic-border text-white font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
+                CHOOSE BIKE SHOOT
+              </a>
+            </div>
+          </div>
+
+          <!-- Package 2: Car Delivery Shoot -->
+          <div class="glass-panel border-limeGreen/30 bg-limeGreen/5 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/50 transition-all duration-300 relative group">
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase leading-tight">Car Delivery</h4>
+                <p class="text-[9px] text-gray-400">Cinematic milestone shoot for your new car delivery.</p>
+              </div>
+              <div class="text-lg font-black text-limeGreen font-sans">₹5,999 - ₹9,999</div>
+              <ul class="text-[10px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 2 to 4 High-Retention Reels</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Professional Shoot</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> High-End Editing</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Sony Mirrorless Camera</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 4K Aerial Drone Coverage</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Gimbal & Studio Light</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 1 to 3 Team Members</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-gray-500 flex-shrink-0"></i> 2 to 3 Hours Shoot Time</li>
+              </ul>
+            </div>
+            <div class="pt-4">
+              <a href="contact.html?service=achievement-shoot&tier=car-delivery" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full">
+                CHOOSE CAR SHOOT
+              </a>
+            </div>
+          </div>
+
+          <!-- Package 3: Home Inauguration Shoot -->
+          <div class="glass-panel border-white/10 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase leading-tight font-futuristic">Home Inauguration</h4>
+                <p class="text-[9px] text-gray-400">Complete Griha Pravesh coverage & high-res photography.</p>
+              </div>
+              <div class="text-lg font-black text-limeGreen font-sans">₹9,999 - ₹19,999</div>
+              <ul class="text-[10px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 3 to 6 High-Retention Reels</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> High-Resolution Home Photos</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Professional Shoot & Edit</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Sony Mirrorless Camera</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Drone & Gimbal Coverage</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Professional Studio Light</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 3 to 5 Team Members</li>
+              </ul>
+            </div>
+            <div class="pt-4">
+              <a href="contact.html?service=achievement-shoot&tier=home-inauguration" class="metallic-border text-white font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
+                CHOOSE HOME SHOOT
+              </a>
+            </div>
+          </div>
+
+          <!-- Package 4: Business Opening Shoot -->
+          <div class="glass-panel border-white/10 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase leading-tight font-futuristic">Business Opening</h4>
+                <p class="text-[9px] text-gray-400">Grand opening, office walkthroughs, and success ribbon cutting.</p>
+              </div>
+              <div class="text-lg font-black text-limeGreen font-sans">₹9,999 - ₹19,999</div>
+              <ul class="text-[10px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 3 to 6 High-Retention Reels</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> High-Resolution Photos</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Professional Shoot & Edit</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Sony Mirrorless Camera</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Drone & Gimbal Coverage</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> Professional Studio Light</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-limeGreen flex-shrink-0"></i> 3 to 5 Team Members</li>
+              </ul>
+            </div>
+            <div class="pt-4">
+              <a href="contact.html?service=achievement-shoot&tier=business-opening" class="metallic-border text-white font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
+                CHOOSE BUSINESS SHOOT
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Policy Footnotes -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 pt-6 border-t border-white/5">
+          <div class="flex items-start gap-2.5 bg-white/[0.02] border border-white/5 rounded-xl p-4 text-[10px] text-gray-400">
+            <i data-lucide="clock" class="w-4 h-4 text-limeGreen flex-shrink-0"></i>
+            <div>
+              <strong class="text-white block uppercase mb-0.5">EXTRA TIME COVERAGE</strong>
+              Extra shoot duration beyond standard package limits will be subject to additional hourly compensation.
+            </div>
+          </div>
+          <div class="flex items-start gap-2.5 bg-red-500/5 border border-red-500/10 rounded-xl p-4 text-[10px] text-gray-400">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-red-400 flex-shrink-0"></i>
+            <div>
+              <strong class="text-red-400 block uppercase mb-0.5">TRAVEL EXPENSES (TA/DA)</strong>
+              Travel & Daily Allowance (TA/DA) expenses for the crew are to be fully borne by the client.
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer block -->
+        <div class="border-t border-white/5 mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-gray-500 select-none">
+          <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-limeGreen"></i> +91 96346 25609</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-limeGreen"></i> Awas Vikas Colony, Kasganj, Uttar Pradesh</span>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(achModal);
+    if (window.lucide) lucide.createIcons();
+
+    // Close listeners
+    const closeBtn = document.getElementById('close-ach-modal');
+    closeBtn.addEventListener('click', () => achModal.classList.remove('open'));
+    achModal.addEventListener('click', (e) => {
+      if (e.target === achModal) {
+        achModal.classList.remove('open');
+      }
+    });
+  }
+
+  const openAchModal = (e) => {
+    if (e.type === 'click' && e.currentTarget === cardTrigger && e.target.closest('button, a')) {
+      return;
+    }
+    e.preventDefault();
+    achModal.classList.add('open');
+  };
+
+  if (cardTrigger) cardTrigger.addEventListener('click', openAchModal);
+  if (btnTrigger) btnTrigger.addEventListener('click', openAchModal);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initAdminSubtabs();
   initSmmPackageModal();
   initContentCreationModal();
   initCorporateEventsModal();
   initFamilyEventsModal();
+  initAchievementShootModal();
   if (document.getElementById('admin-leads-table-body')) {
     renderAdminLeads();
   }
