@@ -40,17 +40,18 @@ highlightActiveRoute();
 /* ==========================================================================
    CANVAS PARTICLE BACKGROUND
    ========================================================================== */
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 const canvas = document.getElementById('particle-canvas');
-if (canvas) {
+if (canvas && window.innerWidth >= 768 && !isTouchDevice) {
   const ctx = canvas.getContext('2d');
   let particles = [];
-  const particleCount = window.innerWidth < 768 ? 15 : 60;
+  const particleCount = 40;
 
   function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   }
-  window.addEventListener('resize', resizeCanvas);
+  window.addEventListener('resize', resizeCanvas, { passive: true });
   resizeCanvas();
 
   class Particle {
@@ -107,7 +108,6 @@ if (canvas) {
 /* ==========================================================================
    3D MOUSE PARALLAX TILT EFFECT (Aperture Node)
    ========================================================================== */
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 const heroNode = document.getElementById('hero-3d-node');
 
 if (heroNode && !isTouchDevice && window.innerWidth >= 1024) {
