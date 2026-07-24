@@ -2942,7 +2942,8 @@ function initClientRoster() {
     const step = (timestamp) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      obj.innerHTML = Math.floor(progress * (end - start) + start) + suffix;
+      const currentVal = Math.floor(progress * (end - start) + start);
+      obj.innerHTML = currentVal.toLocaleString('en-US') + suffix;
       if (progress < 1) {
         window.requestAnimationFrame(step);
       }
@@ -2958,8 +2959,8 @@ function initClientRoster() {
 
   if (retObj) retObj.innerHTML = "3+ Yrs";
   if (partObj) animateValue(partObj, 0, 194, 1200, '+ Brands');
-  if (reelObj) animateValue(reelObj, 0, 5000, 1500, '+ Reels');
-  if (viewObj) animateValue(viewObj, 0, 50, 1500, 'M+ Views');
+  if (reelObj) animateValue(reelObj, 0, 10000, 1500, '+ Reels');
+  if (viewObj) animateValue(viewObj, 0, 100, 1500, 'M+ Views');
 
   // Init render
   render();
