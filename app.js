@@ -2956,8 +2956,8 @@ function initClientRoster() {
   const reelObj = document.getElementById('stat-reels');
   const viewObj = document.getElementById('stat-views');
 
-  if (retObj) retObj.innerHTML = "2.5+ Yrs";
-  if (partObj) animateValue(partObj, 0, 12, 1200, '+ Brands');
+  if (retObj) retObj.innerHTML = "3+ Yrs";
+  if (partObj) animateValue(partObj, 0, 194, 1200, '+ Brands');
   if (reelObj) animateValue(reelObj, 0, 5000, 1500, '+ Reels');
   if (viewObj) animateValue(viewObj, 0, 50, 1500, 'M+ Views');
 
