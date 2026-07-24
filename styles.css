@@ -357,3 +357,10 @@ h1, h2, h3, h4, h5, h6, .font-futuristic {
   transform: scale(1);
 }
 
+/* Selectable package card active states */
+#package-selector-grid [data-package].active {
+  border-color: var(--color-lime) !important;
+  box-shadow: 0 0 15px rgba(140, 230, 0, 0.2) !important;
+  background: rgba(140, 230, 0, 0.05) !important;
+}
+

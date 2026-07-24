@@ -202,6 +202,55 @@
               </div>
             </div>
 
+            <!-- Select Featured Package -->
+            <div class="space-y-3 text-left">
+              <label class="block font-futuristic text-xs font-semibold text-gray-300 tracking-wider">SELECT FEATURED PACKAGE (OPTIONAL)</label>
+              <div class="grid grid-cols-2 md:grid-cols-5 gap-3" id="package-selector-grid">
+                
+                <!-- SMM 5-Months Package -->
+                <div data-package="smm-5months" data-service="smm" class="glass-panel border-white/10 rounded-xl p-3 cursor-pointer text-center hover:border-limeGreen/50 transition-all flex flex-col justify-between select-none relative group min-h-[90px]">
+                  <div class="absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full border border-white/20 flex items-center justify-center group-[.active]:bg-limeGreen group-[.active]:border-limeGreen text-brandBg text-[7px] font-black"><i data-lucide="check" class="w-2.5 h-2.5 hidden group-[.active]:block"></i></div>
+                  <span class="text-[9px] text-gray-500 font-bold block uppercase tracking-widest leading-none">SMM</span>
+                  <div class="text-[10px] text-white font-bold leading-tight mt-1">5-Months Package</div>
+                  <div class="text-[9px] text-limeGreen font-mono mt-1 font-semibold">₹59,999/-</div>
+                </div>
+
+                <!-- Genesis Capture -->
+                <div data-package="genesis" data-service="content-creation" class="glass-panel border-white/10 rounded-xl p-3 cursor-pointer text-center hover:border-limeGreen/50 transition-all flex flex-col justify-between select-none relative group min-h-[90px]">
+                  <div class="absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full border border-white/20 flex items-center justify-center group-[.active]:bg-limeGreen group-[.active]:border-limeGreen text-brandBg text-[7px] font-black"><i data-lucide="check" class="w-2.5 h-2.5 hidden group-[.active]:block"></i></div>
+                  <span class="text-[9px] text-gray-500 font-bold block uppercase tracking-widest leading-none">CC - Small</span>
+                  <div class="text-[10px] text-white font-bold leading-tight mt-1">Genesis Capture</div>
+                  <div class="text-[9px] text-limeGreen font-mono mt-1 font-semibold">₹5,999/-</div>
+                </div>
+
+                <!-- Apex Capture -->
+                <div data-package="apex" data-service="content-creation" class="glass-panel border-white/10 rounded-xl p-3 cursor-pointer text-center hover:border-limeGreen/50 transition-all flex flex-col justify-between select-none relative group min-h-[90px]">
+                  <div class="absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full border border-white/20 flex items-center justify-center group-[.active]:bg-limeGreen group-[.active]:border-limeGreen text-brandBg text-[7px] font-black"><i data-lucide="check" class="w-2.5 h-2.5 hidden group-[.active]:block"></i></div>
+                  <span class="text-[9px] text-gray-500 font-bold block uppercase tracking-widest leading-none">CC - Medium</span>
+                  <div class="text-[10px] text-white font-bold leading-tight mt-1">Apex Capture</div>
+                  <div class="text-[9px] text-limeGreen font-mono mt-1 font-semibold">₹9,999/-</div>
+                </div>
+
+                <!-- Zenith Capture -->
+                <div data-package="zenith" data-service="content-creation" class="glass-panel border-white/10 rounded-xl p-3 cursor-pointer text-center hover:border-limeGreen/50 transition-all flex flex-col justify-between select-none relative group min-h-[90px]">
+                  <div class="absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full border border-white/20 flex items-center justify-center group-[.active]:bg-limeGreen group-[.active]:border-limeGreen text-brandBg text-[7px] font-black"><i data-lucide="check" class="w-2.5 h-2.5 hidden group-[.active]:block"></i></div>
+                  <span class="text-[9px] text-gray-500 font-bold block uppercase tracking-widest leading-none">CC - Big</span>
+                  <div class="text-[10px] text-white font-bold leading-tight mt-1">Zenith Capture</div>
+                  <div class="text-[9px] text-limeGreen font-mono mt-1 font-semibold">₹24,999/-</div>
+                </div>
+
+                <!-- Custom / None -->
+                <div data-package="custom" data-service="" class="glass-panel border-white/10 rounded-xl p-3 cursor-pointer text-center hover:border-limeGreen/50 transition-all flex flex-col justify-between select-none relative group min-h-[90px] active">
+                  <div class="absolute top-1.5 right-1.5 w-3.5 h-3.5 rounded-full border border-white/20 flex items-center justify-center group-[.active]:bg-limeGreen group-[.active]:border-limeGreen text-brandBg text-[7px] font-black"><i data-lucide="check" class="w-2.5 h-2.5 hidden group-[.active]:block"></i></div>
+                  <span class="text-[9px] text-gray-500 font-bold block uppercase tracking-widest leading-none">Custom</span>
+                  <div class="text-[10px] text-white font-bold leading-tight mt-1">Custom Service</div>
+                  <div class="text-[9px] text-limeGreen font-mono mt-1 font-semibold">Flexible</div>
+                </div>
+
+              </div>
+              <input type="hidden" id="contact-package" name="contact-package" value="custom">
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
               <!-- Service Required -->
               <div class="space-y-2 text-left">

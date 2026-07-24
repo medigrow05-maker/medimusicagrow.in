@@ -1032,18 +1032,70 @@ const successScreen = document.getElementById('success-screen');
 const successResetBtn = document.getElementById('success-reset-btn');
 
 if (form) {
-  // Auto-select service option if passed in URL query
+  const selectElem = document.getElementById('contact-service');
+  const packageHiddenInput = document.getElementById('contact-package');
+  const packageCards = document.querySelectorAll('#package-selector-grid [data-package]');
+
+  function activatePackageCard(packageVal) {
+    packageCards.forEach(c => c.classList.remove('active'));
+    const targetCard = document.querySelector(`#package-selector-grid [data-package="${packageVal}"]`);
+    if (targetCard) {
+      targetCard.classList.add('active');
+      if (packageHiddenInput) packageHiddenInput.value = packageVal;
+      
+      const targetService = targetCard.getAttribute('data-service');
+      if (targetService && selectElem) {
+        selectElem.value = targetService;
+      }
+    }
+  }
+
+  packageCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const packageVal = card.getAttribute('data-package');
+      activatePackageCard(packageVal);
+    });
+  });
+
+  if (selectElem) {
+    selectElem.addEventListener('change', () => {
+      const selectedService = selectElem.value;
+      const activeCard = document.querySelector('#package-selector-grid [data-package].active');
+      if (activeCard) {
+        const activeCardService = activeCard.getAttribute('data-service');
+        if (activeCardService && activeCardService !== selectedService) {
+          packageCards.forEach(c => c.classList.remove('active'));
+          const customCard = document.querySelector('#package-selector-grid [data-package="custom"]');
+          if (customCard) customCard.classList.add('active');
+          if (packageHiddenInput) packageHiddenInput.value = 'custom';
+        }
+      }
+    });
+  }
+
   const urlParams = new URLSearchParams(window.location.search);
   const serviceParam = urlParams.get('service');
-  if (serviceParam) {
-    const selectElem = document.getElementById('contact-service');
+  const tierParam = urlParams.get('tier');
+
+  if (serviceParam === 'smm') {
+    activatePackageCard('smm-5months');
+  } else if (serviceParam === 'content-creation' && tierParam) {
+    activatePackageCard(tierParam);
+    const messageElem = document.getElementById('contact-message');
+    if (messageElem) {
+      const capitalizedTier = tierParam.charAt(0).toUpperCase() + tierParam.slice(1);
+      messageElem.value = `Hello! I would like to book the Content Creation ${capitalizedTier} Capture package. `;
+    }
+  } else if (serviceParam) {
     if (selectElem) {
       const options = Array.from(selectElem.options).map(o => o.value);
       if (options.includes(serviceParam)) {
         selectElem.value = serviceParam;
       }
     }
+    activatePackageCard('custom');
   }
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     
@@ -1054,6 +1106,7 @@ if (form) {
     const whatsapp = document.getElementById('contact-whatsapp')?.value || '';
     const address = document.getElementById('contact-address')?.value || '';
     const message = document.getElementById('contact-message')?.value || '';
+    const selectedPkg = packageHiddenInput?.value || 'custom';
 
     // Dispatch payload to Make.com Webhook
     sendToMakeWebhook({
@@ -1065,6 +1118,7 @@ if (form) {
       whatsapp_number: whatsapp,
       client_address: address,
       service_required: service,
+      selected_package: selectedPkg,
       channel_link: channel,
       message_summary: message
     });
@@ -1079,6 +1133,7 @@ if (form) {
         whatsapp,
         address,
         service,
+        package: selectedPkg,
         channel,
         message,
         date: new Date().toISOString().split('T')[0]
