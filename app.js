@@ -1521,9 +1521,7 @@ function initSmmPackageModal() {
         <!-- Header block matching the images -->
         <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
           <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
-          <div class="flex items-center justify-center gap-4 pt-2 text-xs text-gray-500">
-            <span class="flex items-center gap-1"><i data-lucide="youtube" class="w-4 h-4 text-red-500 fill-red-500"></i> @medimusicagrow</span>
-          </div>
+
           <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
             5 Months Package
           </div>
