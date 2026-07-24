@@ -1087,8 +1087,8 @@ if (form) {
       activatePackageCard(tierParam);
       const messageElem = document.getElementById('contact-message');
       if (messageElem) {
-        const capitalizedTier = tierParam.charAt(0).toUpperCase() + tierParam.slice(1);
-        messageElem.value = `Hello! I would like to book the Content Creation ${capitalizedTier} Capture package. `;
+        const displayTierName = tierParam === 'single-video' ? 'Single Video' : (tierParam === 'bulk-video' ? 'Bulk Video' : tierParam);
+        messageElem.value = `Hello! I would like to book the Content Creation ${displayTierName} package. `;
       }
     } else if (serviceParam === 'corporate-events' && tierParam) {
       activatePackageCard('custom');
@@ -1690,87 +1690,61 @@ function initContentCreationModal() {
           </div>
         </div>
 
-        <!-- 3 Column Pricing Matrix Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+        <!-- 2 Column Pricing Matrix Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 max-w-4xl mx-auto">
           
-          <!-- Tier 1: Basic Capture -->
+          <!-- Tier 1: Single Video -->
           <div class="glass-panel border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
-            <div class="absolute top-4 right-4 text-[9px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-gray-400 font-mono">BASIC</div>
+            <div class="absolute top-4 right-4 text-[9px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-gray-400 font-mono">SINGLE</div>
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Basic Capture</h4>
-                <p class="text-[10px] text-gray-400">Perfect for startup brands and quick milestone shoots.</p>
+                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Single Video</h4>
+                <p class="text-[10px] text-gray-400">Professional capture and post-production for a single high-impact reel.</p>
               </div>
-              <div class="text-2xl font-black text-limeGreen font-sans py-2">₹5,999/-</div>
+              <div class="text-2xl font-black text-limeGreen font-sans py-2">₹2,499/-</div>
               <ul class="text-[11px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 3 to 4 High-Retention Reels</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> High-Retention Script & Storyboarding</li>
                 <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Professional Video Shoot</li>
                 <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> High-End Post-Production (Editing)</li>
                 <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Sony Mirrorless Camera Gear</li>
                 <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Handheld 3-Axis Stabilizing Gimbal</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Professional Lighting & Studio Microphone</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 1 On-Screen Model Included</li>
                 <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 2 Crew Team Members</li>
-                <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-gray-500 flex-shrink-0"></i> 2 to 3 Hours Shoot Time</li>
+                <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-gray-500 flex-shrink-0"></i> 1 to 1.5 Hours Shoot Time</li>
               </ul>
             </div>
             <div class="pt-6">
-              <a href="contact.html?service=content-creation&tier=basic" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
-                CHOOSE BASIC
+              <a href="contact.html?service=content-creation&tier=single-video" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
+                CHOOSE SINGLE VIDEO
               </a>
             </div>
           </div>
 
-          <!-- Tier 2: Normal Capture -->
-          <div class="glass-panel border-limeGreen/30 bg-limeGreen/5 rounded-2xl p-6 flex flex-col justify-between hover:border-limeGreen/50 transition-all duration-300 relative group scale-105 shadow-[0_0_30px_rgba(140,230,0,0.05)]">
-            <div class="absolute top-4 right-4 text-[9px] bg-limeGreen/20 border border-limeGreen/30 px-2 py-0.5 rounded text-limeGreen font-mono font-bold tracking-widest">NORMAL / POPULAR</div>
+          <!-- Tier 2: Bulk Video Package -->
+          <div class="glass-panel border-limeGreen/30 bg-limeGreen/5 rounded-2xl p-6 flex flex-col justify-between hover:border-limeGreen/50 transition-all duration-300 relative group shadow-[0_0_30px_rgba(140,230,0,0.05)]">
+            <div class="absolute top-4 right-4 text-[9px] bg-limeGreen/20 border border-limeGreen/30 px-2 py-0.5 rounded text-limeGreen font-mono font-bold tracking-widest">BULK / RECOMMEND</div>
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Normal Capture</h4>
-                <p class="text-[10px] text-gray-400">Complete media capture with high-end lighting and sound setup.</p>
+                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Bulk Video Package</h4>
+                <p class="text-[10px] text-gray-400">Complete batch recording session for up to 15 high-retention short videos.</p>
               </div>
-              <div class="text-2xl font-black text-limeGreen font-sans py-2">₹9,999/-</div>
+              <div class="text-2xl font-black text-limeGreen font-sans py-2">₹7,999 - ₹14,999</div>
               <ul class="text-[11px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 4 to 5 High-Retention Reels</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Complete Event Photography</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Professional Video Shoot</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> High-End Post-Production (Editing)</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 10 to 15 Viral Reels / Short Videos</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Complete Script Writing & Directing</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Batch Shoots & Post-Production Editing</li>
                 <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Sony Mirrorless Camera Gear</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Gimbal & Professional Mic Setup</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Studio Light Configuration</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 3 Crew Team Members</li>
-                <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-gray-500 flex-shrink-0"></i> 4 to 5 Hours Shoot Time</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Handheld 3-Axis Stabilizing Gimbal</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Professional Lighting & Studio Microphone</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 1 On-Screen Model Included</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 2 to 3 Crew Team Members</li>
+                <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-gray-500 flex-shrink-0"></i> 5 to 6 Hours Shoot Time</li>
               </ul>
             </div>
             <div class="pt-6">
-              <a href="contact.html?service=content-creation&tier=normal" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full">
-                CHOOSE NORMAL
-              </a>
-            </div>
-          </div>
-
-          <!-- Tier 3: Advance Capture -->
-          <div class="glass-panel border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
-            <div class="absolute top-4 right-4 text-[9px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-gray-400 font-mono">ADVANCE</div>
-            <div class="space-y-4">
-              <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Advance Capture</h4>
-                <p class="text-[10px] text-gray-400">Complete cinematic documentary with aerial drone coverage.</p>
-              </div>
-              <div class="text-2xl font-black text-limeGreen font-sans py-2">₹24,999/-</div>
-              <ul class="text-[11px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Full-Length Event Documentary</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 9 to 10 High-Retention Reels</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Premium Event Photography</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Professional Video Shoot & Edit</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Sony Mirrorless Camera Gear</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 4K Aerial Drone Coverage</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Gimbal, Lights, and Lapel Mics</li>
-                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 5 Crew Team Members</li>
-                <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-gray-500 flex-shrink-0"></i> Full Event Shoot Duration</li>
-              </ul>
-            </div>
-            <div class="pt-6">
-              <a href="contact.html?service=content-creation&tier=advance" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
-                CHOOSE ADVANCE
+              <a href="contact.html?service=content-creation&tier=bulk-video" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full">
+                CHOOSE BULK PACKAGE
               </a>
             </div>
           </div>
