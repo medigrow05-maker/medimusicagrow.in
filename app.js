@@ -2719,6 +2719,329 @@ function initInfluencerMarketingModal() {
   if (btnTrigger) btnTrigger.addEventListener('click', openInfModal);
 }
 
+  if (cardTrigger) cardTrigger.addEventListener('click', openEditModal);
+  if (btnTrigger) btnTrigger.addEventListener('click', openEditModal);
+}
+
+const MMG_CLIENTS = [
+  {
+    name: "Chacha TVS",
+    category: "automobile",
+    tenure: "2.5+ Years",
+    insta: "https://www.instagram.com/chachatvs_kasganj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    handle: "@chachatvs_kasganj",
+    initials: "CT",
+    icon: "car",
+    desc: "Complete automobile digital marketing execution, festival launch campaigns, showroom videos, and graphic design elevation."
+  },
+  {
+    name: "Shri Krishna Mobile",
+    category: "electronics-mobile",
+    tenure: "2.5+ Years",
+    insta: "https://www.instagram.com/shrikrishnamobile_etah?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    handle: "@shrikrishnamobile_etah",
+    initials: "SKM",
+    icon: "smartphone",
+    desc: "Vibrant retail unboxing reels, custom offer creatives, device hype promos, and local digital audience building."
+  },
+  {
+    name: "Time Electronic Centre",
+    category: "electronics-mobile",
+    tenure: "2.5+ Years",
+    insta: "https://www.instagram.com/time_electronic_centre_2.0/?utm_source=ig_web_button_share_sheet",
+    handle: "@time_electronic_centre_2.0",
+    initials: "TEC",
+    icon: "tv",
+    desc: "High-impact retail commercials, home appliance launch reels, custom motion graphics and subtitles editing."
+  },
+  {
+    name: "Balance Yoga Studio",
+    category: "retail-wellness",
+    tenure: "2.5+ Years",
+    insta: "https://www.instagram.com/balanceyogastudiobyvasu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    handle: "@balanceyogastudiobyvasu",
+    initials: "BYS",
+    icon: "heart",
+    desc: "Calming studio aesthetics videography, wellness reels production, scheduling and social media content structuring."
+  },
+  {
+    name: "DVF Mall",
+    category: "retail-wellness",
+    tenure: "1+ Years",
+    insta: "https://www.instagram.com/dvfmall_kasganj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    handle: "@dvfmall_kasganj",
+    initials: "DVF",
+    icon: "shopping-bag",
+    desc: "Comprehensive lifestyle mall promotional reels, festival footfall shoots, and regular event capture coverage."
+  },
+  {
+    name: "New Apna Mobile",
+    category: "electronics-mobile",
+    tenure: "1+ Years",
+    insta: "https://www.instagram.com/new_apna_mobile_etah?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    handle: "@new_apna_mobile_etah",
+    initials: "NAM",
+    icon: "smartphone",
+    desc: "Festive sales campaign creative templates, new model launch teasers, and retail consumer engagement strategy."
+  },
+  {
+    name: "Chacha Exide Care",
+    category: "automobile",
+    tenure: "1+ Years",
+    insta: "https://www.instagram.com/chacha_agencies?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    handle: "@chacha_agencies",
+    initials: "CEC",
+    icon: "battery-charging",
+    desc: "Industrial & battery tech social media creatives, service assurance campaign shoots, and local lead generation."
+  },
+  {
+    name: "Taj Electronics",
+    category: "electronics-mobile",
+    tenure: "1+ Years",
+    insta: "https://www.instagram.com/tajelectronics_etah?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    handle: "@tajelectronics_etah",
+    initials: "TE",
+    icon: "tv",
+    desc: "Smart TV & sound system showcase reels, customer testimonial captures, and retail brand identity design."
+  },
+  {
+    name: "Pankaj Computer Zone",
+    category: "retail-wellness",
+    tenure: "6+ Months",
+    insta: "https://www.instagram.com/pankajcomputerkasganj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    handle: "@pankajcomputerkasganj",
+    initials: "PCZ",
+    icon: "laptop",
+    desc: "IT & hardware repair reels, custom software training templates, and educational tech creatives."
+  },
+  {
+    name: "Dhan Shri TVS",
+    category: "automobile",
+    tenure: "5+ Months",
+    insta: "https://www.instagram.com/dhanshreemotors_dibai?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    handle: "@dhanshreemotors_dibai",
+    initials: "DST",
+    icon: "car",
+    desc: "Vibrant vehicle launch cinematic reels, drone dealership showcases, and two-wheeler feature highlight reels."
+  },
+  {
+    name: "Coach Mukesh Soni",
+    category: "retail-wellness",
+    tenure: "5+ Months",
+    insta: "https://www.instagram.com/ncs_coachmukeshsoni?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    handle: "@ncs_coachmukeshsoni",
+    initials: "CMS",
+    icon: "activity",
+    desc: "Personal branding video structure, lifestyle transformation reel editing, and educational content pacing."
+  },
+  {
+    name: "Mobile World",
+    category: "electronics-mobile",
+    tenure: "5+ Months",
+    insta: "https://www.instagram.com/mobileworld_etah?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    handle: "@mobileworld_etah",
+    initials: "MW",
+    icon: "smartphone",
+    desc: "Local mobile retail brand strategy, premium phone unboxings, and visual store walk-throughs."
+  }
+];
+
+function initClientRoster() {
+  const clientGrid = document.getElementById('client-grid');
+  if (!clientGrid) return; // Only execute on clients.html
+
+  const searchInput = document.getElementById('client-search');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const noClientsAlert = document.getElementById('no-clients-alert');
+
+  let activeFilter = 'all';
+  let searchQuery = '';
+
+  // Render function
+  function render() {
+    const filtered = MMG_CLIENTS.filter(client => {
+      const matchesFilter = activeFilter === 'all' || client.category === activeFilter;
+      const matchesSearch = client.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            client.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            client.category.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesFilter && matchesSearch;
+    });
+
+    if (filtered.length === 0) {
+      clientGrid.innerHTML = '';
+      noClientsAlert.classList.remove('hidden');
+    } else {
+      noClientsAlert.classList.add('hidden');
+      clientGrid.innerHTML = filtered.map(client => {
+        return `
+          <div class="glass-panel border-white/5 rounded-3xl p-6 md:p-8 flex flex-col justify-between group cursor-pointer hover:border-limeGreen/20 transition-all duration-300 transform hover:-translate-y-1" onclick="openClientDetailModal('${client.name.replace(/'/g, "\\'")}')">
+            <div class="space-y-6">
+              <div class="flex items-start justify-between">
+                <!-- Glowing Category Badge Logo -->
+                <div class="w-14 h-14 rounded-2xl bg-limeGreen/10 border border-limeGreen/20 flex items-center justify-center text-limeGreen group-hover:bg-limeGreen group-hover:text-brandBg transition-all duration-300 shadow-[0_0_15px_rgba(140,230,0,0.1)] relative">
+                  <!-- Business Initials Decal Badge -->
+                  <span class="absolute top-0 right-0 bg-limeGreen text-brandBg text-[7px] font-black px-1.5 py-0.5 rounded-bl rounded-tr-xl font-sans uppercase">${client.initials}</span>
+                  <i data-lucide="${client.icon}" class="w-6 h-6"></i>
+                </div>
+                <!-- Tenure Badge -->
+                <span class="text-[8px] font-futuristic text-limeGreen border border-limeGreen/20 px-2.5 py-1 rounded bg-limeGreen/5 font-bold uppercase tracking-wider">
+                  Since ${client.tenure}
+                </span>
+              </div>
+              <div class="space-y-2 text-left">
+                <h3 class="text-lg md:text-xl font-bold font-futuristic text-white group-hover:text-limeGreen transition-colors leading-tight uppercase">${client.name}</h3>
+                <p class="text-gray-400 text-xs leading-relaxed font-light font-futuristic line-clamp-2">
+                  ${client.desc}
+                </p>
+              </div>
+            </div>
+            <div class="pt-6 flex items-center gap-1 text-[11px] font-futuristic text-limeGreen font-bold hover:translate-x-1 transition-transform self-start">
+              EXPAND STATUS INFO <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </div>
+          </div>
+        `;
+      }).join('');
+      if (window.lucide) lucide.createIcons();
+    }
+  }
+
+  // Bind Search
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      render();
+    });
+  }
+
+  // Bind Filters
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.getAttribute('data-filter');
+      render();
+    });
+  });
+
+  // Simple numeric animation logic
+  function animateValue(obj, start, end, duration, suffix = '') {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      obj.innerHTML = Math.floor(progress * (end - start) + start) + suffix;
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  // Check stats and run animations
+  const retObj = document.getElementById('stat-retention');
+  const partObj = document.getElementById('stat-partners');
+  const reelObj = document.getElementById('stat-reels');
+  const viewObj = document.getElementById('stat-views');
+
+  if (retObj) retObj.innerHTML = "2.5+ Yrs";
+  if (partObj) animateValue(partObj, 0, 12, 1200, '+ Brands');
+  if (reelObj) animateValue(reelObj, 0, 5000, 1500, '+ Reels');
+  if (viewObj) animateValue(viewObj, 0, 50, 1500, 'M+ Views');
+
+  // Init render
+  render();
+
+  // Create detail modal placeholder
+  let detailModal = document.getElementById('client-detail-modal');
+  if (!detailModal) {
+    detailModal = document.createElement('div');
+    detailModal.id = 'client-detail-modal';
+    detailModal.className = 'feedback-modal-overlay';
+    document.body.appendChild(detailModal);
+  }
+}
+
+function openClientDetailModal(clientName) {
+  const client = MMG_CLIENTS.find(c => c.name === clientName);
+  if (!client) return;
+
+  const detailModal = document.getElementById('client-detail-modal');
+  if (!detailModal) return;
+
+  detailModal.innerHTML = `
+    <div class="feedback-modal-box w-full max-w-xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="client-spotlight-box">
+      <!-- Close Button -->
+      <button id="close-client-detail-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close" onclick="closeClientDetailModal()">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <!-- Header block -->
+      <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
+        <h2 class="text-xl md:text-2xl font-black text-white tracking-wide leading-tight">PARTNER SPOTLIGHT</h2>
+        <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
+          ${client.name}
+        </div>
+      </div>
+
+      <!-- Description Block -->
+      <div class="pt-8 space-y-6">
+        <div class="glass-panel border-limeGreen/20 bg-limeGreen/5 rounded-2xl p-6 relative group shadow-[0_0_30px_rgba(140,230,0,0.05)]">
+          <div class="space-y-4 font-futuristic">
+            <div class="flex items-center justify-between border-b border-white/5 pb-3">
+              <span class="text-[10px] text-gray-500 uppercase tracking-widest">Client Tenure</span>
+              <span class="text-xs font-black text-limeGreen uppercase">${client.tenure}</span>
+            </div>
+            
+            <div class="flex items-center justify-between border-b border-white/5 pb-3">
+              <span class="text-[10px] text-gray-500 uppercase tracking-widest">Industry Classification</span>
+              <span class="text-xs font-black text-white uppercase">${client.category.replace(/-/g, ' ')}</span>
+            </div>
+
+            <div class="flex items-center justify-between border-b border-white/5 pb-3">
+              <span class="text-[10px] text-gray-500 uppercase tracking-widest">Instagram Link</span>
+              <span class="text-[11px] font-bold text-gray-400 font-sans">${client.handle}</span>
+            </div>
+
+            <div class="space-y-2 pt-2">
+              <h4 class="text-xs font-bold text-white uppercase tracking-wider">COLLABORATION SUMMARY</h4>
+              <p class="text-xs text-gray-300 leading-relaxed font-light font-futuristic">
+                ${client.desc}
+              </p>
+            </div>
+          </div>
+          <div class="pt-6">
+            <a href="${client.insta}" target="_blank" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full flex items-center justify-center gap-1.5">
+              EXPLORE INSTAGRAM PROFILE <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer block -->
+      <div class="border-t border-white/5 mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-gray-500 select-none font-futuristic">
+        <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-limeGreen"></i> +91 96346 25609</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-limeGreen"></i> Awas Vikas Colony, Kasganj, Uttar Pradesh</span>
+      </div>
+    </div>
+  `;
+  detailModal.classList.add('open');
+  if (window.lucide) lucide.createIcons();
+
+  // Close when clicking overlay
+  detailModal.addEventListener('click', function(e) {
+    if (e.target === detailModal) {
+      closeClientDetailModal();
+    }
+  });
+}
+
+function closeClientDetailModal() {
+  const detailModal = document.getElementById('client-detail-modal');
+  if (detailModal) {
+    detailModal.classList.remove('open');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initAdminSubtabs();
   initSmmPackageModal();
@@ -2729,6 +3052,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMusicVideoModal();
   initVideoEditingModal();
   initInfluencerMarketingModal();
+  initClientRoster();
   if (document.getElementById('admin-leads-table-body')) {
     renderAdminLeads();
   }

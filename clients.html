@@ -113,141 +113,141 @@
     </div>
   </div>
 
-  <!-- HERO HEADER -->
+  <!-- HERO HEADER & HUD METRICS -->
   <section class="pt-36 pb-12 px-4 md:px-8 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto text-center space-y-4 select-none z-10 relative">
-      <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.4em]">PROOF ARCHIVE</span>
+    <div class="max-w-6xl mx-auto text-center space-y-6 select-none z-10 relative">
+      <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.4em]">PROOF ARCHIVE // ACTIVE PARTNERS</span>
       <h1 class="text-4xl md:text-6xl font-black font-futuristic text-white">THE CLIENT ROSTER</h1>
-      <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base font-light">
-        A directory of brands we have collaborated with to elevate content structure, engineer web channels, and optimize conversion pipelines.
+      <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base font-light font-futuristic">
+        A directory of brands we have collaborated with to elevate content structure, edit video reels, and scale digital authority.
       </p>
+
+      <!-- Stats board -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-6">
+        <div class="glass-panel border-white/5 rounded-2xl p-4 md:p-6 text-center hover:border-limeGreen/20 transition-colors">
+          <span class="text-[10px] text-gray-500 block font-futuristic tracking-wider uppercase mb-1">Total Retention</span>
+          <span class="text-2xl md:text-3xl font-black font-sans text-limeGreen" id="stat-retention">2.5+ Yrs</span>
+        </div>
+        <div class="glass-panel border-white/5 rounded-2xl p-4 md:p-6 text-center hover:border-limeGreen/20 transition-colors">
+          <span class="text-[10px] text-gray-500 block font-futuristic tracking-wider uppercase mb-1">Active Partners</span>
+          <span class="text-2xl md:text-3xl font-black font-sans text-limeGreen" id="stat-partners">12+ Brands</span>
+        </div>
+        <div class="glass-panel border-white/5 rounded-2xl p-4 md:p-6 text-center hover:border-limeGreen/20 transition-colors">
+          <span class="text-[10px] text-gray-500 block font-futuristic tracking-wider uppercase mb-1">Videos Edited</span>
+          <span class="text-2xl md:text-3xl font-black font-sans text-limeGreen" id="stat-reels">5,000+ Reels</span>
+        </div>
+        <div class="glass-panel border-white/5 rounded-2xl p-4 md:p-6 text-center hover:border-limeGreen/20 transition-colors">
+          <span class="text-[10px] text-gray-500 block font-futuristic tracking-wider uppercase mb-1">Impressions</span>
+          <span class="text-2xl md:text-3xl font-black font-sans text-limeGreen" id="stat-views">50M+ Views</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- CASE STUDIES / PARTNERS GRID -->
-  <section class="py-12 px-4 md:px-8 relative z-10">
-    <div class="max-w-6xl mx-auto space-y-16">
+  <!-- SEARCH & FILTER HUB -->
+  <section class="py-6 px-4 md:px-8 relative z-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 bg-black/40 border border-white/5 p-4 md:p-6 rounded-2xl glass-panel">
+      <!-- Search Input -->
+      <div class="relative w-full md:w-80">
+        <input type="text" id="client-search" placeholder="Search client name..." class="w-full bg-white/5 border border-white/10 rounded-full px-5 py-2.5 pl-11 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-limeGreen/40 font-futuristic transition-colors">
+        <i data-lucide="search" class="w-4 h-4 text-gray-500 absolute left-4 top-3.5"></i>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap items-center gap-2.5 w-full md:w-auto justify-start md:justify-end">
+        <button class="filter-btn active px-5 py-2 rounded-full text-[11px] font-futuristic font-bold tracking-wider" data-filter="all">ALL COLLABS</button>
+        <button class="filter-btn px-5 py-2 rounded-full text-[11px] font-futuristic font-bold tracking-wider" data-filter="automobile">AUTOMOBILE</button>
+        <button class="filter-btn px-5 py-2 rounded-full text-[11px] font-futuristic font-bold tracking-wider" data-filter="electronics-mobile">ELECTRONICS & MOBILE</button>
+        <button class="filter-btn px-5 py-2 rounded-full text-[11px] font-futuristic font-bold tracking-wider" data-filter="retail-wellness">RETAIL & WELLNESS</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT DIRECTORY GRID -->
+  <section class="py-6 px-4 md:px-8 relative z-10">
+    <div class="max-w-6xl mx-auto">
+      <div id="client-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered dynamically by app.js -->
+      </div>
       
-      <!-- CASE 1: ALPHA TECH -->
-      <div class="glass-panel rounded-3xl p-8 md:p-12 border border-white/5 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center hover:border-limeGreen/20 transition-colors">
-        <div class="lg:col-span-7 space-y-6 text-left">
-          <div class="flex items-center gap-3">
-            <span class="text-[9px] font-futuristic text-limeGreen border border-limeGreen/20 px-3 py-1 rounded bg-limeGreen/5">CASE STUDY 01 // YOUTUBE</span>
-            <span class="text-xs text-gray-500 font-futuristic">ALPHA TECH</span>
-          </div>
-          <h2 class="text-2xl md:text-4xl font-futuristic font-bold text-white leading-tight">Scaling a Tech Brand's YouTube Subscribers by 50,000 in 3 Months</h2>
-          <p class="text-gray-400 text-sm font-light leading-relaxed">
-            Alpha Tech partnered with MMG to take their developer-oriented content framework to a broader retail audience. We redesigned their visual storytelling, restructured thumbnails, and integrated fast-paced, retention-focused video editing workflows.
-          </p>
-          <div class="grid grid-cols-3 gap-4 pt-2">
-            <div>
-              <span class="text-[10px] text-gray-500 block font-futuristic">INCREASE</span>
-              <span class="text-xl md:text-2xl font-bold font-futuristic text-limeGreen">+50K SUBS</span>
-            </div>
-            <div>
-              <span class="text-[10px] text-gray-500 block font-futuristic">WATCHTIME</span>
-              <span class="text-xl md:text-2xl font-bold font-futuristic text-limeGreen">2.5M VIEWS</span>
-            </div>
-            <div>
-              <span class="text-[10px] text-gray-500 block font-futuristic">TIMELINE</span>
-              <span class="text-xl md:text-2xl font-bold font-futuristic text-limeGreen">90 DAYS</span>
-            </div>
-          </div>
-        </div>
-        <div class="lg:col-span-5 flex justify-center">
-          <div class="w-full max-w-sm rounded-2xl overflow-hidden border border-white/10 relative group aspect-video">
-            <img src="yt_showreel_thumbnail.png" alt="Alpha Tech YouTube Case" class="w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-4">
-              <p class="text-white text-xs font-semibold font-futuristic">Verified YouTube Metrics Dashboard</p>
-            </div>
-          </div>
-        </div>
+      <!-- No clients match search alert -->
+      <div id="no-clients-alert" class="hidden text-center py-20 bg-black/20 border border-dashed border-white/5 rounded-3xl space-y-3 glass-panel">
+        <i data-lucide="info" class="w-10 h-10 text-gray-500 mx-auto"></i>
+        <h3 class="text-white font-futuristic font-bold text-lg">No Matching Clients Found</h3>
+        <p class="text-xs text-gray-400 font-light max-w-xs mx-auto">Try refining your search keyword or selecting a different category filter.</p>
       </div>
-
-      <!-- CASE 2: APEX RETAIL -->
-      <div class="glass-panel rounded-3xl p-8 md:p-12 border border-white/5 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center hover:border-limeGreen/20 transition-colors">
-        <div class="lg:col-span-5 flex justify-center order-2 lg:order-1">
-          <div class="w-full max-w-sm rounded-2xl overflow-hidden border border-white/10 relative group aspect-video">
-            <img src="yt_slide2.png" alt="Apex Retail Ads Case" class="w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-4">
-              <p class="text-white text-xs font-semibold font-futuristic">Verified Meta Ads Manager</p>
-            </div>
-          </div>
-        </div>
-        <div class="lg:col-span-7 space-y-6 text-left order-1 lg:order-2">
-          <div class="flex items-center gap-3">
-            <span class="text-[9px] font-futuristic text-limeGreen border border-limeGreen/20 px-3 py-1 rounded bg-limeGreen/5">CASE STUDY 02 // META ADS</span>
-            <span class="text-xs text-gray-500 font-futuristic">APEX RETAIL</span>
-          </div>
-          <h2 class="text-2xl md:text-4xl font-futuristic font-bold text-white leading-tight">Achieving 12x ROI on Meta Performance Ads</h2>
-          <p class="text-gray-400 text-sm font-light leading-relaxed">
-            Apex Retail had high CPC and flatlined scaling parameters. MMG restructured their creative funnel by replacing standard stock assets with dynamic, custom-edited video hooks and setting up retargeting pools.
-          </p>
-          <div class="grid grid-cols-3 gap-4 pt-2">
-            <div>
-              <span class="text-[10px] text-gray-500 block font-futuristic">AD ROAS</span>
-              <span class="text-xl md:text-2xl font-bold font-futuristic text-limeGreen">12x ROI</span>
-            </div>
-            <div>
-              <span class="text-[10px] text-gray-500 block font-futuristic">CPC DECREASE</span>
-              <span class="text-xl md:text-2xl font-bold font-futuristic text-limeGreen">-45% CPC</span>
-            </div>
-            <div>
-              <span class="text-[10px] text-gray-500 block font-futuristic">SALES SHIPPED</span>
-              <span class="text-xl md:text-2xl font-bold font-futuristic text-limeGreen">14,000+</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CASE 3: FITNATION -->
-      <div class="glass-panel rounded-3xl p-8 md:p-12 border border-white/5 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center hover:border-limeGreen/20 transition-colors">
-        <div class="lg:col-span-7 space-y-6 text-left">
-          <div class="flex items-center gap-3">
-            <span class="text-[9px] font-futuristic text-limeGreen border border-limeGreen/20 px-3 py-1 rounded bg-limeGreen/5">CASE STUDY 03 // WEB DEV</span>
-            <span class="text-xs text-gray-500 font-futuristic">FITNATION</span>
-          </div>
-          <h2 class="text-2xl md:text-4xl font-futuristic font-bold text-white leading-tight">Custom Interactive Web Architecture Boosting Conversion by 40%</h2>
-          <p class="text-gray-400 text-sm font-light leading-relaxed">
-            FitNation needed a custom portal with fast load speeds and glassmorphic micro-animations. We coded a responsive framework from scratch, optimizing core web vitals and introducing interactive visual modules.
-          </p>
-          <div class="grid grid-cols-3 gap-4 pt-2">
-            <div>
-              <span class="text-[10px] text-gray-500 block font-futuristic">CONVERSION</span>
-              <span class="text-xl md:text-2xl font-bold font-futuristic text-limeGreen">+40% RATE</span>
-            </div>
-            <div>
-              <span class="text-[10px] text-gray-500 block font-futuristic">LOAD SPEED</span>
-              <span class="text-xl md:text-2xl font-bold font-futuristic text-limeGreen">0.8 SEC</span>
-            </div>
-            <div>
-              <span class="text-[10px] text-gray-500 block font-futuristic">BOUNCE RATE</span>
-              <span class="text-xl md:text-2xl font-bold font-futuristic text-limeGreen">-28% BOUNCE</span>
-            </div>
-          </div>
-        </div>
-        <div class="lg:col-span-5 flex justify-center">
-          <div class="w-full max-w-sm rounded-2xl overflow-hidden border border-white/10 relative group aspect-video">
-            <img src="yt_slide3.png" alt="FitNation Web Case" class="w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-4">
-              <p class="text-white text-xs font-semibold font-futuristic">Interactive Web Performance Ratios</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- TRUST LOGOS ORBIT -->
-  <section class="py-16 px-4 md:px-8 border-t border-white/5 relative bg-black/40">
-    <div class="max-w-6xl mx-auto text-center space-y-8">
-      <span class="text-limeGreen font-futuristic text-xs tracking-widest uppercase font-bold block">PARTNER LABELS</span>
-      <div class="flex flex-wrap items-center justify-center gap-12 md:gap-20 opacity-55">
-        <div class="font-futuristic font-black text-xl text-white tracking-widest">ALPHA_TECH</div>
-        <div class="font-futuristic font-black text-xl text-white tracking-widest">APEX_RETAIL</div>
-        <div class="font-futuristic font-black text-xl text-white tracking-widest">FIT_NATION</div>
-        <div class="font-futuristic font-black text-xl text-white tracking-widest">CREATOR_LABS</div>
+  <!-- SHOWREEL PROOFS SECTION -->
+  <section class="py-12 px-4 md:px-8 relative z-10">
+    <div class="max-w-6xl mx-auto space-y-8">
+      <div class="text-left border-l-4 border-limeGreen pl-4">
+        <span class="text-limeGreen font-futuristic font-bold text-[10px] uppercase tracking-widest block">Featured Content</span>
+        <h2 class="text-2xl font-bold font-futuristic text-white">REELS & SHORT VIDEO WORK</h2>
+      </div>
+
+      <!-- Reels Grid Showcase -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Reel 1 -->
+        <div class="glass-panel border-white/5 rounded-2xl overflow-hidden group hover:border-limeGreen/20 transition-all duration-300">
+          <div class="relative aspect-[9/16] overflow-hidden">
+            <img src="instagram_reel_mockup.png" alt="Reel Mockup 1" class="w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-5 space-y-3">
+              <span class="text-[9px] font-futuristic text-limeGreen border border-limeGreen/20 px-2 py-0.5 rounded bg-limeGreen/5 self-start uppercase">Viral Edit</span>
+              <h4 class="text-xs font-bold text-white font-futuristic">Retention Hook Editing & SFX</h4>
+              <p class="text-[10px] text-gray-400 font-light">Custom kinetic typography and zooming pacing.</p>
+              <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank" class="flex items-center gap-1 text-[10px] font-futuristic font-bold text-limeGreen hover:underline">
+                WATCH ON INSTAGRAM <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reel 2 -->
+        <div class="glass-panel border-white/5 rounded-2xl overflow-hidden group hover:border-limeGreen/20 transition-all duration-300">
+          <div class="relative aspect-[9/16] overflow-hidden">
+            <img src="instagram_reel_mockup.png" alt="Reel Mockup 2" class="w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-5 space-y-3">
+              <span class="text-[9px] font-futuristic text-limeGreen border border-limeGreen/20 px-2 py-0.5 rounded bg-limeGreen/5 self-start uppercase">Showroom Capture</span>
+              <h4 class="text-xs font-bold text-white font-futuristic">Automobile Showcase Edit</h4>
+              <p class="text-[10px] text-gray-400 font-light">Smooth gimbal sweeps and color grading.</p>
+              <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank" class="flex items-center gap-1 text-[10px] font-futuristic font-bold text-limeGreen hover:underline">
+                WATCH ON INSTAGRAM <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reel 3 -->
+        <div class="glass-panel border-white/5 rounded-2xl overflow-hidden group hover:border-limeGreen/20 transition-all duration-300">
+          <div class="relative aspect-[9/16] overflow-hidden">
+            <img src="instagram_reel_mockup.png" alt="Reel Mockup 3" class="w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-5 space-y-3">
+              <span class="text-[9px] font-futuristic text-limeGreen border border-limeGreen/20 px-2 py-0.5 rounded bg-limeGreen/5 self-start uppercase">Product Hype</span>
+              <h4 class="text-xs font-bold text-white font-futuristic">Retail Unboxing & Hype Pacing</h4>
+              <p class="text-[10px] text-gray-400 font-light">Sound effects foley and quick cuts matching music.</p>
+              <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank" class="flex items-center gap-1 text-[10px] font-futuristic font-bold text-limeGreen hover:underline">
+                WATCH ON INSTAGRAM <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reel 4 -->
+        <div class="glass-panel border-white/5 rounded-2xl overflow-hidden group hover:border-limeGreen/20 transition-all duration-300">
+          <div class="relative aspect-[9/16] overflow-hidden">
+            <img src="instagram_reel_mockup.png" alt="Reel Mockup 4" class="w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-5 space-y-3">
+              <span class="text-[9px] font-futuristic text-limeGreen border border-limeGreen/20 px-2 py-0.5 rounded bg-limeGreen/5 self-start uppercase">Event Highlights</span>
+              <h4 class="text-xs font-bold text-white font-futuristic">Cinematic Promo Compilation</h4>
+              <p class="text-[10px] text-gray-400 font-light">Lighting adjustments and drone transitions.</p>
+              <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank" class="flex items-center gap-1 text-[10px] font-futuristic font-bold text-limeGreen hover:underline">
+                WATCH ON INSTAGRAM <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
