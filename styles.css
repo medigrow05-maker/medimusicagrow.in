@@ -335,8 +335,9 @@ h1, h2, h3, h4, h5, h6, .font-futuristic {
 .feedback-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(8, 8, 8, 0.85);
-  backdrop-filter: blur(12px);
+  background: rgba(8, 8, 8, 0.5) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
   z-index: 100;
   display: flex;
   align-items: center;
@@ -350,6 +351,9 @@ h1, h2, h3, h4, h5, h6, .font-futuristic {
   pointer-events: auto;
 }
 .feedback-modal-box {
+  background: rgba(9, 9, 11, 0.75) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
   transform: scale(0.9);
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
