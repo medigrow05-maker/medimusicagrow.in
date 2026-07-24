@@ -1051,6 +1051,8 @@ if (form) {
     const email = document.getElementById('contact-email')?.value || '';
     const service = document.getElementById('contact-service')?.value || '';
     const channel = document.getElementById('contact-channel')?.value || '';
+    const whatsapp = document.getElementById('contact-whatsapp')?.value || '';
+    const address = document.getElementById('contact-address')?.value || '';
     const message = document.getElementById('contact-message')?.value || '';
 
     // Dispatch payload to Make.com Webhook
@@ -1060,6 +1062,8 @@ if (form) {
       source: 'Medimusicagrow Website - Discovery Call',
       client_name: name,
       email: email,
+      whatsapp_number: whatsapp,
+      client_address: address,
       service_required: service,
       channel_link: channel,
       message_summary: message
@@ -1072,6 +1076,8 @@ if (form) {
         id: `lead-${Date.now()}`,
         name,
         email,
+        whatsapp,
+        address,
         service,
         channel,
         message,
@@ -1295,7 +1301,7 @@ function renderAdminLeads() {
   tableBody.innerHTML = '';
 
   if (leads.length === 0) {
-    tableBody.innerHTML = `<tr><td colspan="6" class="text-center text-gray-500 py-8 font-futuristic text-xs">NO LEAD AUDITS REGISTERED IN LOCAL STORAGE DATABASE.</td></tr>`;
+    tableBody.innerHTML = `<tr><td colspan="8" class="text-center text-gray-500 py-8 font-futuristic text-xs">NO LEAD AUDITS REGISTERED IN LOCAL STORAGE DATABASE.</td></tr>`;
     return;
   }
 
@@ -1309,6 +1315,12 @@ function renderAdminLeads() {
       </td>
       <td class="py-3 px-4 text-limeGreen font-mono">
         ${lead.email}
+      </td>
+      <td class="py-3 px-4 text-white font-mono text-xs">
+        ${lead.whatsapp || 'N/A'}
+      </td>
+      <td class="py-3 px-4 text-gray-300 text-xs truncate max-w-xs" title="${lead.address || ''}">
+        ${lead.address || 'N/A'}
       </td>
       <td class="py-3 px-4">
         <span class="text-[9px] font-futuristic bg-white/5 border border-white/10 px-2 py-1 rounded text-gray-300 uppercase">${lead.service}</span>
@@ -1391,12 +1403,14 @@ function initAdminSubtabs() {
         return;
       }
 
-      let csvContent = "data:text/csv;charset=utf-8,ID,Client Name,Email,Service,Channel Link,Objectives,Date Booked\n";
+      let csvContent = "data:text/csv;charset=utf-8,ID,Client Name,Email,WhatsApp,Address,Service,Social Link,Objectives,Date Booked\n";
       currentLeads.forEach(l => {
         const row = [
           l.id,
           `"${l.name}"`,
           `"${l.email}"`,
+          `"${l.whatsapp || ''}"`,
+          `"${(l.address || '').replace(/"/g, '""')}"`,
           l.service,
           `"${(l.channel || '').replace(/"/g, '""')}"`,
           `"${(l.message || '').replace(/"/g, '""')}"`,
