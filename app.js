@@ -2719,10 +2719,6 @@ function initInfluencerMarketingModal() {
   if (btnTrigger) btnTrigger.addEventListener('click', openInfModal);
 }
 
-  if (cardTrigger) cardTrigger.addEventListener('click', openEditModal);
-  if (btnTrigger) btnTrigger.addEventListener('click', openEditModal);
-}
-
 const MMG_CLIENTS = [
   {
     name: "Chacha TVS",
