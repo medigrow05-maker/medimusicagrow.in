@@ -1121,6 +1121,14 @@ if (form) {
       if (messageElem) {
         messageElem.value = `Hello! I would like to book the Music Video Production package. `;
       }
+    } else if (serviceParam === 'video-editing' && tierParam) {
+      activatePackageCard('custom');
+      if (selectElem) selectElem.value = 'video-editing';
+      const messageElem = document.getElementById('contact-message');
+      if (messageElem) {
+        const capitalizedTier = tierParam.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+        messageElem.value = `Hello! I would like to book the Video Editing: ${capitalizedTier} package. `;
+      }
     } else {
       if (selectElem) {
         const options = Array.from(selectElem.options).map(o => o.value);
@@ -2483,6 +2491,151 @@ function initMusicVideoModal() {
   if (btnTrigger) btnTrigger.addEventListener('click', openMusModal);
 }
 
+}
+
+function initVideoEditingModal() {
+  const cardTrigger = document.querySelector('.video-editing-card-trigger');
+  const btnTrigger = document.querySelector('.video-editing-btn-trigger');
+
+  if (!cardTrigger && !btnTrigger) return;
+
+  let editModal = document.getElementById('video-editing-modal');
+  if (!editModal) {
+    editModal = document.createElement('div');
+    editModal.id = 'video-editing-modal';
+    editModal.className = 'feedback-modal-overlay';
+    editModal.innerHTML = `
+      <div class="feedback-modal-box w-full max-w-5xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="edit-modal-box">
+        <!-- Close Button -->
+        <button id="close-edit-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <!-- Header block -->
+        <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
+          <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
+          <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
+            Video Editing Packages
+          </div>
+        </div>
+
+        <!-- 3 Column Pricing Matrix Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+          
+          <!-- Package 1: Cinematic Video -->
+          <div class="glass-panel border-white/10 rounded-xl p-6 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors uppercase leading-tight">Cinematic Video</h4>
+                <p class="text-[10px] text-gray-400">Color-graded cinematic reel editing with advanced soundscapes.</p>
+              </div>
+              <div class="text-2xl font-black text-limeGreen font-sans py-2">₹399 - ₹799</div>
+              <ul class="text-[11px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> High-End PC Post-Production</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> DaVinci Resolve Studio Workflow</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Sound Design & Foley FX Integration</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Cinematic Color Correction & LUTs</li>
+                <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-gray-500 flex-shrink-0"></i> Max. 60 Seconds Video Duration</li>
+              </ul>
+            </div>
+            <div class="pt-6">
+              <a href="contact.html?service=video-editing&tier=cinematic-video" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
+                CHOOSE CINEMATIC
+              </a>
+            </div>
+          </div>
+
+          <!-- Package 2: Short Video -->
+          <div class="glass-panel border-limeGreen/30 bg-limeGreen/5 rounded-xl p-6 flex flex-col justify-between hover:border-limeGreen/50 transition-all duration-300 relative group shadow-[0_0_30px_rgba(140,230,0,0.05)]">
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors uppercase leading-tight">Short Video</h4>
+                <p class="text-[10px] text-gray-400">High-retention reels, hooks, text highlights, and trending assets.</p>
+              </div>
+              <div class="text-2xl font-black text-limeGreen font-sans py-2">₹499 - ₹1,499</div>
+              <ul class="text-[11px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> High-End PC Post-Production</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 2-Second Retention Hooks & Zooms</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Dynamic Subtitles & Animated Assets</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Viral Trend Sound Design</li>
+                <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-gray-500 flex-shrink-0"></i> Max. 60 Seconds Video Duration</li>
+              </ul>
+            </div>
+            <div class="pt-6">
+              <a href="contact.html?service=video-editing&tier=short-video" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full">
+                CHOOSE SHORT VIDEO
+              </a>
+            </div>
+          </div>
+
+          <!-- Package 3: Long Video -->
+          <div class="glass-panel border-white/10 rounded-xl p-6 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors uppercase leading-tight">Long Video</h4>
+                <p class="text-[10px] text-gray-400">Complete podcasts, courses, documentaries, and YouTube edits.</p>
+              </div>
+              <div class="text-lg font-black text-limeGreen font-sans py-2">₹299 - ₹499 <span class="text-xs text-gray-500 font-futuristic">per minute</span></div>
+              <ul class="text-[11px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> High-End PC Post-Production</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Multi-Camera Sequence Alignment</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> B-Roll & Visual Assets Insertion</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Sound Cleanup & Noise Reduction</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> DaVinci Resolve Master Delivery</li>
+              </ul>
+            </div>
+            <div class="pt-6">
+              <a href="contact.html?service=video-editing&tier=long-video" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
+                CHOOSE LONG VIDEO
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Policy Footnotes -->
+        <div class="grid grid-cols-1 gap-4 mt-8 pt-6 border-t border-white/5">
+          <div class="flex items-start gap-2.5 bg-white/[0.02] border border-white/5 rounded-xl p-4 text-[10px] text-gray-400">
+            <i data-lucide="clock" class="w-4 h-4 text-limeGreen flex-shrink-0"></i>
+            <div>
+              <strong class="text-white block uppercase mb-0.5">EXTRA COMPILATIONS</strong>
+              Revisions and extra visual complexity beyond standard deliverables will be subject to custom hourly quotes.
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer block -->
+        <div class="border-t border-white/5 mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-gray-500 select-none">
+          <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-limeGreen"></i> +91 96346 25609</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-limeGreen"></i> Awas Vikas Colony, Kasganj, Uttar Pradesh</span>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(editModal);
+    if (window.lucide) lucide.createIcons();
+
+    // Close listeners
+    const closeBtn = document.getElementById('close-edit-modal');
+    closeBtn.addEventListener('click', () => editModal.classList.remove('open'));
+    editModal.addEventListener('click', (e) => {
+      if (e.target === editModal) {
+        editModal.classList.remove('open');
+      }
+    });
+  }
+
+  const openEditModal = (e) => {
+    if (e.type === 'click' && e.currentTarget === cardTrigger && e.target.closest('button, a')) {
+      return;
+    }
+    e.preventDefault();
+    editModal.classList.add('open');
+  };
+
+  if (cardTrigger) cardTrigger.addEventListener('click', openEditModal);
+  if (btnTrigger) btnTrigger.addEventListener('click', openEditModal);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initAdminSubtabs();
   initSmmPackageModal();
@@ -2491,6 +2644,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFamilyEventsModal();
   initAchievementShootModal();
   initMusicVideoModal();
+  initVideoEditingModal();
   if (document.getElementById('admin-leads-table-body')) {
     renderAdminLeads();
   }
