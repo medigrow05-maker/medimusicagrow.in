@@ -1426,8 +1426,169 @@ function initAdminSubtabs() {
   }
 }
 
+function initSmmPackageModal() {
+  const cardTrigger = document.querySelector('.smm-package-card-trigger');
+  const btnTrigger = document.querySelector('.smm-package-btn-trigger');
+
+  if (!cardTrigger && !btnTrigger) return;
+
+  let smmModal = document.getElementById('smm-package-modal');
+  if (!smmModal) {
+    smmModal = document.createElement('div');
+    smmModal.id = 'smm-package-modal';
+    smmModal.className = 'feedback-modal-overlay';
+    smmModal.innerHTML = `
+      <div class="feedback-modal-box w-full max-w-4xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="smm-modal-box">
+        <!-- Close Button -->
+        <button id="close-smm-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <!-- Header block matching the images -->
+        <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
+          <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
+          <div class="text-[9px] md:text-xs text-gray-400 font-mono tracking-widest uppercase mt-1">CIN - U59112UW2026PTC249892</div>
+          <div class="flex items-center justify-center gap-4 pt-2 text-xs text-gray-500">
+            <span class="flex items-center gap-1"><i data-lucide="youtube" class="w-4 h-4 text-red-500 fill-red-500"></i> @medimusicagrow</span>
+            <span class="flex items-center gap-1"><i data-lucide="instagram" class="w-4 h-4 text-pink-500"></i> Instagram</span>
+          </div>
+          <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
+            5 Months Package
+          </div>
+        </div>
+
+        <!-- Details Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-6">
+          
+          <!-- Left Column: Package Offerings -->
+          <div class="space-y-6">
+            <h3 class="text-sm text-limeGreen font-bold border-b border-limeGreen/20 pb-2 uppercase tracking-wider flex items-center gap-2">
+              <i data-lucide="layers" class="w-4 h-4"></i> Package Offerings
+            </h3>
+            
+            <!-- SMM Details -->
+            <div class="space-y-2">
+              <h4 class="text-xs text-white font-bold uppercase tracking-wider">Social Media Management</h4>
+              <ul class="text-[11px] text-gray-400 space-y-1.5 list-disc pl-4 font-sans font-light leading-relaxed">
+                <li>Account Creation And Branding</li>
+                <li>Creative Captions For Post</li>
+                <li>Researched Hashtag Strategy</li>
+                <li>Social Media Accounts Management</li>
+                <li>Social Media Marketing Strategy And Planning</li>
+              </ul>
+            </div>
+
+            <!-- Content Creation Details -->
+            <div class="space-y-2">
+              <h4 class="text-xs text-white font-bold uppercase tracking-wider">Content Creation</h4>
+              <ul class="text-[11px] text-gray-400 space-y-1.5 list-disc pl-4 font-sans font-light leading-relaxed">
+                <li>25 Short Videos</li>
+                <li>14 Video Shoot Visits</li>
+                <li>Customer Feedback Videos</li>
+                <li>Business Creatives</li>
+                <li>Happy Customer Creatives</li>
+                <li>National And International Days Creatives</li>
+              </ul>
+            </div>
+
+            <!-- SMM Training Details -->
+            <div class="space-y-2">
+              <h4 class="text-xs text-white font-bold uppercase tracking-wider">SMM Training</h4>
+              <ul class="text-[11px] text-gray-400 space-y-1.5 list-disc pl-4 font-sans font-light leading-relaxed">
+                <li>Social Media Management</li>
+                <li>Content Creation</li>
+                <li>Research And Analysis</li>
+                <li>Social Media Marketing</li>
+                <li>WhatsApp Marketing</li>
+              </ul>
+            </div>
+
+            <!-- Price Display -->
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center justify-between">
+              <span class="text-xs text-gray-400 uppercase tracking-widest font-bold">Total Investment:</span>
+              <span class="text-xl md:text-2xl font-black text-limeGreen font-futuristic">Rs. 59,999/-</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Payment Schedule & Notes -->
+          <div class="space-y-6">
+            <h3 class="text-sm text-limeGreen font-bold border-b border-limeGreen/20 pb-2 uppercase tracking-wider flex items-center gap-2">
+              <i data-lucide="credit-card" class="w-4 h-4"></i> Payment Schedule
+            </h3>
+
+            <!-- Payment Timeline -->
+            <div class="space-y-3 font-futuristic text-xs">
+              <div class="flex items-center justify-between p-3.5 bg-white/5 border border-white/10 rounded-xl hover:border-limeGreen/30 transition-colors">
+                <span class="font-bold text-white">25% Advance</span>
+                <span class="text-limeGreen font-bold bg-limeGreen/10 border border-limeGreen/30 px-2 py-1 rounded">On Initiation</span>
+              </div>
+              <div class="flex items-center justify-between p-3.5 bg-white/5 border border-white/10 rounded-xl hover:border-limeGreen/30 transition-colors">
+                <span class="font-bold text-white">25% After One Month</span>
+                <span class="text-gray-400 bg-white/5 border border-white/5 px-2 py-1 rounded">Milestone 2</span>
+              </div>
+              <div class="flex items-center justify-between p-3.5 bg-white/5 border border-white/10 rounded-xl hover:border-limeGreen/30 transition-colors">
+                <span class="font-bold text-white">25% After Two Months</span>
+                <span class="text-gray-400 bg-white/5 border border-white/5 px-2 py-1 rounded">Milestone 3</span>
+              </div>
+              <div class="flex items-center justify-between p-3.5 bg-white/5 border border-white/10 rounded-xl hover:border-limeGreen/30 transition-colors">
+                <span class="font-bold text-white">25% After Three Months</span>
+                <span class="text-gray-400 bg-white/5 border border-white/5 px-2 py-1 rounded">Milestone 4</span>
+              </div>
+            </div>
+
+            <!-- Note/Guidelines -->
+            <div class="bg-red-500/5 border border-red-500/20 rounded-2xl p-4 space-y-2">
+              <h4 class="text-xs text-red-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
+                <i data-lucide="alert-triangle" class="w-4 h-4"></i> Important Travel Policy Note
+              </h4>
+              <p class="text-[11px] text-gray-400 font-sans font-light leading-relaxed">
+                If we travel to your location for a video shoot and you subsequently cancel it, you will be required to pay <strong class="text-white">₹500</strong>; this amount will not be included in your package. The next shoot will only be conducted once this payment has been made.
+              </p>
+            </div>
+
+            <!-- CTA Action Buttons -->
+            <div class="pt-4 flex items-center gap-3">
+              <a href="contact.html?service=smm" class="lime-glow-btn text-brandBg font-futuristic font-bold px-6 py-3.5 rounded-xl text-xs flex-1 text-center flex items-center justify-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4"></i> DEPLOY SMM PACKAGE
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer block -->
+        <div class="border-t border-white/5 mt-8 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-gray-500 select-none">
+          <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-limeGreen"></i> +91 96346 25609</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-limeGreen"></i> Awas Vikas Colony, Kasganj, Uttar Pradesh</span>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(smmModal);
+    if (window.lucide) lucide.createIcons();
+
+    const closeBtn = document.getElementById('close-smm-modal');
+    closeBtn.addEventListener('click', () => smmModal.classList.remove('open'));
+    smmModal.addEventListener('click', (e) => {
+      if (e.target === smmModal) {
+        smmModal.classList.remove('open');
+      }
+    });
+  }
+
+  const openSmmModal = (e) => {
+    if (e.type === 'click' && e.currentTarget === cardTrigger && e.target.closest('button, a')) {
+      return;
+    }
+    e.preventDefault();
+    smmModal.classList.add('open');
+  };
+
+  if (cardTrigger) cardTrigger.addEventListener('click', openSmmModal);
+  if (btnTrigger) btnTrigger.addEventListener('click', openSmmModal);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initAdminSubtabs();
+  initSmmPackageModal();
   if (document.getElementById('admin-leads-table-body')) {
     renderAdminLeads();
   }
