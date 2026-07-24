@@ -1690,12 +1690,12 @@ function initContentCreationModal() {
         <!-- 3 Column Pricing Matrix Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
           
-          <!-- Tier 1: Genesis Capture -->
+          <!-- Tier 1: Basic Capture -->
           <div class="glass-panel border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
-            <div class="absolute top-4 right-4 text-[9px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-gray-400 font-mono">GENESIS</div>
+            <div class="absolute top-4 right-4 text-[9px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-gray-400 font-mono">BASIC</div>
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Genesis Capture</h4>
+                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Basic Capture</h4>
                 <p class="text-[10px] text-gray-400">Perfect for startup brands and quick milestone shoots.</p>
               </div>
               <div class="text-2xl font-black text-limeGreen font-sans py-2">₹5,999/-</div>
@@ -1710,18 +1710,18 @@ function initContentCreationModal() {
               </ul>
             </div>
             <div class="pt-6">
-              <a href="contact.html?service=content-creation&tier=genesis" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
-                CHOOSE GENESIS
+              <a href="contact.html?service=content-creation&tier=basic" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
+                CHOOSE BASIC
               </a>
             </div>
           </div>
 
-          <!-- Tier 2: Apex Capture -->
+          <!-- Tier 2: Normal Capture -->
           <div class="glass-panel border-limeGreen/30 bg-limeGreen/5 rounded-2xl p-6 flex flex-col justify-between hover:border-limeGreen/50 transition-all duration-300 relative group scale-105 shadow-[0_0_30px_rgba(140,230,0,0.05)]">
-            <div class="absolute top-4 right-4 text-[9px] bg-limeGreen/20 border border-limeGreen/30 px-2 py-0.5 rounded text-limeGreen font-mono font-bold tracking-widest">APEX / POPULAR</div>
+            <div class="absolute top-4 right-4 text-[9px] bg-limeGreen/20 border border-limeGreen/30 px-2 py-0.5 rounded text-limeGreen font-mono font-bold tracking-widest">NORMAL / POPULAR</div>
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Apex Capture</h4>
+                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Normal Capture</h4>
                 <p class="text-[10px] text-gray-400">Complete media capture with high-end lighting and sound setup.</p>
               </div>
               <div class="text-2xl font-black text-limeGreen font-sans py-2">₹9,999/-</div>
@@ -1738,18 +1738,18 @@ function initContentCreationModal() {
               </ul>
             </div>
             <div class="pt-6">
-              <a href="contact.html?service=content-creation&tier=apex" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full">
-                CHOOSE APEX
+              <a href="contact.html?service=content-creation&tier=normal" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full">
+                CHOOSE NORMAL
               </a>
             </div>
           </div>
 
-          <!-- Tier 3: Zenith Capture -->
+          <!-- Tier 3: Advance Capture -->
           <div class="glass-panel border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
-            <div class="absolute top-4 right-4 text-[9px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-gray-400 font-mono">ZENITH</div>
+            <div class="absolute top-4 right-4 text-[9px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-gray-400 font-mono">ADVANCE</div>
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Zenith Capture</h4>
+                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Advance Capture</h4>
                 <p class="text-[10px] text-gray-400">Complete cinematic documentary with aerial drone coverage.</p>
               </div>
               <div class="text-2xl font-black text-limeGreen font-sans py-2">₹24,999/-</div>
@@ -1766,8 +1766,8 @@ function initContentCreationModal() {
               </ul>
             </div>
             <div class="pt-6">
-              <a href="contact.html?service=content-creation&tier=zenith" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
-                CHOOSE ZENITH
+              <a href="contact.html?service=content-creation&tier=advance" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
+                CHOOSE ADVANCE
               </a>
             </div>
           </div>
