@@ -2863,7 +2863,7 @@ const MMG_CLIENTS = [
     handle: "@matscomputers",
     initials: "MC",
     icon: "monitor",
-    logo: "client_logos/Mats Computers/logo.jpg",
+    logo: "client_logos/Mats Computers/Screenshot 2026-07-25 131026.png",
     desc: "IT solutions, custom desktop builds, computer hardware, and tech retail brand presence."
   },
   {
@@ -2875,7 +2875,7 @@ const MMG_CLIENTS = [
     handle: "@vpntimber",
     initials: "VPN",
     icon: "hammer",
-    logo: "client_logos/VPN Timber & Hardware/logo.jpg",
+    logo: "client_logos/VPN Timber & Hardware/574279934_17845689168600449_518756765486348597_n.jpg",
     desc: "Premium timber, architectural hardware, interior materials, and construction supply marketing."
   },
   {
@@ -2887,7 +2887,7 @@ const MMG_CLIENTS = [
     handle: "@vpnjewellers",
     initials: "VJ",
     icon: "gem",
-    logo: "client_logos/VPN Jewellers/logo.jpg",
+    logo: "client_logos/VPN Jewellers/537298547_17853151527515525_527216833266455968_n.jpg",
     desc: "Exclusive gold & diamond jewellery collection showcases, bridal hype reels, and festive campaign designs."
   },
   {
@@ -2899,7 +2899,7 @@ const MMG_CLIENTS = [
     handle: "@srsautoservices",
     initials: "SRS",
     icon: "car",
-    logo: "client_logos/SRS Auto & Financial Services/logo.jpg",
+    logo: "client_logos/SRS Auto & Financial Services/705340617_18077703917380236_6764662198683789440_n.jpg",
     desc: "Automobile financing solutions, vehicle insurance campaigns, and local auto services promotion."
   },
   {
@@ -2911,7 +2911,7 @@ const MMG_CLIENTS = [
     handle: "@vanshpayaljewellery",
     initials: "VPJ",
     icon: "sparkles",
-    logo: "client_logos/Vansh Payal Jewellery/logo.jpg",
+    logo: "client_logos/Vansh Payal Jewellery/702250334_17914401183383965_8004761820245369039_n.jpg",
     desc: "Traditional silver & gold jewellery showcases, festive offer teasers, and store walk-through reels."
   },
   {
@@ -2923,7 +2923,7 @@ const MMG_CLIENTS = [
     handle: "@shriroopinterio",
     initials: "SRI",
     icon: "home",
-    logo: "client_logos/Shri Roop Interio/logo.jpg",
+    logo: "client_logos/Shri Roop Interio/128152316_448806149852844_3229675202183708361_n.jpg",
     desc: "Modern interior design walkthroughs, custom modular furniture reels, and architectural content creation."
   },
   {
@@ -2935,7 +2935,7 @@ const MMG_CLIENTS = [
     handle: "@uphaarexpress",
     initials: "UE",
     icon: "gift",
-    logo: "client_logos/Uphaar Express/logo.jpg",
+    logo: "client_logos/Uphaar Express/482991774_2931681273676059_6806113917783411540_n.jpg",
     desc: "Customized gift hampers, corporate gifting promos, and festive occasion video reels."
   },
   {
@@ -2947,7 +2947,7 @@ const MMG_CLIENTS = [
     handle: "@manglammarble",
     initials: "MM",
     icon: "layers",
-    logo: "client_logos/Manglam Marble/logo.jpg",
+    logo: "client_logos/Manglam Marble/467358055_2032487600525457_3076599899937324612_n.jpg",
     desc: "Premium marble & tile collection showcases, home flooring elevation videos, and interior aesthetics."
   },
   {
@@ -2959,7 +2959,7 @@ const MMG_CLIENTS = [
     handle: "@shrikrishnacaraccessories",
     initials: "SKC",
     icon: "shield",
-    logo: "client_logos/SHRI KRISHNA CAR ACCESSORIES/logo.jpg",
+    logo: "client_logos/SHRI KRISHNA CAR ACCESSORIES/467996110_1713009302821910_3310482308193255041_n.jpg",
     desc: "Car seat cover fittings, premium audio upgrades, ambient lighting reels, and custom auto modifications."
   },
   {
@@ -2971,7 +2971,7 @@ const MMG_CLIENTS = [
     handle: "@fabzila",
     initials: "FZ",
     icon: "shopping-bag",
-    logo: "client_logos/FABZILA/logo.jpg",
+    logo: "client_logos/FABZILA/696059087_17993124431962592_3980874206000344223_n.jpg",
     desc: "Trendy apparel collections, fashion lookbook video edits, and retail store footfall campaigns."
   },
   {
@@ -2983,7 +2983,7 @@ const MMG_CLIENTS = [
     handle: "@vishnufashion",
     initials: "VF",
     icon: "shirt",
-    logo: "client_logos/Vishnu Fashion/logo.jpg",
+    logo: "client_logos/Vishnu Fashion/474370944_1755499738357953_4039264935552091008_n.jpg",
     desc: "Ethnic & modern wear collections, festival sale launch reels, and customer testimonial videos."
   },
   {
@@ -2995,7 +2995,7 @@ const MMG_CLIENTS = [
     handle: "@avjewellers",
     initials: "AVJ",
     icon: "crown",
-    logo: "client_logos/A.V. Jewellers/logo.jpg",
+    logo: "client_logos/A.V. Jewellers/519988266_17845986537530006_1650956465504692481_n.jpg",
     desc: "Fine craftsmanship gold jewellery reels, custom hallmark designs, and luxury store promos."
   },
   {
@@ -3007,7 +3007,7 @@ const MMG_CLIENTS = [
     handle: "@ulfabrand",
     initials: "ULFA",
     icon: "feather",
-    logo: "client_logos/ulfa/logo.jpg",
+    logo: "client_logos/ulfa/485899778_625304997154227_8013768019368377535_n.jpg",
     desc: "Lifestyle & fashion content creation, brand identity aesthetics, and viral short-form video hooks."
   },
   {
@@ -3019,7 +3019,7 @@ const MMG_CLIENTS = [
     handle: "@sareemuseum",
     initials: "SM",
     icon: "sparkles",
-    logo: "client_logos/Saree Museum/logo.jpg",
+    logo: "client_logos/Saree Museum/541730394_17848617924552357_4581592102461243883_n.jpg",
     desc: "Bridal saree collections, silk saree drape reels, and traditional fashion digital promotions."
   },
   {
@@ -3031,7 +3031,7 @@ const MMG_CLIENTS = [
     handle: "@saifnutritioncoach",
     initials: "SNC",
     icon: "activity",
-    logo: "client_logos/Saif Nutrition Coach/logo.jpg",
+    logo: "client_logos/Saif Nutrition Coach/539262731_18369347605197677_8196103819138395271_n.jpg",
     desc: "Fitness & health transformation videos, diet coaching content, and personal branding growth."
   },
   {
@@ -3055,7 +3055,7 @@ const MMG_CLIENTS = [
     handle: "@vikascardecoration",
     initials: "VCD",
     icon: "car",
-    logo: "client_logos/Vikas Car Decoration/logo.jpg",
+    logo: "client_logos/Vikas Car Decoration/513819836_17970891488869980_3000791485685821144_n.jpg",
     desc: "Luxury car detailing, wedding vehicle decor showcases, and custom car accessory installation reels."
   },
   {
@@ -3067,7 +3067,7 @@ const MMG_CLIENTS = [
     handle: "@cityfashionfloor",
     initials: "CFF",
     icon: "shopping-cart",
-    logo: "client_logos/CITY FASHION FLOOR/logo.jpg",
+    logo: "client_logos/CITY FASHION FLOOR/306740492_413534314255596_7466029059557184327_n.jpg",
     desc: "Multi-brand clothing retail promos, seasonal sale launches, and festive fashion walk-throughs."
   },
   {
@@ -3079,7 +3079,7 @@ const MMG_CLIENTS = [
     handle: "@dulhaghar_kasganj",
     initials: "DGK",
     icon: "user-check",
-    logo: "client_logos/Dulhaghar Kasganj/logo.jpg",
+    logo: "client_logos/Dulhaghar Kasganj/558087612_17848356648570948_1866885933471043269_n.jpg",
     desc: "Groom wedding wear showcases, designer sherwani reels, and bridal/groom fashion marketing."
   },
   {
@@ -3091,7 +3091,7 @@ const MMG_CLIENTS = [
     handle: "@chachaautowheels",
     initials: "CAW",
     icon: "truck",
-    logo: "client_logos/Chacha Auto Wheels/logo.jpg",
+    logo: "client_logos/Chacha Auto Wheels/473592409_1478206776682296_3393567477325141016_n.jpg",
     desc: "Automobile dealership campaigns, new vehicle delivery celebrations, and service videos."
   },
   {
@@ -3103,7 +3103,7 @@ const MMG_CLIENTS = [
     handle: "@chachaeautowheels",
     initials: "CEA",
     icon: "zap",
-    logo: "client_logos/Chacha E Auto Wheels/logo.jpg",
+    logo: "client_logos/Chacha E Auto Wheels/277912976_648851329748875_3795181786132105292_n.jpg",
     desc: "Electric 3-wheeler & EV dealership marketing, battery performance reels, and eco-mobility promos."
   },
   {
@@ -3115,7 +3115,7 @@ const MMG_CLIENTS = [
     handle: "@rasuitcollection",
     initials: "RAS",
     icon: "tag",
-    logo: "client_logos/R.A. Suit Collection/logo.jpg",
+    logo: "client_logos/R.A. Suit Collection/502953902_17842096101509291_8847541407930408022_n.jpg",
     desc: "Designer ladies suit collections, dress material showcases, and festive fashion promotional reels."
   },
   {
@@ -3127,7 +3127,7 @@ const MMG_CLIENTS = [
     handle: "@babamobiles",
     initials: "BM",
     icon: "smartphone",
-    logo: "client_logos/Baba Mobiles/logo.jpg",
+    logo: "client_logos/Baba Mobiles/550193692_18057043949529214_5697041386503957568_n.jpg",
     desc: "Mobile phone accessories, device trade-in offers, and smartphone unboxing video reels."
   },
   {
@@ -3139,7 +3139,7 @@ const MMG_CLIENTS = [
     handle: "@propertywala",
     initials: "PW",
     icon: "building",
-    logo: "client_logos/Property Wala/logo.jpg",
+    logo: "client_logos/Property Wala/449082084_1220408432458570_4583079296570203708_n.jpg",
     desc: "Real estate property walkthroughs, plot & residential project promo videos, and land marketing."
   },
   {
@@ -3151,7 +3151,7 @@ const MMG_CLIENTS = [
     handle: "@aoneeyecare",
     initials: "A1U",
     icon: "eye",
-    logo: "client_logos/A ONE Ultrasound & Eye Care/logo.jpg",
+    logo: "client_logos/A ONE Ultrasound & Eye Care/480632363_1053494269873562_6423668081902522160_n.jpg",
     desc: "Healthcare awareness campaigns, diagnostic facility showcases, and medical consultation reels."
   },
   {
@@ -3163,7 +3163,7 @@ const MMG_CLIENTS = [
     handle: "@jaishreeshyamhomedecorator",
     initials: "JSS",
     icon: "home",
-    logo: "client_logos/JAI SHREE SHYAM HOME DECORATOR/logo.jpg",
+    logo: "client_logos/JAI SHREE SHYAM HOME DECORATOR/558983151_17989315616848957_6947374727473715281_n.jpg",
     desc: "Curtains, wallpapers, home furnishing showcases, and interior decor transformation videos."
   },
   {
