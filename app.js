@@ -94,7 +94,14 @@ if (canvas) {
     particles[i].y = Math.random() * canvas.height;
   }
 
+  let isAnimating = true;
+  document.addEventListener('visibilitychange', () => {
+    isAnimating = !document.hidden;
+    if (isAnimating) requestAnimationFrame(animateParticles);
+  });
+
   function animateParticles() {
+    if (!isAnimating) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (let i = 0; i < particles.length; i++) {
       particles[i].update();
@@ -111,24 +118,30 @@ if (canvas) {
 const heroNode = document.getElementById('hero-3d-node');
 
 if (heroNode && !isTouchDevice && window.innerWidth >= 1024) {
+  let mouseRaf = null;
   window.addEventListener('mousemove', (e) => {
-    const cx = window.innerWidth / 2;
-    const cy = window.innerHeight / 2;
-    const dx = e.clientX - cx;
-    const dy = e.clientY - cy;
+    if (mouseRaf) cancelAnimationFrame(mouseRaf);
+    mouseRaf = requestAnimationFrame(() => {
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      const dx = e.clientX - cx;
+      const dy = e.clientY - cy;
 
-    const px = dx / cx;
-    const py = dy / cy;
+      const px = dx / cx;
+      const py = dy / cy;
 
-    gsap.to(heroNode, {
-      rotationY: px * 20,
-      rotationX: -py * 20,
-      x: px * 15,
-      y: py * 15,
-      duration: 0.5,
-      ease: "power2.out"
+      if (typeof gsap !== 'undefined') {
+        gsap.to(heroNode, {
+          rotationY: px * 15,
+          rotationX: -py * 15,
+          x: px * 10,
+          y: py * 10,
+          duration: 0.4,
+          ease: "power2.out"
+        });
+      }
     });
-  });
+  }, { passive: true });
 }
 
 // 3D Glass Card mouse tilts

@@ -474,3 +474,37 @@ h1, h2, h3, h4, h5, h6, .font-futuristic {
   }
 }
 
+/* ==========================================================================
+   PERFORMANCE & RENDERING OPTIMIZATIONS FOR ALL DEVICES
+   ========================================================================== */
+
+/* Hardware acceleration & render containment for heavy sections */
+section:not(#hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
+}
+
+/* GPU composite hints for glass elements & modal cards */
+.glass-panel,
+.glass-panel-glow,
+.video-testimonial-trigger,
+.lime-glow-btn,
+.feedback-modal-box {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Reduce paint flashing during smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
