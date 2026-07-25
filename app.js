@@ -515,6 +515,150 @@ const defaultFeedbacks = [
     featured: false,
     verified: true,
     date: '2026-06-25'
+  },
+  {
+    id: 'fb-11',
+    name: 'VPN Timber & Hardware',
+    title: 'Architectural Supplies & Hardware',
+    category: 'web-dev',
+    categoryLabel: 'WEB & BRANDING',
+    rating: 5,
+    text: 'Medimusicagrow designed our architectural hardware and timber showcases. Their digital branding and short video shoots helped us connect with high-end interior designers and builders across the region.',
+    featured: true,
+    verified: true,
+    date: '2026-06-22'
+  },
+  {
+    id: 'fb-12',
+    name: 'Manglam Marble',
+    title: 'Flooring & Marble Showroom',
+    category: 'video-editing',
+    categoryLabel: 'VIDEO EDITING',
+    rating: 5,
+    text: 'The marble & tile collection elevation videos created by MMG have been a game changer for our brand! Flawless color grading, sharp transitions, and high customer inquiry conversion.',
+    featured: false,
+    verified: true,
+    date: '2026-06-19'
+  },
+  {
+    id: 'fb-13',
+    name: 'FABZILA',
+    title: 'Fashion Apparel Brand',
+    category: 'smm',
+    categoryLabel: 'SMM ORBIT',
+    rating: 5,
+    text: 'Our seasonal fashion collection launches and trend lookbook reels receive phenomenal engagement. Shailesh and his team know exactly how to hook viewers in the first 3 seconds.',
+    featured: true,
+    verified: true,
+    date: '2026-06-16'
+  },
+  {
+    id: 'fb-14',
+    name: 'Saree Museum',
+    title: 'Traditional & Silk Saree Collection',
+    category: 'video-editing',
+    categoryLabel: 'CONTENT CREATION',
+    rating: 5,
+    text: 'High quality silk saree drape reels and festive video promos! Their creative direction and video pacing consistently deliver viral reach on Instagram.',
+    featured: false,
+    verified: true,
+    date: '2026-06-14'
+  },
+  {
+    id: 'fb-15',
+    name: 'CITY FASHION FLOOR',
+    title: 'Multi-Brand Clothing Retail',
+    category: 'meta-ads',
+    categoryLabel: 'META ADS',
+    rating: 5,
+    text: 'Their Meta Ad campaigns and seasonal sale announcement videos drove record store footfall during peak festive shopping season. Exceptional strategy and campaign tracking!',
+    featured: true,
+    verified: true,
+    date: '2026-06-11'
+  },
+  {
+    id: 'fb-16',
+    name: 'Chacha E Auto Wheels',
+    title: 'EV & Electric 3-Wheeler Dealership',
+    category: 'video-editing',
+    categoryLabel: 'VIDEO EDITING',
+    rating: 5,
+    text: 'Top-tier electric 3-wheeler performance reels and dealership promotional edits. Clean cuts, engaging audio design, and super fast project turnarounds.',
+    featured: false,
+    verified: true,
+    date: '2026-06-08'
+  },
+  {
+    id: 'fb-17',
+    name: 'Property Wala',
+    title: 'Real Estate Projects & Plots',
+    category: 'meta-ads',
+    categoryLabel: 'META ADS & LEADS',
+    rating: 5,
+    text: 'Medimusicagrow produced our property walkthrough videos and targeted lead generation ads. We closed multiple premium plot bookings thanks to their video funnels!',
+    featured: true,
+    verified: true,
+    date: '2026-06-05'
+  },
+  {
+    id: 'fb-18',
+    name: 'A ONE Ultrasound & Eye Care',
+    title: 'Healthcare & Diagnostic Facility',
+    category: 'smm',
+    categoryLabel: 'SMM ORBIT',
+    rating: 5,
+    text: 'Professional, informative, and engaging medical service awareness videos. Their team handled everything from scripting to post-production with complete care.',
+    featured: false,
+    verified: true,
+    date: '2026-06-02'
+  },
+  {
+    id: 'fb-19',
+    name: 'JAI SHREE SHYAM HOME DECORATOR',
+    title: 'Home Furnishing & Curtains',
+    category: 'smm',
+    categoryLabel: 'CREATIVE SHOWCASE',
+    rating: 5,
+    text: 'Our interior decor and curtain installation transformation reels turned out stunning. The video quality and aesthetic presentation brought in lots of new local clients.',
+    featured: false,
+    verified: true,
+    date: '2026-05-29'
+  },
+  {
+    id: 'fb-20',
+    name: 'Time Electronic Centre',
+    title: 'Electronics & Mobile Retail',
+    category: 'meta-ads',
+    categoryLabel: 'META ADS',
+    rating: 5,
+    text: 'Excellent gadget unboxing reels and festival offer promos! Their video edits stand out on social media feeds and drive real in-store conversions.',
+    featured: true,
+    verified: true,
+    date: '2026-05-25'
+  },
+  {
+    id: 'fb-21',
+    name: 'Mobile World',
+    title: 'Smartphone Retailer',
+    category: 'video-editing',
+    categoryLabel: 'VIDEO EDITING',
+    rating: 5,
+    text: 'The smartphone launch teasers and accessory promo edits from MMG are top notch. Great team to work with for high-converting short form video content!',
+    featured: false,
+    verified: true,
+    date: '2026-05-21'
+  },
+  {
+    id: 'fb-22',
+    name: 'Balance Yoga Studio',
+    title: 'Wellness & Fitness Studio',
+    category: 'smm',
+    categoryLabel: 'SMM ORBIT',
+    rating: 5,
+    text: 'Serene, high-definition wellness reels and yoga workshop promos. Medi Musica Grow helped us build an active local wellness community online!',
+    featured: false,
+    verified: true,
+    date: '2026-05-18'
   }
 ];
 
@@ -525,8 +669,8 @@ function loadFeedbackDB() {
     const saved = localStorage.getItem('mmg_feedback_db');
     if (saved) {
       const parsed = JSON.parse(saved);
-      // If cached data contains legacy dummy names like "Aman V." or "Alpha Tech", refresh with real GMB reviews
-      if (parsed.some(item => item.name === 'Aman V.' || item.name === 'Jessica K.')) {
+      // Refresh if saved DB has fewer reviews than updated top client default set
+      if (parsed.length < defaultFeedbacks.length || parsed.some(item => item.name === 'Aman V.' || item.name === 'Jessica K.')) {
         feedbackList = [...defaultFeedbacks];
         localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList));
       } else {
