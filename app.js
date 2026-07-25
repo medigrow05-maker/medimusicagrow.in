@@ -398,96 +398,120 @@ if (showreelCard) {
 const defaultFeedbacks = [
   {
     id: 'fb-1',
-    name: 'Aman V.',
-    title: 'Founder, Alpha Tech',
+    name: 'VPN Jewellers',
+    title: 'Direct Owner, Kasganj',
+    category: 'smm',
+    categoryLabel: 'SMM & REEL SHOOTS',
+    rating: 5,
+    text: 'Medimusicagrow has been handling our jewellery collection shoots and festive reel editing for 2+ years. Their viral video strategy and high-retention hooks brought a massive influx of customer footfall to our Kasganj showroom!',
+    featured: true,
+    verified: true,
+    date: '2026-07-20'
+  },
+  {
+    id: 'fb-2',
+    name: 'Chacha Auto & TVS',
+    title: 'Authorized Dealership, Kasganj',
     category: 'video-editing',
     categoryLabel: 'VIDEO EDITING',
     rating: 5,
-    text: 'MMG transformed our YouTube channel! We gained 50k subscribers in 3 months. Highly professional editing. Their pacing and hook design changed our average watchtime ratios completely.',
+    text: 'Shailesh and the MMG team created exceptional delivery celebration reels and campaign videos for our auto dealership. Fast delivery, top-quality editing, and great social engagement.',
+    featured: true,
+    verified: true,
+    date: '2026-07-18'
+  },
+  {
+    id: 'fb-3',
+    name: 'Shri Roop Interio',
+    title: 'Founder & Managing Director',
+    category: 'web-dev',
+    categoryLabel: 'WEB & CREATIVE',
+    rating: 5,
+    text: 'Outstanding video walkthroughs and web presentation for our interior design projects. Their creative aesthetics and professionalism make them the top agency in UP.',
     featured: true,
     verified: true,
     date: '2026-07-15'
   },
   {
-    id: 'fb-2',
-    name: 'Jessica K.',
-    title: 'Marketing Dir, Apex Retail',
-    category: 'meta-ads',
-    categoryLabel: 'META ADS',
+    id: 'fb-4',
+    name: 'A.V. Jewellers',
+    title: 'Store Owner, Kasganj',
+    category: 'smm',
+    categoryLabel: 'SMM ORBIT',
     rating: 5,
-    text: 'Their Meta Ads strategy gave us a 12x ROI. Kept the CPC incredibly low while driving actual sales. Extremely data-driven team that sends daily metrics sheets.',
+    text: 'Superb video editing and Instagram growth strategy! The reel hooks and showcase promos boosted our online inquiry rate significantly. Highly recommended team!',
     featured: true,
     verified: true,
-    date: '2026-07-14'
+    date: '2026-07-12'
   },
   {
-    id: 'fb-3',
-    name: 'Rajiv D.',
-    title: 'COO, FitNation',
+    id: 'fb-5',
+    name: 'Mats Computers',
+    title: 'IT & Electronics Retailer',
     category: 'web-dev',
     categoryLabel: 'WEB DEV',
     rating: 5,
-    text: 'They built our website with custom elements. Fast load speeds, great interactive styling. Our conversion rate boosted by 40% within the first month of deployment. A+ agency.',
+    text: 'Medimusicagrow engineered our brand presence and social media campaigns seamlessly. Very creative team with deep technical and video editing expertise.',
     featured: false,
     verified: true,
     date: '2026-07-10'
   },
   {
-    id: 'fb-4',
-    name: 'Sophia M.',
-    title: 'Creator Growth Officer',
-    category: 'smm',
-    categoryLabel: 'SMM ORBIT',
+    id: 'fb-6',
+    name: 'Dulhaghar Kasganj',
+    title: 'Bridal & Groom Fashion Retail',
+    category: 'video-editing',
+    categoryLabel: 'CONTENT CREATION',
     rating: 5,
-    text: 'Content shoots are streamlined. Hook script optimization is fantastic. Best SMM agency out there. Shailesh Parashar and his team understand digital algorithms better than anyone.',
-    featured: false,
+    text: 'Their short-form video editing and wedding wear collection showcases generate thousands of views every week. Exceptional quality and creative dedication.',
+    featured: true,
     verified: true,
     date: '2026-07-08'
   },
   {
-    id: 'fb-5',
-    name: 'Vikram Sharma',
-    title: 'MD, Pulse Media',
-    category: 'smm',
-    categoryLabel: 'INFLUENCER & SMM',
+    id: 'fb-7',
+    name: 'SRS Auto Services',
+    title: 'Financial & Auto Services',
+    category: 'meta-ads',
+    categoryLabel: 'META ADS',
     rating: 5,
-    text: 'Medimusicagrow connected us with top-tier creators for our product launch. Delivered over 2M impressions within 2 weeks. Seamless execution and campaign tracking!',
-    featured: true,
+    text: 'Great ROI on our Meta Ad campaigns and promotional video reels! Medi Musica Grow delivers fast, data-driven marketing results.',
+    featured: false,
     verified: true,
     date: '2026-07-05'
   },
   {
-    id: 'fb-6',
-    name: 'Neha Kapoor',
-    title: 'Head of Growth, Elevate Studio',
-    category: 'video-editing',
-    categoryLabel: 'CONTENT CREATION',
+    id: 'fb-8',
+    name: 'Vansh Payal Jewellery',
+    title: 'Business Owner',
+    category: 'smm',
+    categoryLabel: 'SMM ORBIT',
     rating: 5,
-    text: 'The team handled the end-to-end studio video shoot and reel editing. High retention hooks, cinematic color grading, and on-time deliveries. Outstanding quality.',
+    text: 'Best social media marketing agency in Kasganj. Their festive offer teasers and store walk-through reels expanded our local reach tremendously.',
     featured: false,
     verified: true,
-    date: '2026-07-02'
+    date: '2026-07-01'
   },
   {
-    id: 'fb-7',
-    name: 'Siddharth Mehta',
-    title: 'Founder, Nexus Commerce',
-    category: 'meta-ads',
-    categoryLabel: 'META ADS',
+    id: 'fb-9',
+    name: 'SHRI KRISHNA CAR ACCESSORIES',
+    title: 'Automotive Accessories & Detailing',
+    category: 'video-editing',
+    categoryLabel: 'VIDEO EDITING',
     rating: 5,
-    text: 'Shailesh\'s team scaled our ad spend with zero fatigue. ROAS jumped from 2.4x to 8.1x in under a month. Their ad creatives and short-form video hooks convert exceptionally well.',
-    featured: true,
+    text: 'Their custom audio upgrade reels and ambient car modification showcases went viral locally. Outstanding video editing and prompt service.',
+    featured: false,
     verified: true,
     date: '2026-06-28'
   },
   {
-    id: 'fb-8',
-    name: 'Ananya Roy',
-    title: 'Brand Manager, Lumina Tech',
-    category: 'web-dev',
-    categoryLabel: 'WEB DEV',
+    id: 'fb-10',
+    name: 'Coach Mukesh Soni',
+    title: 'Fitness & Health Coach',
+    category: 'smm',
+    categoryLabel: 'PERSONAL BRANDING',
     rating: 5,
-    text: 'The futuristic web interface built by MMG exceeded our expectations. Clean animations, ultra-fast load times, and custom interaction nodes. High converting design!',
+    text: 'Shailesh and the MMG team transformed my personal branding and reel production quality. High engagement and professional workflow throughout.',
     featured: false,
     verified: true,
     date: '2026-06-25'
@@ -500,7 +524,14 @@ function loadFeedbackDB() {
   try {
     const saved = localStorage.getItem('mmg_feedback_db');
     if (saved) {
-      feedbackList = JSON.parse(saved);
+      const parsed = JSON.parse(saved);
+      // If cached data contains legacy dummy names like "Aman V." or "Alpha Tech", refresh with real GMB reviews
+      if (parsed.some(item => item.name === 'Aman V.' || item.name === 'Jessica K.')) {
+        feedbackList = [...defaultFeedbacks];
+        localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList));
+      } else {
+        feedbackList = parsed;
+      }
     } else {
       feedbackList = [...defaultFeedbacks];
       localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList));
