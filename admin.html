@@ -153,7 +153,7 @@
                   <th class="py-4 px-6">CLIENT NAME</th>
                   <th class="py-4 px-6">CATEGORY</th>
                   <th class="py-4 px-6">TENURE</th>
-                  <th class="py-4 px-6">INSTAGRAM HANDLE</th>
+                  <th class="py-4 px-6">STATUS</th>
                   <th class="py-4 px-6 text-right">ACTIONS</th>
                 </tr>
               </thead>
@@ -262,7 +262,7 @@
             <!-- Reset Factory Defaults -->
             <div class="bg-red-500/5 border border-red-500/20 p-6 rounded-2xl space-y-4">
               <h3 class="font-futuristic font-bold text-sm text-red-400 uppercase">Reset to Factory Defaults</h3>
-              <p class="text-xs text-gray-300">Purge local storage edits and restore original 39 clients and 29 reviews.</p>
+              <p class="text-xs text-gray-300">Purge local storage edits and restore original default dataset.</p>
               <button id="btn-reset-factory-db" class="bg-red-500 text-white font-futuristic font-bold px-5 py-2 rounded-xl text-xs hover:bg-red-600 transition-colors">
                 RESET ENTIRE DATABASE
               </button>
@@ -320,6 +320,16 @@
           </div>
 
           <div class="space-y-1">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">PARTNERSHIP STATUS</label>
+            <select id="client-form-isold" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-limeGreen transition-colors">
+              <option value="false">ACTIVE PARTNER</option>
+              <option value="true">PAST BRAND COLLABORATION</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="space-y-1">
             <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">ICON SYMBOL</label>
             <select id="client-form-icon" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-limeGreen transition-colors">
               <option value="car">Car (Automobile)</option>
@@ -338,9 +348,7 @@
               <option value="zap">Electric / EV</option>
             </select>
           </div>
-        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="space-y-1">
             <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">INSTAGRAM PROFILE URL</label>
             <input type="url" id="client-form-insta" placeholder="https://www.instagram.com/handle" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-limeGreen transition-colors">
@@ -499,8 +507,8 @@
       const adminApp = document.getElementById('admin-app');
 
       function unlockAdmin() {
-        passkeyModal.classList.remove('open');
-        adminApp.classList.remove('hidden');
+        if (passkeyModal) passkeyModal.classList.remove('open');
+        if (adminApp) adminApp.classList.remove('hidden');
         sessionStorage.setItem('mmg_admin_authenticated', 'true');
         initAdminGUI();
       }
@@ -513,9 +521,8 @@
       } else if (sessionStorage.getItem('mmg_admin_authenticated') === 'true') {
         unlockAdmin();
       } else {
-        // Hide admin page completely from unauthorized site visitors by redirecting back to home page
-        window.location.href = 'index.html';
-        return;
+        if (passkeyModal) passkeyModal.classList.add('open');
+        if (passkeyInput) passkeyInput.focus();
       }
 
       if (passkeyForm) {
@@ -524,7 +531,7 @@
           if (passkeyInput.value === ADMIN_PASSKEY) {
             unlockAdmin();
           } else {
-            passkeyError.classList.remove('hidden');
+            if (passkeyError) passkeyError.classList.remove('hidden');
             passkeyInput.value = '';
           }
         });
@@ -546,12 +553,15 @@
 
       function switchTab(activeTab, activeSec) {
         [tabClients, tabFeedback, tabUtils].forEach(t => {
-          t.className = 'px-5 py-2 rounded-xl font-bold transition-all text-gray-400 hover:text-white';
+          if (t) t.className = 'px-5 py-2 rounded-xl font-bold transition-all text-gray-400 hover:text-white';
         });
-        [secClients, secFeedback, secUtils].forEach(s => s.classList.add('hidden'));
+        [secClients, secFeedback, secUtils].forEach(s => {
+          if (s) s.classList.add('hidden');
+        });
 
-        activeTab.className = 'px-5 py-2 rounded-xl font-bold transition-all text-brandBg bg-limeGreen shadow-lg';
-        activeSec.classList.remove('hidden');
+        if (activeTab) activeTab.className = 'px-5 py-2 rounded-xl font-bold transition-all text-brandBg bg-limeGreen shadow-lg';
+        if (activeSec) activeSec.classList.remove('hidden');
+        if (window.lucide) lucide.createIcons();
       }
 
       tabClients?.addEventListener('click', () => switchTab(tabClients, secClients));
@@ -563,12 +573,11 @@
         if (window.lucide) lucide.createIcons();
 
         // 1. CLIENTS GUI CONTROLLER
-        let clientsData = typeof getClientsList === 'function' ? getClientsList() : [];
         let clientsFilter = 'all';
         let clientsSearch = '';
 
         function renderAdminClients() {
-          clientsData = typeof getClientsList === 'function' ? getClientsList() : [];
+          const clientsData = typeof getClientsList === 'function' ? getClientsList() : [];
           const tbody = document.getElementById('admin-clients-table-body');
           if (!tbody) return;
 
@@ -587,7 +596,7 @@
             return;
           }
 
-          tbody.innerHTML = filtered.map((c, idx) => {
+          tbody.innerHTML = filtered.map((c) => {
             const actualIndex = clientsData.findIndex(item => item.name === c.name);
             return `
               <tr class="hover:bg-white/[0.02] transition-colors">
@@ -602,12 +611,14 @@
                 <td class="py-3.5 px-6 font-bold text-white font-futuristic uppercase">${c.name}</td>
                 <td class="py-3.5 px-6"><span class="text-[10px] bg-white/5 border border-white/10 font-futuristic px-2.5 py-1 rounded text-limeGreen uppercase font-bold">${c.category}</span></td>
                 <td class="py-3.5 px-6 text-gray-400 font-futuristic text-xs">${c.tenure || '1+ Years'}</td>
-                <td class="py-3.5 px-6 text-gray-400 font-futuristic text-xs">${c.handle || '@brand'}</td>
+                <td class="py-3.5 px-6">
+                  ${c.isOld ? '<span class="text-[8px] bg-white/5 text-gray-400 border border-white/10 font-futuristic px-2 py-0.5 rounded">PAST COLLAB</span>' : '<span class="text-[8px] bg-limeGreen/20 text-limeGreen border border-limeGreen/40 font-futuristic font-bold px-2 py-0.5 rounded uppercase">ACTIVE PARTNER</span>'}
+                </td>
                 <td class="py-3.5 px-6 text-right space-x-2">
-                  <button class="btn-edit-client p-1.5 rounded-lg border border-white/10 text-gray-300 hover:text-limeGreen hover:border-limeGreen/50 transition-colors" data-index="${actualIndex}">
+                  <button class="btn-edit-client p-1.5 rounded-lg border border-white/10 text-gray-300 hover:text-limeGreen hover:border-limeGreen/50 transition-colors" data-index="${actualIndex}" title="Edit Client">
                     <i data-lucide="edit" class="w-4 h-4"></i>
                   </button>
-                  <button class="btn-delete-client p-1.5 rounded-lg border border-red-500/20 text-red-400 hover:bg-red-500/20 transition-colors" data-index="${actualIndex}">
+                  <button class="btn-delete-client p-1.5 rounded-lg border border-red-500/20 text-red-400 hover:bg-red-500/20 transition-colors" data-index="${actualIndex}" title="Delete Client">
                     <i data-lucide="trash-2" class="w-4 h-4"></i>
                   </button>
                 </td>
@@ -628,9 +639,10 @@
           tbody.querySelectorAll('.btn-delete-client').forEach(b => {
             b.addEventListener('click', () => {
               const idx = parseInt(b.getAttribute('data-index'));
-              if (confirm(`Are you sure you want to delete client '${clientsData[idx]?.name}'?`)) {
-                clientsData.splice(idx, 1);
-                saveClientsDBGlobal(clientsData);
+              const list = getClientsList();
+              if (confirm(`Are you sure you want to delete client '${list[idx]?.name}'?`)) {
+                list.splice(idx, 1);
+                saveClientsDBGlobal(list);
                 renderAdminClients();
               }
             });
@@ -661,14 +673,16 @@
         const clientForm = document.getElementById('form-client');
 
         function openClientModal(idx = -1) {
+          const list = getClientsList();
           document.getElementById('client-form-index').value = idx;
-          if (idx >= 0 && clientsData[idx]) {
-            const c = clientsData[idx];
+          if (idx >= 0 && list[idx]) {
+            const c = list[idx];
             document.getElementById('modal-client-title').textContent = `Edit Client: ${c.name}`;
             document.getElementById('client-form-name').value = c.name || '';
             document.getElementById('client-form-category').value = c.category || 'automobile';
             document.getElementById('client-form-tenure').value = c.tenure || '1+ Years';
             document.getElementById('client-form-initials').value = c.initials || '';
+            document.getElementById('client-form-isold').value = c.isOld ? 'true' : 'false';
             document.getElementById('client-form-icon').value = c.icon || 'car';
             document.getElementById('client-form-insta').value = c.insta || '';
             document.getElementById('client-form-handle').value = c.handle || '';
@@ -688,12 +702,14 @@
 
         clientForm?.addEventListener('submit', (e) => {
           e.preventDefault();
+          const list = getClientsList();
           const idx = parseInt(document.getElementById('client-form-index').value);
           const newClient = {
             name: document.getElementById('client-form-name').value.trim(),
             category: document.getElementById('client-form-category').value,
             tenure: document.getElementById('client-form-tenure').value.trim() || '1+ Years',
             initials: document.getElementById('client-form-initials').value.trim() || 'MMG',
+            isOld: document.getElementById('client-form-isold').value === 'true',
             icon: document.getElementById('client-form-icon').value,
             insta: document.getElementById('client-form-insta').value.trim() || '#',
             handle: document.getElementById('client-form-handle').value.trim() || '@brand',
@@ -701,24 +717,23 @@
             desc: document.getElementById('client-form-desc').value.trim()
           };
 
-          if (idx >= 0 && clientsData[idx]) {
-            clientsData[idx] = { ...clientsData[idx], ...newClient };
+          if (idx >= 0 && list[idx]) {
+            list[idx] = { ...list[idx], ...newClient };
           } else {
-            clientsData.unshift(newClient);
+            list.unshift(newClient);
           }
 
-          saveClientsDBGlobal(clientsData);
+          saveClientsDBGlobal(list);
           clientModal.classList.remove('open');
           renderAdminClients();
         });
 
         // 2. REVIEWS GUI CONTROLLER
-        let reviewsData = typeof getFeedbackList === 'function' ? getFeedbackList() : [];
         let reviewsFilter = 'all';
         let reviewsSearch = '';
 
         function renderAdminReviews() {
-          reviewsData = typeof getFeedbackList === 'function' ? getFeedbackList() : [];
+          const reviewsData = typeof getFeedbackList === 'function' ? getFeedbackList() : [];
           const tbody = document.getElementById('admin-reviews-table-body');
           if (!tbody) return;
 
@@ -753,10 +768,10 @@
                   <button class="btn-toggle-featured-review p-1.5 rounded-lg border border-white/10 text-gray-400 hover:text-limeGreen transition-colors" data-id="${r.id}" title="Toggle Featured">
                     <i data-lucide="star" class="w-4 h-4 ${r.featured ? 'fill-limeGreen text-limeGreen' : ''}"></i>
                   </button>
-                  <button class="btn-edit-review p-1.5 rounded-lg border border-white/10 text-gray-300 hover:text-limeGreen transition-colors" data-id="${r.id}">
+                  <button class="btn-edit-review p-1.5 rounded-lg border border-white/10 text-gray-300 hover:text-limeGreen transition-colors" data-id="${r.id}" title="Edit Review">
                     <i data-lucide="edit" class="w-4 h-4"></i>
                   </button>
-                  <button class="btn-delete-review p-1.5 rounded-lg border border-red-500/20 text-red-400 hover:bg-red-500/20 transition-colors" data-id="${r.id}">
+                  <button class="btn-delete-review p-1.5 rounded-lg border border-red-500/20 text-red-400 hover:bg-red-500/20 transition-colors" data-id="${r.id}" title="Delete Review">
                     <i data-lucide="trash-2" class="w-4 h-4"></i>
                   </button>
                 </td>
@@ -769,10 +784,11 @@
           tbody.querySelectorAll('.btn-toggle-featured-review').forEach(b => {
             b.addEventListener('click', () => {
               const id = b.getAttribute('data-id');
-              const item = reviewsData.find(f => f.id === id);
+              const list = getFeedbackList();
+              const item = list.find(f => f.id === id);
               if (item) {
                 item.featured = !item.featured;
-                saveFeedbackDBGlobal(reviewsData);
+                saveFeedbackDBGlobal(list);
                 renderAdminReviews();
               }
             });
@@ -788,9 +804,10 @@
           tbody.querySelectorAll('.btn-delete-review').forEach(b => {
             b.addEventListener('click', () => {
               const id = b.getAttribute('data-id');
+              let list = getFeedbackList();
               if (confirm('Are you sure you want to delete this review?')) {
-                reviewsData = reviewsData.filter(r => r.id !== id);
-                saveFeedbackDBGlobal(reviewsData);
+                list = list.filter(r => r.id !== id);
+                saveFeedbackDBGlobal(list);
                 renderAdminReviews();
               }
             });
@@ -821,9 +838,10 @@
         const reviewForm = document.getElementById('form-review');
 
         function openReviewModal(id = '') {
+          const list = getFeedbackList();
           document.getElementById('review-form-id').value = id;
           if (id) {
-            const r = reviewsData.find(item => item.id === id);
+            const r = list.find(item => item.id === id);
             if (r) {
               document.getElementById('modal-review-title').textContent = `Edit Review: ${r.name}`;
               document.getElementById('review-form-name').value = r.name || '';
@@ -849,6 +867,7 @@
 
         reviewForm?.addEventListener('submit', (e) => {
           e.preventDefault();
+          const list = getFeedbackList();
           const id = document.getElementById('review-form-id').value;
           const cat = document.getElementById('review-form-category').value;
           const catLabels = {
@@ -872,20 +891,21 @@
           };
 
           if (id) {
-            const idx = reviewsData.findIndex(r => r.id === id);
-            if (idx >= 0) reviewsData[idx] = newRev;
+            const idx = list.findIndex(r => r.id === id);
+            if (idx >= 0) list[idx] = newRev;
           } else {
-            reviewsData.unshift(newRev);
+            list.unshift(newRev);
           }
 
-          saveFeedbackDBGlobal(reviewsData);
+          saveFeedbackDBGlobal(list);
           reviewModal.classList.remove('open');
           renderAdminReviews();
         });
 
         // Utilities
         document.getElementById('btn-export-clients-json')?.addEventListener('click', () => {
-          const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(clientsData, null, 2));
+          const list = getClientsList();
+          const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(list, null, 2));
           const dlAnchorElem = document.createElement('a');
           dlAnchorElem.setAttribute("href", dataStr);
           dlAnchorElem.setAttribute("download", "mmg_clients_backup.json");
@@ -893,7 +913,8 @@
         });
 
         document.getElementById('btn-export-feedback-json')?.addEventListener('click', () => {
-          const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(reviewsData, null, 2));
+          const list = getFeedbackList();
+          const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(list, null, 2));
           const dlAnchorElem = document.createElement('a');
           dlAnchorElem.setAttribute("href", dataStr);
           dlAnchorElem.setAttribute("download", "mmg_feedback_backup.json");
