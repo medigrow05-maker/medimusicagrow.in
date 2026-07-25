@@ -3206,15 +3206,11 @@ function initClientRoster() {
       noClientsAlert.classList.remove('hidden');
     } else {
       noClientsAlert.classList.add('hidden');
-
-      const activeClients = filtered.filter(c => !c.isOld);
-      const oldClients = filtered.filter(c => c.isOld);
-
-      function buildCardHtml(client) {
+      clientGrid.innerHTML = filtered.map(client => {
         return `
           <div class="glass-panel border-white/5 rounded-3xl p-6 md:p-8 flex flex-col justify-between group cursor-pointer hover:border-limeGreen/20 transition-all duration-300 transform hover:-translate-y-1" onclick="openClientDetailModal('${client.name.replace(/'/g, "\\'")}')">
             <div class="space-y-6">
-              <div class="flex items-start justify-between gap-2">
+              <div class="flex items-start justify-between">
                 <!-- Glowing Category Badge Logo -->
                 <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden group-hover:border-limeGreen/40 transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.02)] relative shrink-0">
                   <img src="${client.logo}" alt="${client.name} Logo" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -3224,13 +3220,10 @@ function initClientRoster() {
                     <i data-lucide="${client.icon}" class="w-6 h-6"></i>
                   </div>
                 </div>
-                <!-- Tenure & Old Client Badges -->
-                <div class="flex flex-col items-end gap-1.5">
-                  ${client.isOld ? '<span class="text-[8px] font-futuristic text-limeGreen/90 border border-limeGreen/30 px-2 py-0.5 rounded bg-limeGreen/10 font-bold uppercase tracking-wider">OLD CLIENT</span>' : ''}
-                  <span class="text-[8px] font-futuristic text-limeGreen border border-limeGreen/20 px-2.5 py-1 rounded bg-limeGreen/5 font-bold uppercase tracking-wider">
-                    Since ${client.tenure}
-                  </span>
-                </div>
+                <!-- Tenure Badge -->
+                <span class="text-[8px] font-futuristic text-limeGreen border border-limeGreen/20 px-2.5 py-1 rounded bg-limeGreen/5 font-bold uppercase tracking-wider">
+                  Since ${client.tenure}
+                </span>
               </div>
               <div class="space-y-2 text-left">
                 <h3 class="text-lg md:text-xl font-bold font-futuristic text-white group-hover:text-limeGreen transition-colors leading-tight uppercase">${client.name}</h3>
@@ -3244,40 +3237,7 @@ function initClientRoster() {
             </div>
           </div>
         `;
-      }
-
-      let gridHtml = '';
-
-      if (activeClients.length > 0) {
-        if (oldClients.length > 0) {
-          gridHtml += `
-            <div class="col-span-full pt-2 pb-4 flex items-center justify-between border-b border-white/10 mb-2">
-              <div class="flex items-center gap-3">
-                <span class="w-3.5 h-3.5 rounded-full bg-limeGreen animate-pulse"></span>
-                <h2 class="text-xl md:text-2xl font-black font-futuristic text-white uppercase tracking-wider">ACTIVE PARTNERSHIPS</h2>
-                <span class="text-xs font-futuristic text-gray-400 bg-white/5 border border-white/10 px-3 py-1 rounded-full font-bold">(${activeClients.length})</span>
-              </div>
-            </div>
-          `;
-        }
-        gridHtml += activeClients.map(buildCardHtml).join('');
-      }
-
-      if (oldClients.length > 0) {
-        gridHtml += `
-          <div class="col-span-full pt-10 pb-4 border-t border-white/10 mt-8 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <i data-lucide="folder-archive" class="w-6 h-6 text-limeGreen"></i>
-              <h2 class="text-xl md:text-2xl font-black font-futuristic text-white uppercase tracking-wider">OLD CLIENTS</h2>
-              <span class="text-xs font-futuristic text-limeGreen bg-limeGreen/10 border border-limeGreen/20 px-3 py-1 rounded-full font-bold">(${oldClients.length} Brands)</span>
-            </div>
-            <span class="text-[10px] font-futuristic text-gray-400 uppercase tracking-widest hidden sm:inline font-bold">PAST COLLABORATION ARCHIVE</span>
-          </div>
-        `;
-        gridHtml += oldClients.map(buildCardHtml).join('');
-      }
-
-      clientGrid.innerHTML = gridHtml;
+      }).join('');
       if (window.lucide) lucide.createIcons();
     }
   }
