@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin GUI Control Panel | Medi Musica Grow</title>
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            limeGreen: '#8CE600',
+            brandBg: '#080808',
+            panelBg: '#121212',
+            accentGray: '#1E1E1E'
+          },
+          fontFamily: {
+            futuristic: ['Outfit', 'sans-serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Core Design System Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body class="bg-brandBg text-white antialiased font-sans min-h-screen relative overflow-x-hidden">
+
+  <!-- BACKGROUND GLOWS -->
+  <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+    <div class="absolute top-[10%] left-[20%] w-[500px] h-[500px] rounded-full bg-glow-radial filter blur-[80px]"></div>
+    <div class="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] rounded-full bg-glow-radial filter blur-[100px]"></div>
+  </div>
+
+  <!-- MAIN ADMIN APP CONTAINER -->
+  <div id="admin-app" class="relative z-10 hidden pb-20">
+    
+    <!-- TOP NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 bg-black/80 backdrop-blur-xl border-b border-white/10 px-4 md:px-8 py-4">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="flex items-center gap-2">
+            <img src="logo.png" alt="MMG Logo" class="w-10 h-10 object-contain">
+            <div>
+              <h1 class="font-futuristic font-black text-lg text-white tracking-wide">MEDIMUSICA<span class="text-limeGreen">GROW</span></h1>
+              <span class="text-[9px] font-futuristic text-limeGreen font-bold tracking-widest uppercase block">GUI Admin Management Console</span>
+            </div>
+          </a>
+          <span class="hidden sm:inline-block bg-limeGreen/10 border border-limeGreen/30 text-limeGreen text-[9px] font-futuristic font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            AUTHENTICATED
+          </span>
+        </div>
+
+        <!-- Tab Switchers -->
+        <div class="flex items-center bg-zinc-900/90 border border-white/10 p-1.5 rounded-2xl font-futuristic text-xs">
+          <button id="tab-btn-clients" class="px-5 py-2 rounded-xl font-bold transition-all text-brandBg bg-limeGreen shadow-lg">
+            <i data-lucide="users" class="w-3.5 h-3.5 inline mr-1.5"></i> CLIENTS GUI
+          </button>
+          <button id="tab-btn-feedback" class="px-5 py-2 rounded-xl font-bold transition-all text-gray-400 hover:text-white">
+            <i data-lucide="message-square" class="w-3.5 h-3.5 inline mr-1.5"></i> FEEDBACK GUI
+          </button>
+          <button id="tab-btn-utilities" class="px-5 py-2 rounded-xl font-bold transition-all text-gray-400 hover:text-white">
+            <i data-lucide="database" class="w-3.5 h-3.5 inline mr-1.5"></i> UTILITIES
+          </button>
+        </div>
+
+        <!-- Quick Action Triggers -->
+        <div class="flex items-center gap-3">
+          <a href="index.html" target="_blank" class="metallic-border text-white text-xs font-futuristic font-bold px-4 py-2 rounded-xl hover:border-limeGreen/50 transition-all flex items-center gap-1.5">
+            LIVE SITE <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+          <button id="admin-logout-btn" class="bg-red-500/10 border border-red-500/30 text-red-400 hover:bg-red-500/20 text-xs font-futuristic font-bold px-4 py-2 rounded-xl transition-all">
+            LOGOUT
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT WRAPPER -->
+    <main class="max-w-7xl mx-auto px-4 md:px-8 pt-8 space-y-8">
+      
+      <!-- ========================================== -->
+      <!-- SECTION 1: CLIENTS MANAGEMENT GUI -->
+      <!-- ========================================== -->
+      <section id="section-clients-gui" class="space-y-6">
+        
+        <!-- Header & Add Button -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 glass-panel p-6 rounded-3xl border border-white/10">
+          <div>
+            <h2 class="text-xl md:text-2xl font-black font-futuristic text-white uppercase tracking-wide">Client Brands Management</h2>
+            <p class="text-xs text-gray-400 font-futuristic font-light">Add, edit, reorder, or remove client profile cards rendered across clients.html</p>
+          </div>
+          <button id="btn-add-client" class="lime-glow-btn text-brandBg font-futuristic font-bold px-6 py-3 rounded-2xl text-xs flex items-center gap-2 justify-center shadow-xl">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i> ADD NEW CLIENT BRAND
+          </button>
+        </div>
+
+        <!-- Telemetry Stats Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="glass-panel border-white/5 p-5 rounded-2xl">
+            <span class="text-[10px] text-gray-400 font-futuristic uppercase block">TOTAL CLIENTS</span>
+            <span id="stat-admin-clients-total" class="text-2xl md:text-3xl font-black text-limeGreen font-futuristic">0</span>
+          </div>
+          <div class="glass-panel border-white/5 p-5 rounded-2xl">
+            <span class="text-[10px] text-gray-400 font-futuristic uppercase block">ACTIVE PARTNERSHIPS</span>
+            <span id="stat-admin-clients-active" class="text-2xl md:text-3xl font-black text-white font-futuristic">12</span>
+          </div>
+          <div class="glass-panel border-white/5 p-5 rounded-2xl">
+            <span class="text-[10px] text-gray-400 font-futuristic uppercase block">PAST BRAND COLLABS</span>
+            <span id="stat-admin-clients-old" class="text-2xl md:text-3xl font-black text-gray-400 font-futuristic">27</span>
+          </div>
+        </div>
+
+        <!-- Search & Filter Bar -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-zinc-950/60 p-4 rounded-2xl border border-white/5">
+          <div class="relative w-full sm:w-80">
+            <input type="text" id="admin-clients-search" placeholder="Search client name..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 pl-10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-limeGreen/40 font-futuristic">
+            <i data-lucide="search" class="w-4 h-4 text-gray-500 absolute left-3 top-2.5"></i>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button class="admin-clients-filter-btn px-4 py-1.5 rounded-full text-[11px] font-futuristic font-bold bg-limeGreen text-brandBg" data-filter="all">ALL</button>
+            <button class="admin-clients-filter-btn px-4 py-1.5 rounded-full text-[11px] font-futuristic font-bold text-gray-400 hover:text-white" data-filter="automobile">AUTOMOBILE</button>
+            <button class="admin-clients-filter-btn px-4 py-1.5 rounded-full text-[11px] font-futuristic font-bold text-gray-400 hover:text-white" data-filter="electronics-mobile">ELECTRONICS</button>
+            <button class="admin-clients-filter-btn px-4 py-1.5 rounded-full text-[11px] font-futuristic font-bold text-gray-400 hover:text-white" data-filter="retail-wellness">RETAIL & WELLNESS</button>
+          </div>
+        </div>
+
+        <!-- Clients Table Container -->
+        <div class="glass-panel border-white/5 rounded-3xl overflow-hidden shadow-2xl">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-white/10 bg-zinc-900/80 font-futuristic text-[10px] text-gray-400 uppercase tracking-wider">
+                  <th class="py-4 px-6">LOGO / INITIALS</th>
+                  <th class="py-4 px-6">CLIENT NAME</th>
+                  <th class="py-4 px-6">CATEGORY</th>
+                  <th class="py-4 px-6">TENURE</th>
+                  <th class="py-4 px-6">INSTAGRAM HANDLE</th>
+                  <th class="py-4 px-6 text-right">ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody id="admin-clients-table-body" class="divide-y divide-white/5 font-sans text-xs">
+                <!-- Dynamically Populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- SECTION 2: FEEDBACK & REVIEWS GUI -->
+      <!-- ========================================== -->
+      <section id="section-feedback-gui" class="space-y-6 hidden">
+        
+        <!-- Header & Add Button -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 glass-panel p-6 rounded-3xl border border-white/10">
+          <div>
+            <h2 class="text-xl md:text-2xl font-black font-futuristic text-white uppercase tracking-wide">GMB Reviews Management</h2>
+            <p class="text-xs text-gray-400 font-futuristic font-light">Add, edit, star feature, or purge feedback cards rendered across feedback.html</p>
+          </div>
+          <button id="btn-add-review" class="lime-glow-btn text-brandBg font-futuristic font-bold px-6 py-3 rounded-2xl text-xs flex items-center gap-2 justify-center shadow-xl">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i> ADD NEW CLIENT REVIEW
+          </button>
+        </div>
+
+        <!-- Telemetry Stats Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="glass-panel border-white/5 p-5 rounded-2xl">
+            <span class="text-[10px] text-gray-400 font-futuristic uppercase block">TOTAL REVIEWS</span>
+            <span id="stat-admin-reviews-total" class="text-2xl md:text-3xl font-black text-limeGreen font-futuristic">0</span>
+          </div>
+          <div class="glass-panel border-white/5 p-5 rounded-2xl">
+            <span class="text-[10px] text-gray-400 font-futuristic uppercase block">FEATURED REVIEWS</span>
+            <span id="stat-admin-reviews-featured" class="text-2xl md:text-3xl font-black text-white font-futuristic">0</span>
+          </div>
+          <div class="glass-panel border-white/5 p-5 rounded-2xl">
+            <span class="text-[10px] text-gray-400 font-futuristic uppercase block">VERIFIED GMB PROOFS</span>
+            <span id="stat-admin-reviews-verified" class="text-2xl md:text-3xl font-black text-limeGreen font-futuristic">100%</span>
+          </div>
+        </div>
+
+        <!-- Search & Filter Bar -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-zinc-950/60 p-4 rounded-2xl border border-white/5">
+          <div class="relative w-full sm:w-80">
+            <input type="text" id="admin-reviews-search" placeholder="Search reviewer or text..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 pl-10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-limeGreen/40 font-futuristic">
+            <i data-lucide="search" class="w-4 h-4 text-gray-500 absolute left-3 top-2.5"></i>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button class="admin-reviews-filter-btn px-4 py-1.5 rounded-full text-[11px] font-futuristic font-bold bg-limeGreen text-brandBg" data-filter="all">ALL</button>
+            <button class="admin-reviews-filter-btn px-4 py-1.5 rounded-full text-[11px] font-futuristic font-bold text-gray-400 hover:text-white" data-filter="video-editing">VIDEO EDITING</button>
+            <button class="admin-reviews-filter-btn px-4 py-1.5 rounded-full text-[11px] font-futuristic font-bold text-gray-400 hover:text-white" data-filter="web-dev">WEB DEV</button>
+            <button class="admin-reviews-filter-btn px-4 py-1.5 rounded-full text-[11px] font-futuristic font-bold text-gray-400 hover:text-white" data-filter="meta-ads">META ADS</button>
+            <button class="admin-reviews-filter-btn px-4 py-1.5 rounded-full text-[11px] font-futuristic font-bold text-gray-400 hover:text-white" data-filter="smm">SMM ORBIT</button>
+          </div>
+        </div>
+
+        <!-- Reviews Table Container -->
+        <div class="glass-panel border-white/5 rounded-3xl overflow-hidden shadow-2xl">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-white/10 bg-zinc-900/80 font-futuristic text-[10px] text-gray-400 uppercase tracking-wider">
+                  <th class="py-4 px-6">CLIENT / REVIEWER</th>
+                  <th class="py-4 px-6">SERVICE CATEGORY</th>
+                  <th class="py-4 px-6">RATING</th>
+                  <th class="py-4 px-6">REVIEW SNIPPET</th>
+                  <th class="py-4 px-6">STATUS</th>
+                  <th class="py-4 px-6 text-right">ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody id="admin-reviews-table-body" class="divide-y divide-white/5 font-sans text-xs">
+                <!-- Dynamically Populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- SECTION 3: UTILITIES & EXPORT GUI -->
+      <!-- ========================================== -->
+      <section id="section-utilities-gui" class="space-y-6 hidden">
+        <div class="glass-panel p-8 rounded-3xl border border-white/10 space-y-6">
+          <div>
+            <h2 class="text-xl font-black font-futuristic text-white uppercase tracking-wide">Data Backup & Factory Controls</h2>
+            <p class="text-xs text-gray-400 font-futuristic font-light">Export client database records or reset data back to factory defaults.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Backup & Export -->
+            <div class="bg-white/5 border border-white/10 p-6 rounded-2xl space-y-4">
+              <h3 class="font-futuristic font-bold text-sm text-limeGreen uppercase">Export Data Backup</h3>
+              <p class="text-xs text-gray-300">Download current live JSON configuration files for offline backups.</p>
+              <div class="flex items-center gap-3">
+                <button id="btn-export-clients-json" class="lime-glow-btn text-brandBg font-futuristic font-bold px-4 py-2 rounded-xl text-xs">
+                  EXPORT CLIENTS JSON
+                </button>
+                <button id="btn-export-feedback-json" class="metallic-border text-white font-futuristic font-bold px-4 py-2 rounded-xl text-xs">
+                  EXPORT REVIEWS JSON
+                </button>
+              </div>
+            </div>
+
+            <!-- Reset Factory Defaults -->
+            <div class="bg-red-500/5 border border-red-500/20 p-6 rounded-2xl space-y-4">
+              <h3 class="font-futuristic font-bold text-sm text-red-400 uppercase">Reset to Factory Defaults</h3>
+              <p class="text-xs text-gray-300">Purge local storage edits and restore original 39 clients and 29 reviews.</p>
+              <button id="btn-reset-factory-db" class="bg-red-500 text-white font-futuristic font-bold px-5 py-2 rounded-xl text-xs hover:bg-red-600 transition-colors">
+                RESET ENTIRE DATABASE
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL 1: ADD / EDIT CLIENT FORM -->
+  <!-- ========================================== -->
+  <div id="modal-client-form" class="feedback-modal-overlay">
+    <div class="feedback-modal-box w-full max-w-2xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto">
+      
+      <button id="close-modal-client" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="text-center space-y-1 border-b border-white/5 pb-4 select-none">
+        <h3 id="modal-client-title" class="text-xl font-bold text-white uppercase tracking-wide">Add New Client Brand</h3>
+        <p class="text-xs text-limeGreen">Medi Musica Grow Brand Registry</p>
+      </div>
+
+      <form id="form-client" class="pt-6 space-y-4 text-xs font-sans">
+        <input type="hidden" id="client-form-index" value="-1">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">CLIENT BRAND NAME *</label>
+            <input type="text" id="client-form-name" required placeholder="e.g. VPN Jewellers" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-limeGreen transition-colors">
+          </div>
+
+          <div class="space-y-1">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">CATEGORY *</label>
+            <select id="client-form-category" required class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-limeGreen transition-colors">
+              <option value="automobile">AUTOMOBILE</option>
+              <option value="electronics-mobile">ELECTRONICS & MOBILE</option>
+              <option value="retail-wellness">RETAIL & WELLNESS</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="space-y-1">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">PARTNERSHIP TENURE</label>
+            <input type="text" id="client-form-tenure" placeholder="e.g. 2.5+ Years" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-limeGreen transition-colors">
+          </div>
+
+          <div class="space-y-1">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">INITIALS BADGE</label>
+            <input type="text" id="client-form-initials" placeholder="e.g. CT" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-limeGreen transition-colors">
+          </div>
+
+          <div class="space-y-1">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">ICON SYMBOL</label>
+            <select id="client-form-icon" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-limeGreen transition-colors">
+              <option value="car">Car (Automobile)</option>
+              <option value="smartphone">Smartphone</option>
+              <option value="tv">TV / Electronics</option>
+              <option value="shopping-bag">Shopping Bag</option>
+              <option value="heart">Heart / Wellness</option>
+              <option value="shirt">Fashion / Apparel</option>
+              <option value="crown">Jewellery / Luxury</option>
+              <option value="building">Real Estate</option>
+              <option value="eye">Medical / Eye Care</option>
+              <option value="home">Home Decor</option>
+              <option value="laptop">IT / Computer</option>
+              <option value="shield">Auto Accessories</option>
+              <option value="truck">Dealership</option>
+              <option value="zap">Electric / EV</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">INSTAGRAM PROFILE URL</label>
+            <input type="url" id="client-form-insta" placeholder="https://www.instagram.com/handle" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-limeGreen transition-colors">
+          </div>
+
+          <div class="space-y-1">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">INSTAGRAM HANDLE</label>
+            <input type="text" id="client-form-handle" placeholder="@handle" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-limeGreen transition-colors">
+          </div>
+        </div>
+
+        <div class="space-y-1">
+          <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">LOGO IMAGE PATH OR URL</label>
+          <input type="text" id="client-form-logo" placeholder="client_logos/FolderName/logo.jpg" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-limeGreen transition-colors">
+        </div>
+
+        <div class="space-y-1">
+          <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">CLIENT DESCRIPTION *</label>
+          <textarea id="client-form-desc" rows="3" required placeholder="Describe marketing services provided..." class="w-full bg-black/60 border border-white/10 rounded-xl p-4 text-white outline-none focus:border-limeGreen transition-colors"></textarea>
+        </div>
+
+        <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+          <button type="submit" class="lime-glow-btn text-brandBg font-futuristic font-bold px-6 py-3 rounded-xl text-xs flex-1">
+            SAVE CLIENT DATA
+          </button>
+          <button type="button" id="cancel-client-form" class="metallic-border text-white font-futuristic font-bold px-6 py-3 rounded-xl text-xs">
+            CANCEL
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL 2: ADD / EDIT REVIEW FORM -->
+  <!-- ========================================== -->
+  <div id="modal-review-form" class="feedback-modal-overlay">
+    <div class="feedback-modal-box w-full max-w-xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto">
+      
+      <button id="close-modal-review" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="text-center space-y-1 border-b border-white/5 pb-4 select-none">
+        <h3 id="modal-review-title" class="text-xl font-bold text-white uppercase tracking-wide">Add New Client Review</h3>
+        <p class="text-xs text-limeGreen">Google My Business Review Entry</p>
+      </div>
+
+      <form id="form-review" class="pt-6 space-y-4 text-xs font-sans">
+        <input type="hidden" id="review-form-id" value="">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">CLIENT / REVIEWER NAME *</label>
+            <input type="text" id="review-form-name" required placeholder="e.g. Chacha TVS" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-limeGreen transition-colors">
+          </div>
+
+          <div class="space-y-1">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">DESIGNATION / TITLE *</label>
+            <input type="text" id="review-form-title" required placeholder="e.g. Authorized Dealership" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-limeGreen transition-colors">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">SERVICE CATEGORY *</label>
+            <select id="review-form-category" required class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-limeGreen transition-colors">
+              <option value="video-editing">VIDEO EDITING</option>
+              <option value="web-dev">WEB DEVELOPMENT</option>
+              <option value="meta-ads">META ADS</option>
+              <option value="smm">SMM ORBIT</option>
+            </select>
+          </div>
+
+          <div class="space-y-1">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">STAR RATING</label>
+            <select id="review-form-rating" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-limeGreen transition-colors">
+              <option value="5">★★★★★ (5.0 Stars)</option>
+              <option value="4">★★★★☆ (4.0 Stars)</option>
+              <option value="3">★★★☆☆ (3.0 Stars)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="space-y-1">
+          <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">REVIEW TEXT CONTENT *</label>
+          <textarea id="review-form-text" rows="4" required placeholder="Client review content..." class="w-full bg-black/60 border border-white/10 rounded-xl p-4 text-white outline-none focus:border-limeGreen transition-colors"></textarea>
+        </div>
+
+        <div class="flex items-center gap-6 pt-2">
+          <label class="flex items-center gap-2 cursor-pointer font-futuristic text-xs">
+            <input type="checkbox" id="review-form-featured" class="w-4 h-4 accent-limeGreen">
+            FEATURED REVIEW
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer font-futuristic text-xs">
+            <input type="checkbox" id="review-form-verified" checked class="w-4 h-4 accent-limeGreen">
+            VERIFIED ON GMB
+          </label>
+        </div>
+
+        <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+          <button type="submit" class="lime-glow-btn text-brandBg font-futuristic font-bold px-6 py-3 rounded-xl text-xs flex-1">
+            SAVE REVIEW
+          </button>
+          <button type="button" id="cancel-review-form" class="metallic-border text-white font-futuristic font-bold px-6 py-3 rounded-xl text-xs">
+            CANCEL
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- PASSKEY LOGIN OVERLAY -->
+  <div id="admin-passkey-modal" class="feedback-modal-overlay open">
+    <div class="feedback-modal-box w-full max-w-md bg-zinc-950 border border-limeGreen/40 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-center space-y-6">
+      
+      <div class="w-16 h-16 rounded-2xl bg-limeGreen/10 border border-limeGreen/30 text-limeGreen flex items-center justify-center mx-auto text-2xl font-bold">
+        <i data-lucide="shield-lock" class="w-8 h-8"></i>
+      </div>
+
+      <div class="space-y-2">
+        <h2 class="text-2xl font-black text-white uppercase tracking-wider">ADMIN GATEKEEPER</h2>
+        <p class="text-xs text-gray-400 font-light">Enter passkey to access Medi Musica Grow GUI Control Panel</p>
+      </div>
+
+      <form id="form-admin-passkey" class="space-y-4">
+        <div class="space-y-1">
+          <input type="password" id="input-admin-passkey" placeholder="••••••••••••" required class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all text-center tracking-widest font-bold">
+          <span id="passkey-error-msg" class="hidden text-[10px] text-red-400 font-futuristic pt-1">❌ INVALID PASSKEY</span>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2">
+          <button type="submit" class="lime-glow-btn text-brandBg font-futuristic font-bold px-6 py-3 rounded-xl text-xs w-full">
+            DECRYPT & ACCESS
+          </button>
+        </div>
+      </form>
+
+      <a href="index.html" class="text-[10px] text-gray-500 hover:text-white font-futuristic uppercase block pt-2">
+        &larr; Return to Live Website
+      </a>
+    </div>
+  </div>
+
+  <!-- Main JavaScript App Controller -->
+  <script src="app.js"></script>
+
+  <!-- Admin GUI Script Controller -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const ADMIN_PASSKEY = "Shailesh@5609";
+      const passkeyModal = document.getElementById('admin-passkey-modal');
+      const passkeyForm = document.getElementById('form-admin-passkey');
+      const passkeyInput = document.getElementById('input-admin-passkey');
+      const passkeyError = document.getElementById('passkey-error-msg');
+      const adminApp = document.getElementById('admin-app');
+
+      function unlockAdmin() {
+        passkeyModal.classList.remove('open');
+        adminApp.classList.remove('hidden');
+        sessionStorage.setItem('mmg_admin_authenticated', 'true');
+        initAdminGUI();
+      }
+
+      if (sessionStorage.getItem('mmg_admin_authenticated') === 'true') {
+        unlockAdmin();
+      } else {
+        if (passkeyInput) passkeyInput.focus();
+      }
+
+      if (passkeyForm) {
+        passkeyForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (passkeyInput.value === ADMIN_PASSKEY) {
+            unlockAdmin();
+          } else {
+            passkeyError.classList.remove('hidden');
+            passkeyInput.value = '';
+          }
+        });
+      }
+
+      document.getElementById('admin-logout-btn')?.addEventListener('click', () => {
+        sessionStorage.removeItem('mmg_admin_authenticated');
+        window.location.reload();
+      });
+
+      // Tab Switching
+      const tabClients = document.getElementById('tab-btn-clients');
+      const tabFeedback = document.getElementById('tab-btn-feedback');
+      const tabUtils = document.getElementById('tab-btn-utilities');
+
+      const secClients = document.getElementById('section-clients-gui');
+      const secFeedback = document.getElementById('section-feedback-gui');
+      const secUtils = document.getElementById('section-utilities-gui');
+
+      function switchTab(activeTab, activeSec) {
+        [tabClients, tabFeedback, tabUtils].forEach(t => {
+          t.className = 'px-5 py-2 rounded-xl font-bold transition-all text-gray-400 hover:text-white';
+        });
+        [secClients, secFeedback, secUtils].forEach(s => s.classList.add('hidden'));
+
+        activeTab.className = 'px-5 py-2 rounded-xl font-bold transition-all text-brandBg bg-limeGreen shadow-lg';
+        activeSec.classList.remove('hidden');
+      }
+
+      tabClients?.addEventListener('click', () => switchTab(tabClients, secClients));
+      tabFeedback?.addEventListener('click', () => switchTab(tabFeedback, secFeedback));
+      tabUtils?.addEventListener('click', () => switchTab(tabUtils, secUtils));
+
+      // Admin GUI Controller Logic
+      function initAdminGUI() {
+        if (window.lucide) lucide.createIcons();
+
+        // 1. CLIENTS GUI CONTROLLER
+        let clientsData = typeof getClientsList === 'function' ? getClientsList() : [];
+        let clientsFilter = 'all';
+        let clientsSearch = '';
+
+        function renderAdminClients() {
+          clientsData = typeof getClientsList === 'function' ? getClientsList() : [];
+          const tbody = document.getElementById('admin-clients-table-body');
+          if (!tbody) return;
+
+          document.getElementById('stat-admin-clients-total').textContent = clientsData.length;
+          document.getElementById('stat-admin-clients-active').textContent = clientsData.filter(c => !c.isOld).length;
+          document.getElementById('stat-admin-clients-old').textContent = clientsData.filter(c => c.isOld).length;
+
+          const filtered = clientsData.filter(c => {
+            const matchCat = clientsFilter === 'all' || c.category === clientsFilter;
+            const matchSearch = c.name.toLowerCase().includes(clientsSearch.toLowerCase()) || c.desc.toLowerCase().includes(clientsSearch.toLowerCase());
+            return matchCat && matchSearch;
+          });
+
+          if (filtered.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-gray-500 font-futuristic">NO CLIENTS FOUND MATCHING FILTER</td></tr>`;
+            return;
+          }
+
+          tbody.innerHTML = filtered.map((c, idx) => {
+            const actualIndex = clientsData.findIndex(item => item.name === c.name);
+            return `
+              <tr class="hover:bg-white/[0.02] transition-colors">
+                <td class="py-3.5 px-6">
+                  <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 overflow-hidden relative flex items-center justify-center">
+                    <img src="${c.logo}" alt="${c.name}" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hidden absolute inset-0 bg-limeGreen/10 text-limeGreen font-bold font-futuristic text-xs flex items-center justify-center">
+                      ${c.initials || 'MMG'}
+                    </div>
+                  </div>
+                </td>
+                <td class="py-3.5 px-6 font-bold text-white font-futuristic uppercase">${c.name}</td>
+                <td class="py-3.5 px-6"><span class="text-[10px] bg-white/5 border border-white/10 font-futuristic px-2.5 py-1 rounded text-limeGreen uppercase font-bold">${c.category}</span></td>
+                <td class="py-3.5 px-6 text-gray-400 font-futuristic text-xs">${c.tenure || '1+ Years'}</td>
+                <td class="py-3.5 px-6 text-gray-400 font-futuristic text-xs">${c.handle || '@brand'}</td>
+                <td class="py-3.5 px-6 text-right space-x-2">
+                  <button class="btn-edit-client p-1.5 rounded-lg border border-white/10 text-gray-300 hover:text-limeGreen hover:border-limeGreen/50 transition-colors" data-index="${actualIndex}">
+                    <i data-lucide="edit" class="w-4 h-4"></i>
+                  </button>
+                  <button class="btn-delete-client p-1.5 rounded-lg border border-red-500/20 text-red-400 hover:bg-red-500/20 transition-colors" data-index="${actualIndex}">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                  </button>
+                </td>
+              </tr>
+            `;
+          }).join('');
+
+          if (window.lucide) lucide.createIcons();
+
+          // Bind edit/delete
+          tbody.querySelectorAll('.btn-edit-client').forEach(b => {
+            b.addEventListener('click', () => {
+              const idx = parseInt(b.getAttribute('data-index'));
+              openClientModal(idx);
+            });
+          });
+
+          tbody.querySelectorAll('.btn-delete-client').forEach(b => {
+            b.addEventListener('click', () => {
+              const idx = parseInt(b.getAttribute('data-index'));
+              if (confirm(`Are you sure you want to delete client '${clientsData[idx]?.name}'?`)) {
+                clientsData.splice(idx, 1);
+                saveClientsDBGlobal(clientsData);
+                renderAdminClients();
+              }
+            });
+          });
+        }
+
+        renderAdminClients();
+
+        // Search & Filter Listeners (Clients)
+        document.getElementById('admin-clients-search')?.addEventListener('input', (e) => {
+          clientsSearch = e.target.value;
+          renderAdminClients();
+        });
+
+        document.querySelectorAll('.admin-clients-filter-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.admin-clients-filter-btn').forEach(b => {
+              b.className = 'admin-clients-filter-btn px-4 py-1.5 rounded-full text-[11px] font-futuristic font-bold text-gray-400 hover:text-white';
+            });
+            btn.className = 'admin-clients-filter-btn px-4 py-1.5 rounded-full text-[11px] font-futuristic font-bold bg-limeGreen text-brandBg';
+            clientsFilter = btn.getAttribute('data-filter');
+            renderAdminClients();
+          });
+        });
+
+        // Client Modal Trigger
+        const clientModal = document.getElementById('modal-client-form');
+        const clientForm = document.getElementById('form-client');
+
+        function openClientModal(idx = -1) {
+          document.getElementById('client-form-index').value = idx;
+          if (idx >= 0 && clientsData[idx]) {
+            const c = clientsData[idx];
+            document.getElementById('modal-client-title').textContent = `Edit Client: ${c.name}`;
+            document.getElementById('client-form-name').value = c.name || '';
+            document.getElementById('client-form-category').value = c.category || 'automobile';
+            document.getElementById('client-form-tenure').value = c.tenure || '1+ Years';
+            document.getElementById('client-form-initials').value = c.initials || '';
+            document.getElementById('client-form-icon').value = c.icon || 'car';
+            document.getElementById('client-form-insta').value = c.insta || '';
+            document.getElementById('client-form-handle').value = c.handle || '';
+            document.getElementById('client-form-logo').value = c.logo || '';
+            document.getElementById('client-form-desc').value = c.desc || '';
+          } else {
+            document.getElementById('modal-client-title').textContent = 'Add New Client Brand';
+            clientForm.reset();
+            document.getElementById('client-form-index').value = -1;
+          }
+          clientModal.classList.add('open');
+        }
+
+        document.getElementById('btn-add-client')?.addEventListener('click', () => openClientModal(-1));
+        document.getElementById('close-modal-client')?.addEventListener('click', () => clientModal.classList.remove('open'));
+        document.getElementById('cancel-client-form')?.addEventListener('click', () => clientModal.classList.remove('open'));
+
+        clientForm?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const idx = parseInt(document.getElementById('client-form-index').value);
+          const newClient = {
+            name: document.getElementById('client-form-name').value.trim(),
+            category: document.getElementById('client-form-category').value,
+            tenure: document.getElementById('client-form-tenure').value.trim() || '1+ Years',
+            initials: document.getElementById('client-form-initials').value.trim() || 'MMG',
+            icon: document.getElementById('client-form-icon').value,
+            insta: document.getElementById('client-form-insta').value.trim() || '#',
+            handle: document.getElementById('client-form-handle').value.trim() || '@brand',
+            logo: document.getElementById('client-form-logo').value.trim() || 'logo.png',
+            desc: document.getElementById('client-form-desc').value.trim()
+          };
+
+          if (idx >= 0 && clientsData[idx]) {
+            clientsData[idx] = { ...clientsData[idx], ...newClient };
+          } else {
+            clientsData.unshift(newClient);
+          }
+
+          saveClientsDBGlobal(clientsData);
+          clientModal.classList.remove('open');
+          renderAdminClients();
+        });
+
+        // 2. REVIEWS GUI CONTROLLER
+        let reviewsData = typeof getFeedbackList === 'function' ? getFeedbackList() : [];
+        let reviewsFilter = 'all';
+        let reviewsSearch = '';
+
+        function renderAdminReviews() {
+          reviewsData = typeof getFeedbackList === 'function' ? getFeedbackList() : [];
+          const tbody = document.getElementById('admin-reviews-table-body');
+          if (!tbody) return;
+
+          document.getElementById('stat-admin-reviews-total').textContent = reviewsData.length;
+          document.getElementById('stat-admin-reviews-featured').textContent = reviewsData.filter(r => r.featured).length;
+
+          const filtered = reviewsData.filter(r => {
+            const matchCat = reviewsFilter === 'all' || r.category === reviewsFilter;
+            const matchSearch = r.name.toLowerCase().includes(reviewsSearch.toLowerCase()) || r.text.toLowerCase().includes(reviewsSearch.toLowerCase());
+            return matchCat && matchSearch;
+          });
+
+          if (filtered.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-gray-500 font-futuristic">NO REVIEWS FOUND MATCHING FILTER</td></tr>`;
+            return;
+          }
+
+          tbody.innerHTML = filtered.map((r) => {
+            return `
+              <tr class="hover:bg-white/[0.02] transition-colors">
+                <td class="py-3.5 px-6">
+                  <p class="font-bold text-white font-futuristic uppercase">${r.name}</p>
+                  <p class="text-[10px] text-limeGreen uppercase font-futuristic">${r.title}</p>
+                </td>
+                <td class="py-3.5 px-6"><span class="text-[10px] bg-white/5 border border-white/10 font-futuristic px-2.5 py-1 rounded text-gray-300 uppercase">${r.categoryLabel || r.category}</span></td>
+                <td class="py-3.5 px-6 text-limeGreen font-bold font-futuristic">${r.rating || 5} ★</td>
+                <td class="py-3.5 px-6 text-gray-300 max-w-xs truncate">"${r.text}"</td>
+                <td class="py-3.5 px-6">
+                  ${r.featured ? '<span class="text-[8px] bg-limeGreen/20 text-limeGreen border border-limeGreen/40 font-futuristic font-bold px-2 py-0.5 rounded uppercase">FEATURED</span>' : '<span class="text-[8px] bg-white/5 text-gray-500 font-futuristic px-2 py-0.5 rounded">STANDARD</span>'}
+                </td>
+                <td class="py-3.5 px-6 text-right space-x-2">
+                  <button class="btn-toggle-featured-review p-1.5 rounded-lg border border-white/10 text-gray-400 hover:text-limeGreen transition-colors" data-id="${r.id}" title="Toggle Featured">
+                    <i data-lucide="star" class="w-4 h-4 ${r.featured ? 'fill-limeGreen text-limeGreen' : ''}"></i>
+                  </button>
+                  <button class="btn-edit-review p-1.5 rounded-lg border border-white/10 text-gray-300 hover:text-limeGreen transition-colors" data-id="${r.id}">
+                    <i data-lucide="edit" class="w-4 h-4"></i>
+                  </button>
+                  <button class="btn-delete-review p-1.5 rounded-lg border border-red-500/20 text-red-400 hover:bg-red-500/20 transition-colors" data-id="${r.id}">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                  </button>
+                </td>
+              </tr>
+            `;
+          }).join('');
+
+          if (window.lucide) lucide.createIcons();
+
+          tbody.querySelectorAll('.btn-toggle-featured-review').forEach(b => {
+            b.addEventListener('click', () => {
+              const id = b.getAttribute('data-id');
+              const item = reviewsData.find(f => f.id === id);
+              if (item) {
+                item.featured = !item.featured;
+                saveFeedbackDBGlobal(reviewsData);
+                renderAdminReviews();
+              }
+            });
+          });
+
+          tbody.querySelectorAll('.btn-edit-review').forEach(b => {
+            b.addEventListener('click', () => {
+              const id = b.getAttribute('data-id');
+              openReviewModal(id);
+            });
+          });
+
+          tbody.querySelectorAll('.btn-delete-review').forEach(b => {
+            b.addEventListener('click', () => {
+              const id = b.getAttribute('data-id');
+              if (confirm('Are you sure you want to delete this review?')) {
+                reviewsData = reviewsData.filter(r => r.id !== id);
+                saveFeedbackDBGlobal(reviewsData);
+                renderAdminReviews();
+              }
+            });
+          });
+        }
+
+        renderAdminReviews();
+
+        // Search & Filter Listeners (Reviews)
+        document.getElementById('admin-reviews-search')?.addEventListener('input', (e) => {
+          reviewsSearch = e.target.value;
+          renderAdminReviews();
+        });
+
+        document.querySelectorAll('.admin-reviews-filter-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.admin-reviews-filter-btn').forEach(b => {
+              b.className = 'admin-reviews-filter-btn px-4 py-1.5 rounded-full text-[11px] font-futuristic font-bold text-gray-400 hover:text-white';
+            });
+            btn.className = 'admin-reviews-filter-btn px-4 py-1.5 rounded-full text-[11px] font-futuristic font-bold bg-limeGreen text-brandBg';
+            reviewsFilter = btn.getAttribute('data-filter');
+            renderAdminReviews();
+          });
+        });
+
+        // Review Modal Trigger
+        const reviewModal = document.getElementById('modal-review-form');
+        const reviewForm = document.getElementById('form-review');
+
+        function openReviewModal(id = '') {
+          document.getElementById('review-form-id').value = id;
+          if (id) {
+            const r = reviewsData.find(item => item.id === id);
+            if (r) {
+              document.getElementById('modal-review-title').textContent = `Edit Review: ${r.name}`;
+              document.getElementById('review-form-name').value = r.name || '';
+              document.getElementById('review-form-title').value = r.title || '';
+              document.getElementById('review-form-category').value = r.category || 'video-editing';
+              document.getElementById('review-form-rating').value = r.rating || 5;
+              document.getElementById('review-form-text').value = r.text || '';
+              document.getElementById('review-form-featured').checked = !!r.featured;
+              document.getElementById('review-form-verified').checked = !!r.verified;
+            }
+          } else {
+            document.getElementById('modal-review-title').textContent = 'Add New Client Review';
+            reviewForm.reset();
+            document.getElementById('review-form-id').value = '';
+            document.getElementById('review-form-verified').checked = true;
+          }
+          reviewModal.classList.add('open');
+        }
+
+        document.getElementById('btn-add-review')?.addEventListener('click', () => openReviewModal(''));
+        document.getElementById('close-modal-review')?.addEventListener('click', () => reviewModal.classList.remove('open'));
+        document.getElementById('cancel-review-form')?.addEventListener('click', () => reviewModal.classList.remove('open'));
+
+        reviewForm?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const id = document.getElementById('review-form-id').value;
+          const cat = document.getElementById('review-form-category').value;
+          const catLabels = {
+            'video-editing': 'VIDEO EDITING',
+            'web-dev': 'WEB DEVELOPMENT',
+            'meta-ads': 'META ADS',
+            'smm': 'SMM ORBIT'
+          };
+
+          const newRev = {
+            id: id || ('fb-' + Date.now()),
+            name: document.getElementById('review-form-name').value.trim(),
+            title: document.getElementById('review-form-title').value.trim(),
+            category: cat,
+            categoryLabel: catLabels[cat] || cat.toUpperCase(),
+            rating: parseInt(document.getElementById('review-form-rating').value),
+            text: document.getElementById('review-form-text').value.trim(),
+            featured: document.getElementById('review-form-featured').checked,
+            verified: document.getElementById('review-form-verified').checked,
+            date: new Date().toISOString().split('T')[0]
+          };
+
+          if (id) {
+            const idx = reviewsData.findIndex(r => r.id === id);
+            if (idx >= 0) reviewsData[idx] = newRev;
+          } else {
+            reviewsData.unshift(newRev);
+          }
+
+          saveFeedbackDBGlobal(reviewsData);
+          reviewModal.classList.remove('open');
+          renderAdminReviews();
+        });
+
+        // Utilities
+        document.getElementById('btn-export-clients-json')?.addEventListener('click', () => {
+          const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(clientsData, null, 2));
+          const dlAnchorElem = document.createElement('a');
+          dlAnchorElem.setAttribute("href", dataStr);
+          dlAnchorElem.setAttribute("download", "mmg_clients_backup.json");
+          dlAnchorElem.click();
+        });
+
+        document.getElementById('btn-export-feedback-json')?.addEventListener('click', () => {
+          const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(reviewsData, null, 2));
+          const dlAnchorElem = document.createElement('a');
+          dlAnchorElem.setAttribute("href", dataStr);
+          dlAnchorElem.setAttribute("download", "mmg_feedback_backup.json");
+          dlAnchorElem.click();
+        });
+
+        document.getElementById('btn-reset-factory-db')?.addEventListener('click', () => {
+          if (confirm('Are you sure you want to reset all clients and reviews to original factory data?')) {
+            localStorage.removeItem('mmg_clients_db');
+            localStorage.removeItem('mmg_feedback_db');
+            window.location.reload();
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

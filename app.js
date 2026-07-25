@@ -3010,7 +3010,7 @@ function initInfluencerMarketingModal() {
   if (btnTrigger) btnTrigger.addEventListener('click', openInfModal);
 }
 
-const MMG_CLIENTS = [
+const defaultClients = [
   {
     name: "Chacha TVS",
     category: "automobile",
@@ -3469,9 +3469,60 @@ const MMG_CLIENTS = [
   }
 ];
 
+let clientsList = [];
+
+function loadClientsDB() {
+  try {
+    const saved = localStorage.getItem('mmg_clients_db');
+    if (saved) {
+      clientsList = JSON.parse(saved);
+    } else {
+      clientsList = [...defaultClients];
+      localStorage.setItem('mmg_clients_db', JSON.stringify(clientsList));
+    }
+  } catch (e) {
+    clientsList = [...defaultClients];
+  }
+}
+
+function saveClientsDBGlobal(newList) {
+  if (newList) clientsList = newList;
+  try {
+    localStorage.setItem('mmg_clients_db', JSON.stringify(clientsList));
+  } catch (e) { }
+  if (typeof initClientRoster === 'function') {
+    initClientRoster();
+  }
+}
+
+function saveFeedbackDBGlobal(newList) {
+  if (newList) feedbackList = newList;
+  try {
+    localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList));
+  } catch (e) { }
+  renderAllFeedbackViews();
+}
+
+function getClientsList() {
+  if (!clientsList || clientsList.length === 0) loadClientsDB();
+  return clientsList;
+}
+
+function getFeedbackList() {
+  if (!feedbackList || feedbackList.length === 0) loadFeedbackDB();
+  return feedbackList;
+}
+
+window.getClientsList = getClientsList;
+window.getFeedbackList = getFeedbackList;
+window.saveClientsDBGlobal = saveClientsDBGlobal;
+window.saveFeedbackDBGlobal = saveFeedbackDBGlobal;
+
 function initClientRoster() {
   const clientGrid = document.getElementById('client-grid');
   if (!clientGrid) return; // Only execute on clients.html
+
+  loadClientsDB();
 
   const searchInput = document.getElementById('client-search');
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -3488,7 +3539,7 @@ function initClientRoster() {
 
   // Render function
   function render() {
-    const filtered = MMG_CLIENTS.filter(client => {
+    const filtered = clientsList.filter(client => {
       const matchesFilter = activeFilter === 'all' || client.category === activeFilter;
       const matchesSearch = client.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         client.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -3626,7 +3677,8 @@ function initClientRoster() {
 }
 
 function openClientDetailModal(clientName) {
-  const client = MMG_CLIENTS.find(c => c.name === clientName);
+  if (!clientsList || clientsList.length === 0) loadClientsDB();
+  const client = clientsList.find(c => c.name === clientName);
   if (!client) return;
 
   const detailModal = document.getElementById('client-detail-modal');
