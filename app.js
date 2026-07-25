@@ -830,8 +830,7 @@ function renderPublicGrid(filter = 'all') {
       if (showMoreText) showMoreText.textContent = 'SHOW LESS REVIEWS';
       if (showMoreIcon) showMoreIcon.setAttribute('data-lucide', 'chevron-up');
     } else {
-      const remaining = filtered.length - 8;
-      if (showMoreText) showMoreText.textContent = `SHOW MORE REVIEWS (+${remaining} MORE)`;
+      if (showMoreText) showMoreText.textContent = 'SHOW MORE REVIEWS';
       if (showMoreIcon) showMoreIcon.setAttribute('data-lucide', 'chevron-down');
     }
   } else {
@@ -3546,8 +3545,7 @@ function initClientRoster() {
           if (showMoreClientsText) showMoreClientsText.textContent = 'SHOW LESS CLIENTS';
           if (showMoreClientsIcon) showMoreClientsIcon.setAttribute('data-lucide', 'chevron-up');
         } else {
-          const remaining = filtered.length - 12;
-          if (showMoreClientsText) showMoreClientsText.textContent = `SHOW MORE CLIENTS (+${remaining} BRANDS)`;
+          if (showMoreClientsText) showMoreClientsText.textContent = 'SHOW MORE CLIENTS';
           if (showMoreClientsIcon) showMoreClientsIcon.setAttribute('data-lucide', 'chevron-down');
         }
       } else {
