@@ -402,62 +402,37 @@ h1, h2, h3, h4, h5, h6, .font-futuristic {
 /* ==========================================================================
    MOBILE PERFORMANCE OPTIMIZATIONS & ANIMATIONS HARMONY
    ========================================================================== */
-@media (max-width: 767px) {
-  /* Lightweight glass background with subtle 4px blur for mobile responsiveness */
+/* ==========================================================================
+   ULTRA-FAST MOBILE PERFORMANCE & ZERO-LAG OVERRIDES (< 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* 1. Turn off backdrop-filter completely on mobile to stop GPU frame drops */
   .glass-panel,
   .glass-panel-glow,
   .feedback-modal-box {
-    backdrop-filter: blur(4px) !important;
-    -webkit-backdrop-filter: blur(4px) !important;
-    background: rgba(12, 12, 15, 0.9) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: #121214 !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: none !important;
   }
 
   .feedback-modal-overlay {
-    backdrop-filter: blur(4px) !important;
-    -webkit-backdrop-filter: blur(4px) !important;
-    background: rgba(4, 4, 6, 0.85) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(0, 0, 0, 0.92) !important;
   }
 
-  /* Glowing box shadows for active states on mobile */
-  .glass-panel-glow,
-  #package-selector-grid [data-package].active,
-  .filter-btn.active {
-    box-shadow: 0 4px 15px rgba(140, 230, 0, 0.15) !important;
-  }
-
-  /* Re-enable hardware-accelerated floating keyframe animations on mobile */
-  .floating-element-1 {
-    animation: float1 8s ease-in-out infinite !important;
-  }
-  .floating-element-2 {
-    animation: float2 10s ease-in-out infinite !important;
-  }
-  .floating-element-3 {
-    animation: float3 12s ease-in-out infinite !important;
-  }
-  .hud-circle {
-    animation: spinHUD 20s linear infinite !important;
-  }
+  /* 2. Pause infinite continuous loop animations on mobile to save GPU cycles */
+  .floating-element-1,
+  .floating-element-2,
+  .floating-element-3,
+  .hud-circle,
   .hud-circle-reverse {
-    animation: spinHUDReverse 30s linear infinite !important;
+    animation: none !important;
   }
 
-  /* Responsive active scaling feedback on tap for mobile cards */
-  #package-selector-grid [data-package]:active,
-  #cc-modal-box .grid > div:active,
-  #corp-modal-box .grid > div:active,
-  #fam-modal-box .grid > div:active,
-  #ach-modal-box .grid > div:active,
-  #mus-modal-box .grid > div:active,
-  #edit-modal-box .grid > div:active,
-  #inf-modal-box .glass-panel:active,
-  #client-spotlight-box .glass-panel:active,
-  #client-grid > div:active {
-    transform: scale(0.98) !important;
-    transition: transform 0.15s ease !important;
-  }
-
-  /* Smooth momentum touch scrolling */
+  /* 3. Smooth momentum touch scrolling */
   body {
     -webkit-overflow-scrolling: touch;
   }
