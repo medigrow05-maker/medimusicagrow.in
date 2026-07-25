@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin GUI Control Panel | Medi Musica Grow</title>
+  <title>Admin GUI Portal | Medi Musica Grow</title>
 
   <!-- Google Fonts: Inter & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,11 +49,53 @@
     <div class="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] rounded-full bg-glow-radial filter blur-[100px]"></div>
   </div>
 
-  <!-- MAIN ADMIN APP CONTAINER -->
+  <!-- ========================================== -->
+  <!-- STEP 1: FULLSCREEN PASSKEY LOCK SCREEN -->
+  <!-- ========================================== -->
+  <div id="passkey-screen" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex items-center justify-center p-4">
+    <div id="lock-box" class="w-full max-w-md bg-zinc-950 border border-limeGreen/40 rounded-3xl p-6 md:p-8 shadow-[0_0_50px_rgba(140,230,0,0.15)] relative font-futuristic text-center space-y-6">
+      
+      <!-- Lock Badge Icon -->
+      <div class="w-20 h-20 rounded-2xl bg-limeGreen/10 border border-limeGreen/30 text-limeGreen flex items-center justify-center mx-auto text-3xl shadow-lg">
+        <i data-lucide="shield-check" class="w-10 h-10"></i>
+      </div>
+
+      <!-- Header Titles -->
+      <div class="space-y-2 select-none">
+        <h1 class="text-2xl md:text-3xl font-black text-white uppercase tracking-wider">MEDIMUSICA<span class="text-limeGreen">GROW</span></h1>
+        <p class="text-xs text-limeGreen font-bold tracking-widest uppercase">ADMIN CONTROL PORTAL</p>
+        <p class="text-[11px] text-gray-400 font-light pt-1">Enter authorized passkey to decrypt administrative controls</p>
+      </div>
+
+      <!-- Passkey Form -->
+      <form id="form-passkey-lock" class="space-y-4 pt-2">
+        <div class="space-y-1 text-left">
+          <label class="block text-[10px] font-semibold text-gray-300 tracking-wider uppercase">ENTER PASSKEY</label>
+          <input type="password" id="input-lock-passkey" placeholder="••••••••••••" required autocomplete="current-password" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3.5 text-white outline-none focus:border-limeGreen transition-all text-center tracking-widest font-bold text-sm">
+          <span id="lock-error-msg" class="hidden text-[11px] text-red-400 font-futuristic pt-1 text-center block">❌ INVALID PASSKEY — ACCESS DENIED</span>
+        </div>
+
+        <button type="submit" id="btn-lock-submit" class="lime-glow-btn text-brandBg font-futuristic font-bold px-6 py-3.5 rounded-xl text-xs w-full tracking-wider flex items-center justify-center gap-2">
+          DECRYPT & ENTER <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </form>
+
+      <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[10px] text-gray-500 select-none">
+        <a href="index.html" class="hover:text-white transition-colors flex items-center gap-1">
+          &larr; Back to Live Site
+        </a>
+        <span class="text-limeGreen font-bold">SYSTEM v2.0</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- STEP 2: MAIN ADMIN APP DASHBOARD -->
+  <!-- ========================================== -->
   <div id="admin-app" class="relative z-10 hidden pb-20">
     
     <!-- TOP NAVIGATION BAR -->
-    <header class="sticky top-0 z-40 bg-black/80 backdrop-blur-xl border-b border-white/10 px-4 md:px-8 py-4">
+    <header class="sticky top-0 z-40 bg-black/85 backdrop-blur-xl border-b border-white/10 px-4 md:px-8 py-4">
       <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         
         <div class="flex items-center gap-3">
@@ -72,10 +114,10 @@
         <!-- Tab Switchers -->
         <div class="flex items-center bg-zinc-900/90 border border-white/10 p-1.5 rounded-2xl font-futuristic text-xs">
           <button id="tab-btn-clients" class="px-5 py-2 rounded-xl font-bold transition-all text-brandBg bg-limeGreen shadow-lg">
-            <i data-lucide="users" class="w-3.5 h-3.5 inline mr-1.5"></i> CLIENTS GUI
+            <i data-lucide="users" class="w-3.5 h-3.5 inline mr-1.5"></i> CLIENT BRANDS
           </button>
           <button id="tab-btn-feedback" class="px-5 py-2 rounded-xl font-bold transition-all text-gray-400 hover:text-white">
-            <i data-lucide="message-square" class="w-3.5 h-3.5 inline mr-1.5"></i> FEEDBACK GUI
+            <i data-lucide="message-square" class="w-3.5 h-3.5 inline mr-1.5"></i> REVIEWS BOARD
           </button>
           <button id="tab-btn-utilities" class="px-5 py-2 rounded-xl font-bold transition-all text-gray-400 hover:text-white">
             <i data-lucide="database" class="w-3.5 h-3.5 inline mr-1.5"></i> UTILITIES
@@ -105,7 +147,7 @@
         <!-- Header & Add Button -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 glass-panel p-6 rounded-3xl border border-white/10">
           <div>
-            <h2 class="text-xl md:text-2xl font-black font-futuristic text-white uppercase tracking-wide">Client Brands Management</h2>
+            <h2 class="text-xl md:text-2xl font-black font-futuristic text-white uppercase tracking-wide">Client Brands Manager</h2>
             <p class="text-xs text-gray-400 font-futuristic font-light">Add, edit, reorder, or remove client profile cards rendered across clients.html</p>
           </div>
           <button id="btn-add-client" class="lime-glow-btn text-brandBg font-futuristic font-bold px-6 py-3 rounded-2xl text-xs flex items-center gap-2 justify-center shadow-xl">
@@ -173,7 +215,7 @@
         <!-- Header & Add Button -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 glass-panel p-6 rounded-3xl border border-white/10">
           <div>
-            <h2 class="text-xl md:text-2xl font-black font-futuristic text-white uppercase tracking-wide">GMB Reviews Management</h2>
+            <h2 class="text-xl md:text-2xl font-black font-futuristic text-white uppercase tracking-wide">GMB Reviews Board</h2>
             <p class="text-xs text-gray-400 font-futuristic font-light">Add, edit, star feature, or purge feedback cards rendered across feedback.html</p>
           </div>
           <button id="btn-add-review" class="lime-glow-btn text-brandBg font-futuristic font-bold px-6 py-3 rounded-2xl text-xs flex items-center gap-2 justify-center shadow-xl">
@@ -461,38 +503,6 @@
     </div>
   </div>
 
-  <!-- PASSKEY LOGIN OVERLAY -->
-  <div id="admin-passkey-modal" class="feedback-modal-overlay open">
-    <div class="feedback-modal-box w-full max-w-md bg-zinc-950 border border-limeGreen/40 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-center space-y-6">
-      
-      <div class="w-16 h-16 rounded-2xl bg-limeGreen/10 border border-limeGreen/30 text-limeGreen flex items-center justify-center mx-auto text-2xl font-bold">
-        <i data-lucide="shield-lock" class="w-8 h-8"></i>
-      </div>
-
-      <div class="space-y-2">
-        <h2 class="text-2xl font-black text-white uppercase tracking-wider">ADMIN GATEKEEPER</h2>
-        <p class="text-xs text-gray-400 font-light">Enter passkey to access Medi Musica Grow GUI Control Panel</p>
-      </div>
-
-      <form id="form-admin-passkey" class="space-y-4">
-        <div class="space-y-1">
-          <input type="password" id="input-admin-passkey" placeholder="••••••••••••" required class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all text-center tracking-widest font-bold">
-          <span id="passkey-error-msg" class="hidden text-[10px] text-red-400 font-futuristic pt-1">❌ INVALID PASSKEY</span>
-        </div>
-
-        <div class="flex items-center gap-3 pt-2">
-          <button type="submit" class="lime-glow-btn text-brandBg font-futuristic font-bold px-6 py-3 rounded-xl text-xs w-full">
-            DECRYPT & ACCESS
-          </button>
-        </div>
-      </form>
-
-      <a href="index.html" class="text-[10px] text-gray-500 hover:text-white font-futuristic uppercase block pt-2">
-        &larr; Return to Live Website
-      </a>
-    </div>
-  </div>
-
   <!-- Main JavaScript App Controller -->
   <script src="app.js"></script>
 
@@ -500,46 +510,63 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const ADMIN_PASSKEY = "Shailesh@5609";
-      const passkeyModal = document.getElementById('admin-passkey-modal');
-      const passkeyForm = document.getElementById('form-admin-passkey');
-      const passkeyInput = document.getElementById('input-admin-passkey');
-      const passkeyError = document.getElementById('passkey-error-msg');
+      const passkeyScreen = document.getElementById('passkey-screen');
+      const lockBox = document.getElementById('lock-box');
+      const passkeyForm = document.getElementById('form-passkey-lock');
+      const passkeyInput = document.getElementById('input-lock-passkey');
+      const passkeyError = document.getElementById('lock-error-msg');
       const adminApp = document.getElementById('admin-app');
 
-      function unlockAdmin() {
-        if (passkeyModal) passkeyModal.classList.remove('open');
+      function unlockAdminGUI() {
+        if (passkeyScreen) passkeyScreen.style.display = 'none';
         if (adminApp) adminApp.classList.remove('hidden');
         sessionStorage.setItem('mmg_admin_authenticated', 'true');
         initAdminGUI();
       }
 
+      // Check URL secret key parameter or existing session authentication
       const urlParams = new URLSearchParams(window.location.search);
       const urlKey = urlParams.get('key');
 
-      if (urlKey === ADMIN_PASSKEY) {
-        unlockAdmin();
-      } else if (sessionStorage.getItem('mmg_admin_authenticated') === 'true') {
-        unlockAdmin();
+      if (urlKey === ADMIN_PASSKEY || sessionStorage.getItem('mmg_admin_authenticated') === 'true') {
+        unlockAdminGUI();
       } else {
-        if (passkeyModal) passkeyModal.classList.add('open');
+        if (passkeyScreen) passkeyScreen.style.display = 'flex';
         if (passkeyInput) passkeyInput.focus();
       }
 
+      // Handle Passkey Form Submit
       if (passkeyForm) {
         passkeyForm.addEventListener('submit', (e) => {
           e.preventDefault();
-          if (passkeyInput.value === ADMIN_PASSKEY) {
-            unlockAdmin();
+          const enteredKey = (passkeyInput.value || '').trim();
+
+          if (enteredKey === ADMIN_PASSKEY) {
+            if (passkeyError) passkeyError.classList.add('hidden');
+            gsap.to(lockBox, {
+              scale: 0.9, opacity: 0, duration: 0.3, onComplete: () => {
+                unlockAdminGUI();
+              }
+            });
           } else {
             if (passkeyError) passkeyError.classList.remove('hidden');
             passkeyInput.value = '';
+            passkeyInput.focus();
+
+            // GSAP Shake animation on failed passkey
+            gsap.fromTo(lockBox, { x: -12 }, {
+              x: 12, duration: 0.08, repeat: 5, yoyo: true, onComplete: () => {
+                gsap.set(lockBox, { x: 0 });
+              }
+            });
           }
         });
       }
 
+      // Logout handler
       document.getElementById('admin-logout-btn')?.addEventListener('click', () => {
         sessionStorage.removeItem('mmg_admin_authenticated');
-        window.location.reload();
+        window.location.href = 'index.html';
       });
 
       // Tab Switching
