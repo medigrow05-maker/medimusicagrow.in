@@ -398,19 +398,7 @@ if (showreelCard) {
 const defaultFeedbacks = [
   {
     id: 'fb-1',
-    name: 'VPN Jewellers',
-    title: 'Direct Owner, Kasganj',
-    category: 'smm',
-    categoryLabel: 'SMM & REEL SHOOTS',
-    rating: 5,
-    text: 'Medimusicagrow has been handling our jewellery collection shoots and festive reel editing for 2+ years. Their viral video strategy and high-retention hooks brought a massive influx of customer footfall to our Kasganj showroom!',
-    featured: true,
-    verified: true,
-    date: '2026-07-20'
-  },
-  {
-    id: 'fb-2',
-    name: 'Chacha Auto & TVS',
+    name: 'Chacha TVS',
     title: 'Authorized Dealership, Kasganj',
     category: 'video-editing',
     categoryLabel: 'VIDEO EDITING',
@@ -418,34 +406,142 @@ const defaultFeedbacks = [
     text: 'Shailesh and the MMG team created exceptional delivery celebration reels and campaign videos for our auto dealership. Fast delivery, top-quality editing, and great social engagement.',
     featured: true,
     verified: true,
-    date: '2026-07-18'
+    date: '2026-07-25'
+  },
+  {
+    id: 'fb-2',
+    name: 'Shri Krishna Mobile',
+    title: 'Mobile Retailer, Etah',
+    category: 'electronics-mobile',
+    categoryLabel: 'ELECTRONICS & REELS',
+    rating: 5,
+    text: 'Vibrant retail unboxing reels, custom offer creatives, device hype promos, and local digital audience building. Our store engagement has soared!',
+    featured: true,
+    verified: true,
+    date: '2026-07-24'
   },
   {
     id: 'fb-3',
-    name: 'Shri Roop Interio',
-    title: 'Founder & Managing Director',
-    category: 'web-dev',
-    categoryLabel: 'WEB & CREATIVE',
+    name: 'Time Electronic Centre',
+    title: 'Electronics & Appliances Retail',
+    category: 'meta-ads',
+    categoryLabel: 'META ADS',
     rating: 5,
-    text: 'Outstanding video walkthroughs and web presentation for our interior design projects. Their creative aesthetics and professionalism make them the top agency in UP.',
+    text: 'High-impact retail commercials, home appliance launch reels, custom motion graphics and subtitles editing. Drives real in-store conversions.',
     featured: true,
+    verified: true,
+    date: '2026-07-23'
+  },
+  {
+    id: 'fb-4',
+    name: 'Balance Yoga Studio',
+    title: 'Wellness & Fitness Studio',
+    category: 'smm',
+    categoryLabel: 'SMM ORBIT',
+    rating: 5,
+    text: 'Serene, high-definition wellness reels and yoga workshop promos. Medi Musica Grow helped us build an active local wellness community online!',
+    featured: true,
+    verified: true,
+    date: '2026-07-22'
+  },
+  {
+    id: 'fb-5',
+    name: 'DVF Mall',
+    title: 'Lifestyle Mall, Kasganj',
+    category: 'smm',
+    categoryLabel: 'EVENT & REELS',
+    rating: 5,
+    text: 'Comprehensive lifestyle mall promotional reels, festival footfall shoots, and regular event capture coverage. Highly creative execution!',
+    featured: true,
+    verified: true,
+    date: '2026-07-21'
+  },
+  {
+    id: 'fb-6',
+    name: 'New Apna Mobile',
+    title: 'Mobile & Accessories Retailer',
+    category: 'electronics-mobile',
+    categoryLabel: 'PROMO CREATIVE',
+    rating: 5,
+    text: 'Festive sales campaign creative templates, new model launch teasers, and retail consumer engagement strategy that keeps customers coming back.',
+    featured: false,
+    verified: true,
+    date: '2026-07-20'
+  },
+  {
+    id: 'fb-7',
+    name: 'Chacha Exide Care',
+    title: 'Battery & Auto Care',
+    category: 'meta-ads',
+    categoryLabel: 'LEAD GENERATION',
+    rating: 5,
+    text: 'Industrial & battery tech social media creatives, service assurance campaign shoots, and local lead generation. Outstanding professionalism.',
+    featured: false,
+    verified: true,
+    date: '2026-07-19'
+  },
+  {
+    id: 'fb-8',
+    name: 'Taj Electronics',
+    title: 'Electronics & Sound Showroom',
+    category: 'video-editing',
+    categoryLabel: 'BRANDING',
+    rating: 5,
+    text: 'Smart TV & sound system showcase reels, customer testimonial captures, and retail brand identity design that sets us apart from competitors.',
+    featured: false,
+    verified: true,
+    date: '2026-07-18'
+  },
+  {
+    id: 'fb-9',
+    name: 'Pankaj Computer Zone',
+    title: 'IT & Hardware Center',
+    category: 'web-dev',
+    categoryLabel: 'IT & CREATIVES',
+    rating: 5,
+    text: 'IT & hardware repair reels, custom software training templates, and educational tech creatives that inform and convert local clients.',
+    featured: false,
+    verified: true,
+    date: '2026-07-17'
+  },
+  {
+    id: 'fb-10',
+    name: 'Dhan Shri TVS',
+    title: 'Two-Wheeler Motors, Dibai',
+    category: 'video-editing',
+    categoryLabel: 'CINEMATIC REELS',
+    rating: 5,
+    text: 'Vibrant vehicle launch cinematic reels, drone dealership showcases, and two-wheeler feature highlight reels with viral watch ratios.',
+    featured: true,
+    verified: true,
+    date: '2026-07-16'
+  },
+  {
+    id: 'fb-11',
+    name: 'Coach Mukesh Soni',
+    title: 'Fitness & Health Coach',
+    category: 'smm',
+    categoryLabel: 'PERSONAL BRANDING',
+    rating: 5,
+    text: 'Shailesh and the MMG team transformed my personal branding and reel production quality. High engagement and professional workflow throughout.',
+    featured: false,
     verified: true,
     date: '2026-07-15'
   },
   {
-    id: 'fb-4',
-    name: 'A.V. Jewellers',
-    title: 'Store Owner, Kasganj',
-    category: 'smm',
-    categoryLabel: 'SMM ORBIT',
+    id: 'fb-12',
+    name: 'Mobile World',
+    title: 'Smartphone Retailer, Etah',
+    category: 'video-editing',
+    categoryLabel: 'VIDEO EDITING',
     rating: 5,
-    text: 'Superb video editing and Instagram growth strategy! The reel hooks and showcase promos boosted our online inquiry rate significantly. Highly recommended team!',
-    featured: true,
+    text: 'The smartphone launch teasers and accessory promo edits from MMG are top notch. Great team to work with for high-converting short form video content!',
+    featured: false,
     verified: true,
-    date: '2026-07-12'
+    date: '2026-07-14'
   },
   {
-    id: 'fb-5',
+    id: 'fb-13',
     name: 'Mats Computers',
     title: 'IT & Electronics Retailer',
     category: 'web-dev',
@@ -454,23 +550,35 @@ const defaultFeedbacks = [
     text: 'Medimusicagrow engineered our brand presence and social media campaigns seamlessly. Very creative team with deep technical and video editing expertise.',
     featured: false,
     verified: true,
+    date: '2026-07-12'
+  },
+  {
+    id: 'fb-14',
+    name: 'VPN Timber & Hardware',
+    title: 'Architectural Supplies & Hardware',
+    category: 'web-dev',
+    categoryLabel: 'WEB & BRANDING',
+    rating: 5,
+    text: 'Medimusicagrow designed our architectural hardware and timber showcases. Their digital branding and short video shoots helped us connect with high-end interior designers and builders across the region.',
+    featured: true,
+    verified: true,
     date: '2026-07-10'
   },
   {
-    id: 'fb-6',
-    name: 'Dulhaghar Kasganj',
-    title: 'Bridal & Groom Fashion Retail',
-    category: 'video-editing',
-    categoryLabel: 'CONTENT CREATION',
+    id: 'fb-15',
+    name: 'VPN Jewellers',
+    title: 'Direct Owner, Kasganj',
+    category: 'smm',
+    categoryLabel: 'SMM & REEL SHOOTS',
     rating: 5,
-    text: 'Their short-form video editing and wedding wear collection showcases generate thousands of views every week. Exceptional quality and creative dedication.',
+    text: 'Medimusicagrow has been handling our jewellery collection shoots and festive reel editing for 2+ years. Their viral video strategy and high-retention hooks brought a massive influx of customer footfall to our Kasganj showroom!',
     featured: true,
     verified: true,
     date: '2026-07-08'
   },
   {
-    id: 'fb-7',
-    name: 'SRS Auto Services',
+    id: 'fb-16',
+    name: 'SRS Auto & Financial Services',
     title: 'Financial & Auto Services',
     category: 'meta-ads',
     categoryLabel: 'META ADS',
@@ -481,7 +589,7 @@ const defaultFeedbacks = [
     date: '2026-07-05'
   },
   {
-    id: 'fb-8',
+    id: 'fb-17',
     name: 'Vansh Payal Jewellery',
     title: 'Business Owner',
     category: 'smm',
@@ -490,46 +598,22 @@ const defaultFeedbacks = [
     text: 'Best social media marketing agency in Kasganj. Their festive offer teasers and store walk-through reels expanded our local reach tremendously.',
     featured: false,
     verified: true,
+    date: '2026-07-03'
+  },
+  {
+    id: 'fb-18',
+    name: 'Shri Roop Interio',
+    title: 'Founder & Managing Director',
+    category: 'web-dev',
+    categoryLabel: 'WEB & CREATIVE',
+    rating: 5,
+    text: 'Outstanding video walkthroughs and web presentation for our interior design projects. Their creative aesthetics and professionalism make them the top agency in UP.',
+    featured: true,
+    verified: true,
     date: '2026-07-01'
   },
   {
-    id: 'fb-9',
-    name: 'SHRI KRISHNA CAR ACCESSORIES',
-    title: 'Automotive Accessories & Detailing',
-    category: 'video-editing',
-    categoryLabel: 'VIDEO EDITING',
-    rating: 5,
-    text: 'Their custom audio upgrade reels and ambient car modification showcases went viral locally. Outstanding video editing and prompt service.',
-    featured: false,
-    verified: true,
-    date: '2026-06-28'
-  },
-  {
-    id: 'fb-10',
-    name: 'Coach Mukesh Soni',
-    title: 'Fitness & Health Coach',
-    category: 'smm',
-    categoryLabel: 'PERSONAL BRANDING',
-    rating: 5,
-    text: 'Shailesh and the MMG team transformed my personal branding and reel production quality. High engagement and professional workflow throughout.',
-    featured: false,
-    verified: true,
-    date: '2026-06-25'
-  },
-  {
-    id: 'fb-11',
-    name: 'VPN Timber & Hardware',
-    title: 'Architectural Supplies & Hardware',
-    category: 'web-dev',
-    categoryLabel: 'WEB & BRANDING',
-    rating: 5,
-    text: 'Medimusicagrow designed our architectural hardware and timber showcases. Their digital branding and short video shoots helped us connect with high-end interior designers and builders across the region.',
-    featured: true,
-    verified: true,
-    date: '2026-06-22'
-  },
-  {
-    id: 'fb-12',
+    id: 'fb-19',
     name: 'Manglam Marble',
     title: 'Flooring & Marble Showroom',
     category: 'video-editing',
@@ -538,10 +622,22 @@ const defaultFeedbacks = [
     text: 'The marble & tile collection elevation videos created by MMG have been a game changer for our brand! Flawless color grading, sharp transitions, and high customer inquiry conversion.',
     featured: false,
     verified: true,
-    date: '2026-06-19'
+    date: '2026-06-28'
   },
   {
-    id: 'fb-13',
+    id: 'fb-20',
+    name: 'SHRI KRISHNA CAR ACCESSORIES',
+    title: 'Automotive Accessories & Detailing',
+    category: 'video-editing',
+    categoryLabel: 'VIDEO EDITING',
+    rating: 5,
+    text: 'Their custom audio upgrade reels and ambient car modification showcases went viral locally. Outstanding video editing and prompt service.',
+    featured: false,
+    verified: true,
+    date: '2026-06-25'
+  },
+  {
+    id: 'fb-21',
     name: 'FABZILA',
     title: 'Fashion Apparel Brand',
     category: 'smm',
@@ -550,10 +646,22 @@ const defaultFeedbacks = [
     text: 'Our seasonal fashion collection launches and trend lookbook reels receive phenomenal engagement. Shailesh and his team know exactly how to hook viewers in the first 3 seconds.',
     featured: true,
     verified: true,
-    date: '2026-06-16'
+    date: '2026-06-22'
   },
   {
-    id: 'fb-14',
+    id: 'fb-22',
+    name: 'A.V. Jewellers',
+    title: 'Store Owner, Kasganj',
+    category: 'smm',
+    categoryLabel: 'SMM ORBIT',
+    rating: 5,
+    text: 'Superb video editing and Instagram growth strategy! The reel hooks and showcase promos boosted our online inquiry rate significantly. Highly recommended team!',
+    featured: true,
+    verified: true,
+    date: '2026-06-20'
+  },
+  {
+    id: 'fb-23',
     name: 'Saree Museum',
     title: 'Traditional & Silk Saree Collection',
     category: 'video-editing',
@@ -562,10 +670,10 @@ const defaultFeedbacks = [
     text: 'High quality silk saree drape reels and festive video promos! Their creative direction and video pacing consistently deliver viral reach on Instagram.',
     featured: false,
     verified: true,
-    date: '2026-06-14'
+    date: '2026-06-18'
   },
   {
-    id: 'fb-15',
+    id: 'fb-24',
     name: 'CITY FASHION FLOOR',
     title: 'Multi-Brand Clothing Retail',
     category: 'meta-ads',
@@ -574,10 +682,22 @@ const defaultFeedbacks = [
     text: 'Their Meta Ad campaigns and seasonal sale announcement videos drove record store footfall during peak festive shopping season. Exceptional strategy and campaign tracking!',
     featured: true,
     verified: true,
-    date: '2026-06-11'
+    date: '2026-06-15'
   },
   {
-    id: 'fb-16',
+    id: 'fb-25',
+    name: 'Dulhaghar Kasganj',
+    title: 'Bridal & Groom Fashion Retail',
+    category: 'video-editing',
+    categoryLabel: 'CONTENT CREATION',
+    rating: 5,
+    text: 'Their short-form video editing and wedding wear collection showcases generate thousands of views every week. Exceptional quality and creative dedication.',
+    featured: true,
+    verified: true,
+    date: '2026-06-12'
+  },
+  {
+    id: 'fb-26',
     name: 'Chacha E Auto Wheels',
     title: 'EV & Electric 3-Wheeler Dealership',
     category: 'video-editing',
@@ -586,10 +706,10 @@ const defaultFeedbacks = [
     text: 'Top-tier electric 3-wheeler performance reels and dealership promotional edits. Clean cuts, engaging audio design, and super fast project turnarounds.',
     featured: false,
     verified: true,
-    date: '2026-06-08'
+    date: '2026-06-10'
   },
   {
-    id: 'fb-17',
+    id: 'fb-27',
     name: 'Property Wala',
     title: 'Real Estate Projects & Plots',
     category: 'meta-ads',
@@ -598,10 +718,10 @@ const defaultFeedbacks = [
     text: 'Medimusicagrow produced our property walkthrough videos and targeted lead generation ads. We closed multiple premium plot bookings thanks to their video funnels!',
     featured: true,
     verified: true,
-    date: '2026-06-05'
+    date: '2026-06-08'
   },
   {
-    id: 'fb-18',
+    id: 'fb-28',
     name: 'A ONE Ultrasound & Eye Care',
     title: 'Healthcare & Diagnostic Facility',
     category: 'smm',
@@ -610,10 +730,10 @@ const defaultFeedbacks = [
     text: 'Professional, informative, and engaging medical service awareness videos. Their team handled everything from scripting to post-production with complete care.',
     featured: false,
     verified: true,
-    date: '2026-06-02'
+    date: '2026-06-05'
   },
   {
-    id: 'fb-19',
+    id: 'fb-29',
     name: 'JAI SHREE SHYAM HOME DECORATOR',
     title: 'Home Furnishing & Curtains',
     category: 'smm',
@@ -622,43 +742,7 @@ const defaultFeedbacks = [
     text: 'Our interior decor and curtain installation transformation reels turned out stunning. The video quality and aesthetic presentation brought in lots of new local clients.',
     featured: false,
     verified: true,
-    date: '2026-05-29'
-  },
-  {
-    id: 'fb-20',
-    name: 'Time Electronic Centre',
-    title: 'Electronics & Mobile Retail',
-    category: 'meta-ads',
-    categoryLabel: 'META ADS',
-    rating: 5,
-    text: 'Excellent gadget unboxing reels and festival offer promos! Their video edits stand out on social media feeds and drive real in-store conversions.',
-    featured: true,
-    verified: true,
-    date: '2026-05-25'
-  },
-  {
-    id: 'fb-21',
-    name: 'Mobile World',
-    title: 'Smartphone Retailer',
-    category: 'video-editing',
-    categoryLabel: 'VIDEO EDITING',
-    rating: 5,
-    text: 'The smartphone launch teasers and accessory promo edits from MMG are top notch. Great team to work with for high-converting short form video content!',
-    featured: false,
-    verified: true,
-    date: '2026-05-21'
-  },
-  {
-    id: 'fb-22',
-    name: 'Balance Yoga Studio',
-    title: 'Wellness & Fitness Studio',
-    category: 'smm',
-    categoryLabel: 'SMM ORBIT',
-    rating: 5,
-    text: 'Serene, high-definition wellness reels and yoga workshop promos. Medi Musica Grow helped us build an active local wellness community online!',
-    featured: false,
-    verified: true,
-    date: '2026-05-18'
+    date: '2026-06-02'
   }
 ];
 
@@ -666,20 +750,9 @@ let feedbackList = [];
 
 function loadFeedbackDB() {
   try {
-    const saved = localStorage.getItem('mmg_feedback_db');
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      // Refresh if saved DB has fewer reviews than updated top client default set
-      if (parsed.length < defaultFeedbacks.length || parsed.some(item => item.name === 'Aman V.' || item.name === 'Jessica K.')) {
-        feedbackList = [...defaultFeedbacks];
-        localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList));
-      } else {
-        feedbackList = parsed;
-      }
-    } else {
-      feedbackList = [...defaultFeedbacks];
-      localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList));
-    }
+    // Always refresh feedbackList with defaultFeedbacks to ensure strict ranking order as per clients page
+    feedbackList = [...defaultFeedbacks];
+    localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList));
   } catch (e) {
     feedbackList = [...defaultFeedbacks];
   }
