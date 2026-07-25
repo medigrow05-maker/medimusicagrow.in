@@ -505,10 +505,17 @@
         initAdminGUI();
       }
 
-      if (sessionStorage.getItem('mmg_admin_authenticated') === 'true') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlKey = urlParams.get('key');
+
+      if (urlKey === ADMIN_PASSKEY) {
+        unlockAdmin();
+      } else if (sessionStorage.getItem('mmg_admin_authenticated') === 'true') {
         unlockAdmin();
       } else {
-        if (passkeyInput) passkeyInput.focus();
+        // Hide admin page completely from unauthorized site visitors by redirecting back to home page
+        window.location.href = 'index.html';
+        return;
       }
 
       if (passkeyForm) {

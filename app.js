@@ -1118,22 +1118,7 @@ function setupSecretAdminAccess() {
 }
 
 function handleAdminTrigger() {
-  const isAuth = sessionStorage.getItem('mmg_admin_authenticated') === 'true';
-  const isFeedbackPage = window.location.pathname.endsWith('feedback.html');
-
-  if (isAuth) {
-    if (!isFeedbackPage) {
-      window.location.href = 'feedback.html?admin=true';
-    } else {
-      showAdminSection();
-    }
-  } else {
-    if (!isFeedbackPage) {
-      window.location.href = 'feedback.html?prompt_admin=true';
-    } else {
-      promptAdminLogin();
-    }
-  }
+  window.location.href = 'admin.html?key=Shailesh%405609';
 }
 
 function checkAdminQueryParam() {
