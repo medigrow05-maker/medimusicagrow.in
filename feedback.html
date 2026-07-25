@@ -175,10 +175,37 @@
       </div>
     </section>
 
+    <!-- INTERACTIVE REVIEWS GRID WITH FILTERING -->
+    <section class="py-12 px-4 md:px-8 relative z-10">
+      <div class="max-w-6xl mx-auto space-y-12">
+        <!-- Filtering Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-3 font-futuristic text-xs">
+          <button class="filter-btn px-5 py-2.5 rounded-full font-bold active" data-filter="all">ALL ENTRIES</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="video-editing">VIDEO EDITING</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="web-dev">WEB DEVELOPMENT</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="meta-ads">META ADS</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="smm">SMM ORBIT</button>
+        </div>
+
+        <!-- Database Review Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="reviews-grid">
+          <!-- Dynamically populated / synced -->
+        </div>
+
+        <!-- Show More Reviews Container -->
+        <div id="show-more-reviews-container" class="mt-8 text-center hidden">
+          <button id="show-more-reviews-btn" class="metallic-border text-white font-futuristic font-bold px-8 py-3.5 rounded-2xl text-xs tracking-wider inline-flex items-center gap-2 hover:border-limeGreen/50 hover:text-limeGreen transition-all group shadow-lg shadow-black/40">
+            <span id="show-more-reviews-text">SHOW MORE REVIEWS</span>
+            <i id="show-more-reviews-icon" data-lucide="chevron-down" class="w-4 h-4 text-limeGreen group-hover:translate-y-0.5 transition-transform"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- ======================================================= -->
-    <!-- NEW: VIDEO TESTIMONIALS & CASE STUDY REELS SHOWCASE     -->
+    <!-- VIDEO TESTIMONIALS & CASE STUDY REELS SHOWCASE (BOTTOM) -->
     <!-- ======================================================= -->
-    <section class="py-8 px-4 md:px-8 relative z-10">
+    <section class="py-12 px-4 md:px-8 relative z-10 border-t border-white/5">
       <div class="max-w-6xl mx-auto space-y-8">
         
         <!-- Section Header -->
@@ -324,33 +351,6 @@
             </div>
           </div>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- INTERACTIVE REVIEWS GRID WITH FILTERING -->
-    <section class="py-12 px-4 md:px-8 relative z-10">
-      <div class="max-w-6xl mx-auto space-y-12">
-        <!-- Filtering Buttons -->
-        <div class="flex flex-wrap items-center justify-center gap-3 font-futuristic text-xs">
-          <button class="filter-btn px-5 py-2.5 rounded-full font-bold active" data-filter="all">ALL ENTRIES</button>
-          <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="video-editing">VIDEO EDITING</button>
-          <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="web-dev">WEB DEVELOPMENT</button>
-          <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="meta-ads">META ADS</button>
-          <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="smm">SMM ORBIT</button>
-        </div>
-
-        <!-- Database Review Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="reviews-grid">
-          <!-- Dynamically populated / synced -->
-        </div>
-
-        <!-- Show More Reviews Container -->
-        <div id="show-more-reviews-container" class="mt-8 text-center hidden">
-          <button id="show-more-reviews-btn" class="metallic-border text-white font-futuristic font-bold px-8 py-3.5 rounded-2xl text-xs tracking-wider inline-flex items-center gap-2 hover:border-limeGreen/50 hover:text-limeGreen transition-all group shadow-lg shadow-black/40">
-            <span id="show-more-reviews-text">SHOW MORE REVIEWS</span>
-            <i id="show-more-reviews-icon" data-lucide="chevron-down" class="w-4 h-4 text-limeGreen group-hover:translate-y-0.5 transition-transform"></i>
-          </button>
         </div>
       </div>
     </section>
