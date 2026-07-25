@@ -2858,6 +2858,7 @@ const MMG_CLIENTS = [
     name: "Mats Computers",
     category: "electronics-mobile",
     tenure: "2+ Years",
+    isOld: true,
     insta: "#",
     handle: "@matscomputers",
     initials: "MC",
@@ -2869,6 +2870,7 @@ const MMG_CLIENTS = [
     name: "VPN Timber & Hardware",
     category: "retail-wellness",
     tenure: "2+ Years",
+    isOld: true,
     insta: "#",
     handle: "@vpntimber",
     initials: "VPN",
@@ -2880,6 +2882,7 @@ const MMG_CLIENTS = [
     name: "VPN Jewellers",
     category: "retail-wellness",
     tenure: "2+ Years",
+    isOld: true,
     insta: "#",
     handle: "@vpnjewellers",
     initials: "VJ",
@@ -2891,6 +2894,7 @@ const MMG_CLIENTS = [
     name: "SRS Auto & Financial Services",
     category: "automobile",
     tenure: "2+ Years",
+    isOld: true,
     insta: "#",
     handle: "@srsautoservices",
     initials: "SRS",
@@ -2902,6 +2906,7 @@ const MMG_CLIENTS = [
     name: "Vansh Payal Jewellery",
     category: "retail-wellness",
     tenure: "2+ Years",
+    isOld: true,
     insta: "#",
     handle: "@vanshpayaljewellery",
     initials: "VPJ",
@@ -2913,6 +2918,7 @@ const MMG_CLIENTS = [
     name: "Shri Roop Interio",
     category: "retail-wellness",
     tenure: "1.5+ Years",
+    isOld: true,
     insta: "#",
     handle: "@shriroopinterio",
     initials: "SRI",
@@ -2924,6 +2930,7 @@ const MMG_CLIENTS = [
     name: "Uphaar Express",
     category: "retail-wellness",
     tenure: "1.5+ Years",
+    isOld: true,
     insta: "#",
     handle: "@uphaarexpress",
     initials: "UE",
@@ -2935,6 +2942,7 @@ const MMG_CLIENTS = [
     name: "Manglam Marble",
     category: "retail-wellness",
     tenure: "1.5+ Years",
+    isOld: true,
     insta: "#",
     handle: "@manglammarble",
     initials: "MM",
@@ -2946,6 +2954,7 @@ const MMG_CLIENTS = [
     name: "SHRI KRISHNA CAR ACCESSORIES",
     category: "automobile",
     tenure: "1.5+ Years",
+    isOld: true,
     insta: "#",
     handle: "@shrikrishnacaraccessories",
     initials: "SKC",
@@ -2957,6 +2966,7 @@ const MMG_CLIENTS = [
     name: "FABZILA",
     category: "retail-wellness",
     tenure: "1.5+ Years",
+    isOld: true,
     insta: "#",
     handle: "@fabzila",
     initials: "FZ",
@@ -2968,6 +2978,7 @@ const MMG_CLIENTS = [
     name: "Vishnu Fashion",
     category: "retail-wellness",
     tenure: "1.5+ Years",
+    isOld: true,
     insta: "#",
     handle: "@vishnufashion",
     initials: "VF",
@@ -2979,6 +2990,7 @@ const MMG_CLIENTS = [
     name: "A.V. Jewellers",
     category: "retail-wellness",
     tenure: "1+ Years",
+    isOld: true,
     insta: "#",
     handle: "@avjewellers",
     initials: "AVJ",
@@ -2990,6 +3002,7 @@ const MMG_CLIENTS = [
     name: "ulfa",
     category: "retail-wellness",
     tenure: "1+ Years",
+    isOld: true,
     insta: "#",
     handle: "@ulfabrand",
     initials: "ULFA",
@@ -3001,6 +3014,7 @@ const MMG_CLIENTS = [
     name: "Saree Museum",
     category: "retail-wellness",
     tenure: "1+ Years",
+    isOld: true,
     insta: "#",
     handle: "@sareemuseum",
     initials: "SM",
@@ -3012,6 +3026,7 @@ const MMG_CLIENTS = [
     name: "Saif Nutrition Coach",
     category: "retail-wellness",
     tenure: "1+ Years",
+    isOld: true,
     insta: "#",
     handle: "@saifnutritioncoach",
     initials: "SNC",
@@ -3023,6 +3038,7 @@ const MMG_CLIENTS = [
     name: "Aavi Restaurant & Cafe",
     category: "retail-wellness",
     tenure: "1+ Years",
+    isOld: true,
     insta: "#",
     handle: "@aavicafe",
     initials: "ARC",
@@ -3034,6 +3050,7 @@ const MMG_CLIENTS = [
     name: "Vikas Car Decoration",
     category: "automobile",
     tenure: "1+ Years",
+    isOld: true,
     insta: "#",
     handle: "@vikascardecoration",
     initials: "VCD",
@@ -3045,6 +3062,7 @@ const MMG_CLIENTS = [
     name: "CITY FASHION FLOOR",
     category: "retail-wellness",
     tenure: "1+ Years",
+    isOld: true,
     insta: "#",
     handle: "@cityfashionfloor",
     initials: "CFF",
@@ -3056,6 +3074,7 @@ const MMG_CLIENTS = [
     name: "Dulhaghar Kasganj",
     category: "retail-wellness",
     tenure: "1+ Years",
+    isOld: true,
     insta: "#",
     handle: "@dulhaghar_kasganj",
     initials: "DGK",
@@ -3067,6 +3086,7 @@ const MMG_CLIENTS = [
     name: "Chacha Auto Wheels",
     category: "automobile",
     tenure: "1+ Years",
+    isOld: true,
     insta: "#",
     handle: "@chachaautowheels",
     initials: "CAW",
@@ -3078,6 +3098,7 @@ const MMG_CLIENTS = [
     name: "Chacha E Auto Wheels",
     category: "automobile",
     tenure: "1+ Years",
+    isOld: true,
     insta: "#",
     handle: "@chachaeautowheels",
     initials: "CEA",
@@ -3089,6 +3110,7 @@ const MMG_CLIENTS = [
     name: "R.A. Suit Collection",
     category: "retail-wellness",
     tenure: "8+ Months",
+    isOld: true,
     insta: "#",
     handle: "@rasuitcollection",
     initials: "RAS",
@@ -3100,6 +3122,7 @@ const MMG_CLIENTS = [
     name: "Baba Mobiles",
     category: "electronics-mobile",
     tenure: "8+ Months",
+    isOld: true,
     insta: "#",
     handle: "@babamobiles",
     initials: "BM",
@@ -3111,6 +3134,7 @@ const MMG_CLIENTS = [
     name: "Property Wala",
     category: "retail-wellness",
     tenure: "6+ Months",
+    isOld: true,
     insta: "#",
     handle: "@propertywala",
     initials: "PW",
@@ -3122,6 +3146,7 @@ const MMG_CLIENTS = [
     name: "A ONE Ultrasound & Eye Care",
     category: "retail-wellness",
     tenure: "6+ Months",
+    isOld: true,
     insta: "#",
     handle: "@aoneeyecare",
     initials: "A1U",
@@ -3133,6 +3158,7 @@ const MMG_CLIENTS = [
     name: "JAI SHREE SHYAM HOME DECORATOR",
     category: "retail-wellness",
     tenure: "6+ Months",
+    isOld: true,
     insta: "#",
     handle: "@jaishreeshyamhomedecorator",
     initials: "JSS",
@@ -3144,6 +3170,7 @@ const MMG_CLIENTS = [
     name: "M K Mobile",
     category: "electronics-mobile",
     tenure: "6+ Months",
+    isOld: true,
     insta: "#",
     handle: "@mkmobile",
     initials: "MKM",
@@ -3179,13 +3206,17 @@ function initClientRoster() {
       noClientsAlert.classList.remove('hidden');
     } else {
       noClientsAlert.classList.add('hidden');
-      clientGrid.innerHTML = filtered.map(client => {
+
+      const activeClients = filtered.filter(c => !c.isOld);
+      const oldClients = filtered.filter(c => c.isOld);
+
+      function buildCardHtml(client) {
         return `
           <div class="glass-panel border-white/5 rounded-3xl p-6 md:p-8 flex flex-col justify-between group cursor-pointer hover:border-limeGreen/20 transition-all duration-300 transform hover:-translate-y-1" onclick="openClientDetailModal('${client.name.replace(/'/g, "\\'")}')">
             <div class="space-y-6">
-              <div class="flex items-start justify-between">
+              <div class="flex items-start justify-between gap-2">
                 <!-- Glowing Category Badge Logo -->
-                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden group-hover:border-limeGreen/40 transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.02)] relative">
+                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden group-hover:border-limeGreen/40 transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.02)] relative shrink-0">
                   <img src="${client.logo}" alt="${client.name} Logo" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                   <!-- Fallback avatar in case logo image is not uploaded yet -->
                   <div class="hidden absolute inset-0 bg-limeGreen/10 text-limeGreen flex items-center justify-center group-hover:bg-limeGreen group-hover:text-brandBg transition-all duration-300">
@@ -3193,10 +3224,13 @@ function initClientRoster() {
                     <i data-lucide="${client.icon}" class="w-6 h-6"></i>
                   </div>
                 </div>
-                <!-- Tenure Badge -->
-                <span class="text-[8px] font-futuristic text-limeGreen border border-limeGreen/20 px-2.5 py-1 rounded bg-limeGreen/5 font-bold uppercase tracking-wider">
-                  Since ${client.tenure}
-                </span>
+                <!-- Tenure & Old Client Badges -->
+                <div class="flex flex-col items-end gap-1.5">
+                  ${client.isOld ? '<span class="text-[8px] font-futuristic text-limeGreen/90 border border-limeGreen/30 px-2 py-0.5 rounded bg-limeGreen/10 font-bold uppercase tracking-wider">OLD CLIENT</span>' : ''}
+                  <span class="text-[8px] font-futuristic text-limeGreen border border-limeGreen/20 px-2.5 py-1 rounded bg-limeGreen/5 font-bold uppercase tracking-wider">
+                    Since ${client.tenure}
+                  </span>
+                </div>
               </div>
               <div class="space-y-2 text-left">
                 <h3 class="text-lg md:text-xl font-bold font-futuristic text-white group-hover:text-limeGreen transition-colors leading-tight uppercase">${client.name}</h3>
@@ -3210,7 +3244,40 @@ function initClientRoster() {
             </div>
           </div>
         `;
-      }).join('');
+      }
+
+      let gridHtml = '';
+
+      if (activeClients.length > 0) {
+        if (oldClients.length > 0) {
+          gridHtml += `
+            <div class="col-span-full pt-2 pb-4 flex items-center justify-between border-b border-white/10 mb-2">
+              <div class="flex items-center gap-3">
+                <span class="w-3.5 h-3.5 rounded-full bg-limeGreen animate-pulse"></span>
+                <h2 class="text-xl md:text-2xl font-black font-futuristic text-white uppercase tracking-wider">ACTIVE PARTNERSHIPS</h2>
+                <span class="text-xs font-futuristic text-gray-400 bg-white/5 border border-white/10 px-3 py-1 rounded-full font-bold">(${activeClients.length})</span>
+              </div>
+            </div>
+          `;
+        }
+        gridHtml += activeClients.map(buildCardHtml).join('');
+      }
+
+      if (oldClients.length > 0) {
+        gridHtml += `
+          <div class="col-span-full pt-10 pb-4 border-t border-white/10 mt-8 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <i data-lucide="folder-archive" class="w-6 h-6 text-limeGreen"></i>
+              <h2 class="text-xl md:text-2xl font-black font-futuristic text-white uppercase tracking-wider">OLD CLIENTS</h2>
+              <span class="text-xs font-futuristic text-limeGreen bg-limeGreen/10 border border-limeGreen/20 px-3 py-1 rounded-full font-bold">(${oldClients.length} Brands)</span>
+            </div>
+            <span class="text-[10px] font-futuristic text-gray-400 uppercase tracking-widest hidden sm:inline font-bold">PAST COLLABORATION ARCHIVE</span>
+          </div>
+        `;
+        gridHtml += oldClients.map(buildCardHtml).join('');
+      }
+
+      clientGrid.innerHTML = gridHtml;
       if (window.lucide) lucide.createIcons();
     }
   }
