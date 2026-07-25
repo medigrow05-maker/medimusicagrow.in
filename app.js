@@ -556,7 +556,9 @@ function renderPublicGrid(filter = 'all') {
       </p>
       <div class="flex justify-between items-center text-[9px] text-gray-500 font-futuristic pt-2 border-t border-white/5">
         <span>SERVICE: ${item.categoryLabel || item.category.toUpperCase()}</span>
-        <span>${item.verified ? 'VERIFIED ON GMB' : 'PENDING VERIFICATION'}</span>
+        <a href="https://share.google/9WsqvZV57gCcyiZLF" target="_blank" class="text-limeGreen font-bold hover:underline flex items-center gap-1">
+          ${item.verified ? 'VERIFIED ON GMB <i data-lucide="external-link" class="w-2.5 h-2.5 inline"></i>' : 'PENDING VERIFICATION'}
+        </a>
       </div>
     `;
 
@@ -989,7 +991,9 @@ if (reviewForm && modalOverlay) {
     });
 
     modalOverlay.classList.remove('open');
-    alert('Thank you! Your verified GMB feedback has been published to the system.');
+    if (confirm('Thank you! Your verified feedback has been published to the system.\n\nWould you like to post this review directly on our official Google My Business profile as well?')) {
+      window.open('https://share.google/9WsqvZV57gCcyiZLF', '_blank');
+    }
     reviewForm.reset();
   });
 }
