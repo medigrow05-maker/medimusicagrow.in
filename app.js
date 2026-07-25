@@ -765,19 +765,29 @@ function saveFeedbackDB() {
   renderAllFeedbackViews();
 }
 
+let isReviewsExpanded = false;
+
 function renderPublicGrid(filter = 'all') {
   const grid = document.getElementById('reviews-grid');
   if (!grid) return;
+
+  const showMoreContainer = document.getElementById('show-more-reviews-container');
+  const showMoreBtn = document.getElementById('show-more-reviews-btn');
+  const showMoreText = document.getElementById('show-more-reviews-text');
+  const showMoreIcon = document.getElementById('show-more-reviews-icon');
 
   grid.innerHTML = '';
   const filtered = feedbackList.filter(item => filter === 'all' || item.category === filter);
 
   if (filtered.length === 0) {
     grid.innerHTML = `<p class="col-span-2 text-center text-gray-500 font-futuristic text-xs py-8">NO FEEDBACK ENTRIES FOUND IN THIS CATEGORY.</p>`;
+    if (showMoreContainer) showMoreContainer.classList.add('hidden');
     return;
   }
 
-  filtered.forEach(item => {
+  const itemsToDisplay = isReviewsExpanded ? filtered : filtered.slice(0, 8);
+
+  itemsToDisplay.forEach(item => {
     const initials = item.name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
     const card = document.createElement('div');
     card.className = `review-card glass-panel-glow rounded-2xl p-6 border ${item.featured ? 'border-limeGreen/40 shadow-lg shadow-limeGreen/5' : 'border-white/5'} space-y-4 relative overflow-hidden`;
@@ -812,6 +822,33 @@ function renderPublicGrid(filter = 'all') {
 
     grid.appendChild(card);
   });
+
+  // Show More / Show Less logic for feedback reviews
+  if (filtered.length > 8) {
+    if (showMoreContainer) showMoreContainer.classList.remove('hidden');
+    if (isReviewsExpanded) {
+      if (showMoreText) showMoreText.textContent = 'SHOW LESS REVIEWS';
+      if (showMoreIcon) showMoreIcon.setAttribute('data-lucide', 'chevron-up');
+    } else {
+      const remaining = filtered.length - 8;
+      if (showMoreText) showMoreText.textContent = `SHOW MORE REVIEWS (+${remaining} MORE)`;
+      if (showMoreIcon) showMoreIcon.setAttribute('data-lucide', 'chevron-down');
+    }
+  } else {
+    if (showMoreContainer) showMoreContainer.classList.add('hidden');
+  }
+
+  if (showMoreBtn && !showMoreBtn.dataset.bound) {
+    showMoreBtn.dataset.bound = 'true';
+    showMoreBtn.addEventListener('click', () => {
+      isReviewsExpanded = !isReviewsExpanded;
+      const currentFilter = document.querySelector('.filter-btn.active')?.getAttribute('data-filter') || 'all';
+      renderPublicGrid(currentFilter);
+      if (!isReviewsExpanded && grid) {
+        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
 
   if (window.lucide) lucide.createIcons();
 }
@@ -1125,6 +1162,7 @@ filterBtns.forEach(btn => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const filter = btn.getAttribute('data-filter');
+    isReviewsExpanded = false;
     renderPublicGrid(filter);
   });
 });
@@ -3440,8 +3478,14 @@ function initClientRoster() {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const noClientsAlert = document.getElementById('no-clients-alert');
 
+  const showMoreClientsContainer = document.getElementById('show-more-clients-container');
+  const showMoreClientsBtn = document.getElementById('show-more-clients-btn');
+  const showMoreClientsText = document.getElementById('show-more-clients-text');
+  const showMoreClientsIcon = document.getElementById('show-more-clients-icon');
+
   let activeFilter = 'all';
   let searchQuery = '';
+  let isClientsExpanded = false;
 
   // Render function
   function render() {
@@ -3456,9 +3500,13 @@ function initClientRoster() {
     if (filtered.length === 0) {
       clientGrid.innerHTML = '';
       noClientsAlert.classList.remove('hidden');
+      if (showMoreClientsContainer) showMoreClientsContainer.classList.add('hidden');
     } else {
       noClientsAlert.classList.add('hidden');
-      clientGrid.innerHTML = filtered.map(client => {
+
+      const clientsToDisplay = isClientsExpanded ? filtered : filtered.slice(0, 12);
+
+      clientGrid.innerHTML = clientsToDisplay.map(client => {
         return `
           <div class="glass-panel border-white/5 rounded-3xl p-6 md:p-8 flex flex-col justify-between group cursor-pointer hover:border-limeGreen/20 transition-all duration-300 transform hover:-translate-y-1" onclick="openClientDetailModal('${client.name.replace(/'/g, "\\'")}')">
             <div class="space-y-6">
@@ -3490,14 +3538,41 @@ function initClientRoster() {
           </div>
         `;
       }).join('');
+
+      // Show More / Show Less logic
+      if (filtered.length > 12) {
+        if (showMoreClientsContainer) showMoreClientsContainer.classList.remove('hidden');
+        if (isClientsExpanded) {
+          if (showMoreClientsText) showMoreClientsText.textContent = 'SHOW LESS CLIENTS';
+          if (showMoreClientsIcon) showMoreClientsIcon.setAttribute('data-lucide', 'chevron-up');
+        } else {
+          const remaining = filtered.length - 12;
+          if (showMoreClientsText) showMoreClientsText.textContent = `SHOW MORE CLIENTS (+${remaining} BRANDS)`;
+          if (showMoreClientsIcon) showMoreClientsIcon.setAttribute('data-lucide', 'chevron-down');
+        }
+      } else {
+        if (showMoreClientsContainer) showMoreClientsContainer.classList.add('hidden');
+      }
+
       if (window.lucide) lucide.createIcons();
     }
+  }
+
+  if (showMoreClientsBtn) {
+    showMoreClientsBtn.addEventListener('click', () => {
+      isClientsExpanded = !isClientsExpanded;
+      render();
+      if (!isClientsExpanded && clientGrid) {
+        clientGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   }
 
   // Bind Search
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value;
+      isClientsExpanded = false;
       render();
     });
   }
@@ -3508,6 +3583,7 @@ function initClientRoster() {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       activeFilter = btn.getAttribute('data-filter');
+      isClientsExpanded = false;
       render();
     });
   });
