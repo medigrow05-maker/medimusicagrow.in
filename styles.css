@@ -403,36 +403,66 @@ h1, h2, h3, h4, h5, h6, .font-futuristic {
    MOBILE PERFORMANCE OPTIMIZATIONS & ANIMATIONS HARMONY
    ========================================================================== */
 /* ==========================================================================
-   ULTRA-FAST MOBILE PERFORMANCE & ZERO-LAG OVERRIDES (< 768px)
+   MOBILE ANIMATIONS & SMOOTH DISPLAY HARMONY (< 768px)
    ========================================================================== */
 @media (max-width: 768px) {
-  /* 1. Turn off backdrop-filter completely on mobile to stop GPU frame drops */
+  /* 1. Mobile Glassmorphism with GPU Acceleration */
   .glass-panel,
   .glass-panel-glow,
   .feedback-modal-box {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    background: #121214 !important;
-    border-color: rgba(255, 255, 255, 0.08) !important;
-    box-shadow: none !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    background: rgba(14, 14, 16, 0.92) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .glass-panel-glow {
+    border-color: rgba(140, 230, 0, 0.25) !important;
   }
 
   .feedback-modal-overlay {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    background: rgba(0, 0, 0, 0.92) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    background: rgba(4, 4, 6, 0.88) !important;
   }
 
-  /* 2. Pause infinite continuous loop animations on mobile to save GPU cycles */
-  .floating-element-1,
-  .floating-element-2,
-  .floating-element-3,
-  .hud-circle,
+  /* 2. Re-enable GPU Hardware-Accelerated Floating Animations on Mobile */
+  .floating-element-1 {
+    animation: float1 8s ease-in-out infinite !important;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  .floating-element-2 {
+    animation: float2 10s ease-in-out infinite !important;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  .floating-element-3 {
+    animation: float3 12s ease-in-out infinite !important;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  .hud-circle {
+    animation: spinHUD 20s linear infinite !important;
+    will-change: transform;
+    transform: translateZ(0);
+  }
   .hud-circle-reverse {
-    animation: none !important;
+    animation: spinHUDReverse 30s linear infinite !important;
+    will-change: transform;
+    transform: translateZ(0);
   }
 
-  /* 3. Smooth momentum touch scrolling */
+  /* 3. Active Tap Scale Feedback on Mobile Cards */
+  .glass-panel:active,
+  .glass-panel-glow:active,
+  #client-grid > div:active {
+    transform: scale(0.98) !important;
+    transition: transform 0.15s ease !important;
+  }
+
+  /* 4. Smooth momentum touch scrolling */
   body {
     -webkit-overflow-scrolling: touch;
   }

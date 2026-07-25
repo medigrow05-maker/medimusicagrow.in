@@ -42,10 +42,10 @@ highlightActiveRoute();
    ========================================================================== */
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 const canvas = document.getElementById('particle-canvas');
-if (canvas && !isTouchDevice && window.innerWidth >= 768) {
+if (canvas) {
   const ctx = canvas.getContext('2d');
   let particles = [];
-  const particleCount = 20;
+  const particleCount = window.innerWidth < 768 ? 15 : 30;
 
   function resizeCanvas() {
     canvas.width = window.innerWidth;
