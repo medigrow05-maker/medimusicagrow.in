@@ -2884,7 +2884,7 @@ function initInfluencerMarketingModal() {
     infModal.id = 'influencer-marketing-modal';
     infModal.className = 'feedback-modal-overlay';
     infModal.innerHTML = `
-      <div class="feedback-modal-box w-full max-w-xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="inf-modal-box">
+      <div class="feedback-modal-box w-full max-w-5xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="inf-modal-box">
         <!-- Close Button -->
         <button id="close-inf-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
           <i data-lucide="x" class="w-6 h-6"></i>
@@ -2894,26 +2894,73 @@ function initInfluencerMarketingModal() {
         <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
           <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
           <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
-            Influencer Marketing
+            Influencer Marketing Packages
           </div>
         </div>
 
-        <!-- Description Block -->
-        <div class="pt-8 space-y-6">
-          <div class="glass-panel border-limeGreen/20 bg-limeGreen/5 rounded-2xl p-6 relative group shadow-[0_0_30px_rgba(140,230,0,0.05)]">
+        <!-- 2 Column Pricing Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 max-w-4xl mx-auto">
+          
+          <!-- Package 1: Single Video Package -->
+          <div class="glass-panel border-limeGreen/30 bg-limeGreen/5 rounded-2xl p-6 flex flex-col justify-between hover:border-limeGreen/50 transition-all duration-300 relative group shadow-[0_0_30px_rgba(140,230,0,0.05)]">
+            <div class="absolute top-4 right-4 text-[9px] bg-limeGreen/20 border border-limeGreen/30 px-2 py-0.5 rounded text-limeGreen font-mono font-bold tracking-widest">STARTER</div>
             <div class="space-y-4">
-              <h4 class="text-lg font-bold text-white uppercase tracking-wide">Campaign Customization</h4>
-              <p class="text-xs text-gray-300 leading-relaxed font-light font-futuristic">
-                Package may vary according to your need and according to the influencers followers.
-              </p>
-              <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4 text-[11px] text-gray-400 font-futuristic font-light">
-                We design fully tailored influencer campaigns to connect your brand with high-performing content creators. Budget and delivery parameters depend directly on creator reach, target demographics, and custom visual requirements.
+              <div class="space-y-1">
+                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Single Video Package</h4>
+                <p class="text-[10px] text-gray-400">Complete shoot and post-production execution with creator integration.</p>
               </div>
+              <div class="text-xl font-black text-limeGreen font-sans py-2">₹1,499/- <span class="text-xs text-gray-400 font-normal">+ Influencer Charges</span></div>
+              <ul class="text-[11px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> High-Retention Script & Concept Writing</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Professional On-Location Video Shoot</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Creative Post-Production (Editing)</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Sony Mirrorless Camera Gear</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Handheld 3-Axis Stabilizing Gimbal</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Studio Lighting & Wireless Microphone</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> 2 Crew Team Members</li>
+                <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-gray-500 flex-shrink-0"></i> 1 to 1.5 Hours Shoot Time</li>
+              </ul>
             </div>
             <div class="pt-6">
-              <a href="contact.html?service=influencer-marketing" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full">
-                INQUIRE FOR CAMPAIGN
+              <a href="contact.html?service=influencer-marketing&tier=single-video" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full">
+                CHOOSE SINGLE VIDEO PACKAGE
               </a>
+            </div>
+          </div>
+
+          <!-- Package 2: Custom Campaign -->
+          <div class="glass-panel border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
+            <div class="absolute top-4 right-4 text-[9px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-gray-400 font-mono">TAILORED</div>
+            <div class="space-y-4">
+              <div class="space-y-1">
+                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Custom Campaign</h4>
+                <p class="text-[10px] text-gray-400">Multi-creator placements scaled according to audience reach and followers.</p>
+              </div>
+              <div class="text-xl font-black text-limeGreen font-sans py-2">Flexible / Scale-Based</div>
+              <ul class="text-[11px] text-gray-300 space-y-2 border-t border-white/5 pt-4 font-sans font-light">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Multi-Creator Matchmaking & Strategy</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Target Demographics Alignment</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Rate Negotiations & Direct Deal Placement</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Campaign Performance Track & Analytics</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-limeGreen flex-shrink-0"></i> Customized to Influencer Follower Count</li>
+              </ul>
+            </div>
+            <div class="pt-6">
+              <a href="contact.html?service=influencer-marketing&tier=custom-campaign" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
+                INQUIRE FOR CUSTOM CAMPAIGN
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Policy Footnotes -->
+        <div class="mt-8 pt-6 border-t border-white/5">
+          <div class="flex items-start gap-2.5 bg-red-500/5 border border-red-500/10 rounded-xl p-4 text-[10px] text-gray-400">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-red-400 flex-shrink-0"></i>
+            <div>
+              <strong class="text-red-400 block uppercase mb-0.5">TRAVEL EXPENSES (TA/DA) POLICY</strong>
+              Travel & Daily Allowance (TA/DA) expenses for the crew are to be fully borne by the client.
             </div>
           </div>
         </div>
