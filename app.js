@@ -3791,7 +3791,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
       e.preventDefault();
-      window.location.href = 'admin.html';
+      window.location.href = 'admin@2026.html';
     }
   });
 
@@ -3799,7 +3799,7 @@ document.addEventListener('DOMContentLoaded', () => {
   footerCopyrights.forEach(span => {
     if (span.textContent.includes('MEDIMUSICAGROW PVT. LTD.')) {
       span.addEventListener('dblclick', () => {
-        window.location.href = 'admin.html';
+        window.location.href = 'admin@2026.html';
       });
     }
   });
