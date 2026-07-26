@@ -1316,75 +1316,65 @@ if (form) {
 
   const urlParams = new URLSearchParams(window.location.search);
   const serviceParam = urlParams.get('service');
-  const tierParam = urlParams.get('tier');
+  const tierParam = urlParams.get('tier') || urlParams.get('package') || urlParams.get('pkg');
 
   if (serviceParam) {
-    const packageSection = document.getElementById('contact-package-section');
-    if (packageSection) packageSection.classList.remove('hidden');
+    let targetService = serviceParam;
+    if (serviceParam === 'influencer-marketing') targetService = 'influencer';
 
-    if (serviceParam === 'smm') {
-      activatePackageCard('smm-5months');
-    } else if (serviceParam === 'content-creation' && tierParam) {
-      activatePackageCard(tierParam);
-      const messageElem = document.getElementById('contact-message');
-      if (messageElem) {
-        const displayTierName = tierParam === 'single-video' ? 'Single Video' : (tierParam === 'bulk-video' ? 'Bulk Video' : tierParam);
-        messageElem.value = `Hello! I would like to book the Content Creation ${displayTierName} package. `;
+    if (selectElem) {
+      const optionExists = Array.from(selectElem.options).some(o => o.value === targetService);
+      if (optionExists) {
+        selectElem.value = targetService;
       }
-    } else if (serviceParam === 'corporate-events' && tierParam) {
-      activatePackageCard('custom');
-      if (selectElem) selectElem.value = 'corporate-events';
-      const messageElem = document.getElementById('contact-message');
-      if (messageElem) {
-        const capitalizedTier = tierParam.charAt(0).toUpperCase() + tierParam.slice(1);
-        messageElem.value = `Hello! I would like to book the Corporate Event ${capitalizedTier} Capture package. `;
+    }
+
+    const messageElem = document.getElementById('contact-message');
+    if (messageElem) {
+      let packageLabel = '';
+
+      if (serviceParam === 'smm') {
+        packageLabel = '5-Months Social Media Management (SMM) Package (₹59,999/-)';
+      } else if (serviceParam === 'content-creation') {
+        if (tierParam === 'single-video') packageLabel = 'Content Creation — Single Video Package (₹2,499/-)';
+        else if (tierParam === 'bulk-video') packageLabel = 'Content Creation — Bulk Video Package (₹7,999 - ₹14,999)';
+        else packageLabel = 'Content Creation Package';
+      } else if (serviceParam === 'corporate-events') {
+        if (tierParam === 'basic') packageLabel = 'Corporate Event — Basic Capture Package';
+        else if (tierParam === 'normal') packageLabel = 'Corporate Event — Normal Capture Package';
+        else if (tierParam === 'advance') packageLabel = 'Corporate Event — Advance Capture Package';
+        else packageLabel = 'Corporate Event Coverage Package';
+      } else if (serviceParam === 'family-events') {
+        if (tierParam === 'wedding') packageLabel = 'Family Event — Wedding Shoot Package';
+        else if (tierParam === 'engagement') packageLabel = 'Family Event — Engagement Shoot Package';
+        else if (tierParam === 'birthday') packageLabel = 'Family Event — Birthday Party Package';
+        else if (tierParam === 'baby-born') packageLabel = 'Family Event — Baby Born Shoot Package';
+        else if (tierParam === 'baby-shower') packageLabel = 'Family Event — Baby Shower Package';
+        else packageLabel = 'Family Event Coverage Package';
+      } else if (serviceParam === 'achievement-shoot') {
+        if (tierParam === 'bike-delivery') packageLabel = 'Achievement Shoot — Bike Delivery Package';
+        else if (tierParam === 'car-delivery') packageLabel = 'Achievement Shoot — Car Delivery Package';
+        else if (tierParam === 'home-inauguration') packageLabel = 'Achievement Shoot — Home Inauguration Package';
+        else if (tierParam === 'business-opening') packageLabel = 'Achievement Shoot — Business Opening Package';
+        else packageLabel = 'Achievement Shoot Package';
+      } else if (serviceParam === 'music-video') {
+        packageLabel = 'Music Video Production Package';
+      } else if (serviceParam === 'video-editing') {
+        if (tierParam === 'cinematic-video') packageLabel = 'Video Editing — Cinematic Commercial Video Package';
+        else if (tierParam === 'short-video') packageLabel = 'Video Editing — Short Reels & Shorts Video Package';
+        else if (tierParam === 'long-video') packageLabel = 'Video Editing — Long Form YouTube Video Package';
+        else packageLabel = 'Video Editing Package';
+      } else if (serviceParam === 'influencer' || serviceParam === 'influencer-marketing') {
+        packageLabel = 'Influencer Marketing Campaign Package';
+      } else if (serviceParam === 'web-dev') {
+        packageLabel = 'Web Development & High-Converting Landing Portal Service';
+      } else if (serviceParam === 'ads') {
+        packageLabel = 'Google Ads & Meta Ads Performance Marketing Service';
+      } else {
+        packageLabel = `${serviceParam.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())} Package`;
       }
-    } else if (serviceParam === 'family-events' && tierParam) {
-      activatePackageCard('custom');
-      if (selectElem) selectElem.value = 'family-events';
-      const messageElem = document.getElementById('contact-message');
-      if (messageElem) {
-        const capitalizedTier = tierParam.charAt(0).toUpperCase() + tierParam.slice(1);
-        messageElem.value = `Hello! I would like to book the Family Event ${capitalizedTier} package. `;
-      }
-    } else if (serviceParam === 'achievement-shoot' && tierParam) {
-      activatePackageCard('custom');
-      if (selectElem) selectElem.value = 'achievement-shoot';
-      const messageElem = document.getElementById('contact-message');
-      if (messageElem) {
-        const capitalizedTier = tierParam.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-        messageElem.value = `Hello! I would like to book the Achievement Shoot: ${capitalizedTier} package. `;
-      }
-    } else if (serviceParam === 'music-video' && tierParam) {
-      activatePackageCard('custom');
-      if (selectElem) selectElem.value = 'music-video';
-      const messageElem = document.getElementById('contact-message');
-      if (messageElem) {
-        messageElem.value = `Hello! I would like to book the Music Video Production package. `;
-      }
-    } else if (serviceParam === 'video-editing' && tierParam) {
-      activatePackageCard('custom');
-      if (selectElem) selectElem.value = 'video-editing';
-      const messageElem = document.getElementById('contact-message');
-      if (messageElem) {
-        const capitalizedTier = tierParam.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-        messageElem.value = `Hello! I would like to book the Video Editing: ${capitalizedTier} package. `;
-      }
-    } else if (serviceParam === 'influencer-marketing') {
-      activatePackageCard('custom');
-      if (selectElem) selectElem.value = 'influencer-marketing';
-      const messageElem = document.getElementById('contact-message');
-      if (messageElem) {
-        messageElem.value = `Hello! I would like to inquire about Influencer Marketing campaigns. `;
-      }
-    } else {
-      if (selectElem) {
-        const options = Array.from(selectElem.options).map(o => o.value);
-        if (options.includes(serviceParam)) {
-          selectElem.value = serviceParam;
-        }
-      }
-      activatePackageCard('custom');
+
+      messageElem.value = `Hello Medi Musica Grow team! I am interested in booking the ${packageLabel}. Please reach out to me with further details.`;
     }
   }
 
@@ -1905,7 +1895,7 @@ function initSmmPackageModal() {
 
             <!-- CTA Action Buttons -->
             <div class="pt-4 flex items-center gap-3">
-              <a href="contact.html?service=smm" class="lime-glow-btn text-brandBg font-futuristic font-bold px-6 py-3.5 rounded-xl text-xs flex-1 text-center flex items-center justify-center gap-2">
+              <a href="contact.html?service=smm&package=5months" class="lime-glow-btn text-brandBg font-futuristic font-bold px-6 py-3.5 rounded-xl text-xs flex-1 text-center flex items-center justify-center gap-2">
                 <i data-lucide="check-circle" class="w-4 h-4"></i> DEPLOY SMM PACKAGE
               </a>
             </div>
