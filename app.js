@@ -1334,10 +1334,10 @@ if (form) {
       let packageLabel = '';
 
       if (serviceParam === 'smm') {
-        packageLabel = '5-Months Social Media Management (SMM) Package (₹59,999/-)';
+        packageLabel = '5-Months Social Media Management (SMM) Package';
       } else if (serviceParam === 'content-creation') {
-        if (tierParam === 'single-video') packageLabel = 'Content Creation — Single Video Package (₹2,499/-)';
-        else if (tierParam === 'bulk-video') packageLabel = 'Content Creation — Bulk Video Package (₹7,999 - ₹14,999)';
+        if (tierParam === 'single-video') packageLabel = 'Content Creation — Single Video Package';
+        else if (tierParam === 'bulk-video') packageLabel = 'Content Creation — Bulk Video Package';
         else packageLabel = 'Content Creation Package';
       } else if (serviceParam === 'corporate-events') {
         if (tierParam === 'basic') packageLabel = 'Corporate Event — Basic Capture Package';
