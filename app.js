@@ -3930,50 +3930,72 @@ window.getVideosList = getVideosList;
 window.saveVideosDBGlobal = saveVideosDBGlobal;
 
 function renderVideoReelsGrid() {
-  const container = document.getElementById('video-reels-grid');
-  if (!container) return; // Only on pages with #video-reels-grid
-
   loadVideosDB();
 
-  container.innerHTML = videosList.map(reel => `
-    <div class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
-      <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger" 
-           data-video-title="${reel.title.replace(/"/g, '&quot;')}" 
-           data-client="${reel.client.replace(/"/g, '&quot;')}" 
-           data-speaker="${reel.speaker.replace(/"/g, '&quot;')}" 
-           data-rating="${reel.rating || '5.0'}" 
-           data-src="${reel.embedUrl}" 
-           data-ig-url="${reel.igUrl || '#'}">
-        <img src="${reel.thumbnail}" alt="${reel.client} Instagram Reel" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&auto=format&fit=crop';">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+  function buildReelCardHTML(reel) {
+    return `
+      <div class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
+        <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger" 
+             data-video-title="${reel.title.replace(/"/g, '&quot;')}" 
+             data-client="${reel.client.replace(/"/g, '&quot;')}" 
+             data-speaker="${reel.speaker.replace(/"/g, '&quot;')}" 
+             data-rating="${reel.rating || '5.0'}" 
+             data-src="${reel.embedUrl}" 
+             data-ig-url="${reel.igUrl || '#'}">
+          <img src="${reel.thumbnail}" alt="${reel.client} Instagram Reel" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&auto=format&fit=crop';">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+          
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
+              <i data-lucide="play" class="w-6 h-6 fill-brandBg ml-1"></i>
+            </div>
+          </div>
+
+          <div class="absolute top-3 left-3">
+            <span class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">${reel.badge || 'REEL SHOWCASE'}</span>
+          </div>
+
+          <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
+            <div class="flex items-center justify-between text-limeGreen font-futuristic font-bold text-xs">
+              <span>${reel.client.toUpperCase()}</span>
+              <span>${reel.rating || '5.0'} ★</span>
+            </div>
+            <p class="text-[10px] text-gray-300 font-futuristic">${reel.speaker}</p>
+          </div>
+        </div>
         
-        <div class="absolute inset-0 flex items-center justify-center">
-          <div class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
-            <i data-lucide="play" class="w-6 h-6 fill-brandBg ml-1"></i>
-          </div>
-        </div>
-
-        <div class="absolute top-3 left-3">
-          <span class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">${reel.badge || 'REEL SHOWCASE'}</span>
-        </div>
-
-        <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
-          <div class="flex items-center justify-between text-limeGreen font-futuristic font-bold text-xs">
-            <span>${reel.client.toUpperCase()}</span>
-            <span>${reel.rating || '5.0'} ★</span>
-          </div>
-          <p class="text-[10px] text-gray-300 font-futuristic">${reel.speaker}</p>
+        <div class="p-4 space-y-2 text-left bg-zinc-950/80">
+          <p class="text-xs text-gray-300 font-light italic">"${reel.quote}"</p>
+          <a href="${reel.igUrl || '#'}" target="_blank" rel="noopener noreferrer" class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
+            <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
+          </a>
         </div>
       </div>
-      
-      <div class="p-4 space-y-2 text-left bg-zinc-950/80">
-        <p class="text-xs text-gray-300 font-light italic">"${reel.quote}"</p>
-        <a href="${reel.igUrl || '#'}" target="_blank" class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
-          <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
-        </a>
-      </div>
-    </div>
-  `).join('');
+    `;
+  }
+
+  // 1. Feedback Page (#video-reels-grid)
+  const feedbackContainer = document.getElementById('video-reels-grid');
+  if (feedbackContainer) {
+    const filtered = videosList.filter(r => !r.pages || r.pages.feedback !== false);
+    feedbackContainer.innerHTML = filtered.map(buildReelCardHTML).join('');
+  }
+
+  // 2. Home Page (#home-video-reels-grid)
+  const homeContainer = document.getElementById('home-video-reels-grid');
+  if (homeContainer) {
+    const filtered = videosList.filter(r => !r.pages || r.pages.home !== false);
+    homeContainer.innerHTML = filtered.map(buildReelCardHTML).join('');
+  }
+
+  // 3. Services Page (#services-video-reels-grid)
+  const servicesContainer = document.getElementById('services-video-reels-grid');
+  if (servicesContainer) {
+    const filtered = videosList.filter(r => r.pages && r.pages.services === true);
+    if (filtered.length > 0) {
+      servicesContainer.innerHTML = filtered.map(buildReelCardHTML).join('');
+    }
+  }
 
   if (window.lucide) lucide.createIcons();
 
