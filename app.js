@@ -3002,7 +3002,7 @@ const defaultClients = [
     name: "Chacha TVS",
     category: "automobile",
     tenure: "2.5+ Years",
-    insta: "https://www.instagram.com/chachatvs_kasganj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    insta: "https://www.instagram.com/chachatvs_kasganj/",
     handle: "@chachatvs_kasganj",
     initials: "CT",
     icon: "car",
@@ -3013,7 +3013,7 @@ const defaultClients = [
     name: "Shri Krishna Mobile",
     category: "electronics-mobile",
     tenure: "2.5+ Years",
-    insta: "https://www.instagram.com/shrikrishnamobile_etah?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    insta: "https://www.instagram.com/shrikrishnamobile_etah/",
     handle: "@shrikrishnamobile_etah",
     initials: "SKM",
     icon: "smartphone",
@@ -3463,6 +3463,14 @@ function loadClientsDB() {
     const saved = localStorage.getItem('mmg_clients_db');
     if (saved) {
       clientsList = JSON.parse(saved);
+      clientsList.forEach(c => {
+        if (c.name === "Chacha TVS") {
+          c.insta = "https://www.instagram.com/chachatvs_kasganj/";
+        } else if (c.name === "Shri Krishna Mobile") {
+          c.insta = "https://www.instagram.com/shrikrishnamobile_etah/";
+        }
+      });
+      localStorage.setItem('mmg_clients_db', JSON.stringify(clientsList));
     } else {
       clientsList = [...defaultClients];
       localStorage.setItem('mmg_clients_db', JSON.stringify(clientsList));
