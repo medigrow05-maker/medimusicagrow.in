@@ -3679,6 +3679,17 @@ function openClientDetailModal(clientName) {
   const detailModal = document.getElementById('client-detail-modal');
   if (!detailModal) return;
 
+  let instaTarget = client.insta;
+  if (!instaTarget || instaTarget === '#' || !instaTarget.startsWith('http')) {
+    if (client.name === "Chacha TVS") {
+      instaTarget = "https://www.instagram.com/reel/DGkWFcySJpg/";
+    } else if (client.handle && client.handle.startsWith('@')) {
+      instaTarget = "https://www.instagram.com/" + client.handle.replace('@', '') + "/";
+    } else {
+      instaTarget = "https://www.instagram.com/medimusicagrow";
+    }
+  }
+
   detailModal.innerHTML = `
     <div class="feedback-modal-box w-full max-w-xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="client-spotlight-box">
       <!-- Close Button -->
@@ -3728,7 +3739,7 @@ function openClientDetailModal(clientName) {
             </div>
           </div>
           <div class="pt-6">
-            <a href="${client.insta}" target="_blank" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full flex items-center justify-center gap-1.5">
+            <a href="${instaTarget}" target="_blank" rel="noopener noreferrer" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full flex items-center justify-center gap-1.5">
               EXPLORE INSTAGRAM PROFILE <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
           </div>
