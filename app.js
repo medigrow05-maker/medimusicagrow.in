@@ -3763,7 +3763,202 @@ document.addEventListener('DOMContentLoaded', () => {
   initVideoEditingModal();
   initInfluencerMarketingModal();
   initClientRoster();
+  renderVideoReelsGrid();
   if (document.getElementById('admin-leads-table-body')) {
     renderAdminLeads();
   }
+
+  // Secret Admin Triggers
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
+      e.preventDefault();
+      window.location.href = 'admin.html';
+    }
+  });
+
+  const footerCopyrights = document.querySelectorAll('footer span');
+  footerCopyrights.forEach(span => {
+    if (span.textContent.includes('MEDIMUSICAGROW PVT. LTD.')) {
+      span.addEventListener('dblclick', () => {
+        window.location.href = 'admin.html';
+      });
+    }
+  });
 });
+
+/* ==========================================================================
+   VIDEO REELS DATABASE & DYNAMIC RENDERER
+   ========================================================================== */
+const defaultVideoReels = [
+  {
+    id: "v1",
+    title: "Chacha TVS — TVS Showroom Launch Reel",
+    client: "Chacha TVS",
+    speaker: "Authorized TVS Dealer • Kasganj",
+    rating: "5.0",
+    badge: "AUTOMOBILE",
+    thumbnail: "reel_thumbnails/reel_ig_2.jpg",
+    embedUrl: "https://www.instagram.com/reel/DEyG6hSzn9O/embed/",
+    igUrl: "https://www.instagram.com/reel/DEyG6hSzn9O/",
+    quote: "MMG's video editing & Meta ads strategy scaled our vehicle launch campaign to over 8M views!"
+  },
+  {
+    id: "v2",
+    title: "Shree Krishna Mobile — Electronics Promo Reel",
+    client: "Shree Krishna Mobile",
+    speaker: "Store Founder • Shree Krishna Mobile",
+    rating: "5.0",
+    badge: "ELECTRONICS & MOBILE",
+    thumbnail: "reel_thumbnails/reel_ig_3.jpg",
+    embedUrl: "https://www.instagram.com/reel/DF913Xbz2oZ/embed/",
+    igUrl: "https://www.instagram.com/reel/DF913Xbz2oZ/",
+    quote: "High-impact promo reels increased walk-in customers and smartphone inquiries significantly!"
+  },
+  {
+    id: "v3",
+    title: "DVF Mall — Retail Shopping Fest Reel",
+    client: "DVF Mall",
+    speaker: "Marketing Head • DVF Mall",
+    rating: "5.0",
+    badge: "RETAIL & WELLNESS",
+    thumbnail: "reel_thumbnails/reel_ig_4.jpg",
+    embedUrl: "https://www.instagram.com/reel/DFp68Caz0Zt/embed/",
+    igUrl: "https://www.instagram.com/reel/DFp68Caz0Zt/",
+    quote: "Awesome mall walkthrough reels and festive video graphics drove record shopping footfall."
+  },
+  {
+    id: "v4",
+    title: "Time Electronics Centre — Appliance Promo Reel",
+    client: "Time Electronics Centre",
+    speaker: "Managing Director • Time Electronics",
+    rating: "5.0",
+    badge: "ELECTRONICS & MOBILE",
+    thumbnail: "reel_thumbnails/reel_ig_5.jpg",
+    embedUrl: "https://www.instagram.com/reel/DG0FaWJzk5_/embed/",
+    igUrl: "https://www.instagram.com/reel/DG0FaWJzk5_/",
+    quote: "Meta video ads and festive offer promo doubled appliance & electronics sales within 2 weeks!"
+  },
+  {
+    id: "v5",
+    title: "Uphaar Express — Gift & Retail Reel",
+    client: "Uphaar Express",
+    speaker: "Founding Partner • Uphaar Express",
+    rating: "5.0",
+    badge: "AUTO SMM ORBIT",
+    thumbnail: "reel_thumbnails/reel_ig_1.jpg",
+    embedUrl: "https://www.instagram.com/reel/DNDM05vzJqg/embed/",
+    igUrl: "https://www.instagram.com/reel/DNDM05vzJqg/",
+    quote: "High-converting gift & retail campaign reels scaled customer reach and online orders."
+  },
+  {
+    id: "v6",
+    title: "Fabzila — Fashion Branding Reel",
+    client: "Fabzila",
+    speaker: "Brand Lead • Fabzila",
+    rating: "5.0",
+    badge: "BRAND EDITING",
+    thumbnail: "reel_thumbnails/reel_ig_6.jpg",
+    embedUrl: "https://www.instagram.com/reel/DF16uvpyKLx/embed/",
+    igUrl: "https://www.instagram.com/reel/DF16uvpyKLx/",
+    quote: "Systematic fashion reel editing turned brand profiles into high-converting organic engines."
+  },
+  {
+    id: "v7",
+    title: "Saif Nutrition Coach — Fitness Transformation Reel",
+    client: "Saif Nutrition Coach",
+    speaker: "Saif • Chief Nutrition Coach",
+    rating: "5.0",
+    badge: "HEALTH & FITNESS",
+    thumbnail: "reel_thumbnails/reel_ig_7.jpg",
+    embedUrl: "https://www.instagram.com/reel/DEmcqIFPSwv/embed/",
+    igUrl: "https://www.instagram.com/reel/DEmcqIFPSwv/",
+    quote: "Clear storytelling and high-retention video editing helped scale online fitness coaching."
+  }
+];
+
+let videosList = [];
+
+function loadVideosDB() {
+  try {
+    const saved = localStorage.getItem('mmg_videos_db');
+    if (saved) {
+      videosList = JSON.parse(saved);
+    } else {
+      videosList = [...defaultVideoReels];
+      localStorage.setItem('mmg_videos_db', JSON.stringify(videosList));
+    }
+  } catch (e) {
+    videosList = [...defaultVideoReels];
+  }
+}
+
+function saveVideosDBGlobal(newList) {
+  if (newList) videosList = newList;
+  try {
+    localStorage.setItem('mmg_videos_db', JSON.stringify(videosList));
+  } catch (e) { }
+  if (typeof renderVideoReelsGrid === 'function') {
+    renderVideoReelsGrid();
+  }
+}
+
+function getVideosList() {
+  if (!videosList || videosList.length === 0) loadVideosDB();
+  return videosList;
+}
+
+window.getVideosList = getVideosList;
+window.saveVideosDBGlobal = saveVideosDBGlobal;
+
+function renderVideoReelsGrid() {
+  const container = document.getElementById('video-reels-grid');
+  if (!container) return; // Only on pages with #video-reels-grid
+
+  loadVideosDB();
+
+  container.innerHTML = videosList.map(reel => `
+    <div class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
+      <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger" 
+           data-video-title="${reel.title.replace(/"/g, '&quot;')}" 
+           data-client="${reel.client.replace(/"/g, '&quot;')}" 
+           data-speaker="${reel.speaker.replace(/"/g, '&quot;')}" 
+           data-rating="${reel.rating || '5.0'}" 
+           data-src="${reel.embedUrl}" 
+           data-ig-url="${reel.igUrl || '#'}">
+        <img src="${reel.thumbnail}" alt="${reel.client} Instagram Reel" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&auto=format&fit=crop';">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+        
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
+            <i data-lucide="play" class="w-6 h-6 fill-brandBg ml-1"></i>
+          </div>
+        </div>
+
+        <div class="absolute top-3 left-3">
+          <span class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">${reel.badge || 'REEL SHOWCASE'}</span>
+        </div>
+
+        <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
+          <div class="flex items-center justify-between text-limeGreen font-futuristic font-bold text-xs">
+            <span>${reel.client.toUpperCase()}</span>
+            <span>${reel.rating || '5.0'} ★</span>
+          </div>
+          <p class="text-[10px] text-gray-300 font-futuristic">${reel.speaker}</p>
+        </div>
+      </div>
+      
+      <div class="p-4 space-y-2 text-left bg-zinc-950/80">
+        <p class="text-xs text-gray-300 font-light italic">"${reel.quote}"</p>
+        <a href="${reel.igUrl || '#'}" target="_blank" class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
+          <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
+        </a>
+      </div>
+    </div>
+  `).join('');
+
+  if (window.lucide) lucide.createIcons();
+
+  if (typeof initVideoTestimonialModals === 'function') {
+    initVideoTestimonialModals();
+  }
+}
