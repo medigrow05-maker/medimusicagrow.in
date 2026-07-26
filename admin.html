@@ -167,7 +167,12 @@
               <input type="text" id="form-client-handle" placeholder="e.g., @royalenfield" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white outline-none focus:border-limeGreen">
             </div>
 
-            <div class="md:col-span-3 space-y-1 text-left">
+            <div class="space-y-1 text-left">
+              <label class="block text-xs font-futuristic text-limeGreen font-semibold">SEQUENCE ORDER POSITION</label>
+              <input type="number" id="form-client-sequence" min="1" placeholder="e.g., 1 (Top of roster)" class="w-full bg-black/50 border border-limeGreen/30 rounded-xl px-4 py-2.5 text-xs text-limeGreen font-mono font-bold outline-none focus:border-limeGreen">
+            </div>
+
+            <div class="md:col-span-2 space-y-1 text-left">
               <label class="block text-xs font-futuristic text-gray-300 font-semibold">CLIENT DESCRIPTION *</label>
               <textarea id="form-client-desc" rows="2" required placeholder="Brief description of work done..." class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white outline-none focus:border-limeGreen resize-none"></textarea>
             </div>
@@ -425,21 +430,97 @@
       if (!container) return;
 
       container.innerHTML = list.map((c, i) => `
-        <div class="glass-panel border-white/10 rounded-2xl p-4 text-left flex flex-col justify-between space-y-3">
-          <div class="space-y-1">
-            <div class="flex items-center justify-between">
-              <span class="text-[9px] text-limeGreen border border-limeGreen/30 bg-limeGreen/10 px-2 py-0.5 rounded font-futuristic uppercase font-bold">${c.category}</span>
-              <span class="text-[9px] text-gray-400 font-futuristic">Since ${c.tenure}</span>
+        <div class="glass-panel border-white/10 rounded-2xl p-4 text-left flex flex-col justify-between space-y-3 relative group hover:border-limeGreen/40 transition-all shadow-lg">
+          <div class="space-y-2">
+            <!-- Header Position & Controls -->
+            <div class="flex items-center justify-between border-b border-white/5 pb-2">
+              <div class="flex items-center gap-1.5">
+                <span class="text-[10px] font-black font-futuristic bg-limeGreen text-brandBg px-2 py-0.5 rounded shadow">POS #${i + 1}</span>
+                <span class="text-[9px] text-limeGreen border border-limeGreen/30 bg-limeGreen/10 px-2 py-0.5 rounded font-futuristic uppercase font-bold">${c.category}</span>
+              </div>
+              
+              <!-- Quick Up/Down Reorder Buttons -->
+              <div class="flex items-center gap-1">
+                <button onclick="moveClientUp(${i})" ${i === 0 ? 'disabled class="opacity-20 cursor-not-allowed text-gray-500 p-1"' : 'class="text-limeGreen hover:bg-limeGreen/20 p-1 rounded transition-colors"'} title="Move Up in Roster">
+                  <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                </button>
+                <button onclick="moveClientDown(${i})" ${i === list.length - 1 ? 'disabled class="opacity-20 cursor-not-allowed text-gray-500 p-1"' : 'class="text-limeGreen hover:bg-limeGreen/20 p-1 rounded transition-colors"'} title="Move Down in Roster">
+                  <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                </button>
+              </div>
             </div>
-            <h4 class="text-sm font-bold font-futuristic text-white uppercase">${c.name}</h4>
-            <p class="text-[11px] text-gray-400 line-clamp-2">${c.desc}</p>
+
+            <div class="flex items-center gap-3 pt-1">
+              <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shrink-0">
+                <img src="${c.logo}" alt="${c.name}" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="hidden text-limeGreen text-[10px] font-bold">${c.initials}</div>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold font-futuristic text-white uppercase leading-tight">${c.name}</h4>
+                <span class="text-[9px] text-gray-400 font-futuristic">Since ${c.tenure} &bull; ${c.handle || ''}</span>
+              </div>
+            </div>
+            
+            <p class="text-[11px] text-gray-400 line-clamp-2 pt-1">${c.desc}</p>
           </div>
-          <div class="flex items-center gap-2 pt-2 border-t border-white/5">
-            <button onclick="editClient(${i})" class="metallic-border text-white text-[10px] font-futuristic px-3 py-1.5 rounded-lg hover:text-limeGreen transition-all flex-1">EDIT</button>
-            <button onclick="deleteClient(${i})" class="bg-red-500/10 border border-red-500/30 text-red-400 text-[10px] font-futuristic px-3 py-1.5 rounded-lg hover:bg-red-500/20 transition-all">DELETE</button>
+
+          <!-- Bottom Sequence Input & Actions -->
+          <div class="space-y-2 pt-3 border-t border-white/5">
+            <div class="flex items-center justify-between text-[10px] font-futuristic text-gray-400 gap-2">
+              <span>JUMP TO POSITION:</span>
+              <div class="flex items-center gap-1">
+                <input type="number" min="1" max="${list.length}" value="${i + 1}" id="seq-input-${i}" class="w-12 bg-black/60 border border-white/20 rounded px-1.5 py-0.5 text-center text-xs text-limeGreen font-bold font-mono outline-none focus:border-limeGreen">
+                <button onclick="changeClientPosition(${i}, document.getElementById('seq-input-${i}').value)" class="bg-limeGreen/20 text-limeGreen font-bold px-2.5 py-1 rounded hover:bg-limeGreen hover:text-brandBg transition-all uppercase text-[9px]">
+                  SET
+                </button>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-2 pt-1">
+              <button onclick="editClient(${i})" class="metallic-border text-white text-[10px] font-futuristic px-3 py-1.5 rounded-lg hover:text-limeGreen transition-all flex-1">EDIT</button>
+              <button onclick="deleteClient(${i})" class="bg-red-500/10 border border-red-500/30 text-red-400 text-[10px] font-futuristic px-3 py-1.5 rounded-lg hover:bg-red-500/20 transition-all">DELETE</button>
+            </div>
           </div>
         </div>
       `).join('');
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function moveClientUp(i) {
+      const list = window.getClientsList();
+      if (i <= 0) return;
+      const temp = list[i];
+      list[i] = list[i - 1];
+      list[i - 1] = temp;
+      window.saveClientsDBGlobal(list);
+      renderAdminClients();
+    }
+
+    function moveClientDown(i) {
+      const list = window.getClientsList();
+      if (i >= list.length - 1) return;
+      const temp = list[i];
+      list[i] = list[i + 1];
+      list[i + 1] = temp;
+      window.saveClientsDBGlobal(list);
+      renderAdminClients();
+    }
+
+    function changeClientPosition(i, newPosStr) {
+      const list = window.getClientsList();
+      let newIndex = parseInt(newPosStr) - 1;
+      if (isNaN(newIndex)) return;
+      if (newIndex < 0) newIndex = 0;
+      if (newIndex >= list.length) newIndex = list.length - 1;
+
+      if (newIndex === i) return;
+
+      const [removed] = list.splice(i, 1);
+      list.splice(newIndex, 0, removed);
+
+      window.saveClientsDBGlobal(list);
+      renderAdminClients();
     }
 
     function handleClientFormSubmit(e) {
@@ -458,10 +539,23 @@
         icon: 'building'
       };
 
-      if (editIndex >= 0 && editIndex < list.length) {
-        list[editIndex] = newItem;
+      const targetPosStr = document.getElementById('form-client-sequence').value;
+      const targetPos = parseInt(targetPosStr);
+
+      if (!isNaN(targetPos) && targetPos > 0) {
+        let newIndex = targetPos - 1;
+        if (newIndex >= list.length) newIndex = list.length - 1;
+
+        if (editIndex >= 0 && editIndex < list.length) {
+          list.splice(editIndex, 1);
+        }
+        list.splice(newIndex, 0, newItem);
       } else {
-        list.unshift(newItem);
+        if (editIndex >= 0 && editIndex < list.length) {
+          list[editIndex] = newItem;
+        } else {
+          list.unshift(newItem);
+        }
       }
 
       window.saveClientsDBGlobal(list);
@@ -481,6 +575,7 @@
       document.getElementById('form-client-initials').value = item.initials;
       document.getElementById('form-client-logo').value = item.logo;
       document.getElementById('form-client-handle').value = item.handle || '';
+      document.getElementById('form-client-sequence').value = i + 1;
       document.getElementById('form-client-desc').value = item.desc;
 
       document.getElementById('client-form-title').textContent = `EDIT CLIENT: ${item.name.toUpperCase()}`;
