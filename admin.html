@@ -242,6 +242,11 @@
               <input type="text" id="form-review-date" required placeholder="e.g., 2 weeks ago" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white outline-none focus:border-limeGreen">
             </div>
 
+            <div class="space-y-1 text-left">
+              <label class="block text-xs font-futuristic text-limeGreen font-semibold">SEQUENCE ORDER POSITION</label>
+              <input type="number" id="form-review-sequence" min="1" placeholder="e.g., 1 (Top of list)" class="w-full bg-black/50 border border-limeGreen/30 rounded-xl px-4 py-2.5 text-xs text-limeGreen font-mono font-bold outline-none focus:border-limeGreen">
+            </div>
+
             <div class="space-y-1 text-left flex items-center gap-4 pt-6">
               <label class="flex items-center gap-2 cursor-pointer text-xs font-futuristic text-white">
                 <input type="checkbox" id="form-review-verified" checked class="w-4 h-4 accent-limeGreen">
@@ -630,22 +635,93 @@
       if (!container) return;
 
       container.innerHTML = list.map((r, i) => `
-        <div class="glass-panel border-white/10 rounded-2xl p-4 text-left flex flex-col justify-between space-y-3">
-          <div class="space-y-1">
-            <div class="flex items-center justify-between">
-              <span class="text-[9px] text-limeGreen border border-limeGreen/30 bg-limeGreen/10 px-2 py-0.5 rounded font-futuristic uppercase font-bold">${r.rating || 5.0} ★</span>
-              <span class="text-[9px] text-gray-400 font-futuristic">${r.date || 'Recent'}</span>
+        <div class="glass-panel border-white/10 rounded-2xl p-4 text-left flex flex-col justify-between space-y-3 relative group hover:border-limeGreen/40 transition-all shadow-lg">
+          <div class="space-y-2">
+            <!-- Header Position & Controls -->
+            <div class="flex items-center justify-between border-b border-white/5 pb-2">
+              <div class="flex items-center gap-1.5">
+                <span class="text-[10px] font-black font-futuristic bg-limeGreen text-brandBg px-2 py-0.5 rounded shadow">POS #${i + 1}</span>
+                <span class="text-[9px] text-limeGreen border border-limeGreen/30 bg-limeGreen/10 px-2 py-0.5 rounded font-futuristic uppercase font-bold">${r.rating || 5.0} ★</span>
+              </div>
+              
+              <!-- Quick Up/Down Reorder Buttons -->
+              <div class="flex items-center gap-1">
+                <button onclick="moveReviewUp(${i})" ${i === 0 ? 'disabled class="opacity-20 cursor-not-allowed text-gray-500 p-1"' : 'class="text-limeGreen hover:bg-limeGreen/20 p-1 rounded transition-colors"'} title="Move Up in List">
+                  <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                </button>
+                <button onclick="moveReviewDown(${i})" ${i === list.length - 1 ? 'disabled class="opacity-20 cursor-not-allowed text-gray-500 p-1"' : 'class="text-limeGreen hover:bg-limeGreen/20 p-1 rounded transition-colors"'} title="Move Down in List">
+                  <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                </button>
+              </div>
             </div>
-            <h4 class="text-sm font-bold font-futuristic text-white uppercase">${r.name}</h4>
-            <p class="text-[10px] text-gray-400 font-futuristic">${r.role}</p>
-            <p class="text-[11px] text-gray-300 italic line-clamp-2 mt-1">"${r.content}"</p>
+
+            <div>
+              <div class="flex items-center justify-between">
+                <h4 class="text-sm font-bold font-futuristic text-white uppercase">${r.name}</h4>
+                <span class="text-[9px] text-gray-400 font-futuristic">${r.date || 'Recent'}</span>
+              </div>
+              <p class="text-[10px] text-gray-400 font-futuristic">${r.role}</p>
+              <p class="text-[11px] text-gray-300 italic line-clamp-2 mt-1">"${r.content}"</p>
+            </div>
           </div>
-          <div class="flex items-center gap-2 pt-2 border-t border-white/5">
-            <button onclick="editReview(${i})" class="metallic-border text-white text-[10px] font-futuristic px-3 py-1.5 rounded-lg hover:text-limeGreen transition-all flex-1">EDIT</button>
-            <button onclick="deleteReview(${i})" class="bg-red-500/10 border border-red-500/30 text-red-400 text-[10px] font-futuristic px-3 py-1.5 rounded-lg hover:bg-red-500/20 transition-all">DELETE</button>
+
+          <!-- Bottom Sequence Input & Actions -->
+          <div class="space-y-2 pt-3 border-t border-white/5">
+            <div class="flex items-center justify-between text-[10px] font-futuristic text-gray-400 gap-2">
+              <span>JUMP TO POSITION:</span>
+              <div class="flex items-center gap-1">
+                <input type="number" min="1" max="${list.length}" value="${i + 1}" id="review-seq-input-${i}" class="w-12 bg-black/60 border border-white/20 rounded px-1.5 py-0.5 text-center text-xs text-limeGreen font-bold font-mono outline-none focus:border-limeGreen">
+                <button onclick="changeReviewPosition(${i}, document.getElementById('review-seq-input-${i}').value)" class="bg-limeGreen/20 text-limeGreen font-bold px-2.5 py-1 rounded hover:bg-limeGreen hover:text-brandBg transition-all uppercase text-[9px]">
+                  SET
+                </button>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-2 pt-1">
+              <button onclick="editReview(${i})" class="metallic-border text-white text-[10px] font-futuristic px-3 py-1.5 rounded-lg hover:text-limeGreen transition-all flex-1">EDIT</button>
+              <button onclick="deleteReview(${i})" class="bg-red-500/10 border border-red-500/30 text-red-400 text-[10px] font-futuristic px-3 py-1.5 rounded-lg hover:bg-red-500/20 transition-all">DELETE</button>
+            </div>
           </div>
         </div>
       `).join('');
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function moveReviewUp(i) {
+      const list = window.getFeedbackList();
+      if (i <= 0) return;
+      const temp = list[i];
+      list[i] = list[i - 1];
+      list[i - 1] = temp;
+      window.saveFeedbackDBGlobal(list);
+      renderAdminReviews();
+    }
+
+    function moveReviewDown(i) {
+      const list = window.getFeedbackList();
+      if (i >= list.length - 1) return;
+      const temp = list[i];
+      list[i] = list[i + 1];
+      list[i + 1] = temp;
+      window.saveFeedbackDBGlobal(list);
+      renderAdminReviews();
+    }
+
+    function changeReviewPosition(i, newPosStr) {
+      const list = window.getFeedbackList();
+      let newIndex = parseInt(newPosStr) - 1;
+      if (isNaN(newIndex)) return;
+      if (newIndex < 0) newIndex = 0;
+      if (newIndex >= list.length) newIndex = list.length - 1;
+
+      if (newIndex === i) return;
+
+      const [removed] = list.splice(i, 1);
+      list.splice(newIndex, 0, removed);
+
+      window.saveFeedbackDBGlobal(list);
+      renderAdminReviews();
     }
 
     function handleReviewFormSubmit(e) {
@@ -666,11 +742,28 @@
         initials: document.getElementById('form-review-name').value.trim().split(' ').map(n=>n[0]).join('').toUpperCase()
       };
 
+      const targetPosStr = document.getElementById('form-review-sequence').value;
+      const targetPos = parseInt(targetPosStr);
+
+      let editIndex = -1;
       if (editId) {
-        const index = list.findIndex(r => r.id === editId);
-        if (index >= 0) list[index] = newItem;
+        editIndex = list.findIndex(r => r.id === editId);
+      }
+
+      if (!isNaN(targetPos) && targetPos > 0) {
+        let newIndex = targetPos - 1;
+        if (newIndex >= list.length) newIndex = list.length - 1;
+
+        if (editIndex >= 0) {
+          list.splice(editIndex, 1);
+        }
+        list.splice(newIndex, 0, newItem);
       } else {
-        list.unshift(newItem);
+        if (editIndex >= 0) {
+          list[editIndex] = newItem;
+        } else {
+          list.unshift(newItem);
+        }
       }
 
       window.saveFeedbackDBGlobal(list);
@@ -689,6 +782,7 @@
       document.getElementById('form-review-rating').value = item.rating || 5.0;
       document.getElementById('form-review-category').value = item.category || 'general';
       document.getElementById('form-review-date').value = item.date || '';
+      document.getElementById('form-review-sequence').value = i + 1;
       document.getElementById('form-review-content').value = item.content;
       document.getElementById('form-review-verified').checked = !!item.verified;
       document.getElementById('form-review-featured').checked = !!item.featured;
