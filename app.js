@@ -3984,7 +3984,7 @@ function renderVideoReelsGrid() {
   // 2. Home Page (#home-video-reels-grid)
   const homeContainer = document.getElementById('home-video-reels-grid');
   if (homeContainer) {
-    const filtered = videosList.filter(r => !r.pages || r.pages.home !== false);
+    const filtered = videosList.filter(r => !r.pages || r.pages.home !== false).slice(0, 4);
     homeContainer.innerHTML = filtered.map(buildReelCardHTML).join('');
   }
 
