@@ -3002,7 +3002,7 @@ const defaultClients = [
     name: "Chacha TVS",
     category: "automobile",
     tenure: "2.5+ Years",
-    insta: "https://www.instagram.com/chachatvs_kasganj/",
+    insta: "https://www.instagram.com/reel/DEyG6hSzn9O/",
     handle: "@chachatvs_kasganj",
     initials: "CT",
     icon: "car",
@@ -3465,7 +3465,7 @@ function loadClientsDB() {
       clientsList = JSON.parse(saved);
       clientsList.forEach(c => {
         if (c.name === "Chacha TVS") {
-          c.insta = "https://www.instagram.com/chachatvs_kasganj/";
+          c.insta = "https://www.instagram.com/reel/DEyG6hSzn9O/";
         } else if (c.name === "Shri Krishna Mobile") {
           c.insta = "https://www.instagram.com/shrikrishnamobile_etah/";
         }
