@@ -3758,10 +3758,15 @@ document.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && e.shiftKey && (e.key === 'a' || e.key === 'A')) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  }
   if (e.key === 'Escape') {
     closeVideoPlayerModal();
   }
-});
+}, true);
 
 document.addEventListener('DOMContentLoaded', () => {
   initVideoTestimonialModals();
