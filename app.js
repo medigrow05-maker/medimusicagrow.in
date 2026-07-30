@@ -2565,7 +2565,7 @@ const defaultClients = [
     name: "Chacha TVS",
     category: "automobile",
     tenure: "2.5+ Years",
-    insta: "https://www.instagram.com/reel/DGkWFcySJpg/",
+    insta: "https://www.instagram.com/chachatvs_kasganj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
     handle: "@chachatvs_kasganj",
     initials: "CT",
     icon: "car",
@@ -3033,19 +3033,19 @@ async function syncWithCloudMasterDB() {
 
       if (data.clients && Array.isArray(data.clients) && data.clients.length > 0) {
         clientsList = data.clients;
-        try { localStorage.setItem('mmg_clients_db', JSON.stringify(clientsList)); } catch (e) {}
+        try { localStorage.setItem('mmg_clients_db', JSON.stringify(clientsList)); } catch (e) { }
         if (typeof initClientRoster === 'function') initClientRoster();
         updated = true;
       }
       if (data.reviews && Array.isArray(data.reviews) && data.reviews.length > 0) {
         feedbackList = data.reviews;
-        try { localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList)); } catch (e) {}
+        try { localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList)); } catch (e) { }
         if (typeof renderAllFeedbackViews === 'function') renderAllFeedbackViews();
         updated = true;
       }
       if (data.videos && Array.isArray(data.videos) && data.videos.length > 0) {
         videosList = data.videos;
-        try { localStorage.setItem('mmg_videos_db', JSON.stringify(videosList)); } catch (e) {}
+        try { localStorage.setItem('mmg_videos_db', JSON.stringify(videosList)); } catch (e) { }
         if (typeof renderVideoReelsGrid === 'function') renderVideoReelsGrid();
         updated = true;
       }
@@ -3060,21 +3060,21 @@ async function syncWithCloudMasterDB() {
         const localDb = await dbResp.json();
         if (localDb.clients && localDb.clients.length) {
           clientsList = localDb.clients;
-          try { localStorage.setItem('mmg_clients_db', JSON.stringify(clientsList)); } catch (err) {}
+          try { localStorage.setItem('mmg_clients_db', JSON.stringify(clientsList)); } catch (err) { }
           if (typeof initClientRoster === 'function') initClientRoster();
         }
         if (localDb.reviews && localDb.reviews.length) {
           feedbackList = localDb.reviews;
-          try { localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList)); } catch (err) {}
+          try { localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList)); } catch (err) { }
           if (typeof renderAllFeedbackViews === 'function') renderAllFeedbackViews();
         }
         if (localDb.videos && localDb.videos.length) {
           videosList = localDb.videos;
-          try { localStorage.setItem('mmg_videos_db', JSON.stringify(videosList)); } catch (err) {}
+          try { localStorage.setItem('mmg_videos_db', JSON.stringify(videosList)); } catch (err) { }
           if (typeof renderVideoReelsGrid === 'function') renderVideoReelsGrid();
         }
       }
-    } catch (err) {}
+    } catch (err) { }
   }
   return false;
 }
