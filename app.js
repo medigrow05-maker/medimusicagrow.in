@@ -4119,42 +4119,9 @@ function renderVideoReelsGrid() {
 }
 
 /* ==========================================================================
-   GLOBAL VIDEO REEL TESTIMONIAL MODAL CONTROLLER (Event Delegation)
+   GLOBAL VIDEO REEL TESTIMONIAL MODAL CONTROLLER
    ========================================================================== */
-function initVideoTestimonialModals() {
-  const videoModal = document.getElementById('video-modal-overlay');
-  const closeVideoBtn = document.getElementById('close-video-modal');
-
-  function closeVideoPlayerModal() {
-    if (videoModal) videoModal.classList.remove('open');
-    const videoIframe = document.getElementById('video-modal-iframe');
-    if (videoIframe) videoIframe.src = '';
-  }
-
-  if (closeVideoBtn) {
-    closeVideoBtn.onclick = closeVideoPlayerModal;
-  }
-
-  if (videoModal) {
-    videoModal.onclick = (e) => {
-      if (e.target === videoModal) closeVideoPlayerModal();
-    };
-  }
-
-  window.closeVideoPlayerModal = closeVideoPlayerModal;
-}
-
-// Global Event Delegation for Video Triggers (100% reliable for dynamic & re-rendered cards)
-document.addEventListener('click', (e) => {
-  const trigger = e.target.closest('.video-testimonial-trigger');
-  if (!trigger) return;
-
-  const src = trigger.getAttribute('data-src');
-  const title = trigger.getAttribute('data-video-title');
-  const speaker = trigger.getAttribute('data-speaker');
-  const rating = trigger.getAttribute('data-rating') || '5.0';
-  const igUrl = trigger.getAttribute('data-ig-url') || 'https://instagram.com/medimusicagrow';
-
+function openVideoReelModal(src, title, speaker, rating, igUrl) {
   const videoModal = document.getElementById('video-modal-overlay');
   const videoIframe = document.getElementById('video-modal-iframe');
   const videoTitle = document.getElementById('video-modal-title');
@@ -4162,26 +4129,105 @@ document.addEventListener('click', (e) => {
   const videoRating = document.getElementById('video-modal-rating');
   const videoIgLink = document.getElementById('video-modal-ig-link');
 
-  if (videoTitle) videoTitle.textContent = title;
-  if (videoSpeaker) videoSpeaker.innerHTML = speaker;
-  if (videoRating) videoRating.textContent = rating;
-  if (videoIframe) videoIframe.src = src;
-  if (videoIgLink) videoIgLink.href = igUrl;
+  if (videoTitle) videoTitle.textContent = title || 'Client Video Testimonial';
+  if (videoSpeaker) videoSpeaker.innerHTML = speaker || 'Verified Brand Partner';
+  if (videoRating) videoRating.textContent = rating || '5.0';
+
+  let cleanEmbedSrc = src || '';
+  if (cleanEmbedSrc && !cleanEmbedSrc.includes('/embed')) {
+    cleanEmbedSrc = cleanEmbedSrc.endsWith('/') ? cleanEmbedSrc + 'embed/' : cleanEmbedSrc + '/embed/';
+  }
+
+  if (videoIframe) {
+    videoIframe.src = cleanEmbedSrc;
+  }
+
+  let cleanIgTarget = igUrl || src || 'https://www.instagram.com/medimusicagrow/';
+  if (cleanIgTarget.endsWith('/embed/')) {
+    cleanIgTarget = cleanIgTarget.replace('/embed/', '/');
+  }
+  if (videoIgLink) {
+    videoIgLink.href = cleanIgTarget;
+  }
 
   if (videoModal) {
+    videoModal.style.display = 'flex';
+    videoModal.style.opacity = '1';
+    videoModal.style.pointerEvents = 'auto';
     videoModal.classList.add('open');
   }
+}
+
+function closeVideoPlayerModal() {
+  const videoModal = document.getElementById('video-modal-overlay');
+  if (videoModal) {
+    videoModal.classList.remove('open');
+    videoModal.style.opacity = '0';
+    videoModal.style.pointerEvents = 'none';
+    setTimeout(() => {
+      if (videoModal && !videoModal.classList.contains('open')) {
+        videoModal.style.display = 'none';
+      }
+    }, 400);
+  }
+  const videoIframe = document.getElementById('video-modal-iframe');
+  if (videoIframe) {
+    videoIframe.src = '';
+  }
+}
+
+function initVideoTestimonialModals() {
+  const closeVideoBtn = document.getElementById('close-video-modal');
+  const videoModal = document.getElementById('video-modal-overlay');
+
+  if (closeVideoBtn) {
+    closeVideoBtn.onclick = (e) => {
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      closeVideoPlayerModal();
+    };
+  }
+
+  if (videoModal) {
+    videoModal.onclick = (e) => {
+      if (e.target === videoModal) {
+        closeVideoPlayerModal();
+      }
+    };
+  }
+}
+
+window.openVideoReelModal = openVideoReelModal;
+window.closeVideoPlayerModal = closeVideoPlayerModal;
+window.initVideoTestimonialModals = initVideoTestimonialModals;
+
+// Global Click Delegation for Reel Cards & Triggers across ALL pages
+document.addEventListener('click', (e) => {
+  // If clicking on direct "WATCH ON INSTAGRAM" anchor button, allow default external link navigation
+  const directLink = e.target.closest('a[href*="instagram.com"]');
+  if (directLink && !directLink.id.includes('video-modal-ig-link')) {
+    return;
+  }
+
+  const trigger = e.target.closest('.video-testimonial-trigger') || e.target.closest('[data-src]');
+  if (!trigger) return;
+
+  e.preventDefault();
+
+  const src = trigger.getAttribute('data-src');
+  const title = trigger.getAttribute('data-video-title');
+  const speaker = trigger.getAttribute('data-speaker');
+  const rating = trigger.getAttribute('data-rating') || '5.0';
+  const igUrl = trigger.getAttribute('data-ig-url') || src;
+
+  openVideoReelModal(src, title, speaker, rating, igUrl);
 });
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
-    if (typeof window.closeVideoPlayerModal === 'function') {
-      window.closeVideoPlayerModal();
-    }
+    closeVideoPlayerModal();
   }
 });
 
-// Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
   initVideoTestimonialModals();
 });

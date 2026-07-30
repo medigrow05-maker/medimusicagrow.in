@@ -873,52 +873,7 @@
     });
   </script>
 
-  <!-- Video Player Modal Controller Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const videoTriggers = document.querySelectorAll('.video-testimonial-trigger');
-      const videoModal = document.getElementById('video-modal-overlay');
-      const closeVideoBtn = document.getElementById('close-video-modal');
-      const videoIframe = document.getElementById('video-modal-iframe');
-      const videoTitle = document.getElementById('video-modal-title');
-      const videoSpeaker = document.getElementById('video-modal-speaker');
-      const videoRating = document.getElementById('video-modal-rating');
-      const videoIgLink = document.getElementById('video-modal-ig-link');
-
-      videoTriggers.forEach(trig => {
-        trig.addEventListener('click', () => {
-          const src = trig.getAttribute('data-src');
-          const title = trig.getAttribute('data-video-title');
-          const speaker = trig.getAttribute('data-speaker');
-          const rating = trig.getAttribute('data-rating') || '5.0';
-          const igUrl = trig.getAttribute('data-ig-url') || 'https://instagram.com/medimusicagrow';
-
-          if (videoTitle) videoTitle.textContent = title;
-          if (videoSpeaker) videoSpeaker.innerHTML = speaker;
-          if (videoRating) videoRating.textContent = rating;
-          if (videoIframe) videoIframe.src = src;
-          if (videoIgLink) videoIgLink.href = igUrl;
-
-          if (videoModal) videoModal.classList.add('open');
-        });
-      });
-
-      function closeVideoPlayerModal() {
-        if (videoModal) videoModal.classList.remove('open');
-        if (videoIframe) videoIframe.src = '';
-      }
-
-      if (closeVideoBtn) {
-        closeVideoBtn.addEventListener('click', closeVideoPlayerModal);
-      }
-
-      if (videoModal) {
-        videoModal.addEventListener('click', (e) => {
-          if (e.target === videoModal) closeVideoPlayerModal();
-        });
-      }
-    });
-  </script>
+  <!-- Link script.js -->
 
   <!-- Link script.js -->
   <script src="app.js"></script>
