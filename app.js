@@ -3132,7 +3132,7 @@ function loadClientsDB() {
       clientsList = JSON.parse(saved);
       clientsList.forEach(c => {
         if (c.name === "Chacha TVS") {
-          c.insta = "https://www.instagram.com/reel/DGkWFcySJpg/";
+          c.insta = "https://www.instagram.com/chachatvs_kasganj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
         } else if (c.name === "Shri Krishna Mobile") {
           c.insta = "https://www.instagram.com/shrikrishnamobile_etah/";
         }
@@ -3351,7 +3351,7 @@ function openClientDetailModal(clientName) {
   let instaTarget = client.insta;
   if (!instaTarget || instaTarget === '#' || !instaTarget.startsWith('http')) {
     if (client.name === "Chacha TVS") {
-      instaTarget = "https://www.instagram.com/reel/DGkWFcySJpg/";
+      instaTarget = "https://www.instagram.com/chachatvs_kasganj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
     } else if (client.handle && client.handle.startsWith('@')) {
       instaTarget = "https://www.instagram.com/" + client.handle.replace('@', '') + "/";
     } else {
