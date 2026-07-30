@@ -763,9 +763,13 @@ let feedbackList = [];
 
 function loadFeedbackDB() {
   try {
-    // Always refresh feedbackList with defaultFeedbacks to ensure strict ranking order as per clients page
-    feedbackList = [...defaultFeedbacks];
-    localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList));
+    const saved = localStorage.getItem('mmg_feedback_db');
+    if (saved) {
+      feedbackList = JSON.parse(saved);
+    } else {
+      feedbackList = [...defaultFeedbacks];
+      localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList));
+    }
   } catch (e) {
     feedbackList = [...defaultFeedbacks];
   }
@@ -3456,7 +3460,114 @@ const defaultClients = [
   }
 ];
 
-let clientsList = [];
+/* ==========================================================================
+   GLOBAL MASTER SYNC ENGINE (Multi-Device Cloud & Local Storage Sync)
+   ========================================================================== */
+const MASTER_CLOUD_ENDPOINT = 'https://jsonblob.com/api/jsonBlob/019fb1bb-1315-7b3e-987e-883b319ac086';
+
+async function syncWithCloudMasterDB() {
+  try {
+    const response = await fetch(MASTER_CLOUD_ENDPOINT, { cache: 'no-cache' });
+    if (response.ok) {
+      const data = await response.json();
+      let updated = false;
+
+      if (data.clients && Array.isArray(data.clients) && data.clients.length > 0) {
+        clientsList = data.clients;
+        try { localStorage.setItem('mmg_clients_db', JSON.stringify(clientsList)); } catch (e) {}
+        if (typeof initClientRoster === 'function') initClientRoster();
+        updated = true;
+      }
+      if (data.reviews && Array.isArray(data.reviews) && data.reviews.length > 0) {
+        feedbackList = data.reviews;
+        try { localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList)); } catch (e) {}
+        if (typeof renderAllFeedbackViews === 'function') renderAllFeedbackViews();
+        updated = true;
+      }
+      if (data.videos && Array.isArray(data.videos) && data.videos.length > 0) {
+        videosList = data.videos;
+        try { localStorage.setItem('mmg_videos_db', JSON.stringify(videosList)); } catch (e) {}
+        if (typeof renderVideoReelsGrid === 'function') renderVideoReelsGrid();
+        updated = true;
+      }
+
+      if (updated && typeof refreshAllAdminData === 'function') {
+        refreshAllAdminData();
+      }
+      updateCloudSyncBadge(true);
+      return true;
+    }
+  } catch (e) {
+    try {
+      const dbResp = await fetch('./db.json', { cache: 'no-cache' });
+      if (dbResp.ok) {
+        const localDb = await dbResp.json();
+        if (localDb.clients && localDb.clients.length) {
+          clientsList = localDb.clients;
+          try { localStorage.setItem('mmg_clients_db', JSON.stringify(clientsList)); } catch (err) {}
+          if (typeof initClientRoster === 'function') initClientRoster();
+        }
+        if (localDb.reviews && localDb.reviews.length) {
+          feedbackList = localDb.reviews;
+          try { localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList)); } catch (err) {}
+          if (typeof renderAllFeedbackViews === 'function') renderAllFeedbackViews();
+        }
+        if (localDb.videos && localDb.videos.length) {
+          videosList = localDb.videos;
+          try { localStorage.setItem('mmg_videos_db', JSON.stringify(videosList)); } catch (err) {}
+          if (typeof renderVideoReelsGrid === 'function') renderVideoReelsGrid();
+        }
+      }
+    } catch (err) {}
+  }
+  return false;
+}
+
+async function pushToCloudMasterDB() {
+  const payload = {
+    version: "2.0",
+    updatedAt: new Date().toISOString(),
+    clients: window.getClientsList ? window.getClientsList() : clientsList,
+    reviews: window.getFeedbackList ? window.getFeedbackList() : feedbackList,
+    videos: window.getVideosList ? window.getVideosList() : videosList
+  };
+
+  try {
+    const res = await fetch(MASTER_CLOUD_ENDPOINT, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok || res.status === 200 || res.status === 204) {
+      updateCloudSyncBadge(true);
+      return true;
+    }
+  } catch (err) {
+    console.warn('Cloud master push warning:', err);
+  }
+  updateCloudSyncBadge(false);
+  return false;
+}
+
+function updateCloudSyncBadge(success) {
+  const badge = document.getElementById('cloud-sync-status');
+  if (!badge) return;
+  if (success) {
+    badge.className = "text-[10px] font-futuristic text-limeGreen font-bold flex items-center gap-1.5 bg-limeGreen/10 border border-limeGreen/30 px-3 py-1 rounded-xl";
+    badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-limeGreen animate-pulse"></span> SYNCED TO CLOUD (LIVE ON ALL DEVICES)`;
+  } else {
+    badge.className = "text-[10px] font-futuristic text-yellow-400 font-bold flex items-center gap-1.5 bg-yellow-500/10 border border-yellow-500/30 px-3 py-1 rounded-xl";
+    badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-yellow-400"></span> SAVED LOCALLY`;
+  }
+}
+
+window.syncWithCloudMasterDB = syncWithCloudMasterDB;
+window.pushToCloudMasterDB = pushToCloudMasterDB;
+
+// Trigger sync with cloud master DB on load
+document.addEventListener('DOMContentLoaded', () => {
+  syncWithCloudMasterDB();
+});
 
 function loadClientsDB() {
   try {
@@ -3488,6 +3599,7 @@ function saveClientsDBGlobal(newList) {
   if (typeof initClientRoster === 'function') {
     initClientRoster();
   }
+  pushToCloudMasterDB();
 }
 
 function saveFeedbackDBGlobal(newList) {
@@ -3496,6 +3608,7 @@ function saveFeedbackDBGlobal(newList) {
     localStorage.setItem('mmg_feedback_db', JSON.stringify(feedbackList));
   } catch (e) { }
   renderAllFeedbackViews();
+  pushToCloudMasterDB();
 }
 
 function getClientsList() {
@@ -3919,6 +4032,7 @@ function saveVideosDBGlobal(newList) {
   if (typeof renderVideoReelsGrid === 'function') {
     renderVideoReelsGrid();
   }
+  pushToCloudMasterDB();
 }
 
 function getVideosList() {
