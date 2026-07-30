@@ -3899,23 +3899,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('admin-leads-table-body')) {
     renderAdminLeads();
   }
-
-  // Secret Admin Triggers
-  document.addEventListener('keydown', (e) => {
-    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
-      e.preventDefault();
-      window.location.href = 'admin@2026.html';
-    }
-  });
-
-  const footerCopyrights = document.querySelectorAll('footer span');
-  footerCopyrights.forEach(span => {
-    if (span.textContent.includes('MEDIMUSICAGROW PVT. LTD.')) {
-      span.addEventListener('dblclick', () => {
-        window.location.href = 'admin@2026.html';
-      });
-    }
-  });
 });
 
 /* ==========================================================================
