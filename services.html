@@ -503,7 +503,42 @@
       <span>&copy; 2026 MEDIMUSICAGROW PVT. LTD. ALL RIGHTS RESERVED.</span>
       <span class="tracking-widest">SYSTEM // SHIVAYUR.IN ENGINE v2.0 // DEPLOYED</span>
     </div>
-  </footer>
+  <!-- ========================================== -->
+  <!-- VIDEO TESTIMONIAL MODAL POPUP -->
+  <!-- ========================================== -->
+  <div id="video-modal-overlay" class="feedback-modal-overlay">
+    <div class="feedback-modal-box w-full max-w-3xl bg-zinc-950 border border-limeGreen/40 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left">
+      <!-- Close Button -->
+      <button id="close-video-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-20" title="Close Video">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="space-y-4">
+        <div class="border-b border-white/10 pb-3 flex items-center justify-between pr-8">
+          <div>
+            <h3 id="video-modal-title" class="text-lg font-bold text-white uppercase tracking-wide">Client Video Testimonial</h3>
+            <p id="video-modal-speaker" class="text-xs text-limeGreen font-futuristic">Verified Brand Partner</p>
+          </div>
+          <div class="flex items-center gap-1 text-limeGreen font-bold text-sm">
+            <span id="video-modal-rating">5.0</span>
+            <i data-lucide="star" class="w-4 h-4 fill-limeGreen"></i>
+          </div>
+        </div>
+
+        <!-- Video Frame Container -->
+        <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-black border border-white/10 shadow-inner flex items-center justify-center">
+          <iframe id="video-modal-iframe" class="w-full h-full" src="" title="Video Review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="flex items-center justify-between text-[10px] text-gray-400 font-futuristic pt-2">
+          <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-limeGreen"></i> VERIFIED INSTAGRAM REEL CASE STUDY</span>
+          <a id="video-modal-ig-link" href="https://instagram.com/medimusicagrow" target="_blank" class="text-limeGreen hover:underline font-bold flex items-center gap-1">
+            OPEN ON INSTAGRAM <i data-lucide="external-link" class="w-3 h-3"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Mobile Menu logic inclusion script -->
   <script>

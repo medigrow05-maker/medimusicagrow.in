@@ -4117,3 +4117,71 @@ function renderVideoReelsGrid() {
     initVideoTestimonialModals();
   }
 }
+
+/* ==========================================================================
+   GLOBAL VIDEO REEL TESTIMONIAL MODAL CONTROLLER (Event Delegation)
+   ========================================================================== */
+function initVideoTestimonialModals() {
+  const videoModal = document.getElementById('video-modal-overlay');
+  const closeVideoBtn = document.getElementById('close-video-modal');
+
+  function closeVideoPlayerModal() {
+    if (videoModal) videoModal.classList.remove('open');
+    const videoIframe = document.getElementById('video-modal-iframe');
+    if (videoIframe) videoIframe.src = '';
+  }
+
+  if (closeVideoBtn) {
+    closeVideoBtn.onclick = closeVideoPlayerModal;
+  }
+
+  if (videoModal) {
+    videoModal.onclick = (e) => {
+      if (e.target === videoModal) closeVideoPlayerModal();
+    };
+  }
+
+  window.closeVideoPlayerModal = closeVideoPlayerModal;
+}
+
+// Global Event Delegation for Video Triggers (100% reliable for dynamic & re-rendered cards)
+document.addEventListener('click', (e) => {
+  const trigger = e.target.closest('.video-testimonial-trigger');
+  if (!trigger) return;
+
+  const src = trigger.getAttribute('data-src');
+  const title = trigger.getAttribute('data-video-title');
+  const speaker = trigger.getAttribute('data-speaker');
+  const rating = trigger.getAttribute('data-rating') || '5.0';
+  const igUrl = trigger.getAttribute('data-ig-url') || 'https://instagram.com/medimusicagrow';
+
+  const videoModal = document.getElementById('video-modal-overlay');
+  const videoIframe = document.getElementById('video-modal-iframe');
+  const videoTitle = document.getElementById('video-modal-title');
+  const videoSpeaker = document.getElementById('video-modal-speaker');
+  const videoRating = document.getElementById('video-modal-rating');
+  const videoIgLink = document.getElementById('video-modal-ig-link');
+
+  if (videoTitle) videoTitle.textContent = title;
+  if (videoSpeaker) videoSpeaker.innerHTML = speaker;
+  if (videoRating) videoRating.textContent = rating;
+  if (videoIframe) videoIframe.src = src;
+  if (videoIgLink) videoIgLink.href = igUrl;
+
+  if (videoModal) {
+    videoModal.classList.add('open');
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    if (typeof window.closeVideoPlayerModal === 'function') {
+      window.closeVideoPlayerModal();
+    }
+  }
+});
+
+// Initialize on DOM load
+document.addEventListener('DOMContentLoaded', () => {
+  initVideoTestimonialModals();
+});
