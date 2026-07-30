@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Customer Reviews & Feedback | Medimusicagrow Pvt. Ltd.</title>
-  <meta name="description" content="Read verified Google My Business reviews and client feedback for Medi Musica Grow. Learn about customer satisfaction in editing, web builds, and ads.">
-  
+  <meta name="description"
+    content="Read verified Google My Business reviews and client feedback for Medi Musica Grow. Learn about customer satisfaction in editing, web builds, and ads.">
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
   <link rel="icon" type="image/jpeg" href="favicon.jpg">
@@ -17,20 +19,20 @@
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
   <link rel="dns-prefetch" href="https://www.instagram.com">
-  
+
   <!-- Tailwind CSS Play CDN (loaded synchronously so tailwind.config registers properly) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- Custom CSS stylesheet -->
   <link rel="stylesheet" href="styles.css">
-  
+
   <!-- Lucide Icons CDN -->
   <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js" defer></script>
-  
+
   <!-- GSAP & ScrollTrigger CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-  
+
   <script>
     tailwind.config = {
       theme: {
@@ -54,6 +56,7 @@
     }
   </script>
 </head>
+
 <body class="bg-brandBg text-silver min-h-screen relative antialiased selection:bg-limeGreen selection:text-brandBg">
 
   <!-- Interactive canvas background for deep space particle effects -->
@@ -62,37 +65,51 @@
   <!-- BACKGROUND GLOWS -->
   <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
     <div class="absolute top-[10%] left-[20%] w-[500px] h-[500px] rounded-full bg-glow-radial filter blur-[80px]"></div>
-    <div class="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] rounded-full bg-glow-radial filter blur-[100px]"></div>
+    <div class="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] rounded-full bg-glow-radial filter blur-[100px]">
+    </div>
   </div>
 
   <!-- FLOATING NAVIGATION HUB -->
   <header class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-    <nav class="w-full max-w-6xl glass-panel px-6 py-4 rounded-full flex items-center justify-between border border-white/10 shadow-2xl relative">
+    <nav
+      class="w-full max-w-6xl glass-panel px-6 py-4 rounded-full flex items-center justify-between border border-white/10 shadow-2xl relative">
       <!-- Logo Container -->
       <a href="index.html" class="flex items-center gap-2 sm:gap-3 group" id="header-logo-container">
         <img src="logo.png" alt="MMG Logo" class="w-9 h-9 sm:w-12 sm:h-12 object-contain logo-img">
         <div>
-          <div class="font-futuristic font-black text-sm sm:text-xl tracking-wider leading-none text-white">MEDIMUSICA<span class="text-limeGreen">GROW</span></div>
-          <div class="text-[7px] sm:text-[9px] uppercase tracking-[0.25em] sm:tracking-[0.35em] text-gray-400 mt-0.5 sm:mt-1">PVT. LTD. &bull; Brand Elevation</div>
+          <div class="font-futuristic font-black text-sm sm:text-xl tracking-wider leading-none text-white">
+            MEDIMUSICA<span class="text-limeGreen">GROW</span></div>
+          <div
+            class="text-[7px] sm:text-[9px] uppercase tracking-[0.25em] sm:tracking-[0.35em] text-gray-400 mt-0.5 sm:mt-1">
+            PVT. LTD. &bull; Brand Elevation</div>
         </div>
       </a>
 
       <!-- Minimalist Floating Navigation Links -->
       <div class="hidden lg:flex items-center gap-6 font-futuristic text-xs font-semibold tracking-wider">
-        <a href="index.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">HOME</a>
-        <a href="services.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">SERVICES</a>
-        <a href="clients.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">CLIENTS</a>
-        <a href="feedback.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">FEEDBACK</a>
-        <a href="training.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">TRAINING</a>
-        <a href="contact.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">CONTACT US</a>
+        <a href="index.html"
+          class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">HOME</a>
+        <a href="services.html"
+          class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">SERVICES</a>
+        <a href="clients.html"
+          class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">CLIENTS</a>
+        <a href="feedback.html"
+          class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">FEEDBACK</a>
+        <a href="training.html"
+          class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">TRAINING</a>
+        <a href="contact.html"
+          class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">CONTACT
+          US</a>
       </div>
 
       <!-- Action Button & Hamburger -->
       <div class="flex items-center gap-4">
-        <a href="contact.html" class="hidden md:inline-block font-futuristic text-xs font-bold border border-limeGreen text-limeGreen px-6 py-2.5 rounded-full hover:bg-limeGreen hover:text-brandBg hover:shadow-[0_0_15px_rgba(140,230,0,0.5)] transition-all duration-300 tracking-wider">
+        <a href="contact.html"
+          class="hidden md:inline-block font-futuristic text-xs font-bold border border-limeGreen text-limeGreen px-6 py-2.5 rounded-full hover:bg-limeGreen hover:text-brandBg hover:shadow-[0_0_15px_rgba(140,230,0,0.5)] transition-all duration-300 tracking-wider">
           DISCOVER CALL
         </a>
-        <button id="mobile-menu-btn" class="lg:hidden text-white hover:text-limeGreen transition-colors" title="Toggle Navigation Menu">
+        <button id="mobile-menu-btn" class="lg:hidden text-white hover:text-limeGreen transition-colors"
+          title="Toggle Navigation Menu">
           <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
       </div>
@@ -100,7 +117,8 @@
   </header>
 
   <!-- MOBILE NAVIGATION OVERLAY -->
-  <div id="mobile-menu-overlay" class="fixed inset-y-0 right-0 w-80 bg-brandBg/95 backdrop-blur-lg border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-8 font-futuristic">
+  <div id="mobile-menu-overlay"
+    class="fixed inset-y-0 right-0 w-80 bg-brandBg/95 backdrop-blur-lg border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-8 font-futuristic">
     <div class="space-y-8">
       <div class="flex justify-between items-center pb-6 border-b border-white/5">
         <span class="font-bold text-sm tracking-wider text-limeGreen">SYSTEM MAP</span>
@@ -118,7 +136,8 @@
       </div>
     </div>
     <div class="space-y-4 pt-6 border-t border-white/5">
-      <a href="contact.html" class="block text-center font-bold border border-limeGreen text-limeGreen py-3 rounded-full hover:bg-limeGreen hover:text-brandBg transition-all text-xs tracking-wider">
+      <a href="contact.html"
+        class="block text-center font-bold border border-limeGreen text-limeGreen py-3 rounded-full hover:bg-limeGreen hover:text-brandBg transition-all text-xs tracking-wider">
         DISCOVER CALL
       </a>
       <p class="text-[9px] text-gray-500 text-center tracking-widest uppercase mt-4">SYS.MODULE // ACTIVE</p>
@@ -131,7 +150,8 @@
       <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.4em]">FEEDBACK PORTAL</span>
       <h1 class="text-4xl md:text-6xl font-black font-futuristic text-white">THE FEEDBACK BOARD</h1>
       <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base font-light">
-        Verified client inputs fetched directly from our Google My Business database. Transparent, data-backed satisfaction reviews.
+        Verified client inputs fetched directly from our Google My Business database. Transparent, data-backed
+        satisfaction reviews.
       </p>
     </div>
   </section>
@@ -140,13 +160,17 @@
     <!-- GMB RATING BOARD SUMMARY -->
     <section class="py-6 px-4 md:px-8 relative z-10">
       <div class="max-w-6xl mx-auto">
-        <div class="glass-panel border-limeGreen/20 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div
+          class="glass-panel border-limeGreen/20 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div class="flex items-center gap-5">
-            <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-limeGreen text-3xl font-futuristic font-bold">
+            <div
+              class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-limeGreen text-3xl font-futuristic font-bold">
               G
             </div>
-            <a href="https://share.google/9WsqvZV57gCcyiZLF" target="_blank" class="text-left space-y-1 group cursor-pointer block">
-              <h4 class="font-futuristic font-bold text-white text-base group-hover:text-limeGreen transition-colors flex items-center gap-2">
+            <a href="https://share.google/9WsqvZV57gCcyiZLF" target="_blank"
+              class="text-left space-y-1 group cursor-pointer block">
+              <h4
+                class="font-futuristic font-bold text-white text-base group-hover:text-limeGreen transition-colors flex items-center gap-2">
                 Google My Business Profile <i data-lucide="external-link" class="w-4 h-4 text-limeGreen"></i>
               </h4>
               <div class="flex items-center gap-2">
@@ -159,15 +183,18 @@
                   <i data-lucide="star" class="w-3.5 h-3.5 fill-limeGreen"></i>
                 </div>
               </div>
-              <p class="text-[10px] text-gray-500 font-futuristic uppercase">OFFICIAL GMB: share.google/9WsqvZV57gCcyiZLF</p>
+              <p class="text-[10px] text-gray-500 font-futuristic uppercase">OFFICIAL GMB:
+                share.google/9WsqvZV57gCcyiZLF</p>
             </a>
           </div>
 
           <div class="flex items-center gap-4">
-            <button id="open-feedback-modal" class="lime-glow-btn text-brandBg font-futuristic font-bold px-6 py-3 rounded-xl text-xs tracking-wider">
+            <button id="open-feedback-modal"
+              class="lime-glow-btn text-brandBg font-futuristic font-bold px-6 py-3 rounded-xl text-xs tracking-wider">
               WRITE A GMB REVIEW
             </button>
-            <a href="https://share.google/9WsqvZV57gCcyiZLF" target="_blank" class="metallic-border text-white font-futuristic font-bold px-6 py-3 rounded-xl text-xs tracking-wider flex items-center gap-1">
+            <a href="https://share.google/9WsqvZV57gCcyiZLF" target="_blank"
+              class="metallic-border text-white font-futuristic font-bold px-6 py-3 rounded-xl text-xs tracking-wider flex items-center gap-1">
               VIEW ON MAPS <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
             </a>
           </div>
@@ -181,7 +208,8 @@
         <!-- Filtering Buttons -->
         <div class="flex flex-wrap items-center justify-center gap-3 font-futuristic text-xs">
           <button class="filter-btn px-5 py-2.5 rounded-full font-bold active" data-filter="all">ALL ENTRIES</button>
-          <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="video-editing">VIDEO EDITING</button>
+          <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="video-editing">VIDEO
+            EDITING</button>
           <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="web-dev">WEB DEVELOPMENT</button>
           <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="meta-ads">META ADS</button>
           <button class="filter-btn px-5 py-2.5 rounded-full font-bold" data-filter="smm">SMM ORBIT</button>
@@ -194,9 +222,11 @@
 
         <!-- Show More Reviews Container -->
         <div id="show-more-reviews-container" class="mt-8 text-center hidden">
-          <button id="show-more-reviews-btn" class="metallic-border text-white font-futuristic font-bold px-8 py-3.5 rounded-2xl text-xs tracking-wider inline-flex items-center gap-2 hover:border-limeGreen/50 hover:text-limeGreen transition-all group shadow-lg shadow-black/40">
+          <button id="show-more-reviews-btn"
+            class="metallic-border text-white font-futuristic font-bold px-8 py-3.5 rounded-2xl text-xs tracking-wider inline-flex items-center gap-2 hover:border-limeGreen/50 hover:text-limeGreen transition-all group shadow-lg shadow-black/40">
             <span id="show-more-reviews-text">SHOW MORE REVIEWS</span>
-            <i id="show-more-reviews-icon" data-lucide="chevron-down" class="w-4 h-4 text-limeGreen group-hover:translate-y-0.5 transition-transform"></i>
+            <i id="show-more-reviews-icon" data-lucide="chevron-down"
+              class="w-4 h-4 text-limeGreen group-hover:translate-y-0.5 transition-transform"></i>
           </button>
         </div>
       </div>
@@ -207,37 +237,49 @@
     <!-- ======================================================= -->
     <section class="py-12 px-4 md:px-8 relative z-10 border-t border-white/5">
       <div class="max-w-6xl mx-auto space-y-8">
-        
+
         <!-- Section Header -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-6 text-left">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-6 text-left">
           <div>
-            <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.3em] flex items-center gap-2">
+            <span
+              class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.3em] flex items-center gap-2">
               <i data-lucide="video" class="w-4 h-4 text-limeGreen"></i> VERIFIED VIDEO REVIEWS
             </span>
             <h2 class="text-2xl md:text-4xl font-black font-futuristic text-white mt-1">CLIENT VIDEO TESTIMONIALS</h2>
           </div>
           <p class="text-xs text-gray-400 font-futuristic font-light max-w-md">
-            Hear directly from top brand founders, managing directors, and business owners scaling their reach with Medi Musica Grow.
+            Hear directly from top brand founders, managing directors, and business owners scaling their reach with Medi
+            Musica Grow.
           </p>
         </div>
 
         <!-- Video Testimonials Grid (7 INSTAGRAM REELS) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="video-reels-grid">
-          
+
           <!-- Reel 1: Chacha TVS -->
-          <div class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
-            <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger" data-video-title="Chacha TVS — New Launch Vehicle Reel" data-client="Chacha TVS" data-speaker="General Manager &bull; Chacha TVS" data-rating="5.0" data-src="https://www.instagram.com/reel/DGkWFcySJpg/embed/" data-ig-url="https://www.instagram.com/reel/DGkWFcySJpg/">
-              <img src="reel_thumbnails/reel_ig_5.jpg" alt="Chacha TVS Instagram Reel" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div
+            class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
+            <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger"
+              data-video-title="Chacha TVS — New Launch Vehicle Reel" data-client="Chacha TVS"
+              data-speaker="General Manager &bull; Chacha TVS" data-rating="5.0"
+              data-src="https://www.instagram.com/reel/DGkWFcySJpg/embed/"
+              data-ig-url="https://www.instagram.com/reel/DGkWFcySJpg/">
+              <img src="reel_thumbnails/reel_ig_5.jpg" alt="Chacha TVS Instagram Reel" loading="lazy" decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
-              
+
               <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
+                <div
+                  class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
                   <i data-lucide="play" class="w-6 h-6 fill-brandBg ml-1"></i>
                 </div>
               </div>
 
               <div class="absolute top-3 left-3">
-                <span class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">AUTO SMM ORBIT</span>
+                <span
+                  class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">AUTO
+                  SMM ORBIT</span>
               </div>
 
               <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
@@ -248,95 +290,42 @@
                 <p class="text-[10px] text-gray-300 font-futuristic">General Manager &bull; Chacha TVS</p>
               </div>
             </div>
-            
+
             <div class="p-4 space-y-2 text-left bg-zinc-950/80">
-              <p class="text-xs text-gray-300 font-light italic">"High-performance vehicle launch reels generated massive footfall and engagement across UP!"</p>
-              <a href="https://www.instagram.com/reel/DGkWFcySJpg/" target="_blank" class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
+              <p class="text-xs text-gray-300 font-light italic">"High-performance vehicle launch reels generated
+                massive footfall and engagement across UP!"</p>
+              <a href="https://www.instagram.com/reel/DGkWFcySJpg/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ=="
+                target="_blank"
+                class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
                 <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
               </a>
             </div>
           </div>
 
-          <!-- Reel 2: Shree Krishna Mobile -->
-          <div class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
-            <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger" data-video-title="Shree Krishna Mobile — Festive Launch Reel" data-client="Shree Krishna Mobile" data-speaker="Founder &bull; Shree Krishna Mobile" data-rating="5.0" data-src="https://www.instagram.com/reel/DMzyueszyY_/embed/" data-ig-url="https://www.instagram.com/reel/DMzyueszyY_/">
-              <img src="reel_thumbnails/reel_ig_2.jpg" alt="Shree Krishna Mobile Instagram Reel" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <!-- Reel 2: time electronics centre -->
+          <div
+            class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
+            <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger"
+              data-video-title="Time Electronics Centre — Festive Promo Reel" data-client="Time Electronics Centre"
+              data-speaker="Managing Director &bull; Time Electronics" data-rating="5.0"
+              data-src="https://www.instagram.com/reel/DG0FaWJzk5_/embed/"
+              data-ig-url="https://www.instagram.com/reel/DG0FaWJzk5_/">
+              <img src="reel_thumbnails/reel_ig_4.jpg" alt="Time Electronics Centre Instagram Reel" loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
-              
+
               <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
+                <div
+                  class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
                   <i data-lucide="play" class="w-6 h-6 fill-brandBg ml-1"></i>
                 </div>
               </div>
 
               <div class="absolute top-3 left-3">
-                <span class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">REELS & ADS</span>
-              </div>
-
-              <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
-                <div class="flex items-center justify-between text-limeGreen font-futuristic font-bold text-xs">
-                  <span>SHREE KRISHNA MOBILE</span>
-                  <span>5.0 ★</span>
-                </div>
-                <p class="text-[10px] text-gray-300 font-futuristic">Founder &bull; Shree Krishna Mobile</p>
-              </div>
-            </div>
-            
-            <div class="p-4 space-y-2 text-left bg-zinc-950/80">
-              <p class="text-xs text-gray-300 font-light italic">"Viral mobile launch campaign scaled local store walk-ins and direct inquiries by 3x."</p>
-              <a href="https://www.instagram.com/reel/DMzyueszyY_/" target="_blank" class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
-                <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
-              </a>
-            </div>
-          </div>
-
-          <!-- Reel 3: DVF Mall -->
-          <div class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
-            <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger" data-video-title="DVF Mall — Retail Experience Reel" data-client="DVF Mall" data-speaker="Operations Head &bull; DVF Mall" data-rating="5.0" data-src="https://www.instagram.com/reel/DMuVWSdTTCj/embed/" data-ig-url="https://www.instagram.com/reel/DMuVWSdTTCj/">
-              <img src="reel_thumbnails/reel_ig_3.jpg" alt="DVF Mall Instagram Reel" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
-              
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
-                  <i data-lucide="play" class="w-6 h-6 fill-brandBg ml-1"></i>
-                </div>
-              </div>
-
-              <div class="absolute top-3 left-3">
-                <span class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">RETAIL SMM</span>
-              </div>
-
-              <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
-                <div class="flex items-center justify-between text-limeGreen font-futuristic font-bold text-xs">
-                  <span>DVF MALL</span>
-                  <span>5.0 ★</span>
-                </div>
-                <p class="text-[10px] text-gray-300 font-futuristic">Operations Head &bull; DVF Mall</p>
-              </div>
-            </div>
-            
-            <div class="p-4 space-y-2 text-left bg-zinc-950/80">
-              <p class="text-xs text-gray-300 font-light italic">"Cinematic store promo reel positioned DVF Mall as the top retail shopping destination."</p>
-              <a href="https://www.instagram.com/reel/DMuVWSdTTCj/" target="_blank" class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
-                <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
-              </a>
-            </div>
-          </div>
-
-          <!-- Reel 4: Time Electronics Centre -->
-          <div class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
-            <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger" data-video-title="Time Electronics Centre — Festive Promo Reel" data-client="Time Electronics Centre" data-speaker="Managing Director &bull; Time Electronics" data-rating="5.0" data-src="https://www.instagram.com/reel/DG0FaWJzk5_/embed/" data-ig-url="https://www.instagram.com/reel/DG0FaWJzk5_/">
-              <img src="reel_thumbnails/reel_ig_4.jpg" alt="Time Electronics Centre Instagram Reel" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
-              
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
-                  <i data-lucide="play" class="w-6 h-6 fill-brandBg ml-1"></i>
-                </div>
-              </div>
-
-              <div class="absolute top-3 left-3">
-                <span class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">WEB & META ADS</span>
+                <span
+                  class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">WEB
+                  & META ADS</span>
               </div>
 
               <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
@@ -347,29 +336,129 @@
                 <p class="text-[10px] text-gray-300 font-futuristic">Managing Director &bull; Time Electronics</p>
               </div>
             </div>
-            
+
             <div class="p-4 space-y-2 text-left bg-zinc-950/80">
-              <p class="text-xs text-gray-300 font-light italic">"Meta video ads and festive offer promo doubled appliance & electronics sales within 2 weeks!"</p>
-              <a href="https://www.instagram.com/reel/DG0FaWJzk5_/" target="_blank" class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
+              <p class="text-xs text-gray-300 font-light italic">"Meta video ads and festive offer promo doubled
+                appliance & electronics sales within 2 weeks!"</p>
+              <a href="https://www.instagram.com/reel/DG0FaWJzk5_/" target="_blank"
+                class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
                 <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
               </a>
             </div>
           </div>
 
-          <!-- Reel 5: Uphaar Express -->
-          <div class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
-            <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger" data-video-title="Uphaar Express — Gift & Retail Reel" data-client="Uphaar Express" data-speaker="Founding Partner &bull; Uphaar Express" data-rating="5.0" data-src="https://www.instagram.com/reel/DNDM05vzJqg/embed/" data-ig-url="https://www.instagram.com/reel/DNDM05vzJqg/">
-              <img src="reel_thumbnails/reel_ig_1.jpg" alt="Uphaar Express Instagram Reel" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <!-- Reel 3: DVF Mall -->
+          <div
+            class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
+            <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger"
+              data-video-title="DVF Mall — Retail Experience Reel" data-client="DVF Mall"
+              data-speaker="Operations Head &bull; DVF Mall" data-rating="5.0"
+              data-src="https://www.instagram.com/reel/DMuVWSdTTCj/embed/"
+              data-ig-url="https://www.instagram.com/reel/DMuVWSdTTCj/">
+              <img src="reel_thumbnails/reel_ig_3.jpg" alt="DVF Mall Instagram Reel" loading="lazy" decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
-              
+
               <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
+                <div
+                  class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
                   <i data-lucide="play" class="w-6 h-6 fill-brandBg ml-1"></i>
                 </div>
               </div>
 
               <div class="absolute top-3 left-3">
-                <span class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">AUTO SMM ORBIT</span>
+                <span
+                  class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">RETAIL
+                  SMM</span>
+              </div>
+
+              <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
+                <div class="flex items-center justify-between text-limeGreen font-futuristic font-bold text-xs">
+                  <span>DVF MALL</span>
+                  <span>5.0 ★</span>
+                </div>
+                <p class="text-[10px] text-gray-300 font-futuristic">Operations Head &bull; DVF Mall</p>
+              </div>
+            </div>
+
+            <div class="p-4 space-y-2 text-left bg-zinc-950/80">
+              <p class="text-xs text-gray-300 font-light italic">"Cinematic store promo reel positioned DVF Mall as the
+                top retail shopping destination."</p>
+              <a href="https://www.instagram.com/reel/DMuVWSdTTCj/" target="_blank"
+                class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
+                <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
+              </a>
+            </div>
+          </div>
+
+          <!-- Reel 4: shree krishna mobile -->
+          <div
+            class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
+            <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger"
+              data-video-title="Shree Krishna Mobile — Festive Launch Reel" data-client="Shree Krishna Mobile"
+              data-speaker="Founder &bull; Shree Krishna Mobile" data-rating="5.0"
+              data-src="https://www.instagram.com/reel/DMzyueszyY_/embed/"
+              data-ig-url="https://www.instagram.com/reel/DMzyueszyY_/">
+              <img src="reel_thumbnails/reel_ig_2.jpg" alt="Shree Krishna Mobile Instagram Reel" loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
+                  <i data-lucide="play" class="w-6 h-6 fill-brandBg ml-1"></i>
+                </div>
+              </div>
+
+              <div class="absolute top-3 left-3">
+                <span
+                  class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">REELS
+                  & ADS</span>
+              </div>
+
+              <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
+                <div class="flex items-center justify-between text-limeGreen font-futuristic font-bold text-xs">
+                  <span>SHREE KRISHNA MOBILE</span>
+                  <span>5.0 ★</span>
+                </div>
+                <p class="text-[10px] text-gray-300 font-futuristic">Founder &bull; Shree Krishna Mobile</p>
+              </div>
+            </div>
+
+            <div class="p-4 space-y-2 text-left bg-zinc-950/80">
+              <p class="text-xs text-gray-300 font-light italic">"Viral mobile launch campaign scaled local store
+                walk-ins and direct inquiries by 3x."</p>
+              <a href="https://www.instagram.com/reel/DMzyueszyY_/" target="_blank"
+                class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
+                <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
+              </a>
+            </div>
+          </div>
+          <!-- Reel 5: Uphaar Express -->
+          <div
+            class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
+            <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger"
+              data-video-title="Uphaar Express — Gift & Retail Reel" data-client="Uphaar Express"
+              data-speaker="Founding Partner &bull; Uphaar Express" data-rating="5.0"
+              data-src="https://www.instagram.com/reel/DNDM05vzJqg/embed/"
+              data-ig-url="https://www.instagram.com/reel/DNDM05vzJqg/">
+              <img src="reel_thumbnails/reel_ig_1.jpg" alt="Uphaar Express Instagram Reel" loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
+                  <i data-lucide="play" class="w-6 h-6 fill-brandBg ml-1"></i>
+                </div>
+              </div>
+
+              <div class="absolute top-3 left-3">
+                <span
+                  class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">AUTO
+                  SMM ORBIT</span>
               </div>
 
               <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
@@ -380,29 +469,40 @@
                 <p class="text-[10px] text-gray-300 font-futuristic">Founding Partner &bull; Uphaar Express</p>
               </div>
             </div>
-            
+
             <div class="p-4 space-y-2 text-left bg-zinc-950/80">
-              <p class="text-xs text-gray-300 font-light italic">"High-converting gift & retail campaign reels scaled customer reach and online orders."</p>
-              <a href="https://www.instagram.com/reel/DNDM05vzJqg/" target="_blank" class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
+              <p class="text-xs text-gray-300 font-light italic">"High-converting gift & retail campaign reels scaled
+                customer reach and online orders."</p>
+              <a href="https://www.instagram.com/reel/DNDM05vzJqg/" target="_blank"
+                class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
                 <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
               </a>
             </div>
           </div>
 
           <!-- Reel 6: Fabzila -->
-          <div class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
-            <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger" data-video-title="Fabzila — Fashion Branding Reel" data-client="Fabzila" data-speaker="Brand Lead &bull; Fabzila" data-rating="5.0" data-src="https://www.instagram.com/reel/DF16uvpyKLx/embed/" data-ig-url="https://www.instagram.com/reel/DF16uvpyKLx/">
-              <img src="reel_thumbnails/reel_ig_6.jpg" alt="Fabzila Instagram Reel" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div
+            class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
+            <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger"
+              data-video-title="Fabzila — Fashion Branding Reel" data-client="Fabzila"
+              data-speaker="Brand Lead &bull; Fabzila" data-rating="5.0"
+              data-src="https://www.instagram.com/reel/DF16uvpyKLx/embed/"
+              data-ig-url="https://www.instagram.com/reel/DF16uvpyKLx/">
+              <img src="reel_thumbnails/reel_ig_6.jpg" alt="Fabzila Instagram Reel" loading="lazy" decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
-              
+
               <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
+                <div
+                  class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
                   <i data-lucide="play" class="w-6 h-6 fill-brandBg ml-1"></i>
                 </div>
               </div>
 
               <div class="absolute top-3 left-3">
-                <span class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">BRAND EDITING</span>
+                <span
+                  class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">BRAND
+                  EDITING</span>
               </div>
 
               <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
@@ -413,29 +513,41 @@
                 <p class="text-[10px] text-gray-300 font-futuristic">Brand Lead &bull; Fabzila</p>
               </div>
             </div>
-            
+
             <div class="p-4 space-y-2 text-left bg-zinc-950/80">
-              <p class="text-xs text-gray-300 font-light italic">"Systematic fashion reel editing turned brand profiles into high-converting organic engines."</p>
-              <a href="https://www.instagram.com/reel/DF16uvpyKLx/" target="_blank" class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
+              <p class="text-xs text-gray-300 font-light italic">"Systematic fashion reel editing turned brand profiles
+                into high-converting organic engines."</p>
+              <a href="https://www.instagram.com/reel/DF16uvpyKLx/" target="_blank"
+                class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
                 <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
               </a>
             </div>
           </div>
 
           <!-- Reel 7: Saif Nutrition Coach -->
-          <div class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
-            <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger" data-video-title="Saif Nutrition Coach — Fitness Transformation Reel" data-client="Saif Nutrition Coach" data-speaker="Saif &bull; Chief Nutrition Coach" data-rating="5.0" data-src="https://www.instagram.com/reel/DEmcqIFPSwv/embed/" data-ig-url="https://www.instagram.com/reel/DEmcqIFPSwv/">
-              <img src="reel_thumbnails/reel_ig_7.jpg" alt="Saif Nutrition Coach Instagram Reel" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div
+            class="glass-panel border-white/10 rounded-3xl overflow-hidden hover:border-limeGreen/50 transition-all duration-300 group flex flex-col justify-between shadow-xl">
+            <div class="relative aspect-[9/16] bg-zinc-900 overflow-hidden cursor-pointer video-testimonial-trigger"
+              data-video-title="Saif Nutrition Coach — Fitness Transformation Reel" data-client="Saif Nutrition Coach"
+              data-speaker="Saif &bull; Chief Nutrition Coach" data-rating="5.0"
+              data-src="https://www.instagram.com/reel/DEmcqIFPSwv/embed/"
+              data-ig-url="https://www.instagram.com/reel/DEmcqIFPSwv/">
+              <img src="reel_thumbnails/reel_ig_7.jpg" alt="Saif Nutrition Coach Instagram Reel" loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
-              
+
               <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
+                <div
+                  class="w-14 h-14 rounded-full bg-limeGreen/90 text-brandBg flex items-center justify-center shadow-lg shadow-limeGreen/30 group-hover:scale-110 transition-transform">
                   <i data-lucide="play" class="w-6 h-6 fill-brandBg ml-1"></i>
                 </div>
               </div>
 
               <div class="absolute top-3 left-3">
-                <span class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">HEALTH & FITNESS</span>
+                <span
+                  class="text-[9px] bg-black/70 backdrop-blur-md border border-white/10 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">HEALTH
+                  & FITNESS</span>
               </div>
 
               <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
@@ -446,10 +558,12 @@
                 <p class="text-[10px] text-gray-300 font-futuristic">Saif &bull; Chief Nutrition Coach</p>
               </div>
             </div>
-            
+
             <div class="p-4 space-y-2 text-left bg-zinc-950/80">
-              <p class="text-xs text-gray-300 font-light italic">"Engaging fitness transformation reels and script hooks drove unprecedented client signups."</p>
-              <a href="https://www.instagram.com/reel/DEmcqIFPSwv/" target="_blank" class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
+              <p class="text-xs text-gray-300 font-light italic">"Engaging fitness transformation reels and script hooks
+                drove unprecedented client signups."</p>
+              <a href="https://www.instagram.com/reel/DEmcqIFPSwv/" target="_blank"
+                class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
                 <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
               </a>
             </div>
@@ -464,17 +578,20 @@
   <!-- NEW: VIDEO TESTIMONIAL MODAL POPUP -->
   <!-- ========================================== -->
   <div id="video-modal-overlay" class="feedback-modal-overlay">
-    <div class="feedback-modal-box w-full max-w-3xl bg-zinc-950 border border-limeGreen/40 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left">
-      
+    <div
+      class="feedback-modal-box w-full max-w-3xl bg-zinc-950 border border-limeGreen/40 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left">
+
       <!-- Close Button -->
-      <button id="close-video-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-20" title="Close Video">
+      <button id="close-video-modal"
+        class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-20" title="Close Video">
         <i data-lucide="x" class="w-6 h-6"></i>
       </button>
 
       <div class="space-y-4">
         <div class="border-b border-white/10 pb-3 flex items-center justify-between pr-8">
           <div>
-            <h3 id="video-modal-title" class="text-lg font-bold text-white uppercase tracking-wide">Client Video Testimonial</h3>
+            <h3 id="video-modal-title" class="text-lg font-bold text-white uppercase tracking-wide">Client Video
+              Testimonial</h3>
             <p id="video-modal-speaker" class="text-xs text-limeGreen font-futuristic">Verified Brand Partner</p>
           </div>
           <div class="flex items-center gap-1 text-limeGreen font-bold text-sm">
@@ -484,13 +601,18 @@
         </div>
 
         <!-- Video Frame Container -->
-        <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-black border border-white/10 shadow-inner flex items-center justify-center">
-          <iframe id="video-modal-iframe" class="w-full h-full" src="" title="Video Review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div
+          class="relative w-full aspect-video rounded-2xl overflow-hidden bg-black border border-white/10 shadow-inner flex items-center justify-center">
+          <iframe id="video-modal-iframe" class="w-full h-full" src="" title="Video Review" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
 
         <div class="flex items-center justify-between text-[10px] text-gray-400 font-futuristic pt-2">
-          <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-limeGreen"></i> VERIFIED INSTAGRAM REEL CASE STUDY</span>
-          <a id="video-modal-ig-link" href="https://instagram.com/medimusicagrow" target="_blank" class="text-limeGreen hover:underline font-bold flex items-center gap-1">
+          <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-limeGreen"></i>
+            VERIFIED INSTAGRAM REEL CASE STUDY</span>
+          <a id="video-modal-ig-link" href="https://instagram.com/medimusicagrow" target="_blank"
+            class="text-limeGreen hover:underline font-bold flex items-center gap-1">
             OPEN ON INSTAGRAM <i data-lucide="external-link" class="w-3 h-3"></i>
           </a>
         </div>
@@ -500,9 +622,11 @@
 
   <!-- WRITE A REVIEW DIALOG MODAL (POPUP ON OVERLAY) -->
   <div id="feedback-modal-overlay" class="feedback-modal-overlay">
-    <div class="feedback-modal-box w-full max-w-lg bg-zinc-950 border border-limeGreen/25 rounded-3xl p-8 shadow-2xl relative font-futuristic text-left">
+    <div
+      class="feedback-modal-box w-full max-w-lg bg-zinc-950 border border-limeGreen/25 rounded-3xl p-8 shadow-2xl relative font-futuristic text-left">
       <!-- Close Button -->
-      <button id="close-feedback-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close Modal">
+      <button id="close-feedback-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+        title="Close Modal">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
@@ -515,20 +639,26 @@
         <form id="review-submit-form" class="space-y-4 font-sans text-xs">
           <!-- Full Name -->
           <div class="space-y-1.5">
-            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">FULL NAME *</label>
-            <input type="text" id="review-name" required placeholder="e.g. John Doe" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">FULL NAME
+              *</label>
+            <input type="text" id="review-name" required placeholder="e.g. John Doe"
+              class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all">
           </div>
 
           <!-- Brand/Company -->
           <div class="space-y-1.5">
-            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">BRAND / TITLE *</label>
-            <input type="text" id="review-title" required placeholder="e.g. Founder, XYZ Labs" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">BRAND / TITLE
+              *</label>
+            <input type="text" id="review-title" required placeholder="e.g. Founder, XYZ Labs"
+              class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all">
           </div>
 
           <!-- Service Rated -->
           <div class="space-y-1.5">
-            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">SERVICE RATED *</label>
-            <select id="review-service" required class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all">
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">SERVICE RATED
+              *</label>
+            <select id="review-service" required
+              class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all">
               <option value="video-editing">Video Editing</option>
               <option value="web-dev">Web Development</option>
               <option value="meta-ads">Meta Ads</option>
@@ -538,16 +668,20 @@
 
           <!-- Testimonial Content -->
           <div class="space-y-1.5">
-            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">TESTIMONIAL PAYLOAD *</label>
-            <textarea id="review-text" required rows="4" placeholder="Detail your experience with Medimusicagrow..." class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all resize-none"></textarea>
+            <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">TESTIMONIAL
+              PAYLOAD *</label>
+            <textarea id="review-text" required rows="4" placeholder="Detail your experience with Medimusicagrow..."
+              class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all resize-none"></textarea>
           </div>
 
           <!-- Submit -->
           <div class="flex flex-col gap-3 pt-2">
-            <button type="submit" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center px-8 py-3 rounded-xl tracking-wider w-full text-xs">
+            <button type="submit"
+              class="lime-glow-btn text-brandBg font-futuristic font-bold text-center px-8 py-3 rounded-xl tracking-wider w-full text-xs">
               SUBMIT FOR VERIFICATION
             </button>
-            <a href="https://share.google/9WsqvZV57gCcyiZLF" target="_blank" class="block text-center font-futuristic text-xs font-bold text-limeGreen border border-limeGreen/30 hover:border-limeGreen bg-limeGreen/10 hover:bg-limeGreen/20 py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5">
+            <a href="https://share.google/9WsqvZV57gCcyiZLF" target="_blank"
+              class="block text-center font-futuristic text-xs font-bold text-limeGreen border border-limeGreen/30 hover:border-limeGreen bg-limeGreen/10 hover:bg-limeGreen/20 py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5">
               POST DIRECTLY ON GOOGLE MY BUSINESS <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
             </a>
           </div>
@@ -559,19 +693,23 @@
   <!-- FOOTER ORBIT -->
   <footer class="bg-black/80 border-t border-white/5 py-12 px-4 md:px-8 relative overflow-hidden select-none">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 items-start relative z-10">
-      
+
       <!-- Brand column -->
       <div class="space-y-4 md:col-span-2">
         <a href="index.html" class="flex items-center gap-3 group">
           <img src="logo.png" alt="MMG Logo" class="w-8 h-8 object-contain">
-          <span class="font-futuristic font-black text-lg tracking-wider text-white">MEDIMUSICA<span class="text-limeGreen">GROW</span></span>
+          <span class="font-futuristic font-black text-lg tracking-wider text-white">MEDIMUSICA<span
+              class="text-limeGreen">GROW</span></span>
         </a>
         <p class="text-xs text-gray-500 max-w-sm leading-relaxed font-light">
-          Medimusicagrow Pvt. Ltd. is registered in India. MMG scales brands via performance systems, viral video engineering, and custom interactive web structures.
+          Medimusicagrow Pvt. Ltd. is registered in India. MMG scales brands via performance systems, viral video
+          engineering, and custom interactive web structures.
         </p>
         <p class="text-[10px] text-gray-400 font-light">
-          <a href="https://maps.app.goo.gl/H4xHGvv24sqY85mp9?g_st=aw" target="_blank" class="hover:text-limeGreen transition-colors flex items-center gap-2">
-            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-limeGreen"></i> Awas Vikas Colony, Kasganj, Uttar Pradesh, 207123
+          <a href="https://maps.app.goo.gl/H4xHGvv24sqY85mp9?g_st=aw" target="_blank"
+            class="hover:text-limeGreen transition-colors flex items-center gap-2">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-limeGreen"></i> Awas Vikas Colony, Kasganj, Uttar Pradesh,
+            207123
           </a>
         </p>
         <p class="text-[10px] text-gray-400 font-light flex items-center gap-2">
@@ -581,7 +719,9 @@
 
       <!-- Links Column -->
       <div class="space-y-4">
-        <h4 class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">SYSTEM MAP</h4>
+        <h4
+          class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">
+          SYSTEM MAP</h4>
         <ul class="space-y-2 text-xs font-futuristic text-gray-400">
           <li><a href="index.html" class="hover:text-limeGreen transition-colors">&bull; HOME INTERFACE</a></li>
           <li><a href="services.html" class="hover:text-limeGreen transition-colors">&bull; SERVICES MATRIX</a></li>
@@ -594,22 +734,51 @@
 
       <!-- Social Footprints -->
       <div class="space-y-4">
-        <h4 class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">SOCIAL ORBIT</h4>
+        <h4
+          class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">
+          SOCIAL ORBIT</h4>
         <div class="flex flex-wrap gap-3">
-          <a href="https://youtube.com/@medimusicagrow" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 hover:bg-red-500/5 transition-all" title="YouTube">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.107C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.388.511a3.002 3.002 0 0 0-2.11 2.107C0 8.053 0 12 0 12s0 3.947.502 5.837a3.003 3.003 0 0 0 2.11 2.107c1.883.511 9.388.511 9.388.511s7.505 0 9.388-.511a3.002 3.002 0 0 0 2.11-2.107c.502-1.89.502-5.837.502-5.837s0-3.947-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <a href="https://youtube.com/@medimusicagrow" target="_blank"
+            class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 hover:bg-red-500/5 transition-all"
+            title="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+              <path
+                d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.107C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.388.511a3.002 3.002 0 0 0-2.11 2.107C0 8.053 0 12 0 12s0 3.947.502 5.837a3.003 3.003 0 0 0 2.11 2.107c1.883.511 9.388.511 9.388.511s7.505 0 9.388-.511a3.002 3.002 0 0 0 2.11-2.107c.502-1.89.502-5.837.502-5.837s0-3.947-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
           </a>
-          <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 hover:bg-pink-500/5 transition-all" title="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank"
+            class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 hover:bg-pink-500/5 transition-all"
+            title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="w-4 h-4">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
           </a>
-          <a href="https://twitter.com/medimusicagrow" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-400 hover:bg-blue-400/5 transition-all" title="Twitter / X">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <a href="https://twitter.com/medimusicagrow" target="_blank"
+            class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-400 hover:bg-blue-400/5 transition-all"
+            title="Twitter / X">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
           </a>
-          <a href="https://facebook.com/medimusicagrow" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-600 hover:border-blue-600 hover:bg-blue-600/5 transition-all" title="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <a href="https://facebook.com/medimusicagrow" target="_blank"
+            class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-600 hover:border-blue-600 hover:bg-blue-600/5 transition-all"
+            title="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
           </a>
-          <a href="https://wa.me/919634625609" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-green-500 hover:border-green-500 hover:bg-green-500/5 transition-all" title="WhatsApp">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.638 1.977 14.162.953 11.53.953c-5.442 0-9.866 4.372-9.87 9.802 0 1.83.504 3.619 1.46 5.205L2.09 20.35l4.557-1.196zm12.09-6.388c-.328-.164-1.942-.959-2.241-1.069-.3-.11-.518-.164-.736.164-.218.328-.844 1.069-1.035 1.288-.19.219-.38.247-.708.083-.328-.164-1.385-.511-2.638-1.63-.974-.87-1.632-1.944-1.823-2.272-.19-.328-.02-.505.144-.668.148-.147.328-.383.492-.575.164-.19.218-.328.328-.547.11-.219.055-.411-.027-.575-.082-.164-.736-1.777-1.008-2.434-.265-.636-.53-.55-.736-.56-.19-.01-.408-.01-.626-.01-.218 0-.573.082-.873.411-.3.328-1.145 1.122-1.145 2.736 0 1.614 1.173 3.175 1.336 3.394.164.218 2.3 3.512 5.572 4.927.778.337 1.386.538 1.86.689.782.248 1.493.213 2.055.129.626-.094 1.942-.795 2.215-1.562.272-.767.272-1.423.19-1.562-.081-.137-.3-.219-.628-.383z"/></svg>
+          <a href="https://wa.me/919634625609" target="_blank"
+            class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-green-500 hover:border-green-500 hover:bg-green-500/5 transition-all"
+            title="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.638 1.977 14.162.953 11.53.953c-5.442 0-9.866 4.372-9.87 9.802 0 1.83.504 3.619 1.46 5.205L2.09 20.35l4.557-1.196zm12.09-6.388c-.328-.164-1.942-.959-2.241-1.069-.3-.11-.518-.164-.736.164-.218.328-.844 1.069-1.035 1.288-.19.219-.38.247-.708.083-.328-.164-1.385-.511-2.638-1.63-.974-.87-1.632-1.944-1.823-2.272-.19-.328-.02-.505.144-.668.148-.147.328-.383.492-.575.164-.19.218-.328.328-.547.11-.219.055-.411-.027-.575-.082-.164-.736-1.777-1.008-2.434-.265-.636-.53-.55-.736-.56-.19-.01-.408-.01-.626-.01-.218 0-.573.082-.873.411-.3.328-1.145 1.122-1.145 2.736 0 1.614 1.173 3.175 1.336 3.394.164.218 2.3 3.512 5.572 4.927.778.337 1.386.538 1.86.689.782.248 1.493.213 2.055.129.626-.094 1.942-.795 2.215-1.562.272-.767.272-1.423.19-1.562-.081-.137-.3-.219-.628-.383z" />
+            </svg>
           </a>
         </div>
         <p class="text-[10px] text-gray-500 font-futuristic mt-2">
@@ -619,7 +788,8 @@
     </div>
 
     <!-- Copyright -->
-    <div class="max-w-6xl mx-auto mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[10px] text-gray-500 font-futuristic gap-4">
+    <div
+      class="max-w-6xl mx-auto mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[10px] text-gray-500 font-futuristic gap-4">
       <span>&copy; 2026 MEDIMUSICAGROW PVT. LTD. ALL RIGHTS RESERVED.</span>
       <span class="tracking-widest">SYSTEM // SHIVAYUR.IN ENGINE v2.0 // DEPLOYED</span>
     </div>
@@ -647,4 +817,5 @@
   <!-- Link script.js -->
   <script src="app.js?v=20260730_v2"></script>
 </body>
+
 </html>
