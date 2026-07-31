@@ -336,10 +336,10 @@ const ytCarousel = {
       videoId: "QZ2O6_EMU9I"
     },
     {
-      title: "Fastest Instagram Growth Ever 🚀 Only 7 Days to 3M Followers",
+      title: "Digital Marketing Zero to Hero Course | 100% Free Complete Course | Medi Musica Grow",
       image: "yt_slide3.png",
       subCount: "8.0K+",
-      videoId: "Htc0R66WPY4"
+      videoId: "HcnJvXahxzo"
     }
   ],
   currentIndex: 0
