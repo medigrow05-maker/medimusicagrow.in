@@ -324,6 +324,12 @@ if (typeof gsap !== 'undefined') {
 const ytCarousel = {
   slides: [
     {
+      title: "Digital Marketing Zero to Hero Course | 100% Free Complete Course | Medi Musica Grow",
+      image: "yt_slide3.png",
+      subCount: "8.0K+",
+      videoId: "HcnJvXahxzo"
+    },
+    {
       title: "Your Marketing Is Failing Because of These 10 Mistakes!",
       image: "yt_showreel_thumbnail.png",
       subCount: "8.0K+",
@@ -334,12 +340,6 @@ const ytCarousel = {
       image: "yt_slide2.png",
       subCount: "8.0K+",
       videoId: "QZ2O6_EMU9I"
-    },
-    {
-      title: "Digital Marketing Zero to Hero Course | 100% Free Complete Course | Medi Musica Grow",
-      image: "yt_slide3.png",
-      subCount: "8.0K+",
-      videoId: "HcnJvXahxzo"
     }
   ],
   currentIndex: 0
