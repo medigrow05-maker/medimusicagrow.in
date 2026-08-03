@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Client Roster & Case Studies | Medimusicagrow Pvt. Ltd.</title>
-  <meta name="description" content="Explore our client results, success stories, and verified project metrics in digital growth, video editing, and performance marketing.">
-  
+  <meta name="description"
+    content="Explore our client results, success stories, and verified project metrics in digital growth, video editing, and performance marketing.">
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
   <link rel="icon" type="image/jpeg" href="favicon.jpg">
@@ -13,17 +15,17 @@
 
   <!-- Tailwind CSS Play CDN (loaded synchronously so tailwind.config registers properly) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- Custom CSS stylesheet -->
   <link rel="stylesheet" href="styles.css">
-  
+
   <!-- Lucide Icons CDN -->
   <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js" defer></script>
-  
+
   <!-- GSAP & ScrollTrigger CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-  
+
   <script>
     tailwind.config = {
       theme: {
@@ -47,6 +49,7 @@
     }
   </script>
 </head>
+
 <body class="bg-brandBg text-silver min-h-screen relative antialiased selection:bg-limeGreen selection:text-brandBg">
 
   <!-- Interactive canvas background for deep space particle effects -->
@@ -55,37 +58,51 @@
   <!-- BACKGROUND GLOWS -->
   <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
     <div class="absolute top-[10%] left-[20%] w-[500px] h-[500px] rounded-full bg-glow-radial filter blur-[80px]"></div>
-    <div class="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] rounded-full bg-glow-radial filter blur-[100px]"></div>
+    <div class="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] rounded-full bg-glow-radial filter blur-[100px]">
+    </div>
   </div>
 
   <!-- FLOATING NAVIGATION HUB -->
   <header class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-    <nav class="w-full max-w-6xl glass-panel px-6 py-4 rounded-full flex items-center justify-between border border-white/10 shadow-2xl relative">
+    <nav
+      class="w-full max-w-6xl glass-panel px-6 py-4 rounded-full flex items-center justify-between border border-white/10 shadow-2xl relative">
       <!-- Logo Container -->
       <a href="index.html" class="flex items-center gap-2 sm:gap-3 group" id="header-logo-container">
         <img src="logo.png" alt="MMG Logo" class="w-9 h-9 sm:w-12 sm:h-12 object-contain logo-img">
         <div>
-          <div class="font-futuristic font-black text-sm sm:text-xl tracking-wider leading-none text-white">MEDIMUSICA<span class="text-limeGreen">GROW</span></div>
-          <div class="text-[7px] sm:text-[9px] uppercase tracking-[0.25em] sm:tracking-[0.35em] text-gray-400 mt-0.5 sm:mt-1">PVT. LTD. &bull; Brand Elevation</div>
+          <div class="font-futuristic font-black text-sm sm:text-xl tracking-wider leading-none text-white">
+            MEDIMUSICA<span class="text-limeGreen">GROW</span></div>
+          <div
+            class="text-[7px] sm:text-[9px] uppercase tracking-[0.25em] sm:tracking-[0.35em] text-gray-400 mt-0.5 sm:mt-1">
+            PVT. LTD. &bull; Brand Elevation</div>
         </div>
       </a>
 
       <!-- Minimalist Floating Navigation Links -->
       <div class="hidden lg:flex items-center gap-6 font-futuristic text-xs font-semibold tracking-wider">
-        <a href="index.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">HOME</a>
-        <a href="services.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">SERVICES</a>
-        <a href="clients.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">CLIENTS</a>
-        <a href="feedback.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">FEEDBACK</a>
-        <a href="training.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">TRAINING</a>
-        <a href="contact.html" class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">CONTACT US</a>
+        <a href="index.html"
+          class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">HOME</a>
+        <a href="services.html"
+          class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">SERVICES</a>
+        <a href="clients.html"
+          class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">CLIENTS</a>
+        <a href="feedback.html"
+          class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">FEEDBACK</a>
+        <a href="training.html"
+          class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">TRAINING</a>
+        <a href="contact.html"
+          class="hover:text-limeGreen transition-all duration-300 transform hover:-translate-y-0.5 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-limeGreen hover:after:w-full after:transition-all">CONTACT
+          US</a>
       </div>
 
       <!-- Action Button & Hamburger -->
       <div class="flex items-center gap-4">
-        <a href="contact.html" class="hidden md:inline-block font-futuristic text-xs font-bold border border-limeGreen text-limeGreen px-6 py-2.5 rounded-full hover:bg-limeGreen hover:text-brandBg hover:shadow-[0_0_15px_rgba(140,230,0,0.5)] transition-all duration-300 tracking-wider">
+        <a href="contact.html"
+          class="hidden md:inline-block font-futuristic text-xs font-bold border border-limeGreen text-limeGreen px-6 py-2.5 rounded-full hover:bg-limeGreen hover:text-brandBg hover:shadow-[0_0_15px_rgba(140,230,0,0.5)] transition-all duration-300 tracking-wider">
           DISCOVER CALL
         </a>
-        <button id="mobile-menu-btn" class="lg:hidden text-white hover:text-limeGreen transition-colors" title="Toggle Navigation Menu">
+        <button id="mobile-menu-btn" class="lg:hidden text-white hover:text-limeGreen transition-colors"
+          title="Toggle Navigation Menu">
           <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
       </div>
@@ -93,7 +110,8 @@
   </header>
 
   <!-- MOBILE NAVIGATION OVERLAY -->
-  <div id="mobile-menu-overlay" class="fixed inset-y-0 right-0 w-80 bg-brandBg/95 backdrop-blur-lg border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-8 font-futuristic">
+  <div id="mobile-menu-overlay"
+    class="fixed inset-y-0 right-0 w-80 bg-brandBg/95 backdrop-blur-lg border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-8 font-futuristic">
     <div class="space-y-8">
       <div class="flex justify-between items-center pb-6 border-b border-white/5">
         <span class="font-bold text-sm tracking-wider text-limeGreen">SYSTEM MAP</span>
@@ -111,7 +129,8 @@
       </div>
     </div>
     <div class="space-y-4 pt-6 border-t border-white/5">
-      <a href="contact.html" class="block text-center font-bold border border-limeGreen text-limeGreen py-3 rounded-full hover:bg-limeGreen hover:text-brandBg transition-all text-xs tracking-wider">
+      <a href="contact.html"
+        class="block text-center font-bold border border-limeGreen text-limeGreen py-3 rounded-full hover:bg-limeGreen hover:text-brandBg transition-all text-xs tracking-wider">
         DISCOVER CALL
       </a>
       <p class="text-[9px] text-gray-500 text-center tracking-widest uppercase mt-4">SYS.MODULE // ACTIVE</p>
@@ -121,27 +140,36 @@
   <!-- HERO HEADER & HUD METRICS -->
   <section class="pt-36 pb-12 px-4 md:px-8 relative overflow-hidden">
     <div class="max-w-6xl mx-auto text-center space-y-6 select-none z-10 relative">
-      <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.4em]">PROOF ARCHIVE // ACTIVE PARTNERS</span>
+      <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.4em]">PROOF ARCHIVE // ACTIVE
+        PARTNERS</span>
       <h1 class="text-4xl md:text-6xl font-black font-futuristic text-white">THE CLIENT ROSTER</h1>
       <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base font-light font-futuristic">
-        A directory of brands we have collaborated with to elevate content structure, edit video reels, and scale digital authority.
+        A directory of brands we have collaborated with to elevate content structure, edit video reels, and scale
+        digital authority.
       </p>
 
       <!-- Stats board -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-6">
-        <div class="glass-panel border-white/5 rounded-2xl p-4 md:p-6 text-center hover:border-limeGreen/20 transition-colors">
-          <span class="text-[10px] text-gray-500 block font-futuristic tracking-wider uppercase mb-1">Total Retention</span>
+        <div
+          class="glass-panel border-white/5 rounded-2xl p-4 md:p-6 text-center hover:border-limeGreen/20 transition-colors">
+          <span class="text-[10px] text-gray-500 block font-futuristic tracking-wider uppercase mb-1">Total
+            Retention</span>
           <span class="text-2xl md:text-3xl font-black font-sans text-limeGreen" id="stat-retention">5+ Yrs</span>
         </div>
-        <div class="glass-panel border-white/5 rounded-2xl p-4 md:p-6 text-center hover:border-limeGreen/20 transition-colors">
-          <span class="text-[10px] text-gray-500 block font-futuristic tracking-wider uppercase mb-1">Total Partners</span>
+        <div
+          class="glass-panel border-white/5 rounded-2xl p-4 md:p-6 text-center hover:border-limeGreen/20 transition-colors">
+          <span class="text-[10px] text-gray-500 block font-futuristic tracking-wider uppercase mb-1">Total
+            Partners</span>
           <span class="text-2xl md:text-3xl font-black font-sans text-limeGreen" id="stat-partners">194+ Brands</span>
         </div>
-        <div class="glass-panel border-white/5 rounded-2xl p-4 md:p-6 text-center hover:border-limeGreen/20 transition-colors">
-          <span class="text-[10px] text-gray-500 block font-futuristic tracking-wider uppercase mb-1">Videos Edited</span>
+        <div
+          class="glass-panel border-white/5 rounded-2xl p-4 md:p-6 text-center hover:border-limeGreen/20 transition-colors">
+          <span class="text-[10px] text-gray-500 block font-futuristic tracking-wider uppercase mb-1">Videos
+            Edited</span>
           <span class="text-2xl md:text-3xl font-black font-sans text-limeGreen" id="stat-reels">10,000+ Reels</span>
         </div>
-        <div class="glass-panel border-white/5 rounded-2xl p-4 md:p-6 text-center hover:border-limeGreen/20 transition-colors">
+        <div
+          class="glass-panel border-white/5 rounded-2xl p-4 md:p-6 text-center hover:border-limeGreen/20 transition-colors">
           <span class="text-[10px] text-gray-500 block font-futuristic tracking-wider uppercase mb-1">Impressions</span>
           <span class="text-2xl md:text-3xl font-black font-sans text-limeGreen" id="stat-views">100M+ Views</span>
         </div>
@@ -151,19 +179,25 @@
 
   <!-- SEARCH & FILTER HUB -->
   <section class="py-6 px-4 md:px-8 relative z-10">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 bg-black/40 border border-white/5 p-4 md:p-6 rounded-2xl glass-panel">
+    <div
+      class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 bg-black/40 border border-white/5 p-4 md:p-6 rounded-2xl glass-panel">
       <!-- Search Input -->
       <div class="relative w-full md:w-80">
-        <input type="text" id="client-search" placeholder="Search client name..." class="w-full bg-white/5 border border-white/10 rounded-full px-5 py-2.5 pl-11 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-limeGreen/40 font-futuristic transition-colors">
+        <input type="text" id="client-search" placeholder="Search client name..."
+          class="w-full bg-white/5 border border-white/10 rounded-full px-5 py-2.5 pl-11 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-limeGreen/40 font-futuristic transition-colors">
         <i data-lucide="search" class="w-4 h-4 text-gray-500 absolute left-4 top-3.5"></i>
       </div>
 
       <!-- Filter Buttons -->
       <div class="flex flex-wrap items-center gap-2.5 w-full md:w-auto justify-start md:justify-end">
-        <button class="filter-btn active px-5 py-2 rounded-full text-[11px] font-futuristic font-bold tracking-wider" data-filter="all">ALL COLLABS</button>
-        <button class="filter-btn px-5 py-2 rounded-full text-[11px] font-futuristic font-bold tracking-wider" data-filter="automobile">AUTOMOBILE</button>
-        <button class="filter-btn px-5 py-2 rounded-full text-[11px] font-futuristic font-bold tracking-wider" data-filter="electronics-mobile">ELECTRONICS & MOBILE</button>
-        <button class="filter-btn px-5 py-2 rounded-full text-[11px] font-futuristic font-bold tracking-wider" data-filter="retail-wellness">RETAIL & WELLNESS</button>
+        <button class="filter-btn active px-5 py-2 rounded-full text-[11px] font-futuristic font-bold tracking-wider"
+          data-filter="all">ALL COLLABS</button>
+        <button class="filter-btn px-5 py-2 rounded-full text-[11px] font-futuristic font-bold tracking-wider"
+          data-filter="automobile">AUTOMOBILE</button>
+        <button class="filter-btn px-5 py-2 rounded-full text-[11px] font-futuristic font-bold tracking-wider"
+          data-filter="electronics-mobile">ELECTRONICS & MOBILE</button>
+        <button class="filter-btn px-5 py-2 rounded-full text-[11px] font-futuristic font-bold tracking-wider"
+          data-filter="retail-wellness">RETAIL & WELLNESS</button>
       </div>
     </div>
   </section>
@@ -174,20 +208,24 @@
       <div id="client-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Rendered dynamically by app.js -->
       </div>
-      
+
       <!-- Show More Clients Container -->
       <div id="show-more-clients-container" class="mt-10 text-center hidden">
-        <button id="show-more-clients-btn" class="metallic-border text-white font-futuristic font-bold px-8 py-3.5 rounded-2xl text-xs tracking-wider inline-flex items-center gap-2 hover:border-limeGreen/50 hover:text-limeGreen transition-all group shadow-lg shadow-black/40">
+        <button id="show-more-clients-btn"
+          class="metallic-border text-white font-futuristic font-bold px-8 py-3.5 rounded-2xl text-xs tracking-wider inline-flex items-center gap-2 hover:border-limeGreen/50 hover:text-limeGreen transition-all group shadow-lg shadow-black/40">
           <span id="show-more-clients-text">SHOW MORE CLIENTS</span>
-          <i id="show-more-clients-icon" data-lucide="chevron-down" class="w-4 h-4 text-limeGreen group-hover:translate-y-0.5 transition-transform"></i>
+          <i id="show-more-clients-icon" data-lucide="chevron-down"
+            class="w-4 h-4 text-limeGreen group-hover:translate-y-0.5 transition-transform"></i>
         </button>
       </div>
 
       <!-- No clients match search alert -->
-      <div id="no-clients-alert" class="hidden text-center py-20 bg-black/20 border border-dashed border-white/5 rounded-3xl space-y-3 glass-panel">
+      <div id="no-clients-alert"
+        class="hidden text-center py-20 bg-black/20 border border-dashed border-white/5 rounded-3xl space-y-3 glass-panel">
         <i data-lucide="info" class="w-10 h-10 text-gray-500 mx-auto"></i>
         <h3 class="text-white font-futuristic font-bold text-lg">No Matching Clients Found</h3>
-        <p class="text-xs text-gray-400 font-light max-w-xs mx-auto">Try refining your search keyword or selecting a different category filter.</p>
+        <p class="text-xs text-gray-400 font-light max-w-xs mx-auto">Try refining your search keyword or selecting a
+          different category filter.</p>
       </div>
     </div>
   </section>
@@ -196,25 +234,35 @@
   <section class="py-12 px-4 md:px-8 relative z-10">
     <div class="max-w-6xl mx-auto space-y-8">
       <div class="text-left border-l-4 border-limeGreen pl-4">
-        <span class="text-limeGreen font-futuristic font-bold text-[10px] uppercase tracking-widest block">Featured Content</span>
+        <span class="text-limeGreen font-futuristic font-bold text-[10px] uppercase tracking-widest block">Featured
+          Content</span>
         <h2 class="text-2xl font-bold font-futuristic text-white">REELS & SHORT VIDEO WORK</h2>
       </div>
 
       <!-- Reels Grid Showcase -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Reel 1 -->
-        <div class="glass-panel border-white/5 rounded-2xl overflow-hidden group hover:border-limeGreen/30 transition-all duration-300 shadow-xl relative">
-          <a href="https://www.instagram.com/reel/DauF8Llyxpz/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="block relative aspect-[9/16] overflow-hidden">
-            <img src="reel_thumbnails/reel_1.png" alt="Reel 1 Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+        <div
+          class="glass-panel border-white/5 rounded-2xl overflow-hidden group hover:border-limeGreen/30 transition-all duration-300 shadow-xl relative">
+          <a href="https://www.instagram.com/reel/DauF8Llyxpz/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+            target="_blank" class="block relative aspect-[9/16] overflow-hidden">
+            <img src="reel_thumbnails/reel_1.png" alt="Reel 1 Cover"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"
+              decoding="async">
             <!-- Play Button Overlay -->
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
-              <div class="w-12 h-12 rounded-full bg-limeGreen/20 backdrop-blur-md border border-limeGreen/50 flex items-center justify-center text-limeGreen group-hover:scale-110 group-hover:bg-limeGreen group-hover:text-black transition-all shadow-[0_0_20px_rgba(140,230,0,0.3)]">
+            <div
+              class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+              <div
+                class="w-12 h-12 rounded-full bg-limeGreen/20 backdrop-blur-md border border-limeGreen/50 flex items-center justify-center text-limeGreen group-hover:scale-110 group-hover:bg-limeGreen group-hover:text-black transition-all shadow-[0_0_20px_rgba(140,230,0,0.3)]">
                 <i data-lucide="play" class="w-6 h-6 fill-current ml-0.5"></i>
               </div>
             </div>
             <!-- Bottom Text Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-5 space-y-2 pointer-events-none">
-              <span class="text-[9px] font-futuristic text-limeGreen border border-limeGreen/20 px-2 py-0.5 rounded bg-limeGreen/5 self-start font-bold uppercase tracking-wider">Viral Edit</span>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-5 space-y-2 pointer-events-none">
+              <span
+                class="text-[9px] font-futuristic text-limeGreen border border-limeGreen/20 px-2 py-0.5 rounded bg-limeGreen/5 self-start font-bold uppercase tracking-wider">Viral
+                Edit</span>
               <h4 class="text-xs font-bold text-white font-futuristic uppercase">Retention Hook Editing</h4>
               <div class="flex items-center gap-1 text-[10px] font-futuristic font-bold text-limeGreen pt-1">
                 WATCH ON INSTAGRAM <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
@@ -224,18 +272,27 @@
         </div>
 
         <!-- Reel 2 -->
-        <div class="glass-panel border-white/5 rounded-2xl overflow-hidden group hover:border-limeGreen/30 transition-all duration-300 shadow-xl relative">
-          <a href="https://www.instagram.com/reel/DZZC7KysHV5/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="block relative aspect-[9/16] overflow-hidden">
-            <img src="reel_thumbnails/reel_2.png" alt="Reel 2 Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+        <div
+          class="glass-panel border-white/5 rounded-2xl overflow-hidden group hover:border-limeGreen/30 transition-all duration-300 shadow-xl relative">
+          <a href="https://www.instagram.com/reel/DZZC7KysHV5/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+            target="_blank" class="block relative aspect-[9/16] overflow-hidden">
+            <img src="reel_thumbnails/reel_2.png" alt="Reel 2 Cover"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"
+              decoding="async">
             <!-- Play Button Overlay -->
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
-              <div class="w-12 h-12 rounded-full bg-limeGreen/20 backdrop-blur-md border border-limeGreen/50 flex items-center justify-center text-limeGreen group-hover:scale-110 group-hover:bg-limeGreen group-hover:text-black transition-all shadow-[0_0_20px_rgba(140,230,0,0.3)]">
+            <div
+              class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+              <div
+                class="w-12 h-12 rounded-full bg-limeGreen/20 backdrop-blur-md border border-limeGreen/50 flex items-center justify-center text-limeGreen group-hover:scale-110 group-hover:bg-limeGreen group-hover:text-black transition-all shadow-[0_0_20px_rgba(140,230,0,0.3)]">
                 <i data-lucide="play" class="w-6 h-6 fill-current ml-0.5"></i>
               </div>
             </div>
             <!-- Bottom Text Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-5 space-y-2 pointer-events-none">
-              <span class="text-[9px] font-futuristic text-limeGreen border border-limeGreen/20 px-2 py-0.5 rounded bg-limeGreen/5 self-start font-bold uppercase tracking-wider">Showroom Capture</span>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-5 space-y-2 pointer-events-none">
+              <span
+                class="text-[9px] font-futuristic text-limeGreen border border-limeGreen/20 px-2 py-0.5 rounded bg-limeGreen/5 self-start font-bold uppercase tracking-wider">Showroom
+                Capture</span>
               <h4 class="text-xs font-bold text-white font-futuristic uppercase">Automobile Showcase Edit</h4>
               <div class="flex items-center gap-1 text-[10px] font-futuristic font-bold text-limeGreen pt-1">
                 WATCH ON INSTAGRAM <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
@@ -245,18 +302,27 @@
         </div>
 
         <!-- Reel 3 -->
-        <div class="glass-panel border-white/5 rounded-2xl overflow-hidden group hover:border-limeGreen/30 transition-all duration-300 shadow-xl relative">
-          <a href="https://www.instagram.com/reel/DLpNlBhRBG3/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="block relative aspect-[9/16] overflow-hidden">
-            <img src="reel_thumbnails/reel_3.png" alt="Reel 3 Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+        <div
+          class="glass-panel border-white/5 rounded-2xl overflow-hidden group hover:border-limeGreen/30 transition-all duration-300 shadow-xl relative">
+          <a href="https://www.instagram.com/reel/DLpNlBhRBG3/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+            target="_blank" class="block relative aspect-[9/16] overflow-hidden">
+            <img src="reel_thumbnails/reel_3.png" alt="Reel 3 Cover"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"
+              decoding="async">
             <!-- Play Button Overlay -->
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
-              <div class="w-12 h-12 rounded-full bg-limeGreen/20 backdrop-blur-md border border-limeGreen/50 flex items-center justify-center text-limeGreen group-hover:scale-110 group-hover:bg-limeGreen group-hover:text-black transition-all shadow-[0_0_20px_rgba(140,230,0,0.3)]">
+            <div
+              class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+              <div
+                class="w-12 h-12 rounded-full bg-limeGreen/20 backdrop-blur-md border border-limeGreen/50 flex items-center justify-center text-limeGreen group-hover:scale-110 group-hover:bg-limeGreen group-hover:text-black transition-all shadow-[0_0_20px_rgba(140,230,0,0.3)]">
                 <i data-lucide="play" class="w-6 h-6 fill-current ml-0.5"></i>
               </div>
             </div>
             <!-- Bottom Text Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-5 space-y-2 pointer-events-none">
-              <span class="text-[9px] font-futuristic text-limeGreen border border-limeGreen/20 px-2 py-0.5 rounded bg-limeGreen/5 self-start font-bold uppercase tracking-wider">Product Hype</span>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-5 space-y-2 pointer-events-none">
+              <span
+                class="text-[9px] font-futuristic text-limeGreen border border-limeGreen/20 px-2 py-0.5 rounded bg-limeGreen/5 self-start font-bold uppercase tracking-wider">Product
+                Hype</span>
               <h4 class="text-xs font-bold text-white font-futuristic uppercase">Retail Unboxing & Pacing</h4>
               <div class="flex items-center gap-1 text-[10px] font-futuristic font-bold text-limeGreen pt-1">
                 WATCH ON INSTAGRAM <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
@@ -266,18 +332,27 @@
         </div>
 
         <!-- Reel 4 -->
-        <div class="glass-panel border-white/5 rounded-2xl overflow-hidden group hover:border-limeGreen/30 transition-all duration-300 shadow-xl relative">
-          <a href="https://www.instagram.com/reel/DXvsaSERXwq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="block relative aspect-[9/16] overflow-hidden">
-            <img src="reel_thumbnails/reel_4.png" alt="Reel 4 Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+        <div
+          class="glass-panel border-white/5 rounded-2xl overflow-hidden group hover:border-limeGreen/30 transition-all duration-300 shadow-xl relative">
+          <a href="https://www.instagram.com/reel/DXvsaSERXwq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+            target="_blank" class="block relative aspect-[9/16] overflow-hidden">
+            <img src="reel_thumbnails/reel_4.png" alt="Reel 4 Cover"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"
+              decoding="async">
             <!-- Play Button Overlay -->
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
-              <div class="w-12 h-12 rounded-full bg-limeGreen/20 backdrop-blur-md border border-limeGreen/50 flex items-center justify-center text-limeGreen group-hover:scale-110 group-hover:bg-limeGreen group-hover:text-black transition-all shadow-[0_0_20px_rgba(140,230,0,0.3)]">
+            <div
+              class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors">
+              <div
+                class="w-12 h-12 rounded-full bg-limeGreen/20 backdrop-blur-md border border-limeGreen/50 flex items-center justify-center text-limeGreen group-hover:scale-110 group-hover:bg-limeGreen group-hover:text-black transition-all shadow-[0_0_20px_rgba(140,230,0,0.3)]">
                 <i data-lucide="play" class="w-6 h-6 fill-current ml-0.5"></i>
               </div>
             </div>
             <!-- Bottom Text Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-5 space-y-2 pointer-events-none">
-              <span class="text-[9px] font-futuristic text-limeGreen border border-limeGreen/20 px-2 py-0.5 rounded bg-limeGreen/5 self-start font-bold uppercase tracking-wider">Event Highlights</span>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-5 space-y-2 pointer-events-none">
+              <span
+                class="text-[9px] font-futuristic text-limeGreen border border-limeGreen/20 px-2 py-0.5 rounded bg-limeGreen/5 self-start font-bold uppercase tracking-wider">Event
+                Highlights</span>
               <h4 class="text-xs font-bold text-white font-futuristic uppercase">Cinematic Promo Showcase</h4>
               <div class="flex items-center gap-1 text-[10px] font-futuristic font-bold text-limeGreen pt-1">
                 WATCH ON INSTAGRAM <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
@@ -292,19 +367,23 @@
   <!-- FOOTER ORBIT -->
   <footer class="bg-black/80 border-t border-white/5 py-12 px-4 md:px-8 relative overflow-hidden select-none">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 items-start relative z-10">
-      
+
       <!-- Brand column -->
       <div class="space-y-4 md:col-span-2">
         <a href="index.html" class="flex items-center gap-3 group">
           <img src="logo.png" alt="MMG Logo" class="w-8 h-8 object-contain">
-          <span class="font-futuristic font-black text-lg tracking-wider text-white">MEDIMUSICA<span class="text-limeGreen">GROW</span></span>
+          <span class="font-futuristic font-black text-lg tracking-wider text-white">MEDIMUSICA<span
+              class="text-limeGreen">GROW</span></span>
         </a>
         <p class="text-xs text-gray-500 max-w-sm leading-relaxed font-light">
-          Medimusicagrow Pvt. Ltd. is registered in India. MMG scales brands via performance systems, viral video engineering, and custom interactive web structures.
+          Medimusicagrow Pvt. Ltd. is registered in India. MMG scales brands via performance systems, viral video
+          engineering, and custom interactive web structures.
         </p>
         <p class="text-[10px] text-gray-400 font-light">
-          <a href="https://maps.app.goo.gl/H4xHGvv24sqY85mp9?g_st=aw" target="_blank" class="hover:text-limeGreen transition-colors flex items-center gap-2">
-            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-limeGreen"></i> Awas Vikas Colony, Kasganj, Uttar Pradesh, 207123
+          <a href="https://maps.app.goo.gl/H4xHGvv24sqY85mp9?g_st=aw" target="_blank"
+            class="hover:text-limeGreen transition-colors flex items-center gap-2">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-limeGreen"></i> Awas Vikas Colony, Kasganj, Uttar Pradesh,
+            207123
           </a>
         </p>
         <p class="text-[10px] text-gray-400 font-light flex items-center gap-2">
@@ -314,7 +393,9 @@
 
       <!-- Links Column -->
       <div class="space-y-4">
-        <h4 class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">SYSTEM MAP</h4>
+        <h4
+          class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">
+          SYSTEM MAP</h4>
         <ul class="space-y-2 text-xs font-futuristic text-gray-400">
           <li><a href="index.html" class="hover:text-limeGreen transition-colors">&bull; HOME INTERFACE</a></li>
           <li><a href="services.html" class="hover:text-limeGreen transition-colors">&bull; SERVICES MATRIX</a></li>
@@ -327,22 +408,51 @@
 
       <!-- Social Footprints -->
       <div class="space-y-4">
-        <h4 class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">SOCIAL ORBIT</h4>
+        <h4
+          class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">
+          SOCIAL ORBIT</h4>
         <div class="flex flex-wrap gap-3">
-          <a href="https://youtube.com/@medimusicagrow" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 hover:bg-red-500/5 transition-all" title="YouTube">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.107C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.388.511a3.002 3.002 0 0 0-2.11 2.107C0 8.053 0 12 0 12s0 3.947.502 5.837a3.003 3.003 0 0 0 2.11 2.107c1.883.511 9.388.511 9.388.511s7.505 0 9.388-.511a3.002 3.002 0 0 0 2.11-2.107c.502-1.89.502-5.837.502-5.837s0-3.947-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <a href="https://youtube.com/@medimusicagrow" target="_blank"
+            class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 hover:bg-red-500/5 transition-all"
+            title="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+              <path
+                d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.107C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.388.511a3.002 3.002 0 0 0-2.11 2.107C0 8.053 0 12 0 12s0 3.947.502 5.837a3.003 3.003 0 0 0 2.11 2.107c1.883.511 9.388.511 9.388.511s7.505 0 9.388-.511a3.002 3.002 0 0 0 2.11-2.107c.502-1.89.502-5.837.502-5.837s0-3.947-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
           </a>
-          <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 hover:bg-pink-500/5 transition-all" title="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank"
+            class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 hover:bg-pink-500/5 transition-all"
+            title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="w-4 h-4">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
           </a>
-          <a href="https://twitter.com/medimusicagrow" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-400 hover:bg-blue-400/5 transition-all" title="Twitter / X">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <a href="https://twitter.com/medimusicagrow" target="_blank"
+            class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-400 hover:bg-blue-400/5 transition-all"
+            title="Twitter / X">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
           </a>
-          <a href="https://facebook.com/medimusicagrow" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-600 hover:border-blue-600 hover:bg-blue-600/5 transition-all" title="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <a href="https://facebook.com/medimusicagrow" target="_blank"
+            class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-600 hover:border-blue-600 hover:bg-blue-600/5 transition-all"
+            title="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
           </a>
-          <a href="https://wa.me/919634625609" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-green-500 hover:border-green-500 hover:bg-green-500/5 transition-all" title="WhatsApp">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.638 1.977 14.162.953 11.53.953c-5.442 0-9.866 4.372-9.87 9.802 0 1.83.504 3.619 1.46 5.205L2.09 20.35l4.557-1.196zm12.09-6.388c-.328-.164-1.942-.959-2.241-1.069-.3-.11-.518-.164-.736.164-.218.328-.844 1.069-1.035 1.288-.19.219-.38.247-.708.083-.328-.164-1.385-.511-2.638-1.63-.974-.87-1.632-1.944-1.823-2.272-.19-.328-.02-.505.144-.668.148-.147.328-.383.492-.575.164-.19.218-.328.328-.547.11-.219.055-.411-.027-.575-.082-.164-.736-1.777-1.008-2.434-.265-.636-.53-.55-.736-.56-.19-.01-.408-.01-.626-.01-.218 0-.573.082-.873.411-.3.328-1.145 1.122-1.145 2.736 0 1.614 1.173 3.175 1.336 3.394.164.218 2.3 3.512 5.572 4.927.778.337 1.386.538 1.86.689.782.248 1.493.213 2.055.129.626-.094 1.942-.795 2.215-1.562.272-.767.272-1.423.19-1.562-.081-.137-.3-.219-.628-.383z"/></svg>
+          <a href="https://wa.me/919634625609" target="_blank"
+            class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-green-500 hover:border-green-500 hover:bg-green-500/5 transition-all"
+            title="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.638 1.977 14.162.953 11.53.953c-5.442 0-9.866 4.372-9.87 9.802 0 1.83.504 3.619 1.46 5.205L2.09 20.35l4.557-1.196zm12.09-6.388c-.328-.164-1.942-.959-2.241-1.069-.3-.11-.518-.164-.736.164-.218.328-.844 1.069-1.035 1.288-.19.219-.38.247-.708.083-.328-.164-1.385-.511-2.638-1.63-.974-.87-1.632-1.944-1.823-2.272-.19-.328-.02-.505.144-.668.148-.147.328-.383.492-.575.164-.19.218-.328.328-.547.11-.219.055-.411-.027-.575-.082-.164-.736-1.777-1.008-2.434-.265-.636-.53-.55-.736-.56-.19-.01-.408-.01-.626-.01-.218 0-.573.082-.873.411-.3.328-1.145 1.122-1.145 2.736 0 1.614 1.173 3.175 1.336 3.394.164.218 2.3 3.512 5.572 4.927.778.337 1.386.538 1.86.689.782.248 1.493.213 2.055.129.626-.094 1.942-.795 2.215-1.562.272-.767.272-1.423.19-1.562-.081-.137-.3-.219-.628-.383z" />
+            </svg>
           </a>
         </div>
         <p class="text-[10px] text-gray-500 font-futuristic mt-2">
@@ -352,9 +462,10 @@
     </div>
 
     <!-- Copyright -->
-    <div class="max-w-6xl mx-auto mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[10px] text-gray-500 font-futuristic gap-4">
+    <div
+      class="max-w-6xl mx-auto mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[10px] text-gray-500 font-futuristic gap-4">
       <span>&copy; 2026 MEDIMUSICAGROW PVT. LTD. ALL RIGHTS RESERVED.</span>
-      <span class="tracking-widest">SYSTEM // SHIVAYUR.IN ENGINE v2.0 // DEPLOYED</span>
+      <span class="tracking-widest">SYSTEM // <a href="https://shivayur.in">SHIVAYUR.IN</a> // DEPLOYED</span>
     </div>
   </footer>
 
@@ -378,6 +489,7 @@
   </script>
 
   <!-- Link script.js -->
-  <script src="app.js?v=20260731_v7"></script>
+  <script src="app.js?v=20260803_v8"></script>
 </body>
+
 </html>
