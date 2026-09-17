@@ -36,14 +36,14 @@
       theme: {
         extend: {
           colors: {
-            brandBg: '#FAFAFC',
+            brandBg: '#FAFAFA',
             brandCard: '#FFFFFF',
-            limeGreen: '#16A34A',
-            limeGlow: 'rgba(22, 163, 74, 0.2)',
-            limeDim: '#15803D',
-            platinum: '#0F172A',
-            silver: '#475569',
-            darkGray: '#F1F5F9',
+            limeGreen: '#059669',
+            limeGlow: 'rgba(5, 150, 105, 0.15)',
+            limeDim: '#047857',
+            platinum: '#09090B',
+            silver: '#52525B',
+            darkGray: '#F4F4F5',
           },
           fontFamily: {
             orbitron: ['"Plus Jakarta Sans"', 'sans-serif'],
@@ -134,50 +134,48 @@
       <!-- Headline & Subheadline Left Panel -->
       <div class="lg:col-span-7 flex flex-col justify-center text-left space-y-8 select-none">
         <!-- Floating Tag -->
-        <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 w-fit text-xs font-semibold tracking-wider font-futuristic floating-element-1">
-          <span class="w-2 h-2 rounded-full bg-limeGreen animate-ping"></span>
+        <div class="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-full px-4 py-1.5 w-fit text-xs font-semibold tracking-wider text-emerald-800">
+          <span class="w-2 h-2 rounded-full bg-emerald-600 animate-ping"></span>
           <span>LAUNCHING BRANDS INTO ORBIT</span>
         </div>
         
         <!-- Elevating Title -->
-        <h1 class="text-4xl md:text-6xl font-black font-futuristic text-white leading-tight">
+        <h1 class="text-4xl md:text-6xl font-black font-futuristic text-zinc-950 leading-tight">
           We Don't Just Edit.<br>
           <span class="metallic-text">We Elevate.</span><br>
-          <span class="text-limeGreen lime-glow-text">Scaling Brands Past the Atmosphere.</span>
+          <span class="text-emerald-600">Scaling Brands Beyond Boundaries.</span>
         </h1>
         
         <!-- Sub-headline -->
-        <p class="text-gray-400 text-base md:text-lg leading-relaxed max-w-xl font-light">
-          Medimusicagrow Pvt. Ltd. is a full-service digital marketing agency turning content into cash flow through high-octane social media growth, high-end video production, and performance marketing.
+        <p class="text-zinc-600 text-base md:text-lg leading-relaxed max-w-xl font-normal">
+          Medimusicagrow Pvt. Ltd. is a premier digital marketing agency turning content into cash flow through high-octane social media growth, high-end video production, and performance marketing.
         </p>
         
         <!-- CTA Float buttons -->
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 pt-4">
-          <a href="contact.html" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center px-8 py-4 rounded-xl shadow-lg tracking-wider text-sm">
+          <a href="contact.html" class="lime-glow-btn text-white font-futuristic font-bold text-center px-8 py-4 rounded-xl shadow-lg tracking-wider text-sm">
             GET A FREE AUDIT
           </a>
-          <a href="services.html" class="glass-panel border border-slate-200 text-slate-900 font-futuristic font-bold text-center px-8 py-4 rounded-xl hover:bg-slate-100 transition-all duration-300 tracking-wider text-sm flex items-center justify-center gap-2">
-            <i data-lucide="play" class="w-4 h-4 fill-limeGreen text-limeGreen"></i> EXPLORE SERVICES
+          <a href="services.html" class="glass-panel border border-zinc-200 text-zinc-900 font-futuristic font-bold text-center px-8 py-4 rounded-xl hover:bg-zinc-100 transition-all duration-300 tracking-wider text-sm flex items-center justify-center gap-2">
+            <i data-lucide="play" class="w-4 h-4 fill-emerald-600 text-emerald-600"></i> EXPLORE SERVICES
           </a>
         </div>
       </div>
       
       <!-- 3D Interactive Floating Aperture Right Panel -->
       <div class="lg:col-span-5 flex justify-center items-center relative perspective-container h-[400px] md:h-[500px]">
-        <!-- Rotating HUD Rings -->
-        <div class="hud-circle w-[320px] h-[320px] md:w-[400px] md:h-[400px]"></div>
-        <div class="hud-circle-reverse w-[260px] h-[260px] md:w-[320px] md:h-[320px]"></div>
-        <div class="absolute w-[200px] h-[200px] md:w-[250px] md:h-[250px] border border-white/5 rounded-full pointer-events-none"></div>
+        <!-- Subtle ambient radial ring -->
+        <div class="absolute w-[280px] h-[280px] md:w-[360px] md:h-[360px] rounded-full border border-zinc-200/80 pointer-events-none"></div>
 
         <!-- 3D Floating Camera Icon -->
         <div class="tilt-wrapper w-[240px] h-[240px] md:w-[320px] md:h-[320px] flex items-center justify-center cursor-pointer absolute" id="hero-3d-node">
-          <!-- Background Glow Aperture -->
-          <div class="absolute w-full h-full bg-limeGreen/10 rounded-full filter blur-3xl animate-pulse"></div>
+          <!-- Background Soft Glow -->
+          <div class="absolute w-full h-full bg-emerald-500/10 rounded-full filter blur-3xl"></div>
           <!-- Generated 3D glassmorphic MMG Camera Aperture -->
-          <img src="hero_3d_aperture.png" alt="MMG 3D Camera" class="w-[90%] h-[90%] object-contain floating-element-2 filter drop-shadow-[0_0_20px_rgba(140,230,0,0.3)]" decoding="async">
-          <!-- floating coordinates tag -->
-          <div class="absolute bottom-[-10px] bg-black/80 border border-limeGreen/30 text-[10px] px-3 py-1 font-futuristic text-limeGreen tracking-widest rounded-md">
-            SYS.NODE // ORBIT_ACTIVE
+          <img src="hero_3d_aperture.png" alt="MMG 3D Camera" class="w-[90%] h-[90%] object-contain floating-element-2 filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.1)]" decoding="async">
+          <!-- Floating status tag -->
+          <div class="absolute bottom-[-10px] bg-white border border-zinc-200 text-[11px] px-3.5 py-1 font-semibold text-zinc-800 tracking-wide rounded-full shadow-md">
+            ✨ MMG PRODUCTION NODE
           </div>
         </div>
       </div>
@@ -871,12 +869,9 @@
           overlay.classList.add('translate-x-full');
         });
       }
-    });
-  </script>
+    });  </script>
 
   <!-- Link script.js -->
-
-  <!-- Link script.js -->
-  <script src="app.js?v=20260917_v9"></script>
+  <script src="app.js?v=20260917_v10"></script>
 </body>
 </html>
