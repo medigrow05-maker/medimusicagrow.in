@@ -36,14 +36,17 @@
       theme: {
         extend: {
           colors: {
-            brandBg: '#FAFAFA',
+            brandBg: '#FFF9F2',
             brandCard: '#FFFFFF',
-            limeGreen: '#059669',
-            limeGlow: 'rgba(5, 150, 105, 0.15)',
-            limeDim: '#047857',
-            platinum: '#09090B',
-            silver: '#52525B',
-            darkGray: '#F4F4F5',
+            brandAlmond: '#F3E7D6',
+            brandBurgundy: '#81001A',
+            brandRose: '#D54F60',
+            limeGreen: '#81001A',
+            limeGlow: 'rgba(213, 79, 96, 0.2)',
+            limeDim: '#6B0015',
+            platinum: '#81001A',
+            silver: '#3D1C22',
+            darkGray: '#F3E7D6',
           },
           fontFamily: {
             orbitron: ['"Plus Jakarta Sans"', 'sans-serif'],
@@ -134,20 +137,20 @@
       <!-- Headline & Subheadline Left Panel -->
       <div class="lg:col-span-7 flex flex-col justify-center text-left space-y-8 select-none">
         <!-- Floating Tag -->
-        <div class="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-full px-4 py-1.5 w-fit text-xs font-semibold tracking-wider text-emerald-800">
-          <span class="w-2 h-2 rounded-full bg-emerald-600 animate-ping"></span>
+        <div class="inline-flex items-center gap-2 bg-[#F3E7D6] border border-[#EBDCCB] rounded-full px-4 py-1.5 w-fit text-xs font-semibold tracking-wider text-[#81001A]">
+          <span class="w-2 h-2 rounded-full bg-[#81001A] animate-ping"></span>
           <span>LAUNCHING BRANDS INTO ORBIT</span>
         </div>
         
         <!-- Elevating Title -->
-        <h1 class="text-4xl md:text-6xl font-black font-futuristic text-zinc-950 leading-tight">
+        <h1 class="text-4xl md:text-6xl font-black font-futuristic text-[#81001A] leading-tight">
           We Don't Just Edit.<br>
           <span class="metallic-text">We Elevate.</span><br>
-          <span class="text-emerald-600">Scaling Brands Beyond Boundaries.</span>
+          <span class="text-[#81001A]">Scaling Brands Beyond Boundaries.</span>
         </h1>
         
         <!-- Sub-headline -->
-        <p class="text-zinc-600 text-base md:text-lg leading-relaxed max-w-xl font-normal">
+        <p class="text-[#57333A] text-base md:text-lg leading-relaxed max-w-xl font-normal">
           Medimusicagrow Pvt. Ltd. is a premier digital marketing agency turning content into cash flow through high-octane social media growth, high-end video production, and performance marketing.
         </p>
         
@@ -156,8 +159,8 @@
           <a href="contact.html" class="lime-glow-btn text-white font-futuristic font-bold text-center px-8 py-4 rounded-xl shadow-lg tracking-wider text-sm">
             GET A FREE AUDIT
           </a>
-          <a href="services.html" class="glass-panel border border-zinc-200 text-zinc-900 font-futuristic font-bold text-center px-8 py-4 rounded-xl hover:bg-zinc-100 transition-all duration-300 tracking-wider text-sm flex items-center justify-center gap-2">
-            <i data-lucide="play" class="w-4 h-4 fill-emerald-600 text-emerald-600"></i> EXPLORE SERVICES
+          <a href="services.html" class="glass-panel border border-[#EBDCCB] text-[#81001A] font-futuristic font-bold text-center px-8 py-4 rounded-xl hover:bg-[#F3E7D6] transition-all duration-300 tracking-wider text-sm flex items-center justify-center gap-2">
+            <i data-lucide="play" class="w-4 h-4 fill-[#81001A] text-[#81001A]"></i> EXPLORE SERVICES
           </a>
         </div>
       </div>
@@ -165,16 +168,16 @@
       <!-- 3D Interactive Floating Aperture Right Panel -->
       <div class="lg:col-span-5 flex justify-center items-center relative perspective-container h-[400px] md:h-[500px]">
         <!-- Subtle ambient radial ring -->
-        <div class="absolute w-[280px] h-[280px] md:w-[360px] md:h-[360px] rounded-full border border-zinc-200/80 pointer-events-none"></div>
+        <div class="absolute w-[280px] h-[280px] md:w-[360px] md:h-[360px] rounded-full border border-[#EBDCCB]/80 pointer-events-none"></div>
 
         <!-- 3D Floating Camera Icon -->
         <div class="tilt-wrapper w-[240px] h-[240px] md:w-[320px] md:h-[320px] flex items-center justify-center cursor-pointer absolute" id="hero-3d-node">
           <!-- Background Soft Glow -->
-          <div class="absolute w-full h-full bg-emerald-500/10 rounded-full filter blur-3xl"></div>
+          <div class="absolute w-full h-full bg-[#D54F60]/10 rounded-full filter blur-3xl"></div>
           <!-- Generated 3D glassmorphic MMG Camera Aperture -->
-          <img src="hero_3d_aperture.png" alt="MMG 3D Camera" class="w-[90%] h-[90%] object-contain floating-element-2 filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.1)]" decoding="async">
+          <img src="hero_3d_aperture.png" alt="MMG 3D Camera" class="w-[90%] h-[90%] object-contain floating-element-2 filter drop-shadow-[0_10px_25px_rgba(129,0,26,0.12)]" decoding="async">
           <!-- Floating status tag -->
-          <div class="absolute bottom-[-10px] bg-white border border-zinc-200 text-[11px] px-3.5 py-1 font-semibold text-zinc-800 tracking-wide rounded-full shadow-md">
+          <div class="absolute bottom-[-10px] bg-[#FFF9F2] border border-[#EBDCCB] text-[11px] px-3.5 py-1 font-semibold text-[#81001A] tracking-wide rounded-full shadow-md">
             ✨ MMG PRODUCTION NODE
           </div>
         </div>
@@ -872,6 +875,6 @@
     });  </script>
 
   <!-- Link script.js -->
-  <script src="app.js?v=20260917_v10"></script>
+  <script src="app.js?v=20260917_v11"></script>
 </body>
 </html>
