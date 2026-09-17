@@ -506,3 +506,26 @@ footer .border-white\/5,
 footer .border-white\/10 {
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
+
+
+/* Multi-channel Orbit YouTube & Phone Mockup Theme Styling */
+.phone-mockup-frame {
+  background: linear-gradient(180deg, #20080E 0%, #120306 100%) !important;
+  border: 5px solid #800020 !important;
+  box-shadow: 0 20px 40px -10px rgba(128, 0, 32, 0.3) !important;
+}
+
+.yt-stat-box {
+  background: #FFFFFF !important;
+  border: 2px solid rgba(128, 0, 32, 0.2) !important;
+  transition: all 0.2s ease;
+}
+.yt-stat-box:hover {
+  border-color: #800020 !important;
+  box-shadow: 0 4px 12px rgba(128, 0, 32, 0.08) !important;
+}
+
+#yt-showreel-card h4 {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+}

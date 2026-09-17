@@ -22,7 +22,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   
   <!-- Custom CSS stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=20260917_v22">
+  <link rel="stylesheet" href="styles.css?v=20260917_v23">
   
   <!-- Lucide Icons CDN -->
   <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js" defer></script>
@@ -283,59 +283,63 @@
         
         <!-- COLUMN 1: YOUTUBE ORBIT (5 Columns) -->
         <div class="lg:col-span-5 space-y-6">
-          <div class="flex items-center justify-between border-b border-white/10 pb-4">
+          <div class="flex items-center justify-between border-b border-black/10 pb-4">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500">
+              <div class="w-10 h-10 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-600 shadow-sm">
                 <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.107C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.388.511a3.002 3.002 0 0 0-2.11 2.107C0 8.053 0 12 0 12s0 3.947.502 5.837a3.003 3.003 0 0 0 2.11 2.107c1.883.511 9.388.511 9.388.511s7.505 0 9.388-.511a3.002 3.002 0 0 0 2.11-2.107c.502-1.89.502-5.837.502-5.837s0-3.947-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               </div>
               <div>
                 <h3 class="font-futuristic font-bold text-black text-sm">YOUTUBE ECOSYSTEM</h3>
-                <p class="text-[10px] text-gray-500 font-futuristic">@MEDIMUSICAGROW</p>
+                <p class="text-[10px] text-gray-600 font-futuristic">@MEDIMUSICAGROW</p>
               </div>
             </div>
-            <a href="https://youtube.com/@medimusicagrow" target="_blank" class="text-xs font-futuristic text-limeGreen flex items-center gap-1 border border-limeGreen/20 hover:border-limeGreen px-3 py-1 rounded-md transition-all">
+            <a href="https://youtube.com/@medimusicagrow" target="_blank" class="text-xs font-futuristic text-limeGreen flex items-center gap-1 border border-limeGreen/30 hover:bg-limeGreen hover:text-white px-3 py-1 rounded-md transition-all font-bold">
               OPEN ORBIT <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
             </a>
           </div>
 
-          <!-- YouTube Orbit Carousel Wrapper -->
-          <div class="relative w-full overflow-hidden bg-white/5 border border-white/10 rounded-2xl p-4 perspective-container">
+          <!-- YouTube Orbit Carousel Wrapper (Themed Glass Panel) -->
+          <div class="glass-panel rounded-3xl p-5 border-2 border-[#800020]/25 shadow-xl relative w-full overflow-hidden perspective-container">
             <div class="space-y-4">
               <!-- Animated Video Cards Stack -->
-              <div class="relative rounded-xl overflow-hidden shadow-2xl border border-white/5 aspect-video flex items-center justify-center bg-black/60 group cursor-pointer" id="yt-showreel-card">
-                <div class="absolute inset-0 bg-cover bg-center opacity-65 group-hover:opacity-40 transition-opacity duration-500" style="background-image: url('yt_slide3.png');"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+              <div class="relative rounded-2xl overflow-hidden shadow-xl border-2 border-[#800020]/25 aspect-video flex items-center justify-center bg-black/80 group cursor-pointer" id="yt-showreel-card">
+                <div class="absolute inset-0 bg-cover bg-center opacity-75 group-hover:opacity-60 transition-opacity duration-500" style="background-image: url('yt_slide3.png');"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
                 
-                <div class="absolute top-3 left-3 bg-red-600 text-black font-futuristic text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider flex items-center gap-1.5 shadow">
+                <div class="absolute top-3 left-3 bg-[#800020] text-white font-futuristic text-[9px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-md">
                   <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span> FEATURED VIDEOS
                 </div>
 
                 <div class="z-10 text-center flex flex-col items-center gap-3">
-                  <div class="w-14 h-14 rounded-full bg-limeGreen/20 border border-limeGreen text-limeGreen flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <i data-lucide="play" class="w-6 h-6 fill-limeGreen"></i>
+                  <div class="w-14 h-14 rounded-full bg-[#800020] text-white flex items-center justify-center shadow-lg shadow-[#800020]/40 group-hover:scale-110 transition-transform border border-white/20">
+                    <i data-lucide="play" class="w-6 h-6 fill-white ml-0.5"></i>
                   </div>
-                  <h4 class="font-futuristic font-bold text-sm text-black px-6">Digital Marketing Zero to Hero Course | 100% Free Complete Course | Medi Musica Grow</h4>
+                  <h4 class="font-futuristic font-bold text-sm text-white drop-shadow-md px-6 leading-snug">Digital Marketing Zero to Hero Course | 100% Free Complete Course | Medi Musica Grow</h4>
                 </div>
               </div>
 
               <!-- Carousel Pagination / Control details -->
-              <div class="flex items-center justify-between text-xs font-futuristic text-gray-500 pt-2 px-1">
-                <span class="carousel-slide-label">SLIDE 01 // 03</span>
-                <div class="flex gap-2">
-                  <button class="p-1 hover:text-black transition-colors" id="carousel-prev-btn"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
-                  <button class="p-1 hover:text-black transition-colors" id="carousel-next-btn"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+              <div class="flex items-center justify-between text-xs font-futuristic pt-2 px-1 border-t border-[#800020]/15">
+                <span class="carousel-slide-label font-bold text-[#800020] tracking-wider">SLIDE 01 // 03</span>
+                <div class="flex items-center gap-2">
+                  <button class="w-8 h-8 rounded-full bg-[#800020]/10 hover:bg-[#800020] text-[#800020] hover:text-white border border-[#800020]/20 flex items-center justify-center transition-all shadow-sm" id="carousel-prev-btn" aria-label="Previous Slide">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                  </button>
+                  <button class="w-8 h-8 rounded-full bg-[#800020]/10 hover:bg-[#800020] text-[#800020] hover:text-white border border-[#800020]/20 flex items-center justify-center transition-all shadow-sm" id="carousel-next-btn" aria-label="Next Slide">
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                  </button>
                 </div>
               </div>
               
-              <!-- Underneath stats summary -->
-              <div class="grid grid-cols-2 gap-3 pt-2">
-                <div class="bg-black/40 border border-white/5 rounded-xl p-3 text-center">
-                  <span class="text-xs text-gray-500 block">Subscribers</span>
-                  <span class="font-futuristic font-bold text-black text-sm" id="yt-sub-count">8.0K+</span>
+              <!-- Underneath stats summary (Themed Boxes) -->
+              <div class="grid grid-cols-2 gap-3 pt-1">
+                <div class="yt-stat-box rounded-2xl p-3.5 text-center shadow-sm">
+                  <span class="text-[11px] font-futuristic text-black/70 font-semibold block uppercase tracking-wider">Subscribers</span>
+                  <span class="font-futuristic font-black text-[#800020] text-xl block mt-0.5" id="yt-sub-count">8.0K+</span>
                 </div>
-                <div class="bg-black/40 border border-white/5 rounded-xl p-3 text-center">
-                  <span class="text-xs text-gray-500 block">Watchtime</span>
-                  <span class="font-futuristic font-bold text-black text-sm">240K+ Hrs</span>
+                <div class="yt-stat-box rounded-2xl p-3.5 text-center shadow-sm">
+                  <span class="text-[11px] font-futuristic text-black/70 font-semibold block uppercase tracking-wider">Watchtime</span>
+                  <span class="font-futuristic font-black text-[#800020] text-xl block mt-0.5">240K+ Hrs</span>
                 </div>
               </div>
             </div>
@@ -344,63 +348,63 @@
 
         <!-- COLUMN 2: INSTAGRAM FEED (3 Columns - Phone Screen Mockup) -->
         <div class="lg:col-span-3 space-y-6">
-          <div class="flex items-center justify-between border-b border-white/10 pb-4">
+          <div class="flex items-center justify-between border-b border-black/10 pb-4">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-lg bg-pink-600/10 border border-pink-600/30 flex items-center justify-center text-pink-500">
+              <div class="w-10 h-10 rounded-xl bg-pink-600/10 border border-pink-600/30 flex items-center justify-center text-pink-500 shadow-sm">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </div>
               <div>
                 <h3 class="font-futuristic font-bold text-black text-sm">INSTAGRAM HUB</h3>
-                <p class="text-[10px] text-gray-500 font-futuristic">@MEDIMUSICAGROW</p>
+                <p class="text-[10px] text-gray-600 font-futuristic">@MEDIMUSICAGROW</p>
               </div>
             </div>
-            <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank" class="text-xs font-futuristic text-limeGreen flex items-center gap-1 border border-limeGreen/20 hover:border-limeGreen px-3 py-1 rounded-md transition-all">
+            <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank" class="text-xs font-futuristic text-limeGreen flex items-center gap-1 border border-limeGreen/30 hover:bg-limeGreen hover:text-white px-3 py-1 rounded-md transition-all font-bold">
               FOLLOW <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
             </a>
           </div>
 
-          <!-- Phone mockup container -->
-          <div class="flex justify-center">
-            <div class="w-[240px] h-[480px] bg-[#0c0c0c] border-[6px] border-[#222] rounded-[36px] shadow-2xl relative overflow-hidden flex flex-col justify-between p-3 select-none">
+          <!-- Phone mockup container in matching panel -->
+          <div class="glass-panel rounded-3xl p-5 border-2 border-[#800020]/25 shadow-xl flex items-center justify-center">
+            <div class="phone-mockup-frame w-[240px] h-[480px] rounded-[38px] relative overflow-hidden flex flex-col justify-between p-3 select-none">
               <!-- Camera Notch -->
-              <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-20 h-4 bg-[#222] rounded-full z-20"></div>
+              <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-20 h-4 bg-[#800020]/70 rounded-full z-20"></div>
 
               <!-- Top Info -->
-              <div class="flex justify-between items-center text-[8px] text-gray-400 font-futuristic px-2 pt-2">
-                <span>MMG_NETWORK</span>
-                <span class="w-1.5 h-1.5 rounded-full bg-limeGreen animate-pulse"></span>
+              <div class="flex justify-between items-center text-[8px] text-[#F3E6D5]/80 font-futuristic px-2 pt-2">
+                <span class="tracking-wider font-semibold">MMG_NETWORK</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-[#D54F60] animate-pulse"></span>
               </div>
 
               <!-- Reel Visual Card -->
-              <a href="https://www.instagram.com/reel/DaMqRWtz_kF/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-grow my-3 bg-zinc-950 rounded-2xl relative overflow-hidden flex items-center justify-center group cursor-pointer border border-white/5 block">
+              <a href="https://www.instagram.com/reel/DaMqRWtz_kF/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-grow my-3 bg-zinc-950 rounded-2xl relative overflow-hidden flex items-center justify-center group cursor-pointer border border-white/10 block">
                 <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('home_reel_cover.jpg');"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/40"></div>
                 
                 <!-- Overlay details representing a viral reel overlay -->
                 <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 z-10 text-[9px]">
-                  <p class="text-black font-semibold">Happy Customers Feedback</p>
-                  <div class="flex items-center gap-2 text-limeGreen font-futuristic">
-                    <span><i data-lucide="heart" class="w-2.5 h-2.5 inline mr-0.5"></i> Watch Reel</span>
+                  <p class="text-white font-bold drop-shadow">Happy Customers Feedback</p>
+                  <div class="flex items-center gap-2 text-[#F3E6D5] font-futuristic">
+                    <span><i data-lucide="heart" class="w-2.5 h-2.5 inline mr-0.5 fill-[#D54F60] text-[#D54F60]"></i> Watch Reel</span>
                   </div>
                 </div>
                 
                 <!-- Spinning record reel indicator in bottom right -->
-                <div class="absolute bottom-3 right-3 w-6 h-6 rounded-full bg-brandBg border border-white/10 flex items-center justify-center animate-spin z-10">
-                  <i data-lucide="disc" class="w-3.5 h-3.5 text-limeGreen"></i>
+                <div class="absolute bottom-3 right-3 w-6 h-6 rounded-full bg-[#800020] border border-white/20 flex items-center justify-center animate-spin z-10 shadow">
+                  <i data-lucide="disc" class="w-3.5 h-3.5 text-[#F3E6D5]"></i>
                 </div>
 
-                <div class="z-10 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-center text-black group-hover:scale-110 transition-transform">
-                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-limeGreen"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <div class="z-10 w-11 h-11 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg">
+                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-white"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                  </div>
               </a>
 
               <!-- Bottom UI mimicking Instagram -->
-              <div class="flex justify-around items-center border-t border-white/5 pt-2 text-gray-500">
-                <i data-lucide="home" class="w-3.5 h-3.5 hover:text-black cursor-pointer"></i>
-                <i data-lucide="search" class="w-3.5 h-3.5 hover:text-black cursor-pointer"></i>
-                <i data-lucide="plus-square" class="w-3.5 h-3.5 hover:text-black cursor-pointer"></i>
-                <i data-lucide="clapperboard" class="w-3.5 h-3.5 text-limeGreen cursor-pointer"></i>
-                <i data-lucide="user" class="w-3.5 h-3.5 hover:text-black cursor-pointer"></i>
+              <div class="flex justify-around items-center border-t border-[#800020]/40 pt-2 text-[#F3E6D5]/60 bg-[#120507]/60 -mx-3 -mb-3 px-3 pb-2.5">
+                <i data-lucide="home" class="w-3.5 h-3.5 hover:text-white cursor-pointer"></i>
+                <i data-lucide="search" class="w-3.5 h-3.5 hover:text-white cursor-pointer"></i>
+                <i data-lucide="plus-square" class="w-3.5 h-3.5 hover:text-white cursor-pointer"></i>
+                <i data-lucide="clapperboard" class="w-3.5 h-3.5 text-[#D54F60] cursor-pointer"></i>
+                <i data-lucide="user" class="w-3.5 h-3.5 hover:text-white cursor-pointer"></i>
               </div>
             </div>
           </div>
@@ -408,47 +412,47 @@
 
         <!-- COLUMN 3: INSIGHTS STREAM (4 Columns - Twitter/FB) -->
         <div class="lg:col-span-4 space-y-6">
-          <div class="flex items-center justify-between border-b border-white/10 pb-4">
+          <div class="flex items-center justify-between border-b border-black/10 pb-4">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-600/30 flex items-center justify-center text-blue-500">
+              <div class="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-600/30 flex items-center justify-center text-blue-500 shadow-sm">
                 <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
               </div>
               <div>
                 <h3 class="font-futuristic font-bold text-black text-sm">INSIGHTS STREAM</h3>
-                <p class="text-[10px] text-gray-500 font-futuristic">@MEDIMUSICAGROW</p>
+                <p class="text-[10px] text-gray-600 font-futuristic">@MEDIMUSICAGROW</p>
               </div>
             </div>
-            <a href="https://twitter.com/medimusicagrow" target="_blank" class="text-xs font-futuristic text-limeGreen flex items-center gap-1 border border-limeGreen/20 hover:border-limeGreen px-3 py-1 rounded-md transition-all">
+            <a href="https://twitter.com/medimusicagrow" target="_blank" class="text-xs font-futuristic text-limeGreen flex items-center gap-1 border border-limeGreen/30 hover:bg-limeGreen hover:text-white px-3 py-1 rounded-md transition-all font-bold">
               FEED <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
             </a>
           </div>
 
           <!-- Insight Feeds List -->
           <div class="space-y-4">
-            <div class="glass-panel rounded-xl p-4 border border-white/5 space-y-3 relative hover:border-limeGreen/20 transition-colors">
+            <div class="glass-panel rounded-3xl p-5 border-2 border-[#800020]/25 space-y-3 relative hover:border-[#800020] transition-colors shadow-xl">
               <div class="flex items-center justify-between">
-                <span class="text-[10px] font-futuristic text-limeGreen bg-limeGreen/5 border border-limeGreen/10 px-2 py-0.5 rounded">MMG_UPDATE // 01</span>
-                <span class="text-[9px] text-gray-500">2h ago</span>
+                <span class="text-[10px] font-futuristic text-[#800020] bg-[#800020]/10 border border-[#800020]/20 font-bold px-2.5 py-1 rounded-full">MMG_UPDATE // 01</span>
+                <span class="text-[9px] text-gray-500 font-futuristic">2h ago</span>
               </div>
-              <p class="text-xs text-gray-300 leading-relaxed font-light">
+              <p class="text-xs text-black leading-relaxed font-light">
                 Meta Ads CPM rates are dropping by 14% this quarter. It is the perfect window to aggressively scale scaling budgets and launch content pipelines. Read how we did it below. 👇
               </p>
-              <div class="flex items-center gap-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-3 text-[10px] text-gray-600 pt-1 border-t border-[#800020]/10">
                 <span><i data-lucide="message-square" class="w-3 h-3 inline mr-1"></i> 18</span>
                 <span><i data-lucide="repeat" class="w-3 h-3 inline mr-1"></i> 45</span>
                 <span><i data-lucide="heart" class="w-3 h-3 inline mr-1 text-red-500"></i> 124</span>
               </div>
             </div>
 
-            <div class="glass-panel rounded-xl p-4 border border-white/5 space-y-3 relative hover:border-limeGreen/20 transition-colors">
+            <div class="glass-panel rounded-3xl p-5 border-2 border-[#800020]/25 space-y-3 relative hover:border-[#800020] transition-colors shadow-xl">
               <div class="flex items-center justify-between">
-                <span class="text-[10px] font-futuristic text-limeGreen bg-limeGreen/5 border border-limeGreen/10 px-2 py-0.5 rounded">MMG_INSIGHT // 02</span>
-                <span class="text-[9px] text-gray-500">1d ago</span>
+                <span class="text-[10px] font-futuristic text-[#800020] bg-[#800020]/10 border border-[#800020]/20 font-bold px-2.5 py-1 rounded-full">MMG_INSIGHT // 02</span>
+                <span class="text-[9px] text-gray-500 font-futuristic">1d ago</span>
               </div>
-              <p class="text-xs text-gray-300 leading-relaxed font-light">
+              <p class="text-xs text-black leading-relaxed font-light">
                 Average attention spans dropped to 4.2 seconds this year. If you aren't dynamic hook editing in the first 2 seconds, you are bleeding conversions. We elevated average watchtime by 2.4x.
               </p>
-              <div class="flex items-center gap-3 text-[10px] text-gray-500">
+              <div class="flex items-center gap-3 text-[10px] text-gray-600 pt-1 border-t border-[#800020]/10">
                 <span><i data-lucide="message-square" class="w-3 h-3 inline mr-1"></i> 32</span>
                 <span><i data-lucide="repeat" class="w-3 h-3 inline mr-1"></i> 89</span>
                 <span><i data-lucide="heart" class="w-3 h-3 inline mr-1 text-red-500"></i> 340</span>
@@ -873,6 +877,6 @@
     });  </script>
 
   <!-- Link script.js -->
-  <script src="app.js?v=20260917_v22"></script>
+  <script src="app.js?v=20260917_v23"></script>
 </body>
 </html>
