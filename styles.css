@@ -414,6 +414,19 @@ option {
 }
 
 /* Video Testimonial Card details */
+
+/* Transparent Video Reel Category Badges */
+.video-reel-badge,
+.video-testimonial-trigger .absolute.top-3 span {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+  letter-spacing: 0.05em !important;
+}
+
 .video-testimonial-trigger + div {
   background-color: #F3E6D5 !important;
   border-top: 1px solid rgba(128, 0, 32, 0.15) !important;
