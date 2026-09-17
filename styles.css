@@ -66,12 +66,21 @@ h1, h2, h3, h4, h5, h6 {
   color: #800020 !important;
 }
 
-/* Ensure white text is rendered black */
+/* Ensure white and gray text are rendered dark black */
 .text-white {
   color: #000000 !important;
 }
 .hover\:text-white:hover {
   color: #000000 !important;
+}
+
+.text-gray-400,
+.text-gray-300 {
+  color: #222222 !important;
+}
+
+.text-gray-500 {
+  color: #333333 !important;
 }
 
 /* Hide background clutter */
