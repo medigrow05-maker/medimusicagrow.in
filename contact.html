@@ -15,7 +15,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   
   <!-- Custom CSS stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=20260917_v28">
+  <link rel="stylesheet" href="styles.css?v=20260917_v30">
   
   <!-- Lucide Icons CDN -->
   <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js" defer></script>
@@ -29,17 +29,17 @@
       theme: {
         extend: {
           colors: {
-            brandBg: '#F3E6D5',
-            brandCard: '#F3E6D5',
-            brandAlmond: '#F3E6D5',
-            brandBurgundy: '#81001A',
-            brandRose: '#D54F60',
-            limeGreen: '#81001A',
+            brandBg: '#FFFFFF',
+            brandCard: '#F5F5F7',
+            brandAlmond: '#F5F5F7',
+            brandBurgundy: '#000000',
+            brandRose: '#737373',
+            limeGreen: '#000000',
             limeGlow: 'rgba(213, 79, 96, 0.2)',
-            limeDim: '#6B0015',
+            limeDim: '#333333',
             platinum: '#81001A',
             silver: '#3D1C22',
-            darkGray: '#F3E7D6',
+            darkGray: '#F5F5F7',
           },
           fontFamily: {
             orbitron: ['"Plus Jakarta Sans"', 'sans-serif'],
@@ -64,7 +64,7 @@
 
   <!-- FLOATING NAVIGATION HUB -->
   <header class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-    <nav class="w-full max-w-6xl glass-panel px-6 py-4 rounded-full flex items-center justify-between border border-white/10 shadow-2xl relative">
+    <nav class="w-full max-w-6xl glass-panel px-6 py-4 rounded-full flex items-center justify-between border border-black/10 shadow-2xl relative">
       <!-- Logo Container -->
       <a href="index.html" class="flex items-center gap-2 sm:gap-3 group" id="header-logo-container">
         <img src="logo.png" alt="MMG Logo" class="w-9 h-9 sm:w-12 sm:h-12 object-contain logo-img">
@@ -97,9 +97,9 @@
   </header>
 
   <!-- MOBILE NAVIGATION OVERLAY -->
-  <div id="mobile-menu-overlay" class="fixed inset-y-0 right-0 w-80 bg-brandBg/95 backdrop-blur-lg border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-8 font-futuristic">
+  <div id="mobile-menu-overlay" class="fixed inset-y-0 right-0 w-80 bg-brandBg/95 backdrop-blur-lg border-l border-black/10 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-8 font-futuristic">
     <div class="space-y-8">
-      <div class="flex justify-between items-center pb-6 border-b border-white/5">
+      <div class="flex justify-between items-center pb-6 border-b border-black/5">
         <span class="font-bold text-sm tracking-wider text-limeGreen">SYSTEM MAP</span>
         <button id="close-mobile-menu-btn" class="text-black hover:text-limeGreen transition-colors" title="Close Menu">
           <i data-lucide="x" class="w-6 h-6"></i>
@@ -114,7 +114,7 @@
         <a href="contact.html" class="hover:text-limeGreen transition-all">CONTACT US</a>
       </div>
     </div>
-    <div class="space-y-4 pt-6 border-t border-white/5">
+    <div class="space-y-4 pt-6 border-t border-black/5">
       <a href="contact.html" class="block text-center font-bold border border-limeGreen text-limeGreen py-3 rounded-full hover:bg-limeGreen hover:text-brandBg transition-all text-xs tracking-wider">
         DISCOVER CALL
       </a>
@@ -138,7 +138,7 @@
 
         <div class="space-y-4 font-futuristic">
           <!-- WhatsApp connect -->
-          <a href="https://wa.me/919634625609" target="_blank" class="glass-panel border-white/10 p-4 rounded-xl flex items-center gap-4 hover:border-limeGreen/30 hover:bg-limeGreen/5 transition-all">
+          <a href="https://wa.me/919634625609" target="_blank" class="glass-panel border-black/10 p-4 rounded-xl flex items-center gap-4 hover:border-limeGreen/30 hover:bg-limeGreen/5 transition-all">
             <div class="w-10 h-10 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-500">
               <i data-lucide="message-square" class="w-5 h-5"></i>
             </div>
@@ -149,7 +149,7 @@
           </a>
 
           <!-- Telemetry Call direct -->
-          <a href="tel:+919634625609" class="glass-panel border-white/10 p-4 rounded-xl flex items-center gap-4 hover:border-limeGreen/30 hover:bg-limeGreen/5 transition-all">
+          <a href="tel:+919634625609" class="glass-panel border-black/10 p-4 rounded-xl flex items-center gap-4 hover:border-limeGreen/30 hover:bg-limeGreen/5 transition-all">
             <div class="w-10 h-10 rounded-lg bg-limeGreen/10 border border-limeGreen/20 flex items-center justify-center text-limeGreen">
               <i data-lucide="phone" class="w-5 h-5"></i>
             </div>
@@ -161,7 +161,7 @@
         </div>
 
         <!-- Stylized Interactive Map Frame (Grid Graphic) -->
-        <a href="https://maps.app.goo.gl/H4xHGvv24sqY85mp9?g_st=aw" target="_blank" class="glass-panel border-white/10 hover:border-limeGreen/40 rounded-2xl p-6 relative overflow-hidden aspect-[4/3] flex flex-col justify-between group transition-all duration-300 cursor-pointer block">
+        <a href="https://maps.app.goo.gl/H4xHGvv24sqY85mp9?g_st=aw" target="_blank" class="glass-panel border-black/10 hover:border-limeGreen/40 rounded-2xl p-6 relative overflow-hidden aspect-[4/3] flex flex-col justify-between group transition-all duration-300 cursor-pointer block">
           <!-- Background grids styling -->
           <div class="absolute inset-0 bg-[linear-gradient(rgba(140,230,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(140,230,0,0.03)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none opacity-40"></div>
           
@@ -182,7 +182,7 @@
             </p>
           </div>
 
-          <div class="z-10 text-[8px] font-futuristic text-gray-600 border-t border-white/5 pt-2 flex justify-between">
+          <div class="z-10 text-[8px] font-futuristic text-gray-600 border-t border-black/5 pt-2 flex justify-between">
             <span>LAT: 27.8083° N</span>
             <span>LNG: 78.6500° E</span>
           </div>
@@ -200,14 +200,14 @@
               <div class="space-y-2 text-left">
                 <label for="contact-name" class="block font-futuristic text-xs font-semibold text-gray-300 tracking-wider">FULL NAME / BRAND NAME *</label>
                 <input type="text" id="contact-name" required placeholder="e.g., AlphaTech Corp" 
-                       class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-black placeholder-gray-600 focus:border-limeGreen focus:ring-1 focus:ring-limeGreen focus:shadow-[0_0_15px_rgba(140,230,0,0.2)] outline-none transition-all text-sm font-light">
+                       class="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-black placeholder-gray-600 focus:border-limeGreen focus:ring-1 focus:ring-limeGreen focus:shadow-[0_0_15px_rgba(140,230,0,0.2)] outline-none transition-all text-sm font-light">
               </div>
 
               <!-- Email Address -->
               <div class="space-y-2 text-left">
                 <label for="contact-email" class="block font-futuristic text-xs font-semibold text-gray-300 tracking-wider">EMAIL ADDRESS *</label>
                 <input type="email" id="contact-email" required placeholder="e.g., partner@alphatech.com" 
-                       class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-black placeholder-gray-600 focus:border-limeGreen focus:ring-1 focus:ring-limeGreen focus:shadow-[0_0_15px_rgba(140,230,0,0.2)] outline-none transition-all text-sm font-light">
+                       class="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-black placeholder-gray-600 focus:border-limeGreen focus:ring-1 focus:ring-limeGreen focus:shadow-[0_0_15px_rgba(140,230,0,0.2)] outline-none transition-all text-sm font-light">
               </div>
             </div>
 
@@ -219,7 +219,7 @@
                 <label for="contact-service" class="block font-futuristic text-xs font-semibold text-gray-300 tracking-wider">SERVICE REQUIRED *</label>
                 <div class="relative">
                   <select id="contact-service" required 
-                          class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-black focus:border-limeGreen outline-none transition-all text-sm font-light appearance-none">
+                          class="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-black focus:border-limeGreen outline-none transition-all text-sm font-light appearance-none">
                     <option value="" disabled selected class="bg-brandBg text-gray-600">Select standard service...</option>
                     <option value="smm" class="bg-brandBg text-black">Social Media Management</option>
                     <option value="content-creation" class="bg-brandBg text-black">Content Creation</option>
@@ -243,7 +243,7 @@
               <div class="space-y-2 text-left">
                 <label for="contact-channel" class="block font-futuristic text-xs font-semibold text-gray-300 tracking-wider">SOCIAL LINK (IF ANY)</label>
                 <input type="url" id="contact-channel" placeholder="e.g., instagram.com/yourprofile" 
-                       class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-black placeholder-gray-600 focus:border-limeGreen focus:ring-1 focus:ring-limeGreen focus:shadow-[0_0_15px_rgba(140,230,0,0.2)] outline-none transition-all text-sm font-light">
+                       class="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-black placeholder-gray-600 focus:border-limeGreen focus:ring-1 focus:ring-limeGreen focus:shadow-[0_0_15px_rgba(140,230,0,0.2)] outline-none transition-all text-sm font-light">
               </div>
             </div>
 
@@ -253,14 +253,14 @@
               <div class="space-y-2 text-left">
                 <label for="contact-whatsapp" class="block font-futuristic text-xs font-semibold text-gray-300 tracking-wider">WHATSAPP NUMBER *</label>
                 <input type="tel" id="contact-whatsapp" required placeholder="e.g., +91 96346 25609" 
-                       class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-black placeholder-gray-600 focus:border-limeGreen focus:ring-1 focus:ring-limeGreen focus:shadow-[0_0_15px_rgba(140,230,0,0.2)] outline-none transition-all text-sm font-light">
+                       class="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-black placeholder-gray-600 focus:border-limeGreen focus:ring-1 focus:ring-limeGreen focus:shadow-[0_0_15px_rgba(140,230,0,0.2)] outline-none transition-all text-sm font-light">
               </div>
 
               <!-- Address Column -->
               <div class="space-y-2 text-left">
                 <label for="contact-address" class="block font-futuristic text-xs font-semibold text-gray-300 tracking-wider">YOUR ADDRESS *</label>
                 <input type="text" id="contact-address" required placeholder="e.g., Kasganj, Uttar Pradesh" 
-                       class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-black placeholder-gray-600 focus:border-limeGreen focus:ring-1 focus:ring-limeGreen focus:shadow-[0_0_15px_rgba(140,230,0,0.2)] outline-none transition-all text-sm font-light">
+                       class="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-black placeholder-gray-600 focus:border-limeGreen focus:ring-1 focus:ring-limeGreen focus:shadow-[0_0_15px_rgba(140,230,0,0.2)] outline-none transition-all text-sm font-light">
               </div>
             </div>
 
@@ -268,7 +268,7 @@
             <div class="space-y-2 text-left">
               <label for="contact-message" class="block font-futuristic text-xs font-semibold text-gray-300 tracking-wider">PROJECT OBJECTIVES & DETAIL SUMMARY</label>
               <textarea id="contact-message" rows="4" placeholder="Briefly describe what metrics you want to scale..." 
-                        class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-black placeholder-gray-600 focus:border-limeGreen focus:ring-1 focus:ring-limeGreen focus:shadow-[0_0_15px_rgba(140,230,0,0.2)] outline-none transition-all text-sm font-light resize-none"></textarea>
+                        class="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-black placeholder-gray-600 focus:border-limeGreen focus:ring-1 focus:ring-limeGreen focus:shadow-[0_0_15px_rgba(140,230,0,0.2)] outline-none transition-all text-sm font-light resize-none"></textarea>
             </div>
 
             <!-- Submit Action -->
@@ -303,7 +303,7 @@
   </section>
 
   <!-- FOOTER ORBIT -->
-  <footer class="bg-black/80 border-t border-white/5 py-12 px-4 md:px-8 relative overflow-hidden select-none">
+  <footer class="bg-black/80 border-t border-black/5 py-12 px-4 md:px-8 relative overflow-hidden select-none">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 items-start relative z-10">
       
       <!-- Brand column -->
@@ -342,19 +342,19 @@
       <div class="space-y-4">
         <h4 class="font-futuristic text-xs font-bold text-black uppercase tracking-wider border-l-2 border-limeGreen pl-2">SOCIAL ORBIT</h4>
         <div class="flex flex-wrap gap-3">
-          <a href="https://youtube.com/@medimusicagrow" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 hover:bg-red-500/5 transition-all" title="YouTube">
+          <a href="https://youtube.com/@medimusicagrow" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-black/10 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 hover:bg-red-500/5 transition-all" title="YouTube">
             <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.107C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.388.511a3.002 3.002 0 0 0-2.11 2.107C0 8.053 0 12 0 12s0 3.947.502 5.837a3.003 3.003 0 0 0 2.11 2.107c1.883.511 9.388.511 9.388.511s7.505 0 9.388-.511a3.002 3.002 0 0 0 2.11-2.107c.502-1.89.502-5.837.502-5.837s0-3.947-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           </a>
-          <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 hover:bg-pink-500/5 transition-all" title="Instagram">
+          <a href="https://instagram.com/medimusicagrow?igsh=dmxxMHVwbnhuNHQx" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-black/10 flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 hover:bg-pink-500/5 transition-all" title="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
           </a>
-          <a href="https://twitter.com/medimusicagrow" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-400 hover:bg-blue-400/5 transition-all" title="Twitter / X">
+          <a href="https://twitter.com/medimusicagrow" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-black/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-400 hover:bg-blue-400/5 transition-all" title="Twitter / X">
             <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
-          <a href="https://facebook.com/medimusicagrow" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-600 hover:border-blue-600 hover:bg-blue-600/5 transition-all" title="Facebook">
+          <a href="https://facebook.com/medimusicagrow" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-black/10 flex items-center justify-center text-gray-400 hover:text-blue-600 hover:border-blue-600 hover:bg-blue-600/5 transition-all" title="Facebook">
             <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
-          <a href="https://wa.me/919634625609" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-green-500 hover:border-green-500 hover:bg-green-500/5 transition-all" title="WhatsApp">
+          <a href="https://wa.me/919634625609" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 border border-black/10 flex items-center justify-center text-gray-400 hover:text-green-500 hover:border-green-500 hover:bg-green-500/5 transition-all" title="WhatsApp">
             <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.638 1.977 14.162.953 11.53.953c-5.442 0-9.866 4.372-9.87 9.802 0 1.83.504 3.619 1.46 5.205L2.09 20.35l4.557-1.196zm12.09-6.388c-.328-.164-1.942-.959-2.241-1.069-.3-.11-.518-.164-.736.164-.218.328-.844 1.069-1.035 1.288-.19.219-.38.247-.708.083-.328-.164-1.385-.511-2.638-1.63-.974-.87-1.632-1.944-1.823-2.272-.19-.328-.02-.505.144-.668.148-.147.328-.383.492-.575.164-.19.218-.328.328-.547.11-.219.055-.411-.027-.575-.082-.164-.736-1.777-1.008-2.434-.265-.636-.53-.55-.736-.56-.19-.01-.408-.01-.626-.01-.218 0-.573.082-.873.411-.3.328-1.145 1.122-1.145 2.736 0 1.614 1.173 3.175 1.336 3.394.164.218 2.3 3.512 5.572 4.927.778.337 1.386.538 1.86.689.782.248 1.493.213 2.055.129.626-.094 1.942-.795 2.215-1.562.272-.767.272-1.423.19-1.562-.081-.137-.3-.219-.628-.383z"/></svg>
           </a>
         </div>
@@ -365,7 +365,7 @@
     </div>
 
     <!-- Copyright -->
-    <div class="max-w-6xl mx-auto mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[10px] text-gray-500 font-futuristic gap-4">
+    <div class="max-w-6xl mx-auto mt-12 pt-6 border-t border-black/5 flex flex-col sm:flex-row items-center justify-between text-[10px] text-gray-500 font-futuristic gap-4">
       <span>&copy; 2026 MEDIMUSICAGROW PVT. LTD. ALL RIGHTS RESERVED.</span>
       <span class="tracking-widest">SYSTEM // SHIVAYUR.IN ENGINE v2.0 // DEPLOYED</span>
     </div>
@@ -391,6 +391,6 @@
   </script>
 
   <!-- Link script.js -->
-  <script src="app.js?v=20260917_v28"></script>
+  <script src="app.js?v=20260917_v30"></script>
 </body>
 </html>

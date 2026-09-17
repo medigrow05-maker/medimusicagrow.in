@@ -3594,7 +3594,7 @@ function renderVideoReelsGrid() {
           </div>
 
           <div class="absolute top-3 left-3">
-            <span class="video-reel-badge text-[9px] bg-white/15 backdrop-blur-md border border-white/30 text-white font-futuristic font-bold tracking-wider px-2.5 py-1 rounded-full uppercase shadow-sm">${reel.badge || 'REEL SHOWCASE'}</span>
+            <span class="video-reel-badge text-[9px] bg-black text-white font-futuristic font-bold tracking-wider px-2.5 py-1 rounded-full uppercase shadow-sm">${reel.badge || 'REEL SHOWCASE'}</span>
           </div>
 
           <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
