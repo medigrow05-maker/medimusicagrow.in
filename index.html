@@ -131,8 +131,8 @@
   </div>
 
   <!-- HERO SECTION (THE LAUNCHPAD) -->
-  <section id="hero" class="min-h-screen flex items-center justify-center pt-36 pb-20 px-4 md:px-8 relative overflow-hidden">
-    <div class="w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center space-y-8 z-10 select-none">
+  <section id="hero" class="min-h-screen flex items-center justify-center pt-32 pb-16 px-4 md:px-8 relative overflow-hidden">
+    <div class="w-full max-w-6xl mx-auto flex flex-col items-center justify-center text-center space-y-8 z-10 select-none">
       
       <!-- Floating Tag -->
       <div class="inline-flex items-center gap-2 bg-[#F3E6D5] border border-[#800020]/20 rounded-full px-5 py-2 w-fit text-xs font-semibold tracking-wider text-[#800020] shadow-sm">
@@ -140,26 +140,45 @@
         <span>LAUNCHING BRANDS INTO ORBIT</span>
       </div>
       
-      <!-- Elevating Title -->
-      <h1 class="text-4xl sm:text-6xl md:text-7xl font-black font-futuristic text-[#800020] leading-tight max-w-3xl">
-        We Don't Just Edit.<br>
-        <span class="metallic-text">We Elevate.</span><br>
+      <!-- Elevating Title (Spread across screen) -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-black font-futuristic text-[#800020] leading-[1.08] tracking-tight max-w-5xl mx-auto">
+        We Don't Just Edit. <span class="metallic-text inline-block">We Elevate.</span><br class="hidden sm:inline">
         <span class="text-[#800020]">Scaling Brands Beyond Boundaries.</span>
       </h1>
       
-      <!-- Sub-headline -->
-      <p class="text-[#2A1115] text-base md:text-xl leading-relaxed max-w-2xl font-normal">
+      <!-- Sub-headline (Spread out) -->
+      <p class="text-[#2A1115] text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-4xl mx-auto font-normal">
         Medimusicagrow Pvt. Ltd. is a premier digital marketing agency turning content into cash flow through high-octane social media growth, high-end video production, and performance marketing.
       </p>
       
       <!-- CTA Float buttons -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-5 pt-4 w-full sm:w-auto">
-        <a href="contact.html" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center px-9 py-4 rounded-xl shadow-lg tracking-wider text-sm w-full sm:w-auto">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-5 pt-2 w-full sm:w-auto">
+        <a href="contact.html" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center px-10 py-4 rounded-xl shadow-lg tracking-wider text-sm sm:text-base w-full sm:w-auto">
           GET A FREE AUDIT
         </a>
-        <a href="services.html" class="glass-panel border border-[#800020]/20 text-[#800020] font-futuristic font-bold text-center px-8 py-4 rounded-xl hover:bg-[#F3E6D5] transition-all duration-300 tracking-wider text-sm flex items-center justify-center gap-2 w-full sm:w-auto">
+        <a href="services.html" class="glass-panel border border-[#800020]/20 text-[#800020] font-futuristic font-bold text-center px-9 py-4 rounded-xl hover:bg-[#F3E6D5] transition-all duration-300 tracking-wider text-sm sm:text-base flex items-center justify-center gap-2 w-full sm:w-auto">
           <i data-lucide="play" class="w-4 h-4 fill-[#800020] text-[#800020]"></i> EXPLORE SERVICES
         </a>
+      </div>
+
+      <!-- Spread-out Highlights Bar to fill the page gracefully -->
+      <div class="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-10 max-w-5xl w-full border-t border-[#800020]/15 mt-4">
+        <div class="space-y-1">
+          <p class="font-futuristic font-black text-2xl md:text-3xl lg:text-4xl text-[#800020]">100M+</p>
+          <p class="text-[11px] uppercase tracking-wider text-[#555555] font-semibold font-futuristic">Views Delivered</p>
+        </div>
+        <div class="space-y-1">
+          <p class="font-futuristic font-black text-2xl md:text-3xl lg:text-4xl text-[#800020]">194+</p>
+          <p class="text-[11px] uppercase tracking-wider text-[#555555] font-semibold font-futuristic">Brands Scaled</p>
+        </div>
+        <div class="space-y-1">
+          <p class="font-futuristic font-black text-2xl md:text-3xl lg:text-4xl text-[#800020]">5.0 ★</p>
+          <p class="text-[11px] uppercase tracking-wider text-[#555555] font-semibold font-futuristic">Client Rating</p>
+        </div>
+        <div class="space-y-1">
+          <p class="font-futuristic font-black text-2xl md:text-3xl lg:text-4xl text-[#800020]">100%</p>
+          <p class="text-[11px] uppercase tracking-wider text-[#555555] font-semibold font-futuristic">Client Retention</p>
+        </div>
       </div>
       
     </div>
@@ -854,6 +873,6 @@
     });  </script>
 
   <!-- Link script.js -->
-  <script src="app.js?v=20260917_v17"></script>
+  <script src="app.js?v=20260917_v18"></script>
 </body>
 </html>
