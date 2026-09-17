@@ -816,9 +816,9 @@ function renderPublicGrid(filter = 'all') {
       ${item.featured ? '<div class="absolute -top-1 -right-1 bg-limeGreen text-brandBg text-[8px] font-futuristic font-bold px-3 py-1 rounded-bl-xl uppercase tracking-widest shadow-md">FEATURED</div>' : ''}
       <div class="flex justify-between items-start">
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-zinc-850 border border-white/10 flex items-center justify-center font-bold text-white text-xs">${initials}</div>
+          <div class="w-9 h-9 rounded-full bg-zinc-850 border border-white/10 flex items-center justify-center font-bold text-black text-xs">${initials}</div>
           <div>
-            <h4 class="text-xs font-bold text-white font-futuristic">${item.name}</h4>
+            <h4 class="text-xs font-bold text-black font-futuristic">${item.name}</h4>
             <p class="text-[9px] text-limeGreen uppercase font-futuristic">${item.title}</p>
           </div>
         </div>
@@ -1216,7 +1216,7 @@ function showMakeNotification(msg, type = 'info') {
   if (!toast) {
     toast = document.createElement('div');
     toast.id = 'make-toast-notification';
-    toast.className = 'fixed bottom-6 right-6 z-50 bg-zinc-950/95 border border-limeGreen/40 text-white font-futuristic text-xs px-5 py-3.5 rounded-2xl shadow-2xl backdrop-blur-md flex items-center gap-3 transition-all duration-300 transform translate-y-10 opacity-0 pointer-events-none';
+    toast.className = 'fixed bottom-6 right-6 z-50 bg-[#81001A] border border-[#D54F60] text-[#F3E7D6] font-futuristic text-xs px-5 py-3.5 rounded-2xl shadow-2xl backdrop-blur-md flex items-center gap-3 transition-all duration-300 transform translate-y-10 opacity-0 pointer-events-none';
     document.body.appendChild(toast);
   }
 
@@ -1228,7 +1228,7 @@ function showMakeNotification(msg, type = 'info') {
       <i data-lucide="${icon}" class="w-4 h-4"></i>
     </span>
     <div>
-      <p class="font-bold text-white tracking-wider text-[11px]">MAKE.COM INTEGRATION</p>
+      <p class="font-bold text-black tracking-wider text-[11px]">MAKE.COM INTEGRATION</p>
       <p class="text-[10px] text-gray-300 font-sans font-light">${msg}</p>
     </div>
   `;
@@ -1249,7 +1249,7 @@ function initMakeModal() {
     modal.className = 'feedback-modal-overlay';
     modal.innerHTML = `
       <div class="feedback-modal-box w-full max-w-md bg-zinc-950 border border-limeGreen/30 rounded-3xl p-8 shadow-2xl relative font-futuristic text-left">
-        <button id="close-make-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close Modal">
+        <button id="close-make-modal" class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors" title="Close Modal">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
 
@@ -1259,7 +1259,7 @@ function initMakeModal() {
               ⚡
             </div>
             <div>
-              <h3 class="font-bold text-lg text-white">MAKE.COM WEBHOOK</h3>
+              <h3 class="font-bold text-lg text-black">MAKE.COM WEBHOOK</h3>
               <p class="text-[9px] text-limeGreen uppercase tracking-widest">LIVE FORM PAYLOAD DISPATCHER</p>
             </div>
           </div>
@@ -1267,7 +1267,7 @@ function initMakeModal() {
           <div class="space-y-4 font-sans text-xs">
             <div class="space-y-1.5">
               <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">YOUR MAKE.COM WEBHOOK URL</label>
-              <input type="text" id="make-url-input" placeholder="https://hook.eu1.make.com/your_webhook_id" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all font-mono text-[11px]">
+              <input type="text" id="make-url-input" placeholder="https://hook.eu1.make.com/your_webhook_id" class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-black outline-none focus:border-limeGreen transition-all font-mono text-[11px]">
             </div>
 
             <p class="text-[10px] text-gray-400 font-light leading-relaxed">
@@ -1278,7 +1278,7 @@ function initMakeModal() {
               <button id="save-make-url-btn" class="lime-glow-btn text-brandBg font-futuristic font-bold px-5 py-2.5 rounded-xl text-xs flex-1 text-center">
                 SAVE WEBHOOK URL
               </button>
-              <button id="test-make-url-btn" class="metallic-border text-white font-futuristic font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1">
+              <button id="test-make-url-btn" class="metallic-border text-black font-futuristic font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1">
                 TEST PING
               </button>
             </div>
@@ -1354,13 +1354,13 @@ function initSmmPackageModal() {
     smmModal.innerHTML = `
       <div class="feedback-modal-box w-full max-w-4xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="smm-modal-box">
         <!-- Close Button -->
-        <button id="close-smm-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+        <button id="close-smm-modal" class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors" title="Close">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
 
         <!-- Header block matching the images -->
         <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
-          <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
+          <h2 class="text-xl md:text-3xl font-black text-black tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
 
           <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
             5 Months Package
@@ -1378,7 +1378,7 @@ function initSmmPackageModal() {
             
             <!-- SMM Details -->
             <div class="space-y-2">
-              <h4 class="text-xs text-white font-bold uppercase tracking-wider">Social Media Management</h4>
+              <h4 class="text-xs text-black font-bold uppercase tracking-wider">Social Media Management</h4>
               <ul class="text-[11px] text-gray-400 space-y-1.5 list-disc pl-4 font-sans font-light leading-relaxed">
                 <li>Account Creation And Branding</li>
                 <li>Creative Captions For Post</li>
@@ -1390,7 +1390,7 @@ function initSmmPackageModal() {
 
             <!-- Content Creation Details -->
             <div class="space-y-2">
-              <h4 class="text-xs text-white font-bold uppercase tracking-wider">Content Creation</h4>
+              <h4 class="text-xs text-black font-bold uppercase tracking-wider">Content Creation</h4>
               <ul class="text-[11px] text-gray-400 space-y-1.5 list-disc pl-4 font-sans font-light leading-relaxed">
                 <li>25 Short Videos</li>
                 <li>14 Video Shoot Visits</li>
@@ -1403,7 +1403,7 @@ function initSmmPackageModal() {
 
             <!-- SMM Training Details -->
             <div class="space-y-2">
-              <h4 class="text-xs text-white font-bold uppercase tracking-wider">SMM Training</h4>
+              <h4 class="text-xs text-black font-bold uppercase tracking-wider">SMM Training</h4>
               <ul class="text-[11px] text-gray-400 space-y-1.5 list-disc pl-4 font-sans font-light leading-relaxed">
                 <li>Social Media Management</li>
                 <li>Content Creation</li>
@@ -1429,19 +1429,19 @@ function initSmmPackageModal() {
             <!-- Payment Timeline -->
             <div class="space-y-3 font-futuristic text-xs">
               <div class="flex items-center justify-between p-3.5 bg-white/5 border border-white/10 rounded-xl hover:border-limeGreen/30 transition-colors">
-                <span class="font-bold text-white">25% Advance</span>
+                <span class="font-bold text-black">25% Advance</span>
                 <span class="text-limeGreen font-bold bg-limeGreen/10 border border-limeGreen/30 px-2 py-1 rounded">On Initiation</span>
               </div>
               <div class="flex items-center justify-between p-3.5 bg-white/5 border border-white/10 rounded-xl hover:border-limeGreen/30 transition-colors">
-                <span class="font-bold text-white">25% After One Month</span>
+                <span class="font-bold text-black">25% After One Month</span>
                 <span class="text-gray-400 bg-white/5 border border-white/5 px-2 py-1 rounded">Milestone 2</span>
               </div>
               <div class="flex items-center justify-between p-3.5 bg-white/5 border border-white/10 rounded-xl hover:border-limeGreen/30 transition-colors">
-                <span class="font-bold text-white">25% After Two Months</span>
+                <span class="font-bold text-black">25% After Two Months</span>
                 <span class="text-gray-400 bg-white/5 border border-white/5 px-2 py-1 rounded">Milestone 3</span>
               </div>
               <div class="flex items-center justify-between p-3.5 bg-white/5 border border-white/10 rounded-xl hover:border-limeGreen/30 transition-colors">
-                <span class="font-bold text-white">25% After Three Months</span>
+                <span class="font-bold text-black">25% After Three Months</span>
                 <span class="text-gray-400 bg-white/5 border border-white/5 px-2 py-1 rounded">Milestone 4</span>
               </div>
             </div>
@@ -1452,7 +1452,7 @@ function initSmmPackageModal() {
                 <i data-lucide="alert-triangle" class="w-4 h-4"></i> Important Travel Policy Note
               </h4>
               <p class="text-[11px] text-gray-400 font-sans font-light leading-relaxed">
-                If we travel to your location for a video shoot and you subsequently cancel it, you will be required to pay <strong class="text-white">₹500</strong>; this amount will not be included in your package. The next shoot will only be conducted once this payment has been made.
+                If we travel to your location for a video shoot and you subsequently cancel it, you will be required to pay <strong class="text-black">₹500</strong>; this amount will not be included in your package. The next shoot will only be conducted once this payment has been made.
               </p>
             </div>
 
@@ -1510,13 +1510,13 @@ function initContentCreationModal() {
     ccModal.innerHTML = `
       <div class="feedback-modal-box w-full max-w-6xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="cc-modal-box">
         <!-- Close Button -->
-        <button id="close-cc-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+        <button id="close-cc-modal" class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors" title="Close">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
 
         <!-- Header block matching the images -->
         <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
-          <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
+          <h2 class="text-xl md:text-3xl font-black text-black tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
           <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
             Content Creation Packages
           </div>
@@ -1530,7 +1530,7 @@ function initContentCreationModal() {
             <div class="absolute top-4 right-4 text-[9px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-gray-400 font-mono">SINGLE</div>
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Single Video</h4>
+                <h4 class="text-lg font-bold text-black group-hover:text-limeGreen transition-colors">Single Video</h4>
                 <p class="text-[10px] text-gray-400">Professional capture and post-production for a single high-impact reel.</p>
               </div>
               <div class="text-2xl font-black text-limeGreen font-sans py-2">₹2,499/-</div>
@@ -1547,7 +1547,7 @@ function initContentCreationModal() {
               </ul>
             </div>
             <div class="pt-6">
-              <a href="contact.html?service=content-creation&tier=single-video" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
+              <a href="contact.html?service=content-creation&tier=single-video" class="metallic-border text-black font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
                 CHOOSE SINGLE VIDEO
               </a>
             </div>
@@ -1558,7 +1558,7 @@ function initContentCreationModal() {
             <div class="absolute top-4 right-4 text-[9px] bg-limeGreen/20 border border-limeGreen/30 px-2 py-0.5 rounded text-limeGreen font-mono font-bold tracking-widest">BULK / RECOMMEND</div>
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Bulk Video Package</h4>
+                <h4 class="text-lg font-bold text-black group-hover:text-limeGreen transition-colors">Bulk Video Package</h4>
                 <p class="text-[10px] text-gray-400">Complete batch recording session for up to 15 high-retention short videos.</p>
               </div>
               <div class="text-2xl font-black text-limeGreen font-sans py-2">₹7,999 - ₹14,999</div>
@@ -1589,7 +1589,7 @@ function initContentCreationModal() {
           <div class="flex items-start gap-2.5 bg-white/[0.02] border border-white/5 rounded-xl p-4 text-[10px] text-gray-400">
             <i data-lucide="clock" class="w-4 h-4 text-limeGreen flex-shrink-0"></i>
             <div>
-              <strong class="text-white block uppercase mb-0.5">EXTRA TIME COVERAGE</strong>
+              <strong class="text-black block uppercase mb-0.5">EXTRA TIME COVERAGE</strong>
               Extra shoot duration beyond standard package limits will be subject to additional hourly compensation.
             </div>
           </div>
@@ -1648,13 +1648,13 @@ function initCorporateEventsModal() {
     corpModal.innerHTML = `
       <div class="feedback-modal-box w-full max-w-6xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="corp-modal-box">
         <!-- Close Button -->
-        <button id="close-corp-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+        <button id="close-corp-modal" class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors" title="Close">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
 
         <!-- Header block -->
         <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
-          <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
+          <h2 class="text-xl md:text-3xl font-black text-black tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
           <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
             Corporate Event Packages
           </div>
@@ -1668,7 +1668,7 @@ function initCorporateEventsModal() {
             <div class="absolute top-4 right-4 text-[9px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-gray-400 font-mono">BASIC</div>
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Basic Capture</h4>
+                <h4 class="text-lg font-bold text-black group-hover:text-limeGreen transition-colors">Basic Capture</h4>
                 <p class="text-[10px] text-gray-400">Perfect for smaller corporate meets and briefings.</p>
               </div>
               <div class="text-2xl font-black text-limeGreen font-sans py-2">₹5,999/-</div>
@@ -1683,7 +1683,7 @@ function initCorporateEventsModal() {
               </ul>
             </div>
             <div class="pt-6">
-              <a href="contact.html?service=corporate-events&tier=basic" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
+              <a href="contact.html?service=corporate-events&tier=basic" class="metallic-border text-black font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
                 CHOOSE BASIC
               </a>
             </div>
@@ -1694,7 +1694,7 @@ function initCorporateEventsModal() {
             <div class="absolute top-4 right-4 text-[9px] bg-limeGreen/20 border border-limeGreen/30 px-2 py-0.5 rounded text-limeGreen font-mono font-bold tracking-widest">NORMAL / POPULAR</div>
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Normal Capture</h4>
+                <h4 class="text-lg font-bold text-black group-hover:text-limeGreen transition-colors">Normal Capture</h4>
                 <p class="text-[10px] text-gray-400">Complete seminar coverage with professional lighting and audio setup.</p>
               </div>
               <div class="text-2xl font-black text-limeGreen font-sans py-2">₹9,999/-</div>
@@ -1722,7 +1722,7 @@ function initCorporateEventsModal() {
             <div class="absolute top-4 right-4 text-[9px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-gray-400 font-mono">ADVANCE</div>
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Advance Capture</h4>
+                <h4 class="text-lg font-bold text-black group-hover:text-limeGreen transition-colors">Advance Capture</h4>
                 <p class="text-[10px] text-gray-400">Cinematic aftermovie, drone coverages, and full conference documentary.</p>
               </div>
               <div class="text-2xl font-black text-limeGreen font-sans py-2">₹24,999/-</div>
@@ -1738,7 +1738,7 @@ function initCorporateEventsModal() {
               </ul>
             </div>
             <div class="pt-6">
-              <a href="contact.html?service=corporate-events&tier=advance" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
+              <a href="contact.html?service=corporate-events&tier=advance" class="metallic-border text-black font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
                 CHOOSE ADVANCE
               </a>
             </div>
@@ -1751,7 +1751,7 @@ function initCorporateEventsModal() {
           <div class="flex items-start gap-2.5 bg-white/[0.02] border border-white/5 rounded-xl p-4 text-[10px] text-gray-400">
             <i data-lucide="clock" class="w-4 h-4 text-limeGreen flex-shrink-0"></i>
             <div>
-              <strong class="text-white block uppercase mb-0.5">EXTRA TIME COVERAGE</strong>
+              <strong class="text-black block uppercase mb-0.5">EXTRA TIME COVERAGE</strong>
               Extra shoot duration beyond standard package limits will be subject to additional hourly compensation.
             </div>
           </div>
@@ -1810,13 +1810,13 @@ function initFamilyEventsModal() {
     famModal.innerHTML = `
       <div class="feedback-modal-box w-full max-w-7xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="fam-modal-box">
         <!-- Close Button -->
-        <button id="close-fam-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+        <button id="close-fam-modal" class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors" title="Close">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
 
         <!-- Header block -->
         <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
-          <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
+          <h2 class="text-xl md:text-3xl font-black text-black tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
           <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
             Family Event Packages
           </div>
@@ -1829,7 +1829,7 @@ function initFamilyEventsModal() {
           <div class="glass-panel border-limeGreen/30 bg-limeGreen/5 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/50 transition-all duration-300 relative group">
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase">Wedding</h4>
+                <h4 class="text-sm font-bold text-black group-hover:text-limeGreen transition-colors uppercase">Wedding</h4>
                 <p class="text-[9px] text-gray-400">Haldi, Mehndi, Sangeet, Wedding, Reception coverage.</p>
               </div>
               <div class="text-lg font-black text-limeGreen font-sans">₹4,999 - ₹39,999</div>
@@ -1854,7 +1854,7 @@ function initFamilyEventsModal() {
           <div class="glass-panel border-white/10 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase">Engagement</h4>
+                <h4 class="text-sm font-bold text-black group-hover:text-limeGreen transition-colors uppercase">Engagement</h4>
                 <p class="text-[9px] text-gray-400">Complete ring ceremony captures and cinematic highlight.</p>
               </div>
               <div class="text-lg font-black text-limeGreen font-sans">₹3,999 - ₹12,999</div>
@@ -1869,7 +1869,7 @@ function initFamilyEventsModal() {
               </ul>
             </div>
             <div class="pt-4">
-              <a href="contact.html?service=family-events&tier=engagement" class="metallic-border text-white font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
+              <a href="contact.html?service=family-events&tier=engagement" class="metallic-border text-black font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
                 CHOOSE ENGAGEMENT
               </a>
             </div>
@@ -1879,7 +1879,7 @@ function initFamilyEventsModal() {
           <div class="glass-panel border-white/10 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase">Birthday</h4>
+                <h4 class="text-sm font-bold text-black group-hover:text-limeGreen transition-colors uppercase">Birthday</h4>
                 <p class="text-[9px] text-gray-400">Vibrant birthday celebrations and event highlight reels.</p>
               </div>
               <div class="text-lg font-black text-limeGreen font-sans">₹2,999 - ₹9,999</div>
@@ -1894,7 +1894,7 @@ function initFamilyEventsModal() {
               </ul>
             </div>
             <div class="pt-4">
-              <a href="contact.html?service=family-events&tier=birthday" class="metallic-border text-white font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
+              <a href="contact.html?service=family-events&tier=birthday" class="metallic-border text-black font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
                 CHOOSE BIRTHDAY
               </a>
             </div>
@@ -1904,7 +1904,7 @@ function initFamilyEventsModal() {
           <div class="glass-panel border-white/10 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase font-futuristic">Baby Born</h4>
+                <h4 class="text-sm font-bold text-black group-hover:text-limeGreen transition-colors uppercase font-futuristic">Baby Born</h4>
                 <p class="text-[9px] text-gray-400">Sweet captures of newborns and infant family moments.</p>
               </div>
               <div class="text-lg font-black text-limeGreen font-sans">₹3,999 - ₹12,999</div>
@@ -1919,7 +1919,7 @@ function initFamilyEventsModal() {
               </ul>
             </div>
             <div class="pt-4">
-              <a href="contact.html?service=family-events&tier=baby-born" class="metallic-border text-white font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
+              <a href="contact.html?service=family-events&tier=baby-born" class="metallic-border text-black font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
                 CHOOSE BABY BORN
               </a>
             </div>
@@ -1929,7 +1929,7 @@ function initFamilyEventsModal() {
           <div class="glass-panel border-white/10 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase font-futuristic">Baby Shower</h4>
+                <h4 class="text-sm font-bold text-black group-hover:text-limeGreen transition-colors uppercase font-futuristic">Baby Shower</h4>
                 <p class="text-[9px] text-gray-400">Heartwarming baby shower memories and cinematic reels.</p>
               </div>
               <div class="text-lg font-black text-limeGreen font-sans">₹2,999 - ₹9,999</div>
@@ -1944,7 +1944,7 @@ function initFamilyEventsModal() {
               </ul>
             </div>
             <div class="pt-4">
-              <a href="contact.html?service=family-events&tier=baby-shower" class="metallic-border text-white font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
+              <a href="contact.html?service=family-events&tier=baby-shower" class="metallic-border text-black font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
                 CHOOSE BABY SHOWER
               </a>
             </div>
@@ -1957,7 +1957,7 @@ function initFamilyEventsModal() {
           <div class="flex items-start gap-2.5 bg-white/[0.02] border border-white/5 rounded-xl p-4 text-[10px] text-gray-400">
             <i data-lucide="clock" class="w-4 h-4 text-limeGreen flex-shrink-0"></i>
             <div>
-              <strong class="text-white block uppercase mb-0.5">EXTRA TIME COVERAGE</strong>
+              <strong class="text-black block uppercase mb-0.5">EXTRA TIME COVERAGE</strong>
               Extra shoot duration beyond standard package limits will be subject to additional hourly compensation.
             </div>
           </div>
@@ -2016,13 +2016,13 @@ function initAchievementShootModal() {
     achModal.innerHTML = `
       <div class="feedback-modal-box w-full max-w-6xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="ach-modal-box">
         <!-- Close Button -->
-        <button id="close-ach-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+        <button id="close-ach-modal" class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors" title="Close">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
 
         <!-- Header block -->
         <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
-          <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
+          <h2 class="text-xl md:text-3xl font-black text-black tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
           <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
             Achievement Shoot Packages
           </div>
@@ -2035,7 +2035,7 @@ function initAchievementShootModal() {
           <div class="glass-panel border-white/10 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase leading-tight">Bike Delivery</h4>
+                <h4 class="text-sm font-bold text-black group-hover:text-limeGreen transition-colors uppercase leading-tight">Bike Delivery</h4>
                 <p class="text-[9px] text-gray-400">Capture your new ride delivery with dynamic reels.</p>
               </div>
               <div class="text-lg font-black text-limeGreen font-sans">₹2,499/-</div>
@@ -2050,7 +2050,7 @@ function initAchievementShootModal() {
               </ul>
             </div>
             <div class="pt-4">
-              <a href="contact.html?service=achievement-shoot&tier=bike-delivery" class="metallic-border text-white font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
+              <a href="contact.html?service=achievement-shoot&tier=bike-delivery" class="metallic-border text-black font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
                 CHOOSE BIKE SHOOT
               </a>
             </div>
@@ -2060,7 +2060,7 @@ function initAchievementShootModal() {
           <div class="glass-panel border-limeGreen/30 bg-limeGreen/5 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/50 transition-all duration-300 relative group">
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase leading-tight">Car Delivery</h4>
+                <h4 class="text-sm font-bold text-black group-hover:text-limeGreen transition-colors uppercase leading-tight">Car Delivery</h4>
                 <p class="text-[9px] text-gray-400">Cinematic milestone shoot for your new car delivery.</p>
               </div>
               <div class="text-lg font-black text-limeGreen font-sans">₹5,999 - ₹9,999</div>
@@ -2086,7 +2086,7 @@ function initAchievementShootModal() {
           <div class="glass-panel border-white/10 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase leading-tight font-futuristic">Home Inauguration</h4>
+                <h4 class="text-sm font-bold text-black group-hover:text-limeGreen transition-colors uppercase leading-tight font-futuristic">Home Inauguration</h4>
                 <p class="text-[9px] text-gray-400">Complete Griha Pravesh coverage & high-res photography.</p>
               </div>
               <div class="text-lg font-black text-limeGreen font-sans">₹9,999 - ₹19,999</div>
@@ -2101,7 +2101,7 @@ function initAchievementShootModal() {
               </ul>
             </div>
             <div class="pt-4">
-              <a href="contact.html?service=achievement-shoot&tier=home-inauguration" class="metallic-border text-white font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
+              <a href="contact.html?service=achievement-shoot&tier=home-inauguration" class="metallic-border text-black font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
                 CHOOSE HOME SHOOT
               </a>
             </div>
@@ -2111,7 +2111,7 @@ function initAchievementShootModal() {
           <div class="glass-panel border-white/10 rounded-xl p-5 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-sm font-bold text-white group-hover:text-limeGreen transition-colors uppercase leading-tight font-futuristic">Business Opening</h4>
+                <h4 class="text-sm font-bold text-black group-hover:text-limeGreen transition-colors uppercase leading-tight font-futuristic">Business Opening</h4>
                 <p class="text-[9px] text-gray-400">Grand opening, office walkthroughs, and success ribbon cutting.</p>
               </div>
               <div class="text-lg font-black text-limeGreen font-sans">₹9,999 - ₹19,999</div>
@@ -2126,7 +2126,7 @@ function initAchievementShootModal() {
               </ul>
             </div>
             <div class="pt-4">
-              <a href="contact.html?service=achievement-shoot&tier=business-opening" class="metallic-border text-white font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
+              <a href="contact.html?service=achievement-shoot&tier=business-opening" class="metallic-border text-black font-futuristic font-bold text-center py-2 rounded-lg text-[10px] block w-full hover:bg-white/5 transition-colors">
                 CHOOSE BUSINESS SHOOT
               </a>
             </div>
@@ -2139,7 +2139,7 @@ function initAchievementShootModal() {
           <div class="flex items-start gap-2.5 bg-white/[0.02] border border-white/5 rounded-xl p-4 text-[10px] text-gray-400">
             <i data-lucide="clock" class="w-4 h-4 text-limeGreen flex-shrink-0"></i>
             <div>
-              <strong class="text-white block uppercase mb-0.5">EXTRA TIME COVERAGE</strong>
+              <strong class="text-black block uppercase mb-0.5">EXTRA TIME COVERAGE</strong>
               Extra shoot duration beyond standard package limits will be subject to additional hourly compensation.
             </div>
           </div>
@@ -2198,13 +2198,13 @@ function initMusicVideoModal() {
     musModal.innerHTML = `
       <div class="feedback-modal-box w-full max-w-xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="mus-modal-box">
         <!-- Close Button -->
-        <button id="close-mus-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+        <button id="close-mus-modal" class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors" title="Close">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
 
         <!-- Header block -->
         <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
-          <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
+          <h2 class="text-xl md:text-3xl font-black text-black tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
           <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
             Music Video Package
           </div>
@@ -2216,7 +2216,7 @@ function initMusicVideoModal() {
             <div class="absolute top-4 right-4 text-[9px] bg-limeGreen/20 border border-limeGreen/30 px-2 py-0.5 rounded text-limeGreen font-mono font-bold tracking-widest">SPOTLIGHT</div>
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors uppercase">Music Video Production</h4>
+                <h4 class="text-lg font-bold text-black group-hover:text-limeGreen transition-colors uppercase">Music Video Production</h4>
                 <p class="text-[10px] text-gray-400">Complete end-to-end recording, grading, directing, and post-production.</p>
               </div>
               <div class="text-2xl font-black text-limeGreen font-sans py-2">₹7,999 - ₹29,999</div>
@@ -2247,7 +2247,7 @@ function initMusicVideoModal() {
           <div class="flex items-start gap-2.5 bg-white/[0.02] border border-white/5 rounded-xl p-4 text-[10px] text-gray-400">
             <i data-lucide="clock" class="w-4 h-4 text-limeGreen flex-shrink-0"></i>
             <div>
-              <strong class="text-white block uppercase mb-0.5">EXTRA TIME COVERAGE</strong>
+              <strong class="text-black block uppercase mb-0.5">EXTRA TIME COVERAGE</strong>
               Extra shoot duration beyond standard package limits will be subject to additional hourly compensation.
             </div>
           </div>
@@ -2306,13 +2306,13 @@ function initVideoEditingModal() {
     editModal.innerHTML = `
       <div class="feedback-modal-box w-full max-w-5xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="edit-modal-box">
         <!-- Close Button -->
-        <button id="close-edit-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+        <button id="close-edit-modal" class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors" title="Close">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
 
         <!-- Header block -->
         <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
-          <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
+          <h2 class="text-xl md:text-3xl font-black text-black tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
           <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
             Video Editing Packages
           </div>
@@ -2325,7 +2325,7 @@ function initVideoEditingModal() {
           <div class="glass-panel border-white/10 rounded-xl p-6 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors uppercase leading-tight">Cinematic Video</h4>
+                <h4 class="text-lg font-bold text-black group-hover:text-limeGreen transition-colors uppercase leading-tight">Cinematic Video</h4>
                 <p class="text-[10px] text-gray-400">Color-graded cinematic reel editing with advanced soundscapes.</p>
               </div>
               <div class="text-2xl font-black text-limeGreen font-sans py-2">₹399 - ₹799</div>
@@ -2338,7 +2338,7 @@ function initVideoEditingModal() {
               </ul>
             </div>
             <div class="pt-6">
-              <a href="contact.html?service=video-editing&tier=cinematic-video" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
+              <a href="contact.html?service=video-editing&tier=cinematic-video" class="metallic-border text-black font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
                 CHOOSE CINEMATIC
               </a>
             </div>
@@ -2348,7 +2348,7 @@ function initVideoEditingModal() {
           <div class="glass-panel border-limeGreen/30 bg-limeGreen/5 rounded-xl p-6 flex flex-col justify-between hover:border-limeGreen/50 transition-all duration-300 relative group shadow-[0_0_30px_rgba(140,230,0,0.05)]">
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors uppercase leading-tight">Short Video</h4>
+                <h4 class="text-lg font-bold text-black group-hover:text-limeGreen transition-colors uppercase leading-tight">Short Video</h4>
                 <p class="text-[10px] text-gray-400">High-retention reels, hooks, text highlights, and trending assets.</p>
               </div>
               <div class="text-2xl font-black text-limeGreen font-sans py-2">₹499 - ₹1,499</div>
@@ -2371,7 +2371,7 @@ function initVideoEditingModal() {
           <div class="glass-panel border-white/10 rounded-xl p-6 flex flex-col justify-between hover:border-limeGreen/30 transition-all duration-300 relative group">
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors uppercase leading-tight">Long Video</h4>
+                <h4 class="text-lg font-bold text-black group-hover:text-limeGreen transition-colors uppercase leading-tight">Long Video</h4>
                 <p class="text-[10px] text-gray-400">Complete podcasts, courses, documentaries, and YouTube edits.</p>
               </div>
               <div class="text-lg font-black text-limeGreen font-sans py-2">₹299 - ₹499 <span class="text-xs text-gray-500 font-futuristic">per minute</span></div>
@@ -2384,7 +2384,7 @@ function initVideoEditingModal() {
               </ul>
             </div>
             <div class="pt-6">
-              <a href="contact.html?service=video-editing&tier=long-video" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
+              <a href="contact.html?service=video-editing&tier=long-video" class="metallic-border text-black font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
                 CHOOSE LONG VIDEO
               </a>
             </div>
@@ -2397,7 +2397,7 @@ function initVideoEditingModal() {
           <div class="flex items-start gap-2.5 bg-white/[0.02] border border-white/5 rounded-xl p-4 text-[10px] text-gray-400">
             <i data-lucide="clock" class="w-4 h-4 text-limeGreen flex-shrink-0"></i>
             <div>
-              <strong class="text-white block uppercase mb-0.5">EXTRA COMPILATIONS</strong>
+              <strong class="text-black block uppercase mb-0.5">EXTRA COMPILATIONS</strong>
               Revisions and extra visual complexity beyond standard deliverables will be subject to custom hourly quotes.
             </div>
           </div>
@@ -2449,13 +2449,13 @@ function initInfluencerMarketingModal() {
     infModal.innerHTML = `
       <div class="feedback-modal-box w-full max-w-5xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="inf-modal-box">
         <!-- Close Button -->
-        <button id="close-inf-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close">
+        <button id="close-inf-modal" class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors" title="Close">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
 
         <!-- Header block -->
         <div class="text-center space-y-2 border-b border-white/5 pb-6 select-none">
-          <h2 class="text-xl md:text-3xl font-black text-white tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
+          <h2 class="text-xl md:text-3xl font-black text-black tracking-wide leading-tight">MEDI MUSICA GROW PRIVATE LIMITED</h2>
           <div class="inline-block bg-limeGreen/10 border border-limeGreen/30 rounded-full px-4 py-1.5 text-limeGreen text-xs font-bold uppercase tracking-widest mt-4">
             Influencer Marketing Packages
           </div>
@@ -2469,7 +2469,7 @@ function initInfluencerMarketingModal() {
             <div class="absolute top-4 right-4 text-[9px] bg-limeGreen/20 border border-limeGreen/30 px-2 py-0.5 rounded text-limeGreen font-mono font-bold tracking-widest">STARTER</div>
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Single Video Package</h4>
+                <h4 class="text-lg font-bold text-black group-hover:text-limeGreen transition-colors">Single Video Package</h4>
                 <p class="text-[10px] text-gray-400">Complete shoot and post-production execution with creator integration.</p>
               </div>
               <div class="text-xl font-black text-limeGreen font-sans py-2">₹1,499/- <span class="text-xs text-gray-400 font-normal">+ Influencer Charges</span></div>
@@ -2496,7 +2496,7 @@ function initInfluencerMarketingModal() {
             <div class="absolute top-4 right-4 text-[9px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-gray-400 font-mono">TAILORED</div>
             <div class="space-y-4">
               <div class="space-y-1">
-                <h4 class="text-lg font-bold text-white group-hover:text-limeGreen transition-colors">Custom Campaign</h4>
+                <h4 class="text-lg font-bold text-black group-hover:text-limeGreen transition-colors">Custom Campaign</h4>
                 <p class="text-[10px] text-gray-400">Multi-creator placements scaled according to audience reach and followers.</p>
               </div>
               <div class="text-xl font-black text-limeGreen font-sans py-2">Flexible / Scale-Based</div>
@@ -2509,7 +2509,7 @@ function initInfluencerMarketingModal() {
               </ul>
             </div>
             <div class="pt-6">
-              <a href="contact.html?service=influencer-marketing&tier=custom-campaign" class="metallic-border text-white font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
+              <a href="contact.html?service=influencer-marketing&tier=custom-campaign" class="metallic-border text-black font-futuristic font-bold text-center py-2.5 rounded-xl text-xs block w-full hover:bg-white/5 transition-colors">
                 INQUIRE FOR CUSTOM CAMPAIGN
               </a>
             </div>
@@ -3240,7 +3240,7 @@ function initClientRoster() {
                 </span>
               </div>
               <div class="space-y-2 text-left">
-                <h3 class="text-lg md:text-xl font-bold font-futuristic text-white group-hover:text-limeGreen transition-colors leading-tight uppercase">${client.name}</h3>
+                <h3 class="text-lg md:text-xl font-bold font-futuristic text-black group-hover:text-limeGreen transition-colors leading-tight uppercase">${client.name}</h3>
                 <p class="text-gray-400 text-xs leading-relaxed font-light font-futuristic line-clamp-2">
                   ${client.desc}
                 </p>
@@ -3362,13 +3362,13 @@ function openClientDetailModal(clientName) {
   detailModal.innerHTML = `
     <div class="feedback-modal-box w-full max-w-xl bg-zinc-950 border border-limeGreen/30 rounded-3xl p-6 md:p-8 shadow-2xl relative font-futuristic text-left max-h-[90vh] overflow-y-auto" id="client-spotlight-box">
       <!-- Close Button -->
-      <button id="close-client-detail-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" title="Close" onclick="closeClientDetailModal()">
+      <button id="close-client-detail-modal" class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors" title="Close" onclick="closeClientDetailModal()">
         <i data-lucide="x" class="w-6 h-6"></i>
       </button>
 
       <!-- Header block -->
       <div class="text-center space-y-4 border-b border-white/5 pb-6 select-none flex flex-col items-center">
-        <h2 class="text-xl md:text-2xl font-black text-white tracking-wide leading-tight">PARTNER SPOTLIGHT</h2>
+        <h2 class="text-xl md:text-2xl font-black text-black tracking-wide leading-tight">PARTNER SPOTLIGHT</h2>
         <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-[0_0_20px_rgba(255,255,255,0.05)] relative mt-2">
           <img src="${client.logo}" alt="${client.name} Logo" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="hidden absolute inset-0 bg-limeGreen/10 text-limeGreen flex items-center justify-center">
@@ -3392,7 +3392,7 @@ function openClientDetailModal(clientName) {
             
             <div class="flex items-center justify-between border-b border-white/5 pb-3">
               <span class="text-[10px] text-gray-500 uppercase tracking-widest">Industry Classification</span>
-              <span class="text-xs font-black text-white uppercase">${client.category.replace(/-/g, ' ')}</span>
+              <span class="text-xs font-black text-black uppercase">${client.category.replace(/-/g, ' ')}</span>
             </div>
 
             <div class="flex items-center justify-between border-b border-white/5 pb-3">
@@ -3401,7 +3401,7 @@ function openClientDetailModal(clientName) {
             </div>
 
             <div class="space-y-2 pt-2">
-              <h4 class="text-xs font-bold text-white uppercase tracking-wider">COLLABORATION SUMMARY</h4>
+              <h4 class="text-xs font-bold text-black uppercase tracking-wider">COLLABORATION SUMMARY</h4>
               <p class="text-xs text-gray-300 leading-relaxed font-light font-futuristic">
                 ${client.desc}
               </p>

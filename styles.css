@@ -4,10 +4,10 @@
   --bg-canvas: #F3E7D6;
   --bg-surface: #FFFFFF;
   --bg-card-warm: #F3E7D6;
-  --text-primary: #81001A;
-  --text-body: #2A1115;
-  --text-secondary: #57333A;
-  --text-muted: #8E656E;
+  --text-primary: #000000;
+  --text-body: #111111;
+  --text-secondary: #333333;
+  --text-muted: #555555;
   --border-subtle: #E2D1BE;
   --border-hover: #D54F60;
   --accent-burgundy: #81001A;
@@ -54,7 +54,15 @@ body {
 h1, h2, h3, h4, h5, h6, .font-futuristic {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   letter-spacing: -0.025em !important;
-  color: var(--text-primary);
+  color: #000000 !important;
+}
+
+/* Ensure white text is rendered black */
+.text-white {
+  color: #000000 !important;
+}
+.hover\:text-white:hover {
+  color: #000000 !important;
 }
 
 /* Hide background clutter */
@@ -355,12 +363,12 @@ option {
 .feedback-modal-box h4,
 .feedback-modal-box h5,
 .feedback-modal-box h6 {
-  color: #81001A !important;
+  color: #000000 !important;
 }
 
 .feedback-modal-box p,
 .feedback-modal-box li {
-  color: #57333A !important;
+  color: #111111 !important;
 }
 
 .feedback-modal-box .bg-zinc-950,

@@ -61,7 +61,7 @@
   </script>
 </head>
 
-<body class="bg-brandBg text-silver min-h-screen relative antialiased selection:bg-limeGreen selection:text-white">
+<body class="bg-brandBg text-silver min-h-screen relative antialiased selection:bg-limeGreen selection:text-black">
 
   <!-- Interactive canvas background for deep space particle effects -->
   <canvas id="particle-canvas"></canvas>
@@ -81,7 +81,7 @@
       <a href="index.html" class="flex items-center gap-2 sm:gap-3 group" id="header-logo-container">
         <img src="logo.png" alt="MMG Logo" class="w-9 h-9 sm:w-12 sm:h-12 object-contain logo-img">
         <div>
-          <div class="font-futuristic font-black text-sm sm:text-xl tracking-wider leading-none text-white">
+          <div class="font-futuristic font-black text-sm sm:text-xl tracking-wider leading-none text-black">
             MEDIMUSICA<span class="text-limeGreen">GROW</span></div>
           <div
             class="text-[7px] sm:text-[9px] uppercase tracking-[0.25em] sm:tracking-[0.35em] text-gray-400 mt-0.5 sm:mt-1">
@@ -112,7 +112,7 @@
           class="hidden md:inline-block font-futuristic text-xs font-bold border border-limeGreen text-limeGreen px-6 py-2.5 rounded-full hover:bg-limeGreen hover:text-brandBg hover:shadow-[0_0_15px_rgba(140,230,0,0.5)] transition-all duration-300 tracking-wider">
           DISCOVER CALL
         </a>
-        <button id="mobile-menu-btn" class="lg:hidden text-white hover:text-limeGreen transition-colors"
+        <button id="mobile-menu-btn" class="lg:hidden text-black hover:text-limeGreen transition-colors"
           title="Toggle Navigation Menu">
           <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
@@ -126,7 +126,7 @@
     <div class="space-y-8">
       <div class="flex justify-between items-center pb-6 border-b border-white/5">
         <span class="font-bold text-sm tracking-wider text-limeGreen">SYSTEM MAP</span>
-        <button id="close-mobile-menu-btn" class="text-white hover:text-limeGreen transition-colors" title="Close Menu">
+        <button id="close-mobile-menu-btn" class="text-black hover:text-limeGreen transition-colors" title="Close Menu">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
       </div>
@@ -152,7 +152,7 @@
   <section class="pt-36 pb-12 px-4 md:px-8 relative overflow-hidden">
     <div class="max-w-6xl mx-auto text-center space-y-4 select-none z-10 relative">
       <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.4em]">FEEDBACK PORTAL</span>
-      <h1 class="text-4xl md:text-6xl font-black font-futuristic text-white">THE FEEDBACK BOARD</h1>
+      <h1 class="text-4xl md:text-6xl font-black font-futuristic text-black">THE FEEDBACK BOARD</h1>
       <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base font-light">
         Verified client inputs fetched directly from our Google My Business database. Transparent, data-backed
         satisfaction reviews.
@@ -174,7 +174,7 @@
             <a href="https://share.google/9WsqvZV57gCcyiZLF" target="_blank"
               class="text-left space-y-1 group cursor-pointer block">
               <h4
-                class="font-futuristic font-bold text-white text-base group-hover:text-limeGreen transition-colors flex items-center gap-2">
+                class="font-futuristic font-bold text-black text-base group-hover:text-limeGreen transition-colors flex items-center gap-2">
                 Google My Business Profile <i data-lucide="external-link" class="w-4 h-4 text-limeGreen"></i>
               </h4>
               <div class="flex items-center gap-2">
@@ -198,7 +198,7 @@
               WRITE A GMB REVIEW
             </button>
             <a href="https://share.google/9WsqvZV57gCcyiZLF" target="_blank"
-              class="metallic-border text-white font-futuristic font-bold px-6 py-3 rounded-xl text-xs tracking-wider flex items-center gap-1">
+              class="metallic-border text-black font-futuristic font-bold px-6 py-3 rounded-xl text-xs tracking-wider flex items-center gap-1">
               VIEW ON MAPS <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
             </a>
           </div>
@@ -227,7 +227,7 @@
         <!-- Show More Reviews Container -->
         <div id="show-more-reviews-container" class="mt-8 text-center hidden">
           <button id="show-more-reviews-btn"
-            class="metallic-border text-white font-futuristic font-bold px-8 py-3.5 rounded-2xl text-xs tracking-wider inline-flex items-center gap-2 hover:border-limeGreen/50 hover:text-limeGreen transition-all group shadow-lg shadow-black/40">
+            class="metallic-border text-black font-futuristic font-bold px-8 py-3.5 rounded-2xl text-xs tracking-wider inline-flex items-center gap-2 hover:border-limeGreen/50 hover:text-limeGreen transition-all group shadow-lg shadow-black/40">
             <span id="show-more-reviews-text">SHOW MORE REVIEWS</span>
             <i id="show-more-reviews-icon" data-lucide="chevron-down"
               class="w-4 h-4 text-limeGreen group-hover:translate-y-0.5 transition-transform"></i>
@@ -250,7 +250,7 @@
               class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.3em] flex items-center gap-2">
               <i data-lucide="video" class="w-4 h-4 text-limeGreen"></i> VERIFIED VIDEO REVIEWS
             </span>
-            <h2 class="text-2xl md:text-4xl font-black font-futuristic text-white mt-1">CLIENT VIDEO TESTIMONIALS</h2>
+            <h2 class="text-2xl md:text-4xl font-black font-futuristic text-black mt-1">CLIENT VIDEO TESTIMONIALS</h2>
           </div>
           <p class="text-xs text-gray-400 font-futuristic font-light max-w-md">
             Hear directly from top brand founders, managing directors, and business owners scaling their reach with Medi
@@ -587,14 +587,14 @@
 
       <!-- Close Button -->
       <button id="close-video-modal"
-        class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-20" title="Close Video">
+        class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors z-20" title="Close Video">
         <i data-lucide="x" class="w-6 h-6"></i>
       </button>
 
       <div class="space-y-4">
         <div class="border-b border-white/10 pb-3 flex items-center justify-between pr-8">
           <div>
-            <h3 id="video-modal-title" class="text-lg font-bold text-white uppercase tracking-wide">Client Video
+            <h3 id="video-modal-title" class="text-lg font-bold text-black uppercase tracking-wide">Client Video
               Testimonial</h3>
             <p id="video-modal-speaker" class="text-xs text-limeGreen font-futuristic">Verified Brand Partner</p>
           </div>
@@ -629,14 +629,14 @@
     <div
       class="feedback-modal-box w-full max-w-lg bg-zinc-950 border border-limeGreen/25 rounded-3xl p-8 shadow-2xl relative font-futuristic text-left">
       <!-- Close Button -->
-      <button id="close-feedback-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+      <button id="close-feedback-modal" class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors"
         title="Close Modal">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
       <div class="space-y-6">
         <div class="space-y-1">
-          <h3 class="font-bold text-xl text-white">WRITE GMB REVIEW</h3>
+          <h3 class="font-bold text-xl text-black">WRITE GMB REVIEW</h3>
           <p class="text-[10px] text-gray-500 uppercase tracking-widest">DISPATCH TO GOOGLE MAPS DATABASE</p>
         </div>
 
@@ -646,7 +646,7 @@
             <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">FULL NAME
               *</label>
             <input type="text" id="review-name" required placeholder="e.g. John Doe"
-              class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all">
+              class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-black outline-none focus:border-limeGreen transition-all">
           </div>
 
           <!-- Brand/Company -->
@@ -654,7 +654,7 @@
             <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">BRAND / TITLE
               *</label>
             <input type="text" id="review-title" required placeholder="e.g. Founder, XYZ Labs"
-              class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all">
+              class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-black outline-none focus:border-limeGreen transition-all">
           </div>
 
           <!-- Service Rated -->
@@ -662,7 +662,7 @@
             <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">SERVICE RATED
               *</label>
             <select id="review-service" required
-              class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all">
+              class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-black outline-none focus:border-limeGreen transition-all">
               <option value="video-editing">Video Editing</option>
               <option value="web-dev">Web Development</option>
               <option value="meta-ads">Meta Ads</option>
@@ -675,7 +675,7 @@
             <label class="block font-futuristic text-[10px] font-semibold text-gray-300 tracking-wider">TESTIMONIAL
               PAYLOAD *</label>
             <textarea id="review-text" required rows="4" placeholder="Detail your experience with Medimusicagrow..."
-              class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-limeGreen transition-all resize-none"></textarea>
+              class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-black outline-none focus:border-limeGreen transition-all resize-none"></textarea>
           </div>
 
           <!-- Submit -->
@@ -702,7 +702,7 @@
       <div class="space-y-4 md:col-span-2">
         <a href="index.html" class="flex items-center gap-3 group">
           <img src="logo.png" alt="MMG Logo" class="w-8 h-8 object-contain">
-          <span class="font-futuristic font-black text-lg tracking-wider text-white">MEDIMUSICA<span
+          <span class="font-futuristic font-black text-lg tracking-wider text-black">MEDIMUSICA<span
               class="text-limeGreen">GROW</span></span>
         </a>
         <p class="text-xs text-gray-500 max-w-sm leading-relaxed font-light">
@@ -724,7 +724,7 @@
       <!-- Links Column -->
       <div class="space-y-4">
         <h4
-          class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">
+          class="font-futuristic text-xs font-bold text-black uppercase tracking-wider border-l-2 border-limeGreen pl-2">
           SYSTEM MAP</h4>
         <ul class="space-y-2 text-xs font-futuristic text-gray-400">
           <li><a href="index.html" class="hover:text-limeGreen transition-colors">&bull; HOME INTERFACE</a></li>
@@ -739,7 +739,7 @@
       <!-- Social Footprints -->
       <div class="space-y-4">
         <h4
-          class="font-futuristic text-xs font-bold text-white uppercase tracking-wider border-l-2 border-limeGreen pl-2">
+          class="font-futuristic text-xs font-bold text-black uppercase tracking-wider border-l-2 border-limeGreen pl-2">
           SOCIAL ORBIT</h4>
         <div class="flex flex-wrap gap-3">
           <a href="https://youtube.com/@medimusicagrow" target="_blank"
@@ -819,7 +819,7 @@
   </script>
 
   <!-- Link script.js -->
-  <script src="app.js?v=20260917_v12"></script>
+  <script src="app.js?v=20260917_v13"></script>
 </body>
 
 </html>
