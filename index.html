@@ -22,7 +22,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   
   <!-- Custom CSS stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=20260917_v30">
+  <link rel="stylesheet" href="styles.css?v=20260917_v28">
   
   <!-- Lucide Icons CDN -->
   <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js" defer></script>
@@ -36,17 +36,17 @@
       theme: {
         extend: {
           colors: {
-            brandBg: '#FFFFFF',
-            brandCard: '#F5F5F7',
-            brandAlmond: '#F5F5F7',
-            brandBurgundy: '#000000',
-            brandRose: '#737373',
-            limeGreen: '#000000',
+            brandBg: '#F3E6D5',
+            brandCard: '#F3E6D5',
+            brandAlmond: '#F3E6D5',
+            brandBurgundy: '#81001A',
+            brandRose: '#D54F60',
+            limeGreen: '#81001A',
             limeGlow: 'rgba(213, 79, 96, 0.2)',
-            limeDim: '#333333',
+            limeDim: '#6B0015',
             platinum: '#81001A',
             silver: '#3D1C22',
-            darkGray: '#F5F5F7',
+            darkGray: '#F3E7D6',
           },
           fontFamily: {
             orbitron: ['"Plus Jakarta Sans"', 'sans-serif'],
@@ -65,9 +65,9 @@
 
   <!-- BACKGROUND GLOWS -->
   <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-    
-    
-    
+    <div class="absolute top-[10%] left-[20%] w-[500px] h-[500px] rounded-full bg-glow-radial filter blur-[80px]"></div>
+    <div class="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] rounded-full bg-glow-radial filter blur-[100px]"></div>
+    <div class="absolute top-[40%] right-[30%] w-[400px] h-[400px] rounded-full bg-glow-silver filter blur-[120px]"></div>
   </div>
 
   <!-- FLOATING NAVIGATION HUB -->
@@ -135,56 +135,57 @@
     <div class="w-full max-w-6xl mx-auto flex flex-col items-center justify-center text-center space-y-8 z-10 select-none">
       
       <!-- Floating Tag -->
-      <div class="inline-flex items-center gap-2 bg-black text-white rounded-full px-4 py-1.5 w-fit text-[10px] font-bold tracking-widest uppercase shadow-sm">
-        <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+      <div class="inline-flex items-center gap-2 bg-[#F3E6D5] border border-[#800020]/20 rounded-full px-5 py-2 w-fit text-xs font-semibold tracking-wider text-[#800020] shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-[#800020] animate-ping"></span>
         <span>LAUNCHING BRANDS INTO ORBIT</span>
       </div>
       
       <!-- Elevating Title (Spread across screen) -->
-      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-black font-futuristic text-black leading-[1.08] tracking-tight max-w-5xl mx-auto">
-        We Don't Just Edit. <span class="text-[#737373] inline-block">We Elevate.</span><br class="hidden sm:inline">
-        <span class="text-black">Scaling Brands Beyond Boundaries.</span>
+      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-black font-futuristic text-[#800020] leading-[1.08] tracking-tight max-w-5xl mx-auto">
+        We Don't Just Edit. <span class="metallic-text inline-block">We Elevate.</span><br class="hidden sm:inline">
+        <span class="text-[#800020]">Scaling Brands Beyond Boundaries.</span>
       </h1>
       
       <!-- Sub-headline (Spread out) -->
-      <p class="text-[#555555] text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-4xl mx-auto font-normal">
+      <p class="text-[#2A1115] text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-4xl mx-auto font-normal">
         Medimusicagrow Pvt. Ltd. is a premier digital marketing agency turning content into cash flow through high-octane social media growth, high-end video production, and performance marketing.
       </p>
       
       <!-- CTA Float buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-5 pt-2 w-full sm:w-auto">
-        <a href="contact.html" class="lime-glow-btn text-white font-futuristic font-bold text-center px-10 py-4 rounded-full shadow-lg tracking-wider text-sm sm:text-base w-full sm:w-auto">
+        <a href="contact.html" class="lime-glow-btn text-brandBg font-futuristic font-bold text-center px-10 py-4 rounded-xl shadow-lg tracking-wider text-sm sm:text-base w-full sm:w-auto">
           GET A FREE AUDIT
         </a>
-        <a href="services.html" class="bg-transparent border border-black/20 text-black font-futuristic font-bold text-center px-9 py-4 rounded-full hover:bg-black/5 transition-all duration-300 tracking-wider text-sm sm:text-base flex items-center justify-center gap-2 w-full sm:w-auto">
-          <i data-lucide="play" class="w-4 h-4 fill-black text-black"></i> EXPLORE SERVICES
+        <a href="services.html" class="glass-panel border border-[#800020]/20 text-[#800020] font-futuristic font-bold text-center px-9 py-4 rounded-xl hover:bg-[#F3E6D5] transition-all duration-300 tracking-wider text-sm sm:text-base flex items-center justify-center gap-2 w-full sm:w-auto">
+          <i data-lucide="play" class="w-4 h-4 fill-[#800020] text-[#800020]"></i> EXPLORE SERVICES
         </a>
       </div>
 
       <!-- Spread-out Highlights Bar to fill the page gracefully -->
-      <div class="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-10 max-w-5xl w-full border-t border-black/10 mt-4">
+      <div class="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-10 max-w-5xl w-full border-t border-[#800020]/15 mt-4">
         <div class="space-y-1">
-          <p class="font-futuristic font-black text-2xl md:text-3xl lg:text-4xl text-black">100M+</p>
-          <p class="text-[11px] uppercase tracking-wider text-[#737373] font-semibold font-futuristic">Views Delivered</p>
+          <p class="font-futuristic font-black text-2xl md:text-3xl lg:text-4xl text-[#800020]">100M+</p>
+          <p class="text-[11px] uppercase tracking-wider text-[#555555] font-semibold font-futuristic">Views Delivered</p>
         </div>
         <div class="space-y-1">
-          <p class="font-futuristic font-black text-2xl md:text-3xl lg:text-4xl text-black">194+</p>
-          <p class="text-[11px] uppercase tracking-wider text-[#737373] font-semibold font-futuristic">Brands Scaled</p>
+          <p class="font-futuristic font-black text-2xl md:text-3xl lg:text-4xl text-[#800020]">194+</p>
+          <p class="text-[11px] uppercase tracking-wider text-[#555555] font-semibold font-futuristic">Brands Scaled</p>
         </div>
         <div class="space-y-1">
-          <p class="font-futuristic font-black text-2xl md:text-3xl lg:text-4xl text-black">5.0 ★</p>
-          <p class="text-[11px] uppercase tracking-wider text-[#737373] font-semibold font-futuristic">Client Rating</p>
+          <p class="font-futuristic font-black text-2xl md:text-3xl lg:text-4xl text-[#800020]">5.0 ★</p>
+          <p class="text-[11px] uppercase tracking-wider text-[#555555] font-semibold font-futuristic">Client Rating</p>
         </div>
         <div class="space-y-1">
-          <p class="font-futuristic font-black text-2xl md:text-3xl lg:text-4xl text-black">100%</p>
-          <p class="text-[11px] uppercase tracking-wider text-[#737373] font-semibold font-futuristic">Client Retention</p>
+          <p class="font-futuristic font-black text-2xl md:text-3xl lg:text-4xl text-[#800020]">100%</p>
+          <p class="text-[11px] uppercase tracking-wider text-[#555555] font-semibold font-futuristic">Client Retention</p>
         </div>
       </div>
+      
     </div>
   </section>
 
   <!-- SOCIAL PROOF MODULE (THE TRUST ANCHOR) -->
-  <section id="proof" class="py-20 px-4 md:px-8 border-t border-b border-black/5 relative bg-white overflow-hidden">
+  <section id="proof" class="py-20 px-4 md:px-8 border-t border-b border-white/5 relative bg-black/20 overflow-hidden">
     <!-- Background element -->
     <div class="absolute inset-0 bg-[linear-gradient(rgba(140,230,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(140,230,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-40"></div>
 
@@ -192,56 +193,58 @@
       <!-- Trust Badges Section -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="glass-panel border-limeGreen/20 px-8 py-8 rounded-2xl text-center relative group hover:border-limeGreen/40 transition-colors">
-          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-black text-white text-[9px] font-futuristic font-bold tracking-wider px-3 py-1 rounded-full uppercase shadow-sm">METRIC_01</div>
-          <p class="text-4xl md:text-5xl font-black font-futuristic text-black mb-2 group-hover:scale-105 transition-transform" id="counter-views">100M+</p>
-          <p class="text-xs uppercase tracking-widest text-[#737373] font-semibold font-futuristic">VIEWS GENERATED</p>
+          <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-brandBg border border-limeGreen/30 text-[9px] font-futuristic text-limeGreen px-3 py-1 rounded-full uppercase">METRIC_01</div>
+          <p class="text-4xl md:text-5xl font-black font-futuristic text-limeGreen mb-2 group-hover:scale-105 transition-transform" id="counter-views">100M+</p>
+          <p class="text-xs uppercase tracking-widest text-gray-400 font-futuristic">VIEWS GENERATED</p>
         </div>
 
         <div class="glass-panel border-limeGreen/20 px-8 py-8 rounded-2xl text-center relative group hover:border-limeGreen/40 transition-colors">
-          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-black text-white text-[9px] font-futuristic font-bold tracking-wider px-3 py-1 rounded-full uppercase shadow-sm">METRIC_02</div>
-          <p class="text-4xl md:text-5xl font-black font-futuristic text-black mb-2 group-hover:scale-105 transition-transform" id="counter-roi">10x</p>
-          <p class="text-xs uppercase tracking-widest text-[#737373] font-semibold font-futuristic">AVERAGE ROI</p>
+          <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-brandBg border border-limeGreen/30 text-[9px] font-futuristic text-limeGreen px-3 py-1 rounded-full uppercase">METRIC_02</div>
+          <p class="text-4xl md:text-5xl font-black font-futuristic text-limeGreen mb-2 group-hover:scale-105 transition-transform" id="counter-roi">10x</p>
+          <p class="text-xs uppercase tracking-widest text-gray-400 font-futuristic">AVERAGE ROI</p>
         </div>
 
         <div class="glass-panel border-limeGreen/20 px-8 py-8 rounded-2xl text-center relative group hover:border-limeGreen/40 transition-colors">
-          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-black text-white text-[9px] font-futuristic font-bold tracking-wider px-3 py-1 rounded-full uppercase shadow-sm">METRIC_03</div>
-          <p class="text-4xl md:text-5xl font-black font-futuristic text-black mb-2 group-hover:scale-105 transition-transform" id="counter-brands">194+</p>
-          <p class="text-xs uppercase tracking-widest text-[#737373] font-semibold font-futuristic">BRANDS SCALED</p>
+          <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-brandBg border border-limeGreen/30 text-[9px] font-futuristic text-limeGreen px-3 py-1 rounded-full uppercase">METRIC_03</div>
+          <p class="text-4xl md:text-5xl font-black font-futuristic text-limeGreen mb-2 group-hover:scale-105 transition-transform" id="counter-brands">194+</p>
+          <p class="text-xs uppercase tracking-widest text-gray-400 font-futuristic">BRANDS SCALED</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ABOUT MMG SECTION (DIRECTOR SHAILESH PARASHAR & METRICS) -->
-  <section id="about" class="py-24 px-4 md:px-8 border-b border-black/5 relative bg-white">
+  <section id="about" class="py-24 px-4 md:px-8 border-b border-white/5 relative bg-black/40">
     <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10 relative">
       <!-- Image / Graphic Panel -->
       <div class="relative flex justify-center order-2 lg:order-1">
         <div class="absolute inset-0 bg-[#800020]/5 rounded-3xl filter blur-2xl"></div>
-        <div class="glass-panel border-black/5 p-4 rounded-3xl relative overflow-hidden group hover:border-black/15 transition-all w-full max-w-md shadow-lg">
-          <div class="aspect-[4/3] rounded-2xl bg-white flex flex-col items-center justify-center p-8 space-y-4 border border-black/5 relative overflow-hidden shadow-sm">
-            <div class="absolute top-3 left-3 text-[9px] font-futuristic text-black/60 font-semibold tracking-wider">F.WIDTH: 1080px</div>
-            <div class="absolute bottom-3 right-3 text-[9px] font-futuristic text-black/60 font-semibold tracking-wider">SYS.NODE // IND_UP</div>
-            <div class="w-16 h-16 rounded-full bg-black text-white flex items-center justify-center shadow-md">
-              <i data-lucide="award" class="w-8 h-8 text-white stroke-[2.2]"></i>
+        <div class="glass-panel border-[#800020]/15 p-4 rounded-3xl relative overflow-hidden group hover:border-[#800020]/30 transition-all w-full max-w-md shadow-lg">
+          <div class="aspect-[4/3] rounded-2xl bg-white/70 flex flex-col items-center justify-center p-8 space-y-4 border border-[#800020]/15 relative overflow-hidden shadow-inner">
+            <!-- Camera Grid elements -->
+            <div class="absolute top-3 left-3 text-[9px] font-futuristic text-[#800020]/70 font-semibold tracking-wider">F.WIDTH: 1080px</div>
+            <div class="absolute bottom-3 right-3 text-[9px] font-futuristic text-[#800020]/70 font-semibold tracking-wider">SYS.NODE // IND_UP</div>
+            <div class="w-16 h-16 rounded-full bg-[#800020]/10 border border-[#800020]/25 flex items-center justify-center text-[#800020] shadow-sm">
+              <i data-lucide="award" class="w-8 h-8"></i>
             </div>
             <div class="text-center space-y-2">
-              <h4 class="font-futuristic font-black text-black text-lg tracking-wide">ESTABLISHED 2026</h4>
-              <p class="text-xs text-[#555555] leading-relaxed font-normal max-w-xs">
+              <h4 class="font-futuristic font-black text-[#800020] text-lg tracking-wide">ESTABLISHED 2026</h4>
+              <p class="text-xs text-[#222222] leading-relaxed font-normal max-w-xs">
                 Incorporated in Kasganj, Uttar Pradesh, scaling digital presence globally.
               </p>
             </div>
-            <div class="bg-[#F5F5F7] border border-black/5 px-5 py-2.5 rounded-xl text-center shadow-sm">
-              <span class="text-[9px] uppercase tracking-wider text-[#737373] font-futuristic font-bold block">DIRECTORATE</span>
-              <p class="font-futuristic text-xs font-black text-black tracking-wide mt-0.5">SHAILESH PARASHAR</p>
+            <div class="bg-white border border-[#800020]/20 px-5 py-2.5 rounded-xl text-center shadow-sm">
+              <span class="text-[9px] uppercase tracking-wider text-[#800020] font-futuristic font-bold block">DIRECTORATE</span>
+              <p class="font-futuristic text-xs font-black text-[#111111] tracking-wide mt-0.5">SHAILESH PARASHAR</p>
             </div>
           </div>
         </div>
       </div>
+
       <!-- Copy details -->
       <div class="space-y-6 order-1 lg:order-2 select-none text-left">
-        <span class="text-black font-futuristic font-bold text-xs uppercase tracking-[0.4em]">MISSION STATEMENT</span>
-        <h2 class="text-3xl md:text-5xl font-black font-futuristic leading-tight text-black">FROM CONTENT CREATION <span class="text-[#737373]">TO BRAND AUTHORITY</span></h2>
+        <span class="text-[#800020] font-futuristic font-bold text-xs uppercase tracking-[0.4em]" style="color: #800020 !important;">MISSION STATEMENT</span>
+        <h2 class="text-3xl md:text-5xl font-black font-futuristic leading-tight text-[#800020] text-burgundy-brand" style="color: #800020 !important;">FROM CONTENT CREATION TO BRAND AUTHORITY</h2>
         <p class="text-black text-sm md:text-base leading-relaxed font-normal">
           <strong class="font-bold">Medi Musica Grow Private Limited</strong> was incorporated in early 2026. Born from the digital expertise of <strong class="font-bold">Shailesh Parashar</strong>—the creator behind the technology channel <strong class="font-bold">Medi Musica Grow</strong>—MMG bridges the gap between raw viewer retention and commercial conversions.
         </p>
@@ -249,11 +252,11 @@
           Our core objective is to offer weightless execution paths for brands. We handle the visual engineering, funnel architecture, and media management, allowing founders to focus purely on scaling product value.
         </p>
         <div class="grid grid-cols-2 gap-6 pt-4">
-          <div class="space-y-1 border-l-2 border-black pl-4">
+          <div class="space-y-1 border-l-2 border-[#800020] pl-4">
             <span class="text-[10px] text-black font-futuristic block uppercase font-bold tracking-wider">INTEGRITY HANDLER</span>
             <span class="font-futuristic font-black text-black text-sm">GMB Verification Complete</span>
           </div>
-          <div class="space-y-1 border-l-2 border-black pl-4">
+          <div class="space-y-1 border-l-2 border-[#800020] pl-4">
             <span class="text-[10px] text-black font-futuristic block uppercase font-bold tracking-wider">OPERATING NODE</span>
             <span class="font-futuristic font-black text-black text-sm">Awas Vikas Colony, Kasganj, UP, IN</span>
           </div>
@@ -268,7 +271,7 @@
       
       <!-- Section Title -->
       <div class="text-center space-y-4 mb-20 select-none">
-        <span class="text-black font-futuristic font-bold text-xs uppercase tracking-[0.4em]">PORTFOLIO ECOSYSTEM</span>
+        <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.4em]">PORTFOLIO ECOSYSTEM</span>
         <h2 class="text-3xl md:text-5xl font-black text-black font-futuristic">THE MULTI-CHANNEL ORBIT</h2>
         <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base font-light">
           We dominate digital space. Explore our content hubs, viral pipelines, and data-backed tech updates.
@@ -296,10 +299,10 @@
           </div>
 
           <!-- YouTube Orbit Carousel Wrapper (Themed Glass Panel) -->
-          <div class="glass-panel rounded-3xl p-5 border-2 border-black/25 shadow-xl relative w-full overflow-hidden perspective-container">
+          <div class="glass-panel rounded-3xl p-5 border-2 border-[#800020]/25 shadow-xl relative w-full overflow-hidden perspective-container">
             <div class="space-y-4">
               <!-- Animated Video Cards Stack -->
-              <div class="relative rounded-2xl overflow-hidden shadow-xl border-2 border-black/25 aspect-video flex items-center justify-center bg-black/80 group cursor-pointer" id="yt-showreel-card">
+              <div class="relative rounded-2xl overflow-hidden shadow-xl border-2 border-[#800020]/25 aspect-video flex items-center justify-center bg-black/80 group cursor-pointer" id="yt-showreel-card">
                 <div class="absolute inset-0 bg-cover bg-center opacity-75 group-hover:opacity-60 transition-opacity duration-500" style="background-image: url('yt_slide3.png');"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
                 
@@ -316,13 +319,13 @@
               </div>
 
               <!-- Carousel Pagination / Control details -->
-              <div class="flex items-center justify-between text-xs font-futuristic pt-2 px-1 border-t border-black/15">
-                <span class="carousel-slide-label font-bold text-black tracking-wider">SLIDE 01 // 03</span>
+              <div class="flex items-center justify-between text-xs font-futuristic pt-2 px-1 border-t border-[#800020]/15">
+                <span class="carousel-slide-label font-bold text-[#800020] tracking-wider">SLIDE 01 // 03</span>
                 <div class="flex items-center gap-2">
-                  <button class="w-8 h-8 rounded-full bg-[#800020]/10 hover:bg-[#800020] text-[#800020] hover:text-white border border-black/20 flex items-center justify-center transition-all shadow-sm" id="carousel-prev-btn" aria-label="Previous Slide">
+                  <button class="w-8 h-8 rounded-full bg-[#800020]/10 hover:bg-[#800020] text-[#800020] hover:text-white border border-[#800020]/20 flex items-center justify-center transition-all shadow-sm" id="carousel-prev-btn" aria-label="Previous Slide">
                     <i data-lucide="chevron-left" class="w-4 h-4"></i>
                   </button>
-                  <button class="w-8 h-8 rounded-full bg-[#800020]/10 hover:bg-[#800020] text-[#800020] hover:text-white border border-black/20 flex items-center justify-center transition-all shadow-sm" id="carousel-next-btn" aria-label="Next Slide">
+                  <button class="w-8 h-8 rounded-full bg-[#800020]/10 hover:bg-[#800020] text-[#800020] hover:text-white border border-[#800020]/20 flex items-center justify-center transition-all shadow-sm" id="carousel-next-btn" aria-label="Next Slide">
                     <i data-lucide="chevron-right" class="w-4 h-4"></i>
                   </button>
                 </div>
@@ -332,11 +335,11 @@
               <div class="grid grid-cols-2 gap-3 pt-1">
                 <div class="yt-stat-box rounded-2xl p-3.5 text-center shadow-sm">
                   <span class="text-[11px] font-futuristic text-black/70 font-semibold block uppercase tracking-wider">Subscribers</span>
-                  <span class="font-futuristic font-black text-black text-xl block mt-0.5" id="yt-sub-count">8.0K+</span>
+                  <span class="font-futuristic font-black text-[#800020] text-xl block mt-0.5" id="yt-sub-count">8.0K+</span>
                 </div>
                 <div class="yt-stat-box rounded-2xl p-3.5 text-center shadow-sm">
                   <span class="text-[11px] font-futuristic text-black/70 font-semibold block uppercase tracking-wider">Watchtime</span>
-                  <span class="font-futuristic font-black text-black text-xl block mt-0.5">240K+ Hrs</span>
+                  <span class="font-futuristic font-black text-[#800020] text-xl block mt-0.5">240K+ Hrs</span>
                 </div>
               </div>
             </div>
@@ -361,7 +364,7 @@
           </div>
 
           <!-- Phone mockup container in matching panel -->
-          <div class="glass-panel rounded-3xl p-5 border-2 border-black/25 shadow-xl flex items-center justify-center">
+          <div class="glass-panel rounded-3xl p-5 border-2 border-[#800020]/25 shadow-xl flex items-center justify-center">
             <div class="phone-mockup-frame w-[240px] h-[480px] rounded-[38px] relative overflow-hidden flex flex-col justify-between p-3 select-none">
 
               <!-- Top Info -->
@@ -394,7 +397,7 @@
               </a>
 
               <!-- Bottom UI mimicking Instagram -->
-              <div class="flex justify-around items-center border-t border-black/40 pt-2 text-[#F3E6D5]/60 bg-[#120507]/60 -mx-3 -mb-3 px-3 pb-2.5">
+              <div class="flex justify-around items-center border-t border-[#800020]/40 pt-2 text-[#F3E6D5]/60 bg-[#120507]/60 -mx-3 -mb-3 px-3 pb-2.5">
                 <i data-lucide="home" class="w-3.5 h-3.5 hover:text-white cursor-pointer"></i>
                 <i data-lucide="search" class="w-3.5 h-3.5 hover:text-white cursor-pointer"></i>
                 <i data-lucide="plus-square" class="w-3.5 h-3.5 hover:text-white cursor-pointer"></i>
@@ -424,30 +427,30 @@
 
           <!-- Insight Feeds List -->
           <div class="space-y-4">
-            <div class="glass-panel rounded-3xl p-5 border-2 border-black/25 space-y-3 relative hover:border-black transition-colors shadow-xl">
+            <div class="glass-panel rounded-3xl p-5 border-2 border-[#800020]/25 space-y-3 relative hover:border-[#800020] transition-colors shadow-xl">
               <div class="flex items-center justify-between">
-                <span class="text-[10px] font-futuristic text-[#800020] bg-[#800020]/10 border border-black/20 font-bold px-2.5 py-1 rounded-full">MMG_UPDATE // 01</span>
+                <span class="text-[10px] font-futuristic text-[#800020] bg-[#800020]/10 border border-[#800020]/20 font-bold px-2.5 py-1 rounded-full">MMG_UPDATE // 01</span>
                 <span class="text-[9px] text-gray-500 font-futuristic">2h ago</span>
               </div>
               <p class="text-xs text-black leading-relaxed font-light">
                 Meta Ads CPM rates are dropping by 14% this quarter. It is the perfect window to aggressively scale scaling budgets and launch content pipelines. Read how we did it below. 👇
               </p>
-              <div class="flex items-center gap-3 text-[10px] text-gray-600 pt-1 border-t border-black/10">
+              <div class="flex items-center gap-3 text-[10px] text-gray-600 pt-1 border-t border-[#800020]/10">
                 <span><i data-lucide="message-square" class="w-3 h-3 inline mr-1"></i> 18</span>
                 <span><i data-lucide="repeat" class="w-3 h-3 inline mr-1"></i> 45</span>
                 <span><i data-lucide="heart" class="w-3 h-3 inline mr-1 text-red-500"></i> 124</span>
               </div>
             </div>
 
-            <div class="glass-panel rounded-3xl p-5 border-2 border-black/25 space-y-3 relative hover:border-black transition-colors shadow-xl">
+            <div class="glass-panel rounded-3xl p-5 border-2 border-[#800020]/25 space-y-3 relative hover:border-[#800020] transition-colors shadow-xl">
               <div class="flex items-center justify-between">
-                <span class="text-[10px] font-futuristic text-[#800020] bg-[#800020]/10 border border-black/20 font-bold px-2.5 py-1 rounded-full">MMG_INSIGHT // 02</span>
+                <span class="text-[10px] font-futuristic text-[#800020] bg-[#800020]/10 border border-[#800020]/20 font-bold px-2.5 py-1 rounded-full">MMG_INSIGHT // 02</span>
                 <span class="text-[9px] text-gray-500 font-futuristic">1d ago</span>
               </div>
               <p class="text-xs text-black leading-relaxed font-light">
                 Average attention spans dropped to 4.2 seconds this year. If you aren't dynamic hook editing in the first 2 seconds, you are bleeding conversions. We elevated average watchtime by 2.4x.
               </p>
-              <div class="flex items-center gap-3 text-[10px] text-gray-600 pt-1 border-t border-black/10">
+              <div class="flex items-center gap-3 text-[10px] text-gray-600 pt-1 border-t border-[#800020]/10">
                 <span><i data-lucide="message-square" class="w-3 h-3 inline mr-1"></i> 32</span>
                 <span><i data-lucide="repeat" class="w-3 h-3 inline mr-1"></i> 89</span>
                 <span><i data-lucide="heart" class="w-3 h-3 inline mr-1 text-red-500"></i> 340</span>
@@ -463,14 +466,14 @@
   <!-- ======================================================= -->
   <!-- TOP CLIENT FEEDBACK & BRAND TESTIMONIALS SHOWCASE       -->
   <!-- ======================================================= -->
-  <section class="py-20 px-4 md:px-8 relative z-10 border-t border-black/5 bg-white">
+  <section class="py-20 px-4 md:px-8 relative z-10 border-t border-white/5 bg-black/40">
     <div class="max-w-6xl mx-auto space-y-12">
       
       <!-- Section Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-6 text-left">
         <div>
-          <span class="text-black font-futuristic font-bold text-xs uppercase tracking-[0.3em] flex items-center gap-2">
-            <i data-lucide="star" class="w-4 h-4 text-black fill-black"></i> VERIFIED GMB REVIEWS
+          <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.3em] flex items-center gap-2">
+            <i data-lucide="star" class="w-4 h-4 text-limeGreen fill-limeGreen"></i> VERIFIED GMB REVIEWS
           </span>
           <h2 class="text-3xl md:text-5xl font-black font-futuristic text-black mt-1">CLIENT FEEDBACK & REVIEWS</h2>
         </div>
@@ -486,10 +489,10 @@
         <div class="glass-panel border-white/10 rounded-3xl p-6 hover:border-limeGreen/50 transition-all duration-300 flex flex-col justify-between space-y-6 shadow-xl relative group">
           <div class="space-y-4 text-left">
             <div class="flex items-center justify-between">
-              <span class="text-[9px] bg-black text-white font-futuristic font-bold tracking-wider px-2.5 py-1 rounded-full uppercase shadow-sm">AUTO SMM ORBIT</span>
-              <div class="flex items-center gap-1 text-black text-xs font-bold font-futuristic">
+              <span class="text-[9px] bg-limeGreen/10 border border-limeGreen/30 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">AUTO SMM ORBIT</span>
+              <div class="flex items-center gap-1 text-limeGreen text-xs font-bold font-futuristic">
                 <span>5.0</span>
-                <i data-lucide="star" class="w-3.5 h-3.5 fill-black text-black"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-limeGreen"></i>
               </div>
             </div>
 
@@ -500,7 +503,7 @@
 
           <div class="pt-4 border-t border-white/10 flex items-center justify-between text-left">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-black text-white flex items-center justify-center font-futuristic font-bold text-sm shadow-sm">
+              <div class="w-10 h-10 rounded-xl bg-limeGreen/10 border border-limeGreen/30 flex items-center justify-center text-limeGreen font-futuristic font-bold text-sm">
                 CT
               </div>
               <div>
@@ -508,7 +511,7 @@
                 <p class="text-[10px] text-gray-400 font-futuristic">General Manager &bull; Dealership</p>
               </div>
             </div>
-            <i data-lucide="shield-check" class="w-4 h-4 text-black" title="Verified GMB Review"></i>
+            <i data-lucide="shield-check" class="w-4 h-4 text-limeGreen" title="Verified GMB Review"></i>
           </div>
         </div>
 
@@ -516,10 +519,10 @@
         <div class="glass-panel border-white/10 rounded-3xl p-6 hover:border-limeGreen/50 transition-all duration-300 flex flex-col justify-between space-y-6 shadow-xl relative group">
           <div class="space-y-4 text-left">
             <div class="flex items-center justify-between">
-              <span class="text-[9px] bg-black text-white font-futuristic font-bold tracking-wider px-2.5 py-1 rounded-full uppercase shadow-sm">REELS & ADS</span>
-              <div class="flex items-center gap-1 text-black text-xs font-bold font-futuristic">
+              <span class="text-[9px] bg-limeGreen/10 border border-limeGreen/30 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">REELS & ADS</span>
+              <div class="flex items-center gap-1 text-limeGreen text-xs font-bold font-futuristic">
                 <span>5.0</span>
-                <i data-lucide="star" class="w-3.5 h-3.5 fill-black text-black"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-limeGreen"></i>
               </div>
             </div>
 
@@ -530,7 +533,7 @@
 
           <div class="pt-4 border-t border-white/10 flex items-center justify-between text-left">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-black text-white flex items-center justify-center font-futuristic font-bold text-sm shadow-sm">
+              <div class="w-10 h-10 rounded-xl bg-limeGreen/10 border border-limeGreen/30 flex items-center justify-center text-limeGreen font-futuristic font-bold text-sm">
                 SKM
               </div>
               <div>
@@ -538,7 +541,7 @@
                 <p class="text-[10px] text-gray-400 font-futuristic">Founder &bull; Electronics Retail</p>
               </div>
             </div>
-            <i data-lucide="shield-check" class="w-4 h-4 text-black" title="Verified GMB Review"></i>
+            <i data-lucide="shield-check" class="w-4 h-4 text-limeGreen" title="Verified GMB Review"></i>
           </div>
         </div>
 
@@ -546,10 +549,10 @@
         <div class="glass-panel border-white/10 rounded-3xl p-6 hover:border-limeGreen/50 transition-all duration-300 flex flex-col justify-between space-y-6 shadow-xl relative group">
           <div class="space-y-4 text-left">
             <div class="flex items-center justify-between">
-              <span class="text-[9px] bg-black text-white font-futuristic font-bold tracking-wider px-2.5 py-1 rounded-full uppercase shadow-sm">RETAIL SMM</span>
-              <div class="flex items-center gap-1 text-black text-xs font-bold font-futuristic">
+              <span class="text-[9px] bg-limeGreen/10 border border-limeGreen/30 text-limeGreen font-futuristic font-bold px-2.5 py-1 rounded-full uppercase">RETAIL SMM</span>
+              <div class="flex items-center gap-1 text-limeGreen text-xs font-bold font-futuristic">
                 <span>5.0</span>
-                <i data-lucide="star" class="w-3.5 h-3.5 fill-black text-black"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-limeGreen"></i>
               </div>
             </div>
 
@@ -560,7 +563,7 @@
 
           <div class="pt-4 border-t border-white/10 flex items-center justify-between text-left">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-black text-white flex items-center justify-center font-futuristic font-bold text-sm shadow-sm">
+              <div class="w-10 h-10 rounded-xl bg-limeGreen/10 border border-limeGreen/30 flex items-center justify-center text-limeGreen font-futuristic font-bold text-sm">
                 DVF
               </div>
               <div>
@@ -568,7 +571,7 @@
                 <p class="text-[10px] text-gray-400 font-futuristic">Operations Head &bull; Retail Complex</p>
               </div>
             </div>
-            <i data-lucide="shield-check" class="w-4 h-4 text-black" title="Verified GMB Review"></i>
+            <i data-lucide="shield-check" class="w-4 h-4 text-limeGreen" title="Verified GMB Review"></i>
           </div>
         </div>
 
@@ -604,7 +607,7 @@
               </div>
 
               <div class="absolute top-3 left-3">
-                <span class="video-reel-badge text-[9px] bg-black text-white font-futuristic font-bold tracking-wider px-2.5 py-1 rounded-full uppercase shadow-sm">AUTO SMM ORBIT</span>
+                <span class="video-reel-badge text-[9px] bg-white/15 backdrop-blur-md border border-white/30 text-white font-futuristic font-bold tracking-wider px-2.5 py-1 rounded-full uppercase shadow-sm">AUTO SMM ORBIT</span>
               </div>
 
               <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
@@ -618,7 +621,7 @@
             
             <div class="p-4 space-y-2 text-left bg-zinc-950/80">
               <p class="text-xs text-gray-300 font-light italic">"High-performance vehicle launch reels generated massive footfall across UP!"</p>
-              <a href="https://www.instagram.com/reel/DGkWFcySJpg/" target="_blank" class="text-[9px] text-black hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
+              <a href="https://www.instagram.com/reel/DGkWFcySJpg/" target="_blank" class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
                 <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
               </a>
             </div>
@@ -637,7 +640,7 @@
               </div>
 
               <div class="absolute top-3 left-3">
-                <span class="video-reel-badge text-[9px] bg-black text-white font-futuristic font-bold tracking-wider px-2.5 py-1 rounded-full uppercase shadow-sm">WEB & META ADS</span>
+                <span class="video-reel-badge text-[9px] bg-white/15 backdrop-blur-md border border-white/30 text-white font-futuristic font-bold tracking-wider px-2.5 py-1 rounded-full uppercase shadow-sm">WEB & META ADS</span>
               </div>
 
               <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
@@ -651,7 +654,7 @@
             
             <div class="p-4 space-y-2 text-left bg-zinc-950/80">
               <p class="text-xs text-gray-300 font-light italic">"Meta video ads and festive offer promo doubled appliance & electronics sales within 2 weeks!"</p>
-              <a href="https://www.instagram.com/reel/DG0FaWJzk5_/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==" target="_blank" class="text-[9px] text-black hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
+              <a href="https://www.instagram.com/reel/DG0FaWJzk5_/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==" target="_blank" class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
                 <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
               </a>
             </div>
@@ -670,7 +673,7 @@
               </div>
 
               <div class="absolute top-3 left-3">
-                <span class="video-reel-badge text-[9px] bg-black text-white font-futuristic font-bold tracking-wider px-2.5 py-1 rounded-full uppercase shadow-sm">RETAIL SMM</span>
+                <span class="video-reel-badge text-[9px] bg-white/15 backdrop-blur-md border border-white/30 text-white font-futuristic font-bold tracking-wider px-2.5 py-1 rounded-full uppercase shadow-sm">RETAIL SMM</span>
               </div>
 
               <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
@@ -684,7 +687,7 @@
             
             <div class="p-4 space-y-2 text-left bg-zinc-950/80">
               <p class="text-xs text-gray-300 font-light italic">"Awesome mall walkthrough reels and festive video graphics drove record shopping footfall."</p>
-              <a href="https://www.instagram.com/reel/DMuVWSdTTCj/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==" target="_blank" class="text-[9px] text-black hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
+              <a href="https://www.instagram.com/reel/DMuVWSdTTCj/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==" target="_blank" class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
                 <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
               </a>
             </div>
@@ -703,7 +706,7 @@
               </div>
 
               <div class="absolute top-3 left-3">
-                <span class="video-reel-badge text-[9px] bg-black text-white font-futuristic font-bold tracking-wider px-2.5 py-1 rounded-full uppercase shadow-sm">REELS & ADS</span>
+                <span class="video-reel-badge text-[9px] bg-white/15 backdrop-blur-md border border-white/30 text-white font-futuristic font-bold tracking-wider px-2.5 py-1 rounded-full uppercase shadow-sm">REELS & ADS</span>
               </div>
 
               <div class="absolute bottom-3 left-3 right-3 text-left space-y-1 select-none">
@@ -717,7 +720,7 @@
             
             <div class="p-4 space-y-2 text-left bg-zinc-950/80">
               <p class="text-xs text-gray-300 font-light italic">"High-impact promo reels increased walk-in customers and smartphone inquiries significantly!"</p>
-              <a href="https://www.instagram.com/reel/DMzyueszyY_/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==" target="_blank" class="text-[9px] text-black hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
+              <a href="https://www.instagram.com/reel/DMzyueszyY_/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==" target="_blank" class="text-[9px] text-limeGreen hover:underline font-futuristic uppercase font-bold flex items-center gap-1">
                 <i data-lucide="instagram" class="w-3 h-3"></i> WATCH ON INSTAGRAM
               </a>
             </div>
@@ -769,7 +772,7 @@
   </div>
 
   <!-- CTA DISPATCH PORTAL -->
-  <section class="py-24 px-4 md:px-8 relative overflow-hidden bg-white border-t border-black/5">
+  <section class="py-24 px-4 md:px-8 relative overflow-hidden bg-black/60 border-t border-white/5">
     <div class="max-w-4xl mx-auto text-center space-y-8 z-10 relative">
       <span class="text-limeGreen font-futuristic font-bold text-xs uppercase tracking-[0.4em]">ACCELERATOR NODE</span>
       <h2 class="text-3xl md:text-5xl font-black text-black font-futuristic leading-tight">READY TO SHATTER REVENUE LIMITS?</h2>
@@ -872,6 +875,6 @@
     });  </script>
 
   <!-- Link script.js -->
-  <script src="app.js?v=20260917_v30"></script>
+  <script src="app.js?v=20260917_v28"></script>
 </body>
 </html>
