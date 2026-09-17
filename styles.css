@@ -457,3 +457,39 @@ html {
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   Footer Contrast & Typography (Dark Footer Styling)
+   ========================================================================== */
+footer {
+  color: #9CA3AF !important;
+}
+
+footer h4,
+footer .text-black,
+footer .logo-title {
+  color: #E5E7EB !important;
+}
+
+footer p,
+footer li,
+footer a,
+footer .text-gray-400,
+footer .text-gray-500,
+footer .text-gray-300 {
+  color: #9CA3AF !important;
+}
+
+footer a:hover {
+  color: #FFFFFF !important;
+}
+
+footer .text-limeGreen,
+footer span.text-limeGreen {
+  color: #D54F60 !important;
+}
+
+footer .border-white\/5,
+footer .border-white\/10 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
