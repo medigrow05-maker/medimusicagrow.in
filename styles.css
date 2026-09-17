@@ -84,22 +84,22 @@ h1, h2, h3, h4, h5, h6 {
   background: #F3E6D5 !important;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(128, 0, 32, 0.15) !important;
-  box-shadow: 0 2px 10px rgba(128, 0, 32, 0.04) !important;
+  border: 2px solid rgba(128, 0, 32, 0.25) !important;
+  box-shadow: 0 4px 14px rgba(128, 0, 32, 0.05) !important;
 }
 
 .glass-panel-glow {
   background: #F3E6D5 !important;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(128, 0, 32, 0.15) !important;
-  box-shadow: 0 2px 10px rgba(128, 0, 32, 0.04) !important;
+  border: 2px solid rgba(128, 0, 32, 0.25) !important;
+  box-shadow: 0 4px 14px rgba(128, 0, 32, 0.05) !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .glass-panel-glow:hover {
-  border-color: #D54F60 !important;
-  box-shadow: 0 12px 24px -4px rgba(128, 0, 32, 0.1) !important;
+  border-color: #800020 !important;
+  box-shadow: 0 12px 24px -4px rgba(128, 0, 32, 0.12) !important;
   transform: translateY(-2px) !important;
 }
 
@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .metallic-border {
-  border: 1px solid rgba(128, 0, 32, 0.18) !important;
+  border: 2px solid rgba(128, 0, 32, 0.25) !important;
   background: #F3E6D5 !important;
   color: #800020 !important;
 }
@@ -415,13 +415,13 @@ option {
   .glass-panel,
   .glass-panel-glow {
     background: #F3E6D5 !important;
-    border: 1px solid rgba(128, 0, 32, 0.15) !important;
-    box-shadow: 0 2px 8px rgba(128, 0, 32, 0.04) !important;
+    border: 2px solid rgba(128, 0, 32, 0.25) !important;
+    box-shadow: 0 3px 10px rgba(128, 0, 32, 0.05) !important;
   }
 
   .feedback-modal-box {
     background: #F3E6D5 !important;
-    border: 1px solid rgba(128, 0, 32, 0.15) !important;
+    border: 2px solid rgba(128, 0, 32, 0.25) !important;
     color: #111111 !important;
   }
 
