@@ -157,42 +157,55 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Floating Navigation Bar */
 header nav {
-  background: rgba(243, 231, 214, 0.92) !important;
+  background: rgba(243, 230, 213, 0.95) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(129, 0, 26, 0.12) !important;
-  box-shadow: 0 4px 20px -2px rgba(129, 0, 26, 0.07) !important;
+  border: 2px solid rgba(128, 0, 32, 0.2) !important;
+  box-shadow: 0 4px 20px -2px rgba(128, 0, 32, 0.08) !important;
 }
 
 header nav a {
-  color: #57333A !important;
-  font-weight: 500 !important;
+  color: #111111 !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+header nav .nav-links-container a,
+header nav .hidden.lg\:flex a {
+  font-size: 0.95rem !important; /* ~15.2px for prominent, readable navigation */
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  color: #111111 !important;
 }
 
 header nav a:hover,
+header nav .nav-links-container a:hover,
+header nav .hidden.lg\:flex a:hover,
 .nav-link-active {
-  color: #81001A !important;
-  font-weight: 600 !important;
+  color: #800020 !important;
+  font-weight: 800 !important;
 }
 
 header nav .logo-title {
-  color: #81001A !important;
+  color: #800020 !important;
 }
 
 /* Mobile Navigation Overlay */
 #mobile-menu-overlay {
-  background: #F3E7D6 !important;
-  border-left: 1px solid rgba(129, 0, 26, 0.15) !important;
-  box-shadow: -4px 0 24px rgba(129, 0, 26, 0.1) !important;
-  color: #81001A !important;
+  background: #F3E6D5 !important;
+  border-left: 2px solid rgba(128, 0, 32, 0.25) !important;
+  box-shadow: -4px 0 24px rgba(128, 0, 32, 0.15) !important;
+  color: #800020 !important;
 }
 
 #mobile-menu-overlay a {
-  color: #57333A !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: #111111 !important;
 }
 
 #mobile-menu-overlay a:hover {
-  color: #81001A !important;
+  color: #800020 !important;
 }
 
 /* Floating Animations */
