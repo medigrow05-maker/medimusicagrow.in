@@ -65,10 +65,10 @@ if (canvas) {
       this.size = Math.random() * 2 + 0.5;
       this.speedY = -(Math.random() * 0.8 + 0.2); // Slowly rise up
       this.speedX = (Math.random() - 0.5) * 0.4;  // Slight drift
-      this.opacity = Math.random() * 0.5 + 0.1;
+      this.opacity = Math.random() * 0.4 + 0.1;
       this.color = Math.random() > 0.4
-        ? `rgba(140, 230, 0, ${this.opacity})`
-        : `rgba(255, 255, 255, ${this.opacity})`;
+        ? `rgba(22, 163, 74, ${this.opacity})`
+        : `rgba(148, 163, 184, ${this.opacity})`;
     }
 
     update() {

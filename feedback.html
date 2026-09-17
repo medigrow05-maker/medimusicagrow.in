@@ -38,17 +38,18 @@
       theme: {
         extend: {
           colors: {
-            brandBg: '#080808',
-            brandCard: 'rgba(18, 18, 18, 0.65)',
-            limeGreen: '#8CE600',
-            limeGlow: 'rgba(140, 230, 0, 0.45)',
-            limeDim: '#76C700',
-            platinum: '#FFFFFF',
-            silver: '#E5E5E5',
-            darkGray: '#121212',
+            brandBg: '#FAFAFC',
+            brandCard: '#FFFFFF',
+            limeGreen: '#16A34A',
+            limeGlow: 'rgba(22, 163, 74, 0.2)',
+            limeDim: '#15803D',
+            platinum: '#0F172A',
+            silver: '#475569',
+            darkGray: '#F1F5F9',
           },
           fontFamily: {
-            orbitron: ['Orbitron', 'sans-serif'],
+            orbitron: ['"Plus Jakarta Sans"', 'sans-serif'],
+            jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
             inter: ['Inter', 'sans-serif'],
           }
         }
@@ -57,7 +58,7 @@
   </script>
 </head>
 
-<body class="bg-brandBg text-silver min-h-screen relative antialiased selection:bg-limeGreen selection:text-brandBg">
+<body class="bg-brandBg text-silver min-h-screen relative antialiased selection:bg-limeGreen selection:text-white">
 
   <!-- Interactive canvas background for deep space particle effects -->
   <canvas id="particle-canvas"></canvas>
@@ -815,7 +816,7 @@
   </script>
 
   <!-- Link script.js -->
-  <script src="app.js?v=20260803_v8"></script>
+  <script src="app.js?v=20260917_v9"></script>
 </body>
 
 </html>
