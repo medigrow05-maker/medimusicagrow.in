@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg-canvas: #FFF9F2;
+  --bg-canvas: #F3E7D6;
   --bg-surface: #FFFFFF;
   --bg-card-warm: #F3E7D6;
   --text-primary: #81001A;
   --text-body: #2A1115;
   --text-secondary: #57333A;
   --text-muted: #8E656E;
-  --border-subtle: #EBDCCB;
+  --border-subtle: #E2D1BE;
   --border-hover: #D54F60;
   --accent-burgundy: #81001A;
   --accent-rose: #D54F60;
@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5, h6, .font-futuristic {
 /* Luxury Burgundy CTA Buttons */
 .lime-glow-btn {
   background: #81001A !important;
-  color: #FFF9F2 !important;
+  color: #F3E7D6 !important;
   border: 1px solid #81001A !important;
   box-shadow: 0 4px 14px rgba(129, 0, 26, 0.25) !important;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
@@ -119,11 +119,11 @@ h1, h2, h3, h4, h5, h6, .font-futuristic {
 
 /* Floating Navigation Bar */
 header nav {
-  background: rgba(255, 249, 242, 0.9) !important;
+  background: rgba(243, 231, 214, 0.92) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(235, 220, 203, 0.9) !important;
-  box-shadow: 0 4px 20px -2px rgba(129, 0, 26, 0.05) !important;
+  border: 1px solid rgba(129, 0, 26, 0.12) !important;
+  box-shadow: 0 4px 20px -2px rgba(129, 0, 26, 0.07) !important;
 }
 
 header nav a {
@@ -143,9 +143,9 @@ header nav .logo-title {
 
 /* Mobile Navigation Overlay */
 #mobile-menu-overlay {
-  background: #FFF9F2 !important;
-  border-left: 1px solid #EBDCCB !important;
-  box-shadow: -4px 0 24px rgba(129, 0, 26, 0.08) !important;
+  background: #F3E7D6 !important;
+  border-left: 1px solid rgba(129, 0, 26, 0.15) !important;
+  box-shadow: -4px 0 24px rgba(129, 0, 26, 0.1) !important;
   color: #81001A !important;
 }
 
@@ -264,7 +264,7 @@ option {
 .filter-btn.active {
   background: #81001A !important;
   border-color: #81001A !important;
-  color: #FFF9F2 !important;
+  color: #F3E7D6 !important;
   box-shadow: 0 2px 8px rgba(129, 0, 26, 0.2);
 }
 
@@ -367,7 +367,7 @@ option {
 .feedback-modal-box .bg-black,
 .feedback-modal-box .bg-black\/60,
 .feedback-modal-box .bg-black\/40 {
-  background-color: #FFF9F2 !important;
+  background-color: #F3E7D6 !important;
 }
 
 .feedback-modal-box .border-white\/10,
